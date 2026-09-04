@@ -22,6 +22,7 @@ deployed directly; the prototype is the build spec and acceptance reference.
 4. `docs/03-homepage-spec.md`    the section-by-section homepage spec
 5. `docs/04-workflow.md`         roles, subagents, phases, review gates, definition of done
 6. `docs/05-research-log.md`     every source reviewed and what it contributed
+7. `docs/06-reconciliation-memo.md` how the canvas and the brief were reconciled, Gate 1 decisions
 
 ## Hard rules
 
@@ -42,9 +43,10 @@ deployed directly; the prototype is the build spec and acceptance reference.
 ## Tech for the prototype
 
 Hand-written HTML, one CSS file built on `design/tokens.css`, minimal JS,
-no build step. Fonts via Google Fonts (Lexend Deca is what the live site
-already loads). Target Lighthouse 90+ on mobile for performance,
-accessibility, best practices and SEO.
+no build step. Fonts via Google Fonts: Schibsted Grotesk and Spline Sans
+Mono, the pair the client accepted in the design canvas (Lexend Deca on the
+live site is retired in the build). Target Lighthouse 90+ on mobile for
+performance, accessibility, best practices and SEO.
 
 ## Subagents
 
@@ -53,11 +55,10 @@ brand-strategist, ux-copywriter, visual-designer, frontend-builder,
 seo-schema, qa-reviewer. The session owner acts as Design Lead and
 Delivery Owner and is the only one who marks a phase complete.
 
-## Known blocker
+## Design source
 
-The Claude Design share link that started this project
-(https://claude.ai/design/p/79f4aba1-10cf-42e8-ab28-867207d83146) cannot be
-opened from a headless session. See `docs/05-research-log.md` for the
-three ways to unblock it. Until then the visual direction in this repo is
-derived from the live site, the logo, and the proposal, and must be
-reconciled with that canvas before Phase 3 is closed.
+The Claude Design canvas that started this project is in
+`design/reference/` (artboards, chats, client uploads, a v3 static
+prototype, rendered previews). v4 is the approved base; the reconciliation
+with the brief is `docs/06-reconciliation-memo.md`. Read `HANDOFF.md` for
+what the handoff session delivered and what it deliberately did not do.

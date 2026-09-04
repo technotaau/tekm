@@ -20,9 +20,24 @@ exists in old drafts but fails the claims policy.
 | Co-founder | Arun Tiwari (Arun Shankar Tiwari), IT-BHU background | LinkedIn search result, registry directors list |
 | Other directors | Nitu Yadav, Rajashree Patry | Registry listing |
 | Social | Facebook, X, LinkedIn, Instagram, YouTube | Site header and footer |
+| Client logos | Nine logo files are published on tekmentors.com today (IBM, L&T and seven more under /wp-content/uploads/2025/03/) | Live site, referenced by the v4 canvas |
 
-Founder and director names are public record but have not been confirmed
-for use as faculty profiles. Treat faculty naming as input needed.
+## Mentors (verified, named on the client's GenAI flyer)
+
+| Name | Title on flyer | Credentials on flyer |
+|---|---|---|
+| Arun Tiwari | Senior Consultant and Trainer | B.Tech, IIT (BHU) Varanasi. 24+ years across product engineering for startups and enterprises. Product engineering, enterprise AI, cloud, software architecture, AI product development. Also listed as Co-Founder on LinkedIn and as a director in the registry |
+| Rahul Singh | Senior Consultant and Trainer | B.Tech, IIT (BHU) Varanasi. 20+ years in IT and digital transformation. Cloud, microservices, event-driven architecture, big data, GenAI |
+| Abinash Kumar Mishra | Founder and CTO | Master's in Computer Science, PEC / Panjab University (first class, 2004). 20+ years in AI and ML, building production AI systems |
+
+Photos are not on the flyer ("no photos"). Headshots and a line of
+permission are still needed before the mentor bench ships.
+
+Program contact on the flyers: Purva Menaria, People Success Officer,
+purva.menaria@tekmentors.com, 7296800884. The site header shows
++91 99587 77467 and info@tekmentors.com. Which line receives homepage leads
+must be confirmed.
+
 
 ## Positioning lines (verified, usable)
 
@@ -63,17 +78,18 @@ measured on value, speed, quality and happiness (upskilling case study).
 
 ## Programs
 
-### New programs named in the September 2026 proposal (input needed)
+### Programs on the client's own flyers (verified 4 September 2026)
 
-| Program | Known | Input needed |
+The Claude Design canvas was seeded with four LinkedIn uploads from
+TEKMentors. They are the client's own published material, so the facts on
+them are verified for use. Copies: `design/reference/canvas/uploads/`.
+
+| Program | Verified facts | Still needed |
 |---|---|---|
-| GenAI Engineering Foundations to Production | 16 weeks, for recent graduates per LinkedIn | Fee, batch date, weekly schedule, certificate, trainer, full curriculum, brochure |
-| Agentic AI and Production LLM Systems | 16 weeks, for professionals; covers LLMs, RAG, agents, MLOps per LinkedIn | Same |
-| AI Forward Deployed Engineer (FDE) | Exists as a LinkedIn announcement | Duration, fee, batch, curriculum, audience, trainer |
-| AI-Enabled Agile and Product Leadership | 2-day program per LinkedIn | Whether it goes on the homepage; fee, dates |
-
-The proposal states the two 16-week programs and the FDE program are the
-three program pages to build, plus a corporate training section.
+| AI Forward Deployed Engineer (FDE) | 6 to 8 weeks. Hands-on and project-led. For engineers with 3 to 8 years' experience. "From technology engineer to customer-ready AI engineer." Eight phases: FDE mindset and problem discovery, technical scoping and solution design, LLM and GenAI engineering, RAG and enterprise data, agentic AI and integrations, production engineering, evaluation security and governance, FDE capstone and customer demo. Stack named: Python, FastAPI, React, OpenAI, Anthropic, Gemini, AWS Bedrock, LangChain, LlamaIndex, LangGraph, MCP, PostgreSQL, pgvector, OpenSearch, Docker, GitHub Actions, Terraform, CloudWatch, OpenTelemetry. Capstone final output: working prototype, technical scope, trade-off assessment, evaluation results, deployment plan, executive customer demo. | Fee, batch date, weekly schedule, certificate wording, brochure PDF |
+| GenAI Engineering Foundations to Production | 16 weeks, 144 training hours, about 60% hands-on labs, 10+ capstone projects. For engineering graduates: final-year students, recent graduates (0 to 2 years), anyone with basic programming. Four phases: foundation (weeks 1 to 3), development (4 to 8), advanced (9 to 12), career (13 to 16). You build a RAG assistant (v1 and v2), an MCP-enabled AI agent, a multimodal AI pipeline, an enterprise capstone. Highlights on the flyer: resume and LinkedIn building, mock interviews, industry panel viva, "placement assistance", certificate of completion. | Fee, batch date, how placement assistance is delivered (wording must be confirmed before it goes on the site) |
+| AI-Enabled Agile and Product Leadership | 2 days. Live online. Non-technical. Learning model 30% concepts, 50% hands-on, 20% team capstone. For Scrum Masters, Product Owners and agile leaders. Day 1: AI foundations for product and agile leaders, prompt engineering, AI for product discovery and backlog management. Day 2: AI for agile ceremonies, AI agents and workflow automation, team capstone. Tools: ChatGPT, Gemini, Claude, Copilot, Perplexity, NotebookLM; delivered on Teams, Zoom, Meet with Miro, Mural, Jira, Confluence. | Fee, minimum cohort size (the canvas says "from eight people", unverified), whether it sells to individuals or teams only |
+| Agentic AI and Production LLM Systems | Named in the September proposal as one of the two 16-week programs. No flyer in the uploads. | Everything: it may be the professional-track sibling of the graduates program, or a rename. Confirm with TEKMentors |
 
 ### Existing corporate training programs (verified, on site and in Drive docs)
 
@@ -131,19 +147,23 @@ AI careers.
 AI engineer career roadmap PDF, agentic AI interview guide, production RAG
 checklist. The homepage reserves one slot for whichever ships first.
 
-## Inputs needed from TEKMentors (consolidated)
+## Inputs needed from TEKMentors (consolidated, revised after Phase 1)
 
-1. Fee, batch dates, weekly schedule and certificate details for each of the
-   three new programs.
-2. Trainer names, credentials, headshots, and permission to publish.
-3. Client logos with written permission to display, or the sector-only
-   version ("a large UK bank").
-4. White knockout logo, or permission for TechnoTaau Team to produce one.
-5. Two to three learner or client testimonials with names and roles, or
-   confirmation that the section stays off until they exist.
-6. Confirmation of the phone number and which email is the lead inbox.
-7. Whether the 2-day Agile and Product Leadership program belongs on the homepage.
-8. Which lead magnet ships first.
+1. Fee, batch dates, weekly schedule and certificate wording for FDE, GenAI
+   Foundations to Production, and Agile and Product Leadership.
+2. What "Agentic AI and Production LLM Systems" is, and its facts.
+3. Mentor headshots for Arun Tiwari, Rahul Singh and Abinash Kumar Mishra,
+   plus a line of permission to publish name, credentials and LinkedIn.
+4. Written confirmation that the nine client logos already on the live site
+   may stay, or the sector-only wording instead.
+5. A yes or a softer wording for the service promises in the canvas copy:
+   reply within one working day, a 45 minute scoping session, a one page
+   recommendation two days later, NDA on request.
+6. How "placement assistance" is delivered, so the wording can be exact.
+7. Which phone line and inbox receive homepage leads.
+8. One named client quote with title and company, if one can be obtained.
+9. Confirmation of the X handle (x.com/mentorstek) or drop it.
+10. Which lead magnet ships first, when the marketing plan reaches it.
 
 ## Do not publish
 
@@ -155,3 +175,6 @@ checklist. The homepage reserves one slot for whichever ships first.
 - "Satisfied customers", "awards won" counters without a real number and a
   source.
 - Unattributed percentage gains from the program brochure.
+- The canvas counters "50+ clients", "30+ transformations", "100+ programs taught", "10+ awards won" and "20+ years per mentor on average" as a counter. The 20+ years fact is true and belongs in prose, not in a counter row that echoes the live site's zeros.
+- "Teams across India, the Gulf and the US" (v3 canvas copy, no source).
+- "Panel viva" for the FDE program; the flyer says executive customer demo.

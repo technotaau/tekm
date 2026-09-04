@@ -1,270 +1,258 @@
-# 03. Homepage spec
+# 03. Homepage spec (v2, reconciled to the v4 canvas)
 
-Section-by-section specification for the new tekmentors.com homepage.
-Copy shown is a working draft for the ux-copywriter to refine, not final.
+Revised 4 September 2026 after Phase 1. The base is
+`design/reference/canvas/TEKMentors Home v4 (web).dc.html`; a static render
+is in `design/reference/previews/v4-web-static.html`. Copy quoted below is
+the canvas draft and the starting point for the ux-copywriter, not final.
 Slots marked [INPUT] depend on items in `02-content-inventory.md`.
+`06-reconciliation-memo.md` records why each section is here.
 
 ## Page-level
 
 - Title: "AI engineering programs and enterprise consulting | TEKMentors"
-- Meta description (under 155 characters): "Production AI training and
-  enterprise consulting from practitioners. 16-week GenAI, Agentic AI and
-  FDE programs, corporate training, cloud and DevOps consulting. Gurugram."
-- One `<h1>` only, in the hero.
-- Schema: Organization (with sameAs for socials, address, telephone),
-  WebSite, and FAQPage for section 13. Course schema lives on program pages,
-  not here.
-- Sticky mobile bottom bar with two actions: "Programs" and "Talk to us"
-  (WhatsApp deep link or tel:). Hidden on desktop.
-- GA4 events: `program_card_click` (program name), `brochure_download`
-  (program), `enquiry_submit` (audience type, program), `phone_tap`,
-  `whatsapp_tap`, `webinar_register`, `case_study_click`.
+- Meta description: "Practitioner-led AI programs and enterprise consulting
+  from Gurugram. AI Forward Deployed Engineer, GenAI foundations to
+  production, cloud, DevOps and agile transformation."
+- One `<h1>`, in the hero.
+- Schema: Organization (legalName, address, telephone, sameAs, logo),
+  WebSite, FAQPage for the answers section. Course schema lives on program
+  pages.
+- Fonts: Schibsted Grotesk 400 to 800, Spline Sans Mono 400 and 500.
+- Sticky mobile bottom bar with "Programs" and "Talk to us" (anchors), hidden
+  from 940px up. The canvas is desktop only; this is the mobile-first
+  addition.
+- GA4 events: `route_click` (hero list item), `persona_click`,
+  `program_click` (program), `program_enquire` (program), `service_click`,
+  `case_study_click`, `enquiry_submit` (need chip value), `phone_tap`,
+  `email_tap`, `whatsapp_tap`.
 
-## Section order and rationale
+## Section order
 
-| # | Section | Serves | Why it sits here |
+| # | Section | Serves | Ground |
 |---|---|---|---|
-| 0 | Announcement bar | A | Next batch or webinar date is the highest-intent hook |
-| 1 | Header | A, B | Programs mega-menu plus a corporate path |
-| 2 | Hero, dual path | A, B | Both buyers pick a lane in the first screen |
-| 3 | Trust strip | A, B | Founded 2017, IIT/IIM practitioners, enterprise clients |
-| 4 | Programs hub | A | The main conversion surface for professionals |
-| 5 | Who it is for | A, B | Self-qualification, reduces junk leads |
-| 6 | Why TEKMentors | A, B | Four verified pillars |
-| 7 | How you learn | A, B | The Initiation to Perform framework, proprietary and real |
-| 8 | Proof | B, A | Real outcome numbers from the UK bank case |
-| 9 | Consulting and corporate training | B | Service menu and corporate CTA |
-| 10 | Faculty | A, B | Credibility engine per the marketing plan |
-| 11 | Free webinar or lead magnet | A | Low-commitment capture for the nurture flow |
-| 12 | Insights | A, B | Three latest posts, feeds SEO clusters |
-| 13 | FAQ | A | Objection handling with FAQ schema |
-| 14 | Enquiry form | A, B | Single form with an audience switch |
-| 15 | Footer | all | Contact, links, social, address |
+| 0 | Promise bar | A, B | navy-950 |
+| 1 | Header | all | ground, sticky, blurred |
+| 2 | Hero with problem routing list and facts row | A, B | navy-900 |
+| 3 | Client strip | B | surface-2 |
+| 4 | Who writes to us | A, B | ground |
+| 5 | Programs roster | A, B | ground |
+| 6 | Consulting: before and after, five practices | B | ground |
+| 7 | How an engagement runs | B | ground |
+| 8 | Straight answers | A, B | ground |
+| 9 | Outcomes and mentor bench | B, A | ground, white card |
+| 10 | Insights | A, B | ground |
+| 11 | Contact: what happens next and the form | A, B | navy-900 |
+| 12 | Footer | all | ground |
 
-Testimonials are deliberately not in the order. They enter between 8 and 9
-only when real ones exist.
+Audience A: working professionals and graduates. Audience B: decision makers.
 
-## 0. Announcement bar
+## 0. Promise bar
 
-- Height 40px, navy background, white text, one link.
-- Copy: "Next batch: Agentic AI and Production LLM Systems starts [INPUT date].
-  [INPUT n] seats left." Fallback when no batch: "Free webinar on [INPUT
-  topic], [INPUT date]. Register."
-- Dismissible, remembers dismissal for the session.
+Canvas as is. Left: green dot, "Enquiries are read by a consultant, not a
+bot. Replies within one working day." Right: phone and email in mono.
+[INPUT: TEKMentors confirms the one-working-day promise or it softens to
+"within two working days".] On mobile the right side hides; the left text
+wraps to two lines at most.
 
 ## 1. Header
 
-- Left: horizontal logo. Right (desktop): Programs (mega-menu: the three new
-  programs, GenAI Developer Training, Compare programs), Corporate training,
-  Consulting (dropdown: five services), Case studies, Insights, About.
-  Then phone as a text link and a primary button "Talk to us".
-- Mobile: logo, phone icon, hamburger. Menu is a full-screen sheet with
-  programs first.
-- Header turns solid white with a 1px slate-300 bottom border after 80px
-  of scroll; transparent over the hero before that.
+Canvas as is at 940px and up: logo 46px, five links (Programs with a "NEW"
+mono pill, Consulting, How we work, Answers, Insights), dark "Talk to us"
+button. Sticky, ground at 94% with backdrop blur, 1px line below.
+
+Below 940px: logo 36px, phone icon link, menu button. The menu is a
+full-height sheet: five links, then "Talk to us", then phone and email.
+This is the v3 prototype's menu pattern.
 
 ## 2. Hero
 
-- Layout: two columns on desktop (text 7/12, visual 5/12); stacked on mobile
-  with the visual below the CTAs.
-- Background: navy to blue-700 gradient, subtle node-and-edge pattern echoing
-  the logo at 8% opacity.
-- Eyebrow (label style, blue-400): "AI engineering programs and enterprise
-  consulting, Gurugram".
-- H1 (display): "Production AI skills, taught by the people who ship it."
-  Alternates for testing: "Learn AI engineering from practitioners who ran
-  enterprise transformations." / "From prompts to production systems, with
-  mentors who have done it."
-- Subhead (body-lg, slate-300 on navy): "16-week programs in GenAI engineering,
-  agentic AI and forward deployed engineering, plus corporate training and
-  consulting, from IIT and IIM alumni with 20+ years in product engineering."
-- Two CTAs side by side: primary "Explore programs" (anchors to section 4),
-  secondary outline "Corporate training and consulting" (anchors to section 9).
-- Under the CTAs, a micro-row: "Live online and on-site  ·  Batches every
-  quarter [INPUT]  ·  Mentor-led labs".
-- Visual: a card stack showing a program card peeking behind an outcome
-  card ("Cycle time: 6 months to 90 days, UK bank"). On mobile the stack
-  collapses to the single outcome card.
+Canvas as is, with the facts row replaced.
 
-## 3. Trust strip
+- Two columns from 400px minimum each (auto-fit), so the routing card drops
+  below the text on phones.
+- Eyebrow (mono, blue-200 tint #9CD0F2): "CONSULTING · CLOUD · AGILE · AI
+  UPSKILLING".
+- H1: "We build the AI systems, and the people who keep them running."
+- Subhead: "Twenty years inside enterprise transformation, a fair few of
+  them rescuing the ones that went sideways. We modernize the systems, get
+  AI into production, and train your team to run it once we leave."
+- Buttons: "Talk to a consultant" (blue-500 fill, navy text, to #contact),
+  "See the AI programs" (outline, to #programs).
+- Routing card, "START WHERE IT HURTS", five rows each linking to a section:
+  a pilot that works but will not go live; cloud spend nobody can explain;
+  engineers who need to become AI engineers; agile on paper, slow in
+  practice; a graduate who wants the AI job, not the course.
+- Facts row (replaces "20+ yrs / 50+ / Hands-on / End-to-end"): four cells,
+  30px figure or word plus a 13.5px line. "20+ years": what each mentor
+  brings from industry. "IIT (BHU)": where the senior faculty trained.
+  "2017": consulting and training from Gurugram since. "Live": online, on
+  site in Delhi NCR, or hybrid.
+- Entry animation `v4rise` on the grid only.
 
-- White band, four items in a row, icons plus 14px text:
-  "Founded 2017, Gurugram" · "IIT and IIM alumni practitioners" ·
-  "Enterprise clients in banking and consulting" · "Live online, on-site and
-  hybrid delivery".
-- Optional fifth: client logos [INPUT permission]. Without permission use the
-  sector line only.
+## 3. Client strip
 
-## 4. Programs hub
+Canvas as is: mono label "TEAMS WE HAVE WORKED WITH", nine logos at 26 to
+34px, grayscale, 60% opacity, wrapping. [INPUT: written confirmation.]
+Fallback if refused: the label becomes "Clients in UK banking, global
+financial services and Fortune 500 consulting" and the logos are removed.
+Never dashed placeholder boxes on the live page.
 
-- Section title (h1 style): "Programs built like production work."
-- Intro line: "Every program ends with something you deployed, reviewed by a
-  mentor who has shipped it in an enterprise."
-- Four cards in a 2x2 grid on desktop, a horizontal snap-scroll on mobile
-  (cards 85% viewport width, so the next card peeks).
-- Card anatomy, top to bottom: eyebrow chip (audience: "For professionals" /
-  "For recent graduates" / "For teams"), title, one-line outcome, meta row
-  with three cells (Duration, Mode, Next batch), fee row ("From INR [INPUT]"
-  or "Fee on request" until confirmed), two actions: "View program" (primary
-  text link with arrow) and "Brochure" (secondary, triggers brochure form).
-- Cards:
-  1. Agentic AI and Production LLM Systems. 16 weeks. Outcome: "Design, build
-     and evaluate multi-agent systems and RAG pipelines that survive
-     production."
-  2. GenAI Engineering Foundations to Production. 16 weeks. Outcome: "From
-     Python and LLM fundamentals to a deployed capstone, built for recent
-     graduates."
-  3. AI Forward Deployed Engineer. [INPUT duration]. Outcome: "Sit with the
-     customer, ship the AI system, own the outcome."
-  4. GenAI Developer Training for teams. 6 to 8 weeks. Outcome: "Get an
-     engineering team building RAG apps and AI-assisted workflows."
-- Below the grid: text link "Compare all programs" to the programs hub page.
-- Badge rule: green "Batch open" chip only when a date exists; amber "Few
-  seats left" only when TEKMentors confirms the count.
+## 4. Who writes to us
 
-## 5. Who it is for
+Canvas as is. Eyebrow "WHO WRITES TO US", h2 "Three kinds of people land
+here. Pick yours and skip the rest." Three white cards: technology leaders
+("Something is not shipping"), engineering and L&D heads ("Your team has to
+become AI capable"), individual engineers ("You want the AI job, not the AI
+course"). Each has a "First step" line and a tinted button linking to the
+relevant section. Cards stack below 960px.
 
-- Two-column split card, blue-050 background.
-- Left, "You are a professional": three bullets. "2+ years in software,
-  data or cloud and want to move into AI engineering." "Recent graduate who
-  wants a production portfolio, not a certificate of attendance." "Tech lead
-  who has to make agentic systems reliable, not just demo well."
-  CTA: "Find your program".
-- Right, "You lead a team": three bullets. "CTO or VP who needs 20 engineers
-  productive with GenAI this quarter." "Head of L&D who needs a program with
-  measurable outcomes, not attendance." "Delivery leader who needs DevOps,
-  cloud or agile transformation done, not advised."
-  CTA: "Talk about corporate training".
+## 5. Programs roster
 
-## 6. Why TEKMentors
+Canvas structure with four rows instead of three and three copy corrections.
 
-- Title: "Why teams choose a boutique over a brand."
-- Four tiles, one per verified pillar. Each has an icon, a 20px heading and
-  two lines:
-  Practitioners: "Everyone who teaches here has run the transformation they
-  teach, inside banks and Fortune 500 consultancies."
-  Proven expertise: "Engineering practices that moved a UK bank from ten
-  releases a year to fifteen, with defects cut from 25% to 10%."
-  Domain experts: "We know what a technocrat is up against: legacy estates,
-  regulators, and a board that wants AI by next quarter."
-  Mentors: "Coaching is the product. Fortnightly connects, skill matrices and
-  feedback until the skill sticks."
+- Eyebrow "AI PROGRAMS", h2 "Three programs, with the details you would ask
+  for anyway." becomes "Four programs, with the details you would ask for
+  anyway." Side note: "All run live, taught by people who still do the work.
+  Dates and fees come back with your enquiry." [INPUT: once fees and dates
+  exist, they go in the row and the note changes.]
+- Column header row in mono: PROGRAM, WHO IT IS FOR, LENGTH, FORMAT, action.
+- Row 1, flagship, navy: AI Forward Deployed Engineer. "FLAGSHIP · ENROLLING"
+  only while a batch is open [INPUT]. Copy: "LLM, RAG and agentic
+  engineering on one real enterprise problem, with evaluation, security and
+  governance in the build. Plus the customer-facing half of the job:
+  discovery calls, design reviews, and briefing an executive who has eight
+  minutes. Ends with a working system and an executive demo." Who: engineers
+  with 3 to 8 years, individually or as a company cohort. 6 to 8 weeks.
+  Live, project led. Button "Enquire".
+- Row 2: GenAI engineering: foundations to production. Eyebrow "JOB READY".
+  Copy: "A RAG assistant, an MCP-enabled agent and a multimodal pipeline,
+  each one deployed rather than simulated in a notebook. Ends with mock
+  interviews, an industry panel viva, placement assistance and a capstone
+  you can walk someone through line by line." Who: engineering graduates,
+  no AI background needed. 16 weeks, 144 hours. Live, 60% labs. Button
+  "Syllabus" to the program page.
+- Row 3: AI-enabled agile and product leadership. Eyebrow "NO CODE
+  REQUIRED". Copy as canvas. Who: agile and product leaders, run privately
+  for a team [INPUT: minimum size]. 2 days. Live online. Button "Book".
+- Row 4 (new): GenAI developer training for teams. Eyebrow "FOR ENGINEERING
+  TEAMS". Copy: "Six to eight weeks that get an existing team building RAG
+  apps, AI-assisted workflows and agents on your own stack. Four labs, one
+  capstone, your codebase." Who: engineering teams of [INPUT] or more. 6 to
+  8 weeks. Live online, on site or hybrid. Button "For your team" to the
+  corporate training page.
+- "ALSO RUNNING" line: Full stack architect, DevOps engineer, Adobe toolset
+  for corporate teams, as text links.
+- Below 960px the grid becomes stacked cards: title, copy, then a three-cell
+  meta row, then the button full width. Do not render the column header row
+  on mobile.
 
-## 7. How you learn
+## 6. Consulting
 
-- Title: "Initiation, Immersion, Practice, Perform."
-- Subline: "The same four-stage method we use to upskill engineering teams
-  at global consultancies, applied to every program."
-- Horizontal stepper on desktop, vertical on mobile. Each stage: number,
-  name, one line from the content inventory, a small "what you get" list of
-  two items.
-- Closing line under the stepper: "Weekly live sessions, labs on your own
-  machine, a capstone reviewed like a pull request."
+Canvas as is. Eyebrow "CONSULTING", h2 "The gap is never the model. It is
+everything around it." Intro: "Most AI pilots we are shown work perfectly
+and will never go live. Here is what that usually looks like, and what we
+replace it with."
 
-## 8. Proof
+Before and after diagram, two cards. Before (white, rust dashed boxes):
+notebook prototype, data pulled by hand, quality judged by vibes, security
+consulted last, no path to production. After (navy, green outlined boxes
+joined by a vertical line): scoped business problem, governed data access,
+agent in the real workflow, evaluation as a gate, production run by your
+team. Build as HTML and CSS, not an image.
 
-- Navy background section. Title: "Outcomes we have signed our name to."
-- Four stat tiles with tabular numbers and a source line "DevOps
-  implementation, large UK bank":
-  "6 months to 90 days" backlog to production;
-  "10 to 15" annual releases;
-  "20% to 50%" P1/P2 test automation;
-  "25% to 10%" defects in SIT and UAT.
-- Below, three compact case cards (title, client type, one outcome line,
-  "Read case study"): UK bank DevOps, international financial institution
-  agile, Fortune 500 consultancy upskilling.
-- Kenya bank roadmap goes on the case studies page, not here.
+"FIVE PRACTICES, ONE BENCH" ruled list, each row a link with number, title,
+one line, arrow: cloud and DevOps; transformation and tech strategy; agile
+transformation; data and web analytics; upskilling. The live site also
+sells Google marketing services; it folds into data and web analytics on
+the homepage.
 
-## 9. Consulting and corporate training
+## 7. How an engagement runs
 
-- Title: "For organisations: consulting and corporate training."
-- Left column (7/12): five service rows, each a title plus a 14px coverage
-  line from the inventory, chevron to the service page.
-- Right column (5/12): sticky card "Corporate training, built for your stack."
-  Three lines: "Curriculum mapped to your codebase and tools." "Cohorts of
-  8 to 25, live online or at your office." "Outcomes measured on value, speed,
-  quality and team happiness." CTA: "Request a proposal" (opens enquiry form
-  with audience preset to company).
-- Engagement models as a small three-chip row under the services: Projects
-  (3 to 6 months), Programs (6 to 18 months), Partnership (multi-year).
+Canvas as is. Four cells in a ruled grid, the fourth navy: scope then argue
+(a scoped brief with a baseline number); build against real data (a working
+service, not a slide); measure and guard (an eval harness and a report);
+hand it over properly (a live system with a named owner). Stacks to one
+column below 640px.
 
-## 10. Faculty
+## 8. Straight answers
 
-- Title: "Learn from practitioners, not presenters."
-- Two to four profile cards [INPUT]: photo, name, one-line credential
-  ("Co-founder, IT-BHU, 20+ years in product engineering"), two tags of
-  expertise, LinkedIn icon link.
-- Until names are confirmed, the section renders with the title and a single
-  line of verified text ("A small team of IIT and IIM alumni who have spent
-  their careers inside IT organisations, now teaching what they built.") and
-  no cards. Never placeholder avatars.
+Canvas as is, six questions in two ruled columns, plus FAQPage schema. Where
+should we actually start with AI; our pilot works, why can it not go live;
+do we hire AI engineers or train ours; what does the first conversation
+cost; can you work inside our security rules; what happens when you leave.
+[INPUT: the cost and security answers carry the service promises.]
 
-## 11. Free webinar or lead magnet
+## 9. Outcomes and mentor bench
 
-- Blue-050 band, two columns. Left: "Free monthly webinar" [INPUT topic and
-  date], one line on what will be shown, CTA "Save my seat". Right: the lead
-  magnet card ("AI engineer career roadmap, PDF") [INPUT which one ships],
-  CTA "Get the roadmap".
-- Both CTAs open a short form: name, email, phone, consent checkbox.
-  Consent copy names WhatsApp explicitly since the nurture flow uses it.
+Replaces the canvas "Record" block.
 
-## 12. Insights
+- White card, 14px radius. Eyebrow "ONE ENGAGEMENT, FOUR NUMBERS". Title
+  "Outcomes we have signed our name to." Source line in mono: "DevOps and
+  agile transformation, large UK bank, wealth and private banking."
+- Four stat cells, 42px weight 800, tabular figures: "6 months to 90 days"
+  backlog to production; "10 to 15" releases a year; "20% to 50%" P1 and P2
+  test automation; "25% to 10%" defects in SIT and UAT. Text link "Read the
+  case study".
+- Rule, then "WHO IS IN THE ROOM": three mentor cards in a row (photo 72px
+  circle [INPUT], name, title, one credential line, LinkedIn link). Arun
+  Tiwari, Rahul Singh, Abinash Kumar Mishra, with the flyer credentials.
+  Until photos and permission arrive, the row renders as text only, still
+  no placeholder avatars.
+- A client quote slot is added only when a quote exists. Never a dashed box
+  on the live page; the canvas's dashed slots were for the client review and
+  are switched off by the `showOpenSlots` toggle.
 
-- Title: "Insights". Three latest posts as cards: category chip, title,
-  reading time, date. Pulled from the WordPress blog. Link "All insights".
+## 10. Insights
 
-## 13. FAQ
+Canvas as is: h2 "What we have been writing about.", link "Everything on the
+blog", three ruled rows with a mono category, title and arrow. Pulled from
+the WordPress blog at build.
 
-- Six questions, accordion, FAQPage schema. Draft set:
-  1. Who are these programs for?
-  2. Are sessions live, and what if I miss one?
-  3. What do I need to know before starting?
-  4. Is there a certificate, and what is it worth?
-  5. Do you run these programs for companies?
-  6. What is the fee and are there instalments? [INPUT]
-- Answers under 60 words each, first line answers directly (AI-search rule
-  from the marketing plan).
+## 11. Contact
 
-## 14. Enquiry form
+Canvas as is. Navy section, two columns. Left: eyebrow "TALK TO US", h2
+"Bring us the problem you have stopped mentioning in meetings.", intro, then
+the four-step "what happens next" ruled list (within 1 day a real reply; day
+2 to 4 a 45 minute session; 2 days later a one page recommendation; if you
+want it a proposal), then phone, email, LinkedIn. [INPUT: the promises.]
 
-- Title: "Tell us what you are trying to do."
-- Toggle at the top: "I am a professional" / "I represent a company".
-  The toggle sets a hidden field and swaps one question:
-  professional gets "Program of interest" (select), company gets "Team size"
-  (select) and "What do you need" (training / consulting / both).
-- Fields: name, work email, phone with country code, the swapped question,
-  message (optional), consent.
-- Submit button: "Send enquiry". Success state inline, with "We reply within
-  one working day" [INPUT confirm SLA].
-- Right of the form on desktop: phone, WhatsApp, email, address, and a line
-  "Prefer a call? Book 20 minutes" [INPUT scheduling link].
-- Built in Forminator on WordPress; the prototype form posts nowhere and
-  shows the success state for review.
+Right: the form card, white, 500px max. Title "Tell us what you need",
+line "Four fields, about a minute. It goes straight to the consulting
+team." Need chips: a project or system, training my team, joining a
+program, not sure yet (the chip sets a hidden field). Fields: your name,
+work email, company (optional), what is stuck (textarea). Inline error
+panel. Button "Send it to the team". Consent line: "Your details go to our
+consultants and nowhere else. No newsletter, no automated sequence, no
+third parties." [INPUT: if WhatsApp follow-up is used, the line must say
+so.] Sent state: check mark, "Got it. Thank you.", the reply promise, three
+"while you wait" links, "Send another enquiry".
 
-## 15. Footer
+On WordPress this is a Forminator form; in the prototype it posts nowhere.
 
-- Four columns: About (About, Case studies, Insights, Contact, Careers if
-  wanted), Programs (four programs, Compare), For organisations (five
-  services, Corporate training), Contact (address, phone, email, social row).
-- Bottom row: copyright "© 2026 TEKMentors Consulting Private Limited",
-  Privacy, Terms of use, and "Website by TechnoTaau Team" as a text link if
-  TEKMentors agrees.
+## 12. Footer
+
+Canvas as is with two additions: the registered address, and the second
+phone line if TEKMentors wants it. Four columns: logo and tagline; company
+links; programs; reach us. Bottom row: copyright and site URL.
 
 ## Responsive rules
 
-- Breakpoints: 360 (base), 640, 960, 1280. Container max 1200px, 24px gutters
-  on mobile, 32px from 960.
-- Tap targets 44px minimum. Cards full-width below 640.
-- Hero display type scales with clamp(); never below 36px.
-- Images lazy-loaded below the fold; hero visual is CSS and SVG, no photo, so
-  LCP is text.
+- Breakpoints from the v3 prototype's verified reflow points: 940 (header
+  menu), 960 (three-card grids), 800 (two-column grids), 640 (roster meta
+  row), 390 base.
+- Container 1200px, gutters 20px on phones and 32px from 960.
+- Tap targets 44px minimum. 15.5px body on phones, never smaller than 14.5px
+  for anything readable.
+- The hero routing card and the contact form are the two elements most at
+  risk on phones; both must be tested at 360px.
 
-## Acceptance checklist for this page
+## Acceptance checklist
 
-- Every [INPUT] is either filled with verified data or its section degrades
-  as specified (no fake data on screen).
-- Both audiences can reach their CTA within one scroll on a 360px phone.
-- Lighthouse mobile: performance, accessibility, best practices, SEO all 90+.
-- Copy passes the house-style check.
-- Schema validates in Google's Rich Results test.
-- Every CTA fires its GA4 event in the prototype's console.
+- Every [INPUT] is filled with verified data or the section degrades as
+  written above. No dashed placeholder, no guessed counter, on the live page.
+- Both audiences reach a CTA within one scroll on a 360px phone.
+- Lighthouse mobile 90+ in all four categories.
+- Copy passes the house-style check: no em dashes, no marketing tells,
+  sentence case.
+- FAQPage and Organization schema validate.
+- Every CTA fires its GA4 event in the prototype console.

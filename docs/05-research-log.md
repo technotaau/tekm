@@ -3,7 +3,31 @@
 What was reviewed on 4 September 2026 to build this context, and what each
 source contributed. Nothing in the docs is asserted without a line here.
 
-## The Claude Design link (blocked)
+## The Claude Design canvas (unblocked 4 September 2026)
+
+The share link itself stayed unreadable, but the project had already been
+handed to a Claude Code session (`session_018BWss6i5cvKeg75nXKDXz1`,
+"Design: TEKMentors Website Redesign"). Jakhar Singh supplied that session
+ID; a one-off Routine bound to it asked it to push its export, which it did
+to `claude-design/implement-v3-homepage`. Contents, now in
+`design/reference/`:
+
+- Five artboards: v1 (impact hero, SIP sections), v2 (serif experiment,
+  roster), v3 (form in hero), v4 web and v4 print (synthesis).
+- Two chat transcripts, 29 August and 3 September 2026, carrying the client
+  instructions: rebuild tekmentors.com, keep existing content and add the
+  new programs; references scaler.com, publicissapient.com, nagarro.com,
+  thoughtworks.com; apply the SIP principle; no em dashes; sentence case;
+  human voice; palette from the logo; slider tried and dropped; v4 exported
+  to PDF and Canva.
+- Five client uploads: the Agile and Product Leadership flyer, the FDE
+  LinkedIn post and flyer, the GenAI Foundations to Production flyer (with
+  three named mentors), the logo.
+- A static v3 prototype and a HANDOFF.md from the handoff session.
+- Rendered previews of v1, v2, v3 and v4 in `design/reference/previews/`,
+  produced here with Chromium after stripping the Claude Design runtime.
+
+## The Claude Design link (original blocker, for the record)
 
 `https://claude.ai/design/p/79f4aba1-10cf-42e8-ab28-867207d83146?via=share`
 
@@ -82,3 +106,5 @@ and must be reconciled with the canvas.
 - https://www.linkedin.com/in/arun-tiwari-03a96414/
 - https://bitspilani-digital.edu.in/certification/generative-ai-agentic-ai-course
 - https://github.com/technotaau/loksankalp-1
+- https://claude.ai/code/session_018BWss6i5cvKeg75nXKDXz1 (the handoff session)
+- https://www.canva.com/d/YpGsMHA3YMPLiT1 (v4 in Canva) and https://www.canva.com/d/aBY3WRILn6MuxVM (v3 in Canva), created by the design session

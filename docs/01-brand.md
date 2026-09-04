@@ -1,116 +1,117 @@
 # 01. Brand: TEKMentors
 
+Revised 4 September 2026 after the Phase 1 reconciliation with the Claude
+Design canvas. The canvas palette was sampled from the logo and accepted by
+the client across v3 and v4; this doc adopts it and fixes two contrast
+misses. Source values in `design/tokens.css`.
+
 ## Logo
 
-Files in `assets/brand/`, pulled from the live site on 4 September 2026.
+Files in `assets/brand/`, pulled from the live site.
 
 - Horizontal lockup: brain-profile mark on the left, "TEKMentors" wordmark
   in bold rounded sans, tagline "Enabling minds to explore possibilities..."
   in a script italic underneath. Source: `TEKMentors_Logo.png` (2048x1024).
-- Stacked mark: same elements stacked. Source: `Logo-of-Tekmentors.png` (square).
-- Favicon exists on the site (`TEKMentors-Favicon-*.png`).
+- Stacked mark: same elements stacked. Source: `Logo-of-Tekmentors.png`.
+- Sampled colors: blue #4FA8E4, green #57A445 (the Phase 0 sample read
+  #4fa8de and #569f42 from a downscaled copy; the canvas values are used).
 
-Sampled colors:
-
-| Role | Hex |
-|---|---|
-| Logo blue (wordmark, nodes) | #4fa8de |
-| Logo green (head outline) | #569f42 |
-
-Logo rules for the homepage: minimum height 36px in the header on mobile,
-44px on desktop. Clear space equal to the height of the "T". Never place the
-full-color logo on the deep blue; use a white knockout version there
-(to be produced, see inputs needed). Do not recreate the wordmark in
-Lexend Deca; the logo is a fixed image.
+Rules: minimum height 36px in the header on mobile, 46px on desktop (the
+canvas value). Clear space equal to the height of the "T". On the navy
+grounds the canvas places the full-color logo directly; it holds up because
+the navy is the logo blue taken down in lightness. A white knockout version
+is still worth producing for the footer on dark and for social cards.
 
 ## Palette
 
-The live site's Astra global colors use a deeper blue (#046bd2) than the logo
-(#4fa8de). Both have to coexist because the logo is not being redrawn in this
-engagement. The reconciliation: deep blue carries the interface, logo blue is
-reserved for accents that sit near the logo, green is a single-purpose
-success and highlight color.
+| Token | Hex | Use | Contrast |
+|---|---|---|---|
+| --tm-navy-900 | #07253C | Hero, dark program row, before/after "after" panel, contact section | white on it 15:1 |
+| --tm-navy-800 | #0B2F47 | Secondary dark panels, closing CTA card | |
+| --tm-navy-950 | #061B2B | Promise bar | #BFDCEE on it 12.3:1 |
+| --tm-blue-500 | #4FA8E4 | Logo blue. Hero primary button (navy text), accents and links on dark | on navy 6.0:1 |
+| --tm-blue-600 | #1873B3 | Links, primary buttons and CTAs on light | on white 5.1:1, on page ground 4.75:1 |
+| --tm-blue-700 | #175F91 | Text on the light blue tint, hover on light buttons | on #EAF4FB 6.1:1 |
+| --tm-blue-800 | #0F5B8C | Filled panels that carry white body copy | white on it 7.3:1 |
+| --tm-blue-100 | #EAF4FB | Tinted chips and secondary buttons | |
+| --tm-blue-200 | #CFE4F3 | Borders on tinted chips | |
+| --tm-green-500 | #57A445 | Logo green. Decorative only: dots, dividers, large marks | on white 3.1:1, so never small text |
+| --tm-green-300 | #8CCB72 | Green labels and eyebrows on dark | on navy 8.1:1 |
+| --tm-green-700 | #35702B | Green text on light (the "no code required" tag) | on white 6.0:1 |
+| --tm-green-100 | #EAF6E6 | Success tint | |
+| --tm-ink-900 | #10222E | Headings, nav text, dark buttons | on page ground 15.3:1 |
+| --tm-ink-700 | #24404F | Emphasised body, form labels | |
+| --tm-ink-600 | #4C5C69 | Body text | on white 6.9:1 |
+| --tm-ink-500 | #617486 | Muted text, meta rows | on white 4.8:1 |
+| --tm-ink-300 | #A7BDCB | Body text on navy | on navy 8.1:1 |
+| --tm-ink-200 | #B3C6D3 | Hero subhead on navy | on navy 8.9:1 |
+| --tm-line | #DCE5EB | Rules and card borders | |
+| --tm-line-strong | #10222E | The 1px rule that opens a roster or answers block | |
+| --tm-ground | #F5F8FA | Page background | |
+| --tm-surface | #FFFFFF | Cards | |
+| --tm-surface-2 | #EEF2F5 | Client strip band | |
+| --tm-rust-600 | #B4472F | "Before" label in the pipeline diagram only | on white 5.4:1 |
+| --tm-rust-100 | #FCF7F5 | "Before" card tint | |
 
-| Token | Hex | Use |
-|---|---|---|
-| --tm-blue-700 | #045cb4 | Primary button hover, link hover, dark hero gradient end |
-| --tm-blue-600 | #046bd2 | Primary buttons, links, active nav, icons |
-| --tm-blue-400 | #4fa8de | Accent tints near the logo, chart and icon secondary, focus ring |
-| --tm-blue-050 | #f0f5fa | Section backgrounds, card surfaces on white |
-| --tm-green-600 | #569f42 | Success states, "batch open" badges, single highlight per screen |
-| --tm-navy-900 | #0b1f3a | Hero and footer background, heading color on light |
-| --tm-slate-800 | #1e293b | Body headings |
-| --tm-slate-700 | #334155 | Body text |
-| --tm-slate-500 | #64748b | Secondary text, captions |
-| --tm-slate-300 | #d1d5db | Borders, dividers |
-| --tm-white | #ffffff | Page ground |
-| --tm-amber-500 | #f59e0b | Only for "few seats left" urgency chips; never for buttons |
-
-Contrast checks (WCAG 2.2 AA, normal text needs 4.5:1):
-
-- #046bd2 on white: 5.2:1, passes for text and buttons.
-- #4fa8de on white: 2.6:1, fails for text. Use it only for decorative accents,
-  large icons, or text on navy where it reaches 6.3:1.
-- #569f42 on white: 3.3:1, fails for small text. Use for badges with dark text
-  or on navy backgrounds.
-- #334155 on #f0f5fa: 9.4:1, passes.
+Two values differ from the canvas on purpose: #1B7CBE measured 4.49:1 on
+white and #687987 measured 4.49:1, both a hair under WCAG AA for normal
+text. They become #1873B3 and #617486. Everything else is the canvas value.
 
 ## Typography
 
-Lexend Deca, already loaded by the live site from Google Fonts with all
-weights. It is a legibility-optimised humanist sans, which suits a
-mentoring brand better than a tech-startup grotesque.
+Schibsted Grotesk for everything readable, Spline Sans Mono for the tracked
+uppercase eyebrow labels. Both from Google Fonts with `display=swap` and a
+preconnect. Lexend Deca, which the live site loads today, is retired in the
+build; Astra's global font setting changes to Schibsted Grotesk.
 
 | Token | Size / line height | Weight | Use |
 |---|---|---|---|
-| --tm-display | 44px / 1.1 mobile, 64px / 1.05 desktop | 700 | Hero headline |
-| --tm-h1 | 36px / 1.15 mobile, 48px / 1.1 desktop | 700 | Section titles |
-| --tm-h2 | 28px / 1.2 mobile, 32px / 1.2 desktop | 600 | Sub-sections, card titles |
-| --tm-h3 | 20px / 1.3 | 600 | Card headings |
-| --tm-body-lg | 18px / 1.6 | 400 | Hero subhead, intro paragraphs |
-| --tm-body | 16px / 1.6 | 400 | Body |
-| --tm-small | 14px / 1.5 | 400 | Captions, meta rows on cards |
-| --tm-label | 12px / 1.4, letter-spacing 0.08em, uppercase | 600 | Eyebrows, badges |
+| --tm-display | clamp(38px, 4.6vw, 64px) / 1.05, tracking -0.028em | 700 | Hero h1 |
+| --tm-h2 | clamp(30px, 3.6vw, 46px) / 1.08, tracking -0.025em | 700 | Section titles |
+| --tm-h3-lg | 26px / 1.12 | 700 | Flagship program title |
+| --tm-h3 | 20 to 23px / 1.15 to 1.25 | 700 | Card and answer headings |
+| --tm-body-lg | 19px / 1.6 | 400 | Hero subhead |
+| --tm-body-md | 16.5px / 1.6 | 400 | Section intros |
+| --tm-body | 15.5px / 1.65 | 400 | Body |
+| --tm-body-sm | 14.5px / 1.6 | 400 | Card body, roster cells |
+| --tm-small | 13.5px / 1.5 | 400 | Meta and captions |
+| --tm-label | 11 to 12.5px, tracking 0.12 to 0.14em, uppercase, Spline Sans Mono | 400 or 500 | Eyebrows, roster headers, phase labels |
+| --tm-stat | 42px / 1, tracking -0.03em | 800 | Numbers in the outcomes block |
 
-Sentence case for all headings. No all-caps except the 12px label style.
-Numbers in cards use tabular figures (`font-variant-numeric: tabular-nums`).
+Sentence case for headings, nav and buttons. The mono eyebrows are the only
+uppercase on the page. Proper nouns keep their casing. Blog titles keep
+their published casing.
 
 ## Voice
 
-From the About page and the services deck, TEKMentors talks like a senior
-practitioner explaining how things actually work: "It is relatively easy for
-clients to define the transformation, it has been much tougher for them to
-figure out how to transform and how to make it stick."
+The client's instructions from the canvas sessions, now rules:
 
-Rules for homepage copy:
-
-- Plain, direct, second person. "You will build" not "Participants will be
-  enabled to".
-- Lead with the outcome, then the mechanism. "Cycle time from six months to
-  90 days. Here is how."
-- Specific over grand. Name the tools, the weeks, the client type.
-- No exclamation marks, no "cutting-edge", "unlock", "empower", "leverage",
-  "transform your career". These appear in the current site and the old
-  page-copy doc; they go.
-- Claims policy from the proposal: every partnership, accreditation, placement
-  or ranking statement is verified with TEKMentors in writing or is left off.
+- No em dashes anywhere.
+- Sentence case, because title case reads like a brochure.
+- No marketing tells: "harness the full potential", "unlock the power of
+  data", "leverage", "empower", "drive innovation", "cutting-edge",
+  "transform your career", "world-class".
+- It must read as if a specific person wrote it. Dry, direct, a little
+  attitude: "Agile that survives contact with your org chart", "If you still
+  need us in a year, something went wrong".
+- Lead with the outcome, then the mechanism. Name tools, weeks, client types.
+- Every partnership, accreditation, placement or ranking statement is
+  verified in writing or stays off the page.
 
 ## Imagery
 
-- Real photographs of trainers and sessions beat stock. The proposal lists
-  clean trainer photos as an input needed.
-- Where stock is unavoidable, use people at work in Indian offices, not
-  glowing-brain abstractions. The 2025 page-copy doc's Canva picks
-  ("glowing digital transformation pathway") are the opposite of the voice
-  above and should not be reused.
-- Icons: a single outlined set at 1.5px stroke, blue-600 on light, white on
-  navy. Elementor's built-in icon library is acceptable if the set is
-  consistent (use one family only).
-- Program cards may carry a small abstract system diagram (nodes and edges,
-  echoing the logo mark) rather than photos, so the four cards read as a set.
+- No stock photography on the homepage. The canvas proves the page works
+  with type, rules, tinted cards and one diagram.
+- The before and after pipeline is the one illustration. Rebuild it as
+  inline SVG or CSS boxes, never as a raster.
+- Mentor photos: real headshots from TEKMentors, consistent crop, 1:1,
+  desaturated to 90% so three different lighting setups read as one row.
+- Client logos: grayscale at 60% opacity, height 26 to 34px, as the canvas
+  renders them.
 
 ## Motion
 
-Minimal. Fade-up on section entry, 200ms, respecting `prefers-reduced-motion`.
-No auto-playing carousels for content that matters; the current homepage's
-slider hides the value proposition behind a rotation.
+One entry animation on the hero (`v4rise`, 0.7s, translateY 14px), hover
+color shifts at 150 to 200ms, nothing else. Respect `prefers-reduced-motion`.
+No auto-rotating anything: the slider was tried in the canvas and dropped
+because nobody sees slide two.

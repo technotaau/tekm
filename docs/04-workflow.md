@@ -40,28 +40,21 @@ Dispatch rules:
 
 Deliverables: this repo. Research log in `05-research-log.md`.
 
-### Phase 1. Unblock the design source
+### Phase 1. Unblock and reconcile the design source (complete, 4 September 2026)
 
-Blocker: the Claude Design canvas at
-https://claude.ai/design/p/79f4aba1-10cf-42e8-ab28-867207d83146 is not
-readable from a headless session (share link returns 403, DesignSync needs an
-interactive login).
+The canvas arrived through the Claude Code session that Claude Design's
+handoff created (`Design: TEKMentors Website Redesign`). It pushed the export
+to `claude-design/implement-v3-homepage`, which was fast-forwarded into this
+branch. Everything sits in `design/reference/`.
 
-Any one of these clears it:
+The Design Lead wrote the reconciliation memo directly
+(`docs/06-reconciliation-memo.md`) rather than dispatching brand-strategist,
+because the full context was already loaded in the session. The brand doc,
+tokens and homepage spec were revised to the canvas system in the same
+commit.
 
-1. In Claude Design, use "Send to Claude Code Web" on that project, targeting
-   this repository. The canvas files land in the workspace.
-2. Export the canvas (HTML or PNG per artboard) and commit the files to
-   `design/reference/` on this branch.
-3. Run `/design-login` once in an interactive Claude Code session on the same
-   machine, after which DesignSync can read the project.
-
-Exit: brand-strategist has produced the reconciliation memo listing which
-canvas decisions (layout, palette, type, imagery, copy) carry into this repo
-and which are replaced, with reasons tied to the brief.
-
-Gate 1: Jakhar Singh signs off the reconciliation memo and the section order
-in `03-homepage-spec.md`.
+Gate 1: Jakhar Singh answers the five open decisions at the end of
+`06-reconciliation-memo.md`. Open as of 4 September 2026.
 
 ### Phase 2. Content
 
