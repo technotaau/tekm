@@ -478,3 +478,50 @@ Slide 1 photo alt: Two engineers reviewing code at their desks
 
 - Program alt text: Engineer working on production systems · Graduates working together at a laptop · Team planning at a whiteboard · Engineering team in an open office
 - Insight thumbnails are decorative (empty alt); WordPress featured images replace them at build.
+
+
+## Revision 2 (4 September 2026): first-visit audit changes
+
+Source: docs/10-first-visit-audit.md. These supersede the matching lines above.
+
+Hero, slide 1 (tab label "What we do")
+
+- Eyebrow: GURUGRAM · SINCE 2017 · IIT (BHU) FACULTY
+- H1: We get AI into production. Then we train your engineers to run it.
+- Subhead: Enterprise consulting and live AI engineering programs from a small team with twenty-plus years each inside banks and Fortune 500 delivery. One number we can show you: a UK bank's backlog-to-production time, cut from six months to 90 days.
+- Outcome card on the photo: ONE ENGAGEMENT, ONE NUMBER · 6 months to 90 days · Backlog to production, a large UK bank · See the four numbers
+- A/B alternates now: "Twenty years each in enterprise engineering. Now teaching production AI." and "We build the AI systems, and the people who keep them running."
+
+Facts row
+
+- Since 2017. Consulting and training from Gurugram.
+- IIT (BHU). Where the senior faculty trained.
+- 20+ years. What each mentor brings from industry.
+- Delhi NCR. On site, or live online and hybrid.
+
+Card 2 body: You would rather train the engineers who already know your systems than hire strangers. You need a program they finish with something running, and a cohort plan you can put in front of finance.
+
+Consulting, teaching block (after the diagram)
+
+- Eyebrow: USE THIS TOMORROW
+- H3: Seven questions before an AI pilot goes live
+- Intro: Ask these in the next steering meeting. If three of them have no answer, the pilot is not stuck on the model.
+- 1. Who owns it on Monday morning? A named person, not a team.
+- 2. What is the baseline number it has to move, and who agreed it?
+- 3. Where does the data come from when nobody is exporting it by hand?
+- 4. What is in the evaluation set, and who wrote the failing cases?
+- 5. What happens when the model is wrong in front of a customer?
+- 6. Has security seen the design, or only the demo?
+- 7. What does it cost per thousand requests at real volume?
+- Button: Send me this as a one-pager (opens the form with "A project or system" and a prefilled message: "Please send the seven questions as a one-pager. Our pilot is at the stage where ...")
+
+Form, by intent chip
+
+| Chip | Title | Long-answer label | Placeholder | Company label |
+|---|---|---|---|---|
+| A project or system | Tell us what is stuck | What is stuck? | One or two lines is plenty. Plain language beats a spec. | Company (optional) |
+| Training my team | Tell us about the team | Who is the team, and what should they be able to build? | Team size, current stack, and the outcome you need. | Company (optional) |
+| Joining a program | Ask about a program | Which program, and where are you now? | Your experience, the program you have in mind, and any dates that matter. | Current employer or college (optional) |
+| Not sure yet | Tell us what you need | What is on your mind? | One or two lines is plenty. | Company (optional) |
+
+Mobile only (below 640px): the six answers collapse to an accordion with the first open; each program row folds its "What you build" list behind a button labelled "What you build".

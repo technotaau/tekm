@@ -344,3 +344,13 @@ New `cta_id` values on the slide buttons: `hero2_talk`, `hero2_how`,
 `hero3_programs`, `hero3_enquire`. Slide 1 keeps `hero_talk` and
 `hero_programs`. The photo band has no CTA and is not in the `section_view`
 list.
+
+
+## Addendum, 4 September 2026: revision 2
+
+New events:
+
+- `faq_toggle {question_index}` when an answer is opened on the mobile accordion. Engagement signal for audience A on phones.
+- `program_builds_toggle {program}` when a program row's "What you build" list is opened on a phone. Tells us which program's detail people actually open.
+
+New `cta_id` values: `hero_outcome_card` (the number card on slide 1, to the outcomes section) and `checklist_onepager` (the "Send me this as a one-pager" button, which opens the form with the consulting chip and a prefilled message). Treat `checklist_onepager` followed by `enquiry_submit` as a lead-magnet conversion in GA4, since the checklist is the first lead magnet the marketing plan asked for.
