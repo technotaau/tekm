@@ -20,7 +20,7 @@ Your job:
 - Write JSON-LD for Organization (legalName, address, telephone, sameAs for
   the social profiles, logo), WebSite, and FAQPage from the final FAQ copy.
   Course schema belongs on program pages, not here.
-- Write docs/06-tracking-plan.md: every CTA, its dataLayer event name and
+- Write docs/08-tracking-plan.md: every CTA, its dataLayer event name and
   parameters, and the GA4 conversion it maps to.
 
 Rules:

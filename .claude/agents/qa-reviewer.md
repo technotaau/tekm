@@ -25,7 +25,7 @@ Your job, per round:
 - Schema: extract every JSON-LD block and validate it parses; list required
   properties present and missing.
 - GA4: click every CTA and confirm the dataLayer event and parameters match
-  docs/06-tracking-plan.md.
+  docs/08-tracking-plan.md.
 
 Rules:
 - Write docs/qa/round-N/report.md with a table of checklist items, pass or

@@ -22,7 +22,7 @@ plus the spec section it is working on.
 | ux-copywriter | All on-page copy, microcopy, FAQ answers, form labels | `prototype/copy.md` with final copy per section, house-style-checked | Use any "do not publish" item, write placeholders that look real |
 | visual-designer | The design canvas (via the `design` skill), component visuals, hero illustration, program card system | `.dc.html` artboards for mobile and desktop, exported PNGs in `design/exports/` | Use layouts Elementor cannot build, use colors outside tokens |
 | frontend-builder | The static prototype in `prototype/` | `index.html`, `styles.css`, `main.js`, built on `design/tokens.css`, responsive at all four breakpoints | Add a build step, load more than two font families, ship a form that posts anywhere |
-| seo-schema | Title, meta, headings outline, JSON-LD, GA4 event map | `prototype/schema.json` snippets inline in `index.html`, `docs/06-tracking-plan.md` | Add Course schema to the homepage, stuff keywords into copy |
+| seo-schema | Title, meta, headings outline, JSON-LD, GA4 event map | `prototype/schema.json` snippets inline in `index.html`, `docs/08-tracking-plan.md` | Add Course schema to the homepage, stuff keywords into copy |
 | qa-reviewer | Acceptance checklist, accessibility, Lighthouse, cross-device screenshots, copy audit | `docs/qa/` report per round with pass/fail per checklist item and screenshots | Fix things silently; every fix goes back through the owning agent |
 
 Dispatch rules:
@@ -55,6 +55,24 @@ commit.
 
 Gate 1: Jakhar Singh answers the five open decisions at the end of
 `06-reconciliation-memo.md`. Open as of 4 September 2026.
+
+### Ownership change, 4 September 2026
+
+The client handed the project to the Design Lead in full. From here the
+gates are Design Lead reviews, with Jakhar Singh informed at each one rather
+than asked. Gate 2 (canvas approval) is folded into Gate 3: the export's v4
+canvas is the design of record, so Phase 3 becomes a mobile artboard and
+component pass inside the prototype rather than a separate canvas round.
+
+Decisions taken by the Design Lead at handover:
+
+- Hero headline: candidate 1 from `07-reference-analysis.md`, "Twenty years
+  each in enterprise engineering. Now teaching production AI." The
+  client-reviewed v4 line stays as the A/B alternate in the copy doc.
+- Copy edits against the flyers (executive demo, placement assistance, the
+  fourth program row) are applied.
+- Counters are replaced by the case numbers and the mentor bench.
+- Type and palette move to the reconciled tokens.
 
 ### Phase 2. Content
 

@@ -106,6 +106,25 @@ proof discipline, Scaler's program-row and lead mechanics, on v4's
 structure, with TEKMentors' verified facts. Eight pulls were folded into
 the spec; the do-not-pull list stands as written.
 
+## 5c. Handover, 4 September 2026
+
+The client handed the whole project to TechnoTaau Team's Design Lead in
+this repo: website design, content, lead-generating content and user
+behaviour are ours to decide. Two requirements added with the handover:
+
+- Mobile friendly is a hard rule, not a preference. Every section is
+  designed at 360px first and checked at 390, 640, 960, 1280 and 1480.
+- Sticky lead buttons. On phones a fixed bottom bar with "Programs" and
+  "Talk to us" from the moment the hero scrolls away; on desktop the header
+  "Talk to us" button stays in view because the header is sticky. Both
+  anchor to the enquiry form, never to a phone modal.
+
+Decisions that were waiting on the client now fall to the Design Lead, and
+are recorded in `04-workflow.md` and `06-reconciliation-memo.md` as they are
+taken. Inputs that only TEKMentors can supply (fees, dates, photos, logo
+permission, the service promises) are still requested; the page ships with
+its degraded states until they arrive.
+
 ## 6. Reference and competitive frame
 
 - Structural reference named in the proposal: BITS Pilani Digital,
