@@ -1,7 +1,8 @@
 /* TEKMentors homepage prototype. One stylesheet, built on design/tokens.css.
    Layout values from design/reference/export/HANDOFF-README.md; colors and
-   type only through the --tm-* custom properties. Two media queries only:
-   940px (header menu, sticky bar) and 640px (programs table stacks). */
+   type only through the --tm-* custom properties. Media queries: 960px up
+   (hero slides go two-column), 940px (header menu, sticky bar), 640px
+   (programs table stacks, phone sizes) and 400px (insight thumbs hide). */
 
 @import url("../design/tokens.css");
 
@@ -193,7 +194,7 @@ strong { font-weight: 600; }
 .btn--outline-dark { background: var(--tm-surface); color: var(--tm-ink-900); border-color: var(--tm-ink-900); }
 .btn--outline-dark:hover { background: var(--tm-blue-100); }
 
-.btn:hover .arrow, .practice:hover .arrow, .post:hover .arrow, .router__row:hover .arrow, .text-link:hover .arrow { transform: translateX(3px); }
+.btn:hover .arrow, .practice:hover .arrow, .post:hover .arrow, .router__pill:hover .arrow, .text-link:hover .arrow { transform: translateX(3px); }
 
 .link-button {
   background: none;
@@ -391,20 +392,123 @@ strong { font-weight: 600; }
   margin-inline: auto;
   padding: clamp(3rem, 6vw, 5.25rem) var(--tm-gutter) clamp(2.5rem, 5vw, 4rem);
 }
-.hero__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
-  gap: 56px 72px;
-  align-items: start;
+/* 6a. Hero slider. The track is a flex row; data-index on it drives the
+   translateX. The viewport carries 6px of padding so focus rings are not
+   clipped, and the 12px gap keeps the neighbouring slide outside it. */
+.slider {
+  position: relative;
   animation: v4rise var(--tm-dur-rise) var(--tm-ease) both;
 }
 @keyframes v4rise {
   from { opacity: 0; transform: translateY(14px); }
   to { opacity: 1; transform: translateY(0); }
 }
+.slider__viewport {
+  overflow: hidden;
+  padding: 6px;
+  margin: -6px;
+  touch-action: pan-y;
+}
+.slider__track {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  transition: transform 500ms var(--tm-ease);
+}
+.slider__track[data-index="1"] { transform: translateX(calc(-1 * (100% + 12px))); }
+.slider__track[data-index="2"] { transform: translateX(calc(-2 * (100% + 12px))); }
+
+.slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: var(--tm-s-8);
+}
+.slide__copy { min-width: 0; }
+.slide__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  align-self: stretch;
+  justify-self: stretch;
+  border-radius: var(--tm-radius-card);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  overflow: hidden;
+  background: var(--tm-navy-800);
+}
+.slide__media img[data-src] { visibility: hidden; } /* photo not requested yet */
+.slide__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slider__controls {
+  margin-top: var(--tm-s-6);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--tm-s-3) var(--tm-s-6);
+}
+.slider__tabs { display: flex; flex-wrap: wrap; gap: 0 var(--tm-s-5); }
+.slider__tab {
+  position: relative;
+  min-height: var(--tm-tap-min);
+  padding: 10px 2px;
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  color: var(--tm-ink-200);
+  font-size: var(--tm-body-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: color var(--tm-dur) var(--tm-ease), border-color var(--tm-dur) var(--tm-ease);
+}
+.slider__tab:hover { color: var(--tm-text-on-dark); }
+.slider__tab.is-active { color: var(--tm-text-on-dark); border-bottom-color: var(--tm-blue-500); }
+.slider__progress {
+  position: absolute;
+  left: 0; right: 0; bottom: -2px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.85);
+  transform: scaleX(0);
+  transform-origin: left center;
+  pointer-events: none;
+}
+.slider__tab.is-active .slider__progress { animation: sliderProgress 8000ms linear forwards; }
+.slider.is-paused .slider__progress { animation-play-state: paused; }
+.slider.is-static .slider__progress { display: none; }
+@keyframes sliderProgress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.slider__arrows { display: flex; gap: var(--tm-s-2); }
+.slider__arrow {
+  width: var(--tm-tap-min);
+  height: var(--tm-tap-min);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 50%;
+  color: var(--tm-text-on-dark);
+  cursor: pointer;
+  transition: color var(--tm-dur) var(--tm-ease), border-color var(--tm-dur) var(--tm-ease);
+}
+.slider__arrow:hover { color: var(--tm-blue-500); border-color: var(--tm-blue-500); }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .hero__grid { animation: none; }
+  .slider { animation: none; }
+  .slider__track { transition: none; }
+  .slider__progress { display: none; }
   *, *::before, *::after { transition-duration: 0ms !important; }
 }
 
@@ -425,33 +529,33 @@ strong { font-weight: 600; }
 }
 .hero__actions { display: flex; flex-wrap: wrap; gap: var(--tm-s-3); }
 
-.router {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: var(--tm-radius-card);
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
-  padding: 28px 30px 8px;
-}
+/* 6b. Routing band: wrapping pills under the slider. */
+.router { margin-top: clamp(2.5rem, 5vw, 3.5rem); }
 .router__label {
   font-size: var(--tm-label-sm);
   color: var(--tm-green-300);
-  margin-bottom: var(--tm-s-2);
+  margin-bottom: var(--tm-s-3);
 }
-.router__row {
-  display: flex;
-  justify-content: space-between;
+.router__list { display: flex; flex-wrap: wrap; gap: 10px; }
+.router__pill {
+  display: inline-flex;
   align-items: center;
-  gap: var(--tm-s-4);
-  padding: 15px 0;
+  gap: 10px;
+  max-width: 100%;
   min-height: var(--tm-tap-min);
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  font-weight: 500;
+  padding: 9px 16px 9px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: var(--tm-radius-pill);
   color: var(--tm-text-on-dark);
-  transition: color var(--tm-dur) var(--tm-ease);
+  font-size: var(--tm-body-sm);
+  font-weight: 500;
+  line-height: 1.3;
+  transition: color var(--tm-dur) var(--tm-ease), border-color var(--tm-dur) var(--tm-ease);
 }
-.router__list li:first-child .router__row { border-top: 0; }
-.router__row:hover { color: var(--tm-blue-500); }
+.router__pill > span:first-child { min-width: 0; }
+.router__pill .arrow { color: var(--tm-ink-300); flex: none; }
+.router__pill:hover { color: var(--tm-blue-500); border-color: var(--tm-blue-500); }
+.router__pill:hover .arrow { color: inherit; }
 
 .facts {
   margin-top: clamp(2.5rem, 5vw, 4rem);
@@ -575,6 +679,20 @@ strong { font-weight: 600; }
 .roster__row--flagship .builds li strong { color: var(--tm-text-on-dark); }
 .roster__row--flagship .builds li::before, .roster__row--flagship .roster__builds-label { color: var(--tm-green-300); }
 .roster__row--flagship .roster__tools { color: var(--tm-ink-on-dark-caption); }
+
+/* The cell wraps so the thumb never widens the column: below about 320px of
+   cell width the text drops under the thumbnail instead of pushing the table out. */
+.roster__cell { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 20px; }
+.roster__text { flex: 1 1 200px; min-width: 0; }
+.roster__thumb {
+  flex: none;
+  width: 96px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 10px;
+  background: var(--tm-surface-2);
+}
+.roster__row--flagship .roster__thumb { border: 1px solid rgba(255, 255, 255, 0.2); background: var(--tm-navy-800); }
 
 .roster__label { font-size: var(--tm-label-sm); margin-bottom: 10px; }
 .roster__label--green { color: var(--tm-green-300); }
@@ -723,6 +841,51 @@ strong { font-weight: 600; }
 .practice .arrow { color: var(--tm-ink-500); }
 .practice:hover .arrow { color: inherit; }
 
+/* 10b. Where the work happens: photo band ------------------------------- */
+
+.band {
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+  margin-top: var(--tm-s-10);
+  display: flex;
+  align-items: center;
+  background: var(--tm-navy-900);
+  color: var(--tm-text-on-dark);
+}
+.band__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.band::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* navy-900 at 55% overall, deepened behind the text on the left so the line
+     stays readable over the busy part of the photo. */
+  background:
+    linear-gradient(90deg, rgba(7, 37, 60, 0.7) 0%, rgba(7, 37, 60, 0.35) 55%, rgba(7, 37, 60, 0) 100%),
+    rgba(7, 37, 60, 0.55);
+  pointer-events: none;
+}
+.band__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-block: var(--tm-s-12);
+}
+.band__eyebrow { margin-bottom: var(--tm-s-3); }
+.band__line {
+  font-size: var(--tm-body-lg);
+  font-weight: 500;
+  line-height: 1.5;
+  max-width: 60ch;
+  color: var(--tm-text-on-dark);
+}
+
 /* 11. How an engagement runs -------------------------------------------- */
 
 .phases {
@@ -820,7 +983,7 @@ strong { font-weight: 600; }
 .posts { border-top: 1px solid var(--tm-line-strong); }
 .post {
   display: grid;
-  grid-template-columns: minmax(110px, 150px) minmax(0, 1fr) auto;
+  grid-template-columns: 120px minmax(110px, 150px) minmax(0, 1fr) auto;
   gap: var(--tm-s-5);
   align-items: center;
   padding: 22px 0;
@@ -829,6 +992,13 @@ strong { font-weight: 600; }
   transition: color var(--tm-dur) var(--tm-ease);
 }
 .post:hover { color: var(--tm-blue-600); }
+.post__thumb {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: var(--tm-surface-2);
+}
 .post__cat { font-size: var(--tm-label-sm); color: var(--tm-ink-500); align-self: start; padding-top: 4px; }
 .post__title { font-size: 1.125rem; font-weight: 600; line-height: 1.3; letter-spacing: -0.01em; }
 .post .arrow { color: var(--tm-ink-500); }
@@ -1065,7 +1235,18 @@ strong { font-weight: 600; }
 .sticky-bar.is-visible { transform: translateY(0); }
 .sticky-bar .btn { min-height: var(--tm-tap-min); }
 
-/* 19. Media queries: the two exceptions ---------------------------------- */
+/* 19. Media queries ------------------------------------------------------ */
+
+@media (min-width: 960px) {
+  .slide {
+    grid-template-columns: 7fr 5fr;
+    grid-template-rows: minmax(0, 1fr);
+    gap: clamp(2.5rem, 5vw, 4.5rem);
+    align-items: stretch;
+  }
+  .slide__copy { align-self: center; }
+  .slide__media { aspect-ratio: auto; min-height: 360px; }
+}
 
 @media (max-width: 940px) {
   body { padding-bottom: calc(64px + env(safe-area-inset-bottom)); }
@@ -1150,10 +1331,27 @@ strong { font-weight: 600; }
   .roster__row--flagship td:last-child { margin-top: var(--tm-s-6); }
   .roster__foot td { padding-top: 18px; }
 
-  .router { padding: 22px 20px 4px; }
+  .roster__cell { flex-direction: column; gap: var(--tm-s-4); }
+  .roster__thumb { width: 100%; height: auto; aspect-ratio: 16 / 9; }
+
+  .band { min-height: 240px; }
   .card { padding: 26px 22px; }
   .phase { padding: 24px 20px; min-height: 0; }
   .timeline__row { grid-template-columns: 1fr; gap: 6px; }
+  .post {
+    grid-template-columns: 64px minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;
+    gap: 4px 14px;
+  }
+  .post__thumb { width: 64px; height: 43px; grid-row: 1 / 3; }
+  .post__cat { grid-column: 2; grid-row: 1; padding-top: 0; }
+  .post__main { grid-column: 2; grid-row: 2; }
+  .post .arrow { grid-column: 3; grid-row: 1 / 3; }
+}
+
+@media (max-width: 400px) {
   .post { grid-template-columns: minmax(0, 1fr) auto; }
-  .post__cat { grid-column: 1 / -1; padding-top: 0; }
+  .post__thumb { display: none; }
+  .post__cat, .post__main { grid-column: 1; }
+  .post .arrow { grid-column: 2; }
 }

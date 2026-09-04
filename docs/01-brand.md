@@ -135,5 +135,8 @@ with their minor variants.
 
 One entry animation on the hero (`v4rise`, 0.7s, translateY 14px), hover
 color shifts at 150 to 200ms, nothing else. Respect `prefers-reduced-motion`.
-No auto-rotating anything: the slider was tried in the canvas and dropped
-because nobody sees slide two.
+One exception to "no auto-rotation", added 4 September 2026 at the client's
+request: the hero slider advances every 8 seconds. It is allowed because its
+labelled tabs keep all three propositions visible at once, it pauses on
+hover, focus and touch, and it does not move at all under
+prefers-reduced-motion. No other element on the site rotates.

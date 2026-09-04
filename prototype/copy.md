@@ -442,3 +442,39 @@ Serves: the professional on a phone. Appears once the hero scrolls away, below 9
 - Button 1: Programs (to #programs)
 - Button 2: Talk to us (to #contact)
 - aria-label on the bar: Quick links
+
+
+## 2 (revised). Hero slider copy
+
+Added 4 September 2026 by the Design Lead after the client asked for a
+slider and photography. Slide 1 is the section 2 copy above. Tabs: "Who we
+are", "Consulting", "AI programs". Arrow labels: "Previous slide", "Next
+slide". Screen reader count: "1 of 3".
+
+Slide 2, "Consulting"
+
+- Eyebrow: ENTERPRISE CONSULTING
+- Heading: The gap is never the model. It is everything around it.
+- Subhead: Most AI pilots we are shown work perfectly and will never go live. We build the governed pipeline around the model, then hand it to your engineers with a named owner.
+- Buttons: Talk to a consultant (#contact) · How an engagement runs (#how)
+- Photo alt: A consultant presenting to a leadership team in a boardroom
+
+Slide 3, "AI programs"
+
+- Eyebrow: LIVE PROGRAMS, GURUGRAM AND ONLINE
+- Heading: Four programs. Each one ends in something you can show.
+- Subhead: AI Forward Deployed Engineer for engineers with 3 to 8 years. GenAI foundations to production for graduates, 16 weeks and 144 hours. Two days of AI-enabled agile leadership. GenAI developer training for whole teams. All live, taught by IIT (BHU) engineers with 20-plus years each.
+- Buttons: See the AI programs (#programs) · Enquire about a batch (#contact, presets "Joining a program")
+- Photo alt: A live technical workshop with participants at laptops
+
+Slide 1 photo alt: Two engineers reviewing code at their desks
+
+## 6b. Photo band
+
+- Eyebrow: WHERE THE WORK HAPPENS
+- Line: Consulting and training from Gurugram since 2017. Live online, on site in Delhi NCR, or hybrid.
+
+## Program row and insight thumbnails
+
+- Program alt text: Engineer working on production systems · Graduates working together at a laptop · Team planning at a whiteboard · Engineering team in an open office
+- Insight thumbnails are decorative (empty alt); WordPress featured images replace them at build.

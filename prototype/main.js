@@ -4,7 +4,8 @@
    3. Mobile menu sheet (below 940px)
    4. Sticky mobile bar
    5. Section views
-   6. Enquiry form: chips, presets, validation, sending, sent, reset
+   6. Hero slider: tabs, arrows, keyboard, swipe, auto-advance, pauses
+   7. Enquiry form: chips, presets, validation, sending, sent, reset
    The form posts nowhere. submitEnquiry() is the wiring point. */
 (function () {
   'use strict';
@@ -151,7 +152,171 @@
     });
   }
 
-  /* 6. Enquiry form --------------------------------------------------------- */
+  /* 6. Hero slider ---------------------------------------------------------- */
+
+  /* Three slides on a translateX track. Auto-advance every 8s, held while the
+     pointer is over it, focus is inside it, a finger is on it, or the tab is
+     hidden; never under prefers-reduced-motion. The progress bar is a CSS
+     animation kept in step by pausing its play state with the timer. */
+  var slider = document.querySelector('[data-slider]');
+  if (slider) (function () {
+    var INTERVAL = 8000;
+    var SWIPE_MIN = 40;
+    var trackEl = slider.querySelector('[data-slider-track]');
+    var viewport = slider.querySelector('[data-slider-viewport]');
+    var slides = Array.prototype.slice.call(trackEl.querySelectorAll('[data-slide]'));
+    var tabs = Array.prototype.slice.call(slider.querySelectorAll('[data-slide-tab]'));
+    var status = slider.querySelector('[data-slider-status]');
+    var prevBtn = slider.querySelector('[data-slider-prev]');
+    var nextBtn = slider.querySelector('[data-slider-next]');
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var count = slides.length;
+    var index = 0;
+    var timer = null, startedAt = 0, remaining = INTERVAL;
+    var holds = { hover: false, focus: false, touch: false, hidden: document.visibilityState === 'hidden' };
+
+    function autoplayAllowed() { return count > 1 && !reduce.matches; }
+    function isHeld() { return holds.hover || holds.focus || holds.touch || holds.hidden; }
+
+    var LEAD = 2000; // fetch the next photo this long before an auto-advance
+
+    // Photos for slides 2 and 3 wait in data-src until the slide is about to show.
+    function loadPhoto(i) {
+      var img = slides[((i % count) + count) % count].querySelector('img[data-src]');
+      if (!img) return;
+      var srcEl = img.parentNode && img.parentNode.tagName === 'PICTURE' ? img.parentNode.querySelector('source[data-srcset]') : null;
+      if (srcEl) { srcEl.setAttribute('srcset', srcEl.getAttribute('data-srcset')); srcEl.removeAttribute('data-srcset'); }
+      if (img.hasAttribute('data-srcset')) { img.setAttribute('srcset', img.getAttribute('data-srcset')); img.removeAttribute('data-srcset'); }
+      img.src = img.getAttribute('data-src');
+      img.removeAttribute('data-src');
+    }
+
+    var preTimer = null;
+    function clearTimer() {
+      if (timer) { clearTimeout(timer); timer = null; }
+      if (preTimer) { clearTimeout(preTimer); preTimer = null; }
+    }
+    function armTimer(ms) {
+      clearTimer();
+      remaining = ms;
+      if (!autoplayAllowed() || isHeld()) return;
+      startedAt = Date.now();
+      timer = setTimeout(function () { goTo(index + 1, 'auto'); }, ms);
+      preTimer = setTimeout(function () { loadPhoto(index + 1); }, Math.max(0, ms - LEAD));
+    }
+    // Restart the CSS progress animation on every change, including a click on the active tab.
+    function resetProgress() {
+      tabs.forEach(function (tab) {
+        var bar = tab.querySelector('.slider__progress');
+        if (!bar) return;
+        bar.style.animation = 'none';
+        void bar.offsetWidth;
+        bar.style.animation = '';
+      });
+    }
+    function hold(key, on) {
+      var was = isHeld();
+      holds[key] = on;
+      var now = isHeld();
+      if (now && !was) {
+        if (timer) remaining = Math.max(0, remaining - (Date.now() - startedAt));
+        clearTimer();
+        slider.classList.add('is-paused');
+      } else if (!now && was) {
+        slider.classList.remove('is-paused');
+        armTimer(Math.max(remaining, 400));
+      }
+    }
+
+    function goTo(n, trigger) {
+      var next = ((n % count) + count) % count;
+      var changed = next !== index;
+      index = next;
+      loadPhoto(index);
+      if (trigger === 'swipe' || trigger === 'arrow') { loadPhoto(index + 1); loadPhoto(index - 1); }
+      trackEl.setAttribute('data-index', String(index));
+      slides.forEach(function (slide, i) {
+        var on = i === index;
+        slide.classList.toggle('is-active', on);
+        // The slide holding the h1 hides its parts, not itself, so the page keeps one exposed h1.
+        var parts = slide.querySelector('h1') ? Array.prototype.slice.call(slide.querySelectorAll('[data-slide-part]')) : [slide];
+        parts.forEach(function (part) {
+          if (on) { part.removeAttribute('aria-hidden'); part.removeAttribute('inert'); }
+          else { part.setAttribute('aria-hidden', 'true'); part.setAttribute('inert', ''); }
+        });
+        Array.prototype.forEach.call(slide.querySelectorAll('a, button'), function (el) {
+          if (on) el.removeAttribute('tabindex'); else el.setAttribute('tabindex', '-1');
+        });
+      });
+      tabs.forEach(function (tab, i) {
+        var on = i === index;
+        tab.classList.toggle('is-active', on);
+        tab.setAttribute('aria-selected', on ? 'true' : 'false');
+        tab.setAttribute('tabindex', on ? '0' : '-1');
+      });
+      if (status) status.textContent = (index + 1) + ' of ' + count;
+      if (changed && trigger) {
+        track({ event: 'hero_slide_view', slide_index: index + 1, slide_label: slides[index].getAttribute('data-slide-label') || '', trigger: trigger });
+      }
+      resetProgress();
+      armTimer(INTERVAL);
+    }
+
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener('click', function () { goTo(i, 'tab'); });
+      tab.addEventListener('keydown', function (e) {
+        var target = null;
+        if (e.key === 'ArrowRight') target = index + 1;
+        else if (e.key === 'ArrowLeft') target = index - 1;
+        else if (e.key === 'Home') target = 0;
+        else if (e.key === 'End') target = count - 1;
+        if (target === null) return;
+        e.preventDefault();
+        goTo(target, 'tab');
+        tabs[index].focus();
+      });
+    });
+    if (prevBtn) prevBtn.addEventListener('click', function () { goTo(index - 1, 'arrow'); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { goTo(index + 1, 'arrow'); });
+
+    slider.addEventListener('mouseenter', function () { hold('hover', true); });
+    slider.addEventListener('mouseleave', function () { hold('hover', false); });
+    slider.addEventListener('focusin', function () { hold('focus', true); });
+    slider.addEventListener('focusout', function (e) {
+      if (!e.relatedTarget || !slider.contains(e.relatedTarget)) hold('focus', false);
+    });
+    slider.addEventListener('touchstart', function () { hold('touch', true); }, { passive: true });
+    slider.addEventListener('touchend', function () { hold('touch', false); }, { passive: true });
+    slider.addEventListener('touchcancel', function () { hold('touch', false); }, { passive: true });
+    document.addEventListener('visibilitychange', function () { hold('hidden', document.visibilityState !== 'visible'); });
+
+    // Swipe: touch and pen only; a mouse drag would fight text selection.
+    var startX = null, startY = null;
+    viewport.addEventListener('pointerdown', function (e) {
+      if (e.pointerType === 'mouse') return;
+      startX = e.clientX; startY = e.clientY;
+    });
+    viewport.addEventListener('pointerup', function (e) {
+      if (startX === null) return;
+      var dx = e.clientX - startX, dy = e.clientY - startY;
+      startX = startY = null;
+      if (Math.abs(dx) < SWIPE_MIN || Math.abs(dx) < Math.abs(dy)) return;
+      goTo(dx < 0 ? index + 1 : index - 1, 'swipe');
+    });
+    viewport.addEventListener('pointercancel', function () { startX = startY = null; });
+
+    function applyMotionPreference() {
+      slider.classList.toggle('is-static', reduce.matches);
+      if (reduce.matches) clearTimer(); else armTimer(INTERVAL);
+    }
+    if (reduce.addEventListener) reduce.addEventListener('change', applyMotionPreference);
+    else if (reduce.addListener) reduce.addListener(applyMotionPreference);
+
+    slider.classList.toggle('is-static', reduce.matches);
+    goTo(0, null);
+  })();
+
+  /* 7. Enquiry form --------------------------------------------------------- */
 
   /* WIRING POINT. Resolve to reach the sent state; reject with an Error to show
      the failure block. payload is { need, program, name, email, org, msg }.

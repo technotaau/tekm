@@ -330,3 +330,17 @@ registered.
 | WhatsApp follow-up yes or no, and the number (spec section 11) | `whatsapp_tap` link and the consent line |
 | First lead magnet (inventory input 11) | `brochure_download` |
 | Meta pixel and LinkedIn Insight Tag ids | Section 6 item 13 |
+
+
+## Addendum, 4 September 2026: hero slider
+
+New event `hero_slide_view`, pushed on every slide change:
+`{event: "hero_slide_view", slide_index: 1|2|3, slide_label: "Who we are"|"Consulting"|"AI programs", trigger: "auto"|"tab"|"arrow"|"swipe"}`.
+Register `slide_label` and `trigger` as custom dimensions. Read it as an
+engagement signal, not a conversion: the share of sessions with a `tab` or
+`swipe` trigger tells us whether visitors use the slider at all.
+
+New `cta_id` values on the slide buttons: `hero2_talk`, `hero2_how`,
+`hero3_programs`, `hero3_enquire`. Slide 1 keeps `hero_talk` and
+`hero_programs`. The photo band has no CTA and is not in the `section_view`
+list.

@@ -20,6 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Spline+Sans+Mono:wght@400;500&display=swap">
+<link rel="preload" as="image" type="image/webp" imagesrcset="../assets/img/hero-1-engineering-800.webp 800w, ../assets/img/hero-1-engineering.webp 1600w" imagesizes="(min-width: 960px) 42vw, 100vw" fetchpriority="high">
 <link rel="stylesheet" href="styles.css">
 
 <!-- JSON-LD, pasted verbatim from prototype/schema/*.json (seo.md section 5). -->
@@ -143,27 +144,92 @@
 <!-- 2. Hero -->
 <section class="hero" id="hero" aria-labelledby="hero-title">
   <div class="hero__inner">
-    <div class="hero__grid">
-      <div class="hero__copy">
-        <p class="eyebrow eyebrow--sky mono">CONSULTING · CLOUD · AGILE · AI UPSKILLING</p>
-        <h1 class="hero__title" id="hero-title">Twenty years each in enterprise engineering. Now teaching production AI.</h1>
-        <p class="hero__lede">TEKMentors, Gurugram, since 2017. Consulting for a large UK bank, an international financial institution and a multinational technology consulting firm serving Fortune 500 clients. AI programs taught live by IIT (BHU) engineers with 20-plus years each.</p>
-        <div class="hero__actions">
-          <a class="btn btn--accent" href="#contact" data-event="cta_click" data-cta_id="hero_talk" data-location="hero">Talk to a consultant</a>
-          <a class="btn btn--ghost" href="#programs" data-event="cta_click" data-cta_id="hero_programs" data-location="hero">See the AI programs</a>
+    <div class="slider" data-slider>
+      <div class="slider__viewport" data-slider-viewport>
+        <div class="slider__track" data-slider-track data-index="0">
+
+          <div class="slide is-active" id="slide-1" role="tabpanel" aria-labelledby="slide-tab-1" data-slide data-slide-label="Who we are">
+            <div class="slide__copy">
+              <!-- The h1 stays exposed to assistive tech on every slide; the parts
+                   around it carry the aria-hidden and inert state instead. -->
+              <p class="eyebrow eyebrow--sky mono" data-slide-part>CONSULTING · CLOUD · AGILE · AI UPSKILLING</p>
+              <h1 class="hero__title" id="hero-title">Twenty years each in enterprise engineering. Now teaching production AI.</h1>
+              <div data-slide-part>
+                <p class="hero__lede">TEKMentors, Gurugram, since 2017. Consulting for a large UK bank, an international financial institution and a multinational technology consulting firm serving Fortune 500 clients. AI programs taught live by IIT (BHU) engineers with 20-plus years each.</p>
+                <div class="hero__actions">
+                  <a class="btn btn--accent" href="#contact" data-event="cta_click" data-cta_id="hero_talk" data-location="hero">Talk to a consultant</a>
+                  <a class="btn btn--ghost" href="#programs" data-event="cta_click" data-cta_id="hero_programs" data-location="hero">See the AI programs</a>
+                </div>
+              </div>
+            </div>
+            <div class="slide__media" data-slide-part>
+              <picture><source type="image/webp" srcset="../assets/img/hero-1-engineering-800.webp 800w, ../assets/img/hero-1-engineering.webp 1600w" sizes="(min-width: 960px) 42vw, 100vw"><img src="../assets/img/hero-1-engineering.jpg" srcset="../assets/img/hero-1-engineering-800.jpg 800w, ../assets/img/hero-1-engineering.jpg 1600w" sizes="(min-width: 960px) 42vw, 100vw" alt="Two engineers reviewing code at their desks" width="1600" height="1000" fetchpriority="high" decoding="async"></picture>
+            </div>
+          </div>
+
+          <!-- Slides 2 and 3 hold their photo in data-src; the slider sets src just
+               before the slide is shown, so the phone does not download 415KB it
+               may never see (Chrome's native lazy margin reaches the offscreen track). -->
+          <div class="slide" id="slide-2" role="tabpanel" aria-labelledby="slide-tab-2" aria-hidden="true" inert data-slide data-slide-label="Consulting">
+            <div class="slide__copy">
+              <p class="eyebrow eyebrow--sky mono">ENTERPRISE CONSULTING</p>
+              <h2 class="hero__title" id="slide-2-title">The gap is never the model. It is everything around it.</h2>
+              <p class="hero__lede">Most AI pilots we are shown work perfectly and will never go live. We build the governed pipeline around the model, then hand it to your engineers with a named owner.</p>
+              <div class="hero__actions">
+                <a class="btn btn--accent" href="#contact" tabindex="-1" data-event="cta_click" data-cta_id="hero2_talk" data-location="hero">Talk to a consultant</a>
+                <a class="btn btn--ghost" href="#how" tabindex="-1" data-event="cta_click" data-cta_id="hero2_how" data-location="hero">How an engagement runs</a>
+              </div>
+            </div>
+            <div class="slide__media">
+              <picture><source type="image/webp" data-srcset="../assets/img/hero-2-consulting-800.webp 800w, ../assets/img/hero-2-consulting.webp 1600w" sizes="(min-width: 960px) 42vw, 100vw"><img data-src="../assets/img/hero-2-consulting.jpg" data-srcset="../assets/img/hero-2-consulting-800.jpg 800w, ../assets/img/hero-2-consulting.jpg 1600w" sizes="(min-width: 960px) 42vw, 100vw" alt="A consultant presenting to a leadership team in a boardroom" width="1600" height="1000" loading="lazy" decoding="async"></picture>
+            </div>
+          </div>
+
+          <div class="slide" id="slide-3" role="tabpanel" aria-labelledby="slide-tab-3" aria-hidden="true" inert data-slide data-slide-label="AI programs">
+            <div class="slide__copy">
+              <p class="eyebrow eyebrow--sky mono">LIVE PROGRAMS, GURUGRAM AND ONLINE</p>
+              <h2 class="hero__title" id="slide-3-title">Four programs. Each one ends in something you can show.</h2>
+              <p class="hero__lede">AI Forward Deployed Engineer for engineers with 3 to 8 years. GenAI foundations to production for graduates, 16 weeks and 144 hours. Two days of AI-enabled agile leadership. GenAI developer training for whole teams. All live, taught by IIT (BHU) engineers with 20-plus years each.</p>
+              <div class="hero__actions">
+                <a class="btn btn--accent" href="#programs" tabindex="-1" data-event="cta_click" data-cta_id="hero3_programs" data-location="hero">See the AI programs</a>
+                <a class="btn btn--ghost" href="#contact" tabindex="-1" data-need="join_program" data-event="cta_click" data-cta_id="hero3_enquire" data-location="hero">Enquire about a batch</a>
+              </div>
+            </div>
+            <div class="slide__media">
+              <picture><source type="image/webp" data-srcset="../assets/img/hero-3-programs-800.webp 800w, ../assets/img/hero-3-programs.webp 1600w" sizes="(min-width: 960px) 42vw, 100vw"><img data-src="../assets/img/hero-3-programs.jpg" data-srcset="../assets/img/hero-3-programs-800.jpg 800w, ../assets/img/hero-3-programs.jpg 1600w" sizes="(min-width: 960px) 42vw, 100vw" alt="A live technical workshop with participants at laptops" width="1600" height="1000" loading="lazy" decoding="async"></picture>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <div class="router">
-        <h2 class="router__label mono" id="router-title">Start where it hurts</h2>
-        <ul class="router__list" aria-labelledby="router-title">
-          <li><a class="router__row" href="#consulting" data-event="route_click" data-route="pilot"><span>A pilot that works but will not go live</span><span class="arrow" aria-hidden="true">→</span></a></li>
-          <li><a class="router__row" href="#consulting" data-event="route_click" data-route="cloud_spend"><span>Cloud spend nobody can explain</span><span class="arrow" aria-hidden="true">→</span></a></li>
-          <li><a class="router__row" href="#program-fde" data-event="route_click" data-route="engineers_to_ai"><span>Engineers who need to become AI engineers</span><span class="arrow" aria-hidden="true">→</span></a></li>
-          <li><a class="router__row" href="#program-leaders" data-event="route_click" data-route="agile_slow"><span>Agile on paper, slow in practice</span><span class="arrow" aria-hidden="true">→</span></a></li>
-          <li><a class="router__row" href="#program-genai" data-event="route_click" data-route="graduate_job"><span>A graduate who wants the AI job, not the course</span><span class="arrow" aria-hidden="true">→</span></a></li>
-        </ul>
+      <div class="slider__controls">
+        <div class="slider__tabs" role="tablist" aria-label="Hero slides">
+          <button class="slider__tab is-active" type="button" role="tab" id="slide-tab-1" aria-selected="true" aria-controls="slide-1" tabindex="0" data-slide-tab>Who we are<span class="slider__progress" aria-hidden="true"></span></button>
+          <button class="slider__tab" type="button" role="tab" id="slide-tab-2" aria-selected="false" aria-controls="slide-2" tabindex="-1" data-slide-tab>Consulting<span class="slider__progress" aria-hidden="true"></span></button>
+          <button class="slider__tab" type="button" role="tab" id="slide-tab-3" aria-selected="false" aria-controls="slide-3" tabindex="-1" data-slide-tab>AI programs<span class="slider__progress" aria-hidden="true"></span></button>
+        </div>
+        <div class="slider__arrows">
+          <button class="slider__arrow" type="button" aria-label="Previous slide" data-slider-prev>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7"/></svg>
+          </button>
+          <button class="slider__arrow" type="button" aria-label="Next slide" data-slider-next>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+        <p class="sr-only" aria-live="polite" aria-atomic="true" data-slider-status>1 of 3</p>
       </div>
+    </div>
+
+    <div class="router">
+      <h2 class="router__label mono" id="router-title">Start where it hurts</h2>
+      <ul class="router__list" aria-labelledby="router-title">
+        <li><a class="router__pill" href="#consulting" data-event="route_click" data-route="pilot"><span>A pilot that works but will not go live</span><span class="arrow" aria-hidden="true">→</span></a></li>
+        <li><a class="router__pill" href="#consulting" data-event="route_click" data-route="cloud_spend"><span>Cloud spend nobody can explain</span><span class="arrow" aria-hidden="true">→</span></a></li>
+        <li><a class="router__pill" href="#program-fde" data-event="route_click" data-route="engineers_to_ai"><span>Engineers who need to become AI engineers</span><span class="arrow" aria-hidden="true">→</span></a></li>
+        <li><a class="router__pill" href="#program-leaders" data-event="route_click" data-route="agile_slow"><span>Agile on paper, slow in practice</span><span class="arrow" aria-hidden="true">→</span></a></li>
+        <li><a class="router__pill" href="#program-genai" data-event="route_click" data-route="graduate_job"><span>A graduate who wants the AI job, not the course</span><span class="arrow" aria-hidden="true">→</span></a></li>
+      </ul>
     </div>
 
     <dl class="facts">
@@ -250,15 +316,20 @@
       <tbody>
         <tr class="roster__row roster__row--flagship" id="program-fde">
           <th scope="row" class="roster__program">
-            <p class="roster__label roster__label--green mono">FLAGSHIP</p>
-            <h3 class="roster__title roster__title--lg">AI Forward Deployed Engineer</h3>
-            <p class="roster__body">LLM, RAG and agentic engineering on one real enterprise problem, with evaluation, security and governance in the build. Plus the customer-facing half of the job: discovery calls, design reviews and briefing an executive who has eight minutes. Ends with a working system and an executive demo.</p>
-            <p class="roster__builds-label mono">WHAT YOU BUILD</p>
-            <ol class="builds">
-              <li><strong>RAG on your enterprise data.</strong> LangChain, pgvector, OpenSearch.</li>
-              <li><strong>An agent with real integrations.</strong> LangGraph, MCP, FastAPI.</li>
-              <li><strong>An evaluated, governed deployment.</strong> Docker, GitHub Actions, Terraform, OpenTelemetry.</li>
-            </ol>
+            <div class="roster__cell">
+              <img class="roster__thumb" src="../assets/img/program-fde.jpg" alt="Engineer working on production systems" width="800" height="600" loading="lazy" decoding="async">
+              <div class="roster__text">
+                <p class="roster__label roster__label--green mono">FLAGSHIP</p>
+                <h3 class="roster__title roster__title--lg">AI Forward Deployed Engineer</h3>
+                <p class="roster__body">LLM, RAG and agentic engineering on one real enterprise problem, with evaluation, security and governance in the build. Plus the customer-facing half of the job: discovery calls, design reviews and briefing an executive who has eight minutes. Ends with a working system and an executive demo.</p>
+                <p class="roster__builds-label mono">WHAT YOU BUILD</p>
+                <ol class="builds">
+                  <li><strong>RAG on your enterprise data.</strong> LangChain, pgvector, OpenSearch.</li>
+                  <li><strong>An agent with real integrations.</strong> LangGraph, MCP, FastAPI.</li>
+                  <li><strong>An evaluated, governed deployment.</strong> Docker, GitHub Actions, Terraform, OpenTelemetry.</li>
+                </ol>
+              </div>
+            </div>
           </th>
           <td data-label="Who it is for">Engineers with 3 to 8 years behind them, individually or as a company cohort.</td>
           <td data-label="Length">6 to 8 weeks</td>
@@ -268,15 +339,20 @@
 
         <tr class="roster__row" id="program-genai">
           <th scope="row" class="roster__program">
-            <p class="roster__label roster__label--blue mono">JOB READY</p>
-            <h3 class="roster__title">GenAI engineering: foundations to production</h3>
-            <p class="roster__body">A RAG assistant, an MCP-enabled agent and a multimodal pipeline, each one deployed rather than simulated in a notebook. Ends with mock interviews, an industry panel viva, placement assistance and a capstone you can walk someone through line by line.</p>
-            <p class="roster__builds-label mono">WHAT YOU BUILD</p>
-            <ol class="builds">
-              <li><strong>RAG assistant, v1 and v2.</strong></li>
-              <li><strong>MCP-enabled AI agent.</strong></li>
-              <li><strong>Multimodal AI pipeline.</strong></li>
-            </ol>
+            <div class="roster__cell">
+              <img class="roster__thumb" src="../assets/img/program-genai.jpg" alt="Graduates working together at a laptop" width="800" height="600" loading="lazy" decoding="async">
+              <div class="roster__text">
+                <p class="roster__label roster__label--blue mono">JOB READY</p>
+                <h3 class="roster__title">GenAI engineering: foundations to production</h3>
+                <p class="roster__body">A RAG assistant, an MCP-enabled agent and a multimodal pipeline, each one deployed rather than simulated in a notebook. Ends with mock interviews, an industry panel viva, placement assistance and a capstone you can walk someone through line by line.</p>
+                <p class="roster__builds-label mono">WHAT YOU BUILD</p>
+                <ol class="builds">
+                  <li><strong>RAG assistant, v1 and v2.</strong></li>
+                  <li><strong>MCP-enabled AI agent.</strong></li>
+                  <li><strong>Multimodal AI pipeline.</strong></li>
+                </ol>
+              </div>
+            </div>
           </th>
           <td data-label="Who it is for">Final-year students and graduates up to two years in. Basic programming, no AI background.</td>
           <td data-label="Length">16 weeks, 144 hours</td>
@@ -286,16 +362,21 @@
 
         <tr class="roster__row" id="program-leaders">
           <th scope="row" class="roster__program">
-            <p class="roster__label roster__label--leaf mono">NO CODE REQUIRED</p>
-            <h3 class="roster__title">AI-enabled agile and product leadership</h3>
-            <p class="roster__body">For Scrum Masters, Product Owners and delivery leads. Enough AI to back the right idea, question the wrong one and stop nodding along in vendor meetings. Ends with your own team showing what they built.</p>
-            <p class="roster__builds-label mono">WHAT YOU BUILD</p>
-            <ol class="builds">
-              <li><strong>Product discovery and a backlog worked through with AI.</strong></li>
-              <li><strong>Your agile ceremonies with AI in the loop.</strong></li>
-              <li><strong>A workflow automated by an AI agent, as the team capstone.</strong></li>
-            </ol>
-            <p class="roster__tools">ChatGPT, Claude, Gemini, Copilot, Perplexity, NotebookLM, with Jira, Confluence, Miro and Mural.</p>
+            <div class="roster__cell">
+              <img class="roster__thumb" src="../assets/img/program-leaders.jpg" alt="Team planning at a whiteboard" width="800" height="600" loading="lazy" decoding="async">
+              <div class="roster__text">
+                <p class="roster__label roster__label--leaf mono">NO CODE REQUIRED</p>
+                <h3 class="roster__title">AI-enabled agile and product leadership</h3>
+                <p class="roster__body">For Scrum Masters, Product Owners and delivery leads. Enough AI to back the right idea, question the wrong one and stop nodding along in vendor meetings. Ends with your own team showing what they built.</p>
+                <p class="roster__builds-label mono">WHAT YOU BUILD</p>
+                <ol class="builds">
+                  <li><strong>Product discovery and a backlog worked through with AI.</strong></li>
+                  <li><strong>Your agile ceremonies with AI in the loop.</strong></li>
+                  <li><strong>A workflow automated by an AI agent, as the team capstone.</strong></li>
+                </ol>
+                <p class="roster__tools">ChatGPT, Claude, Gemini, Copilot, Perplexity, NotebookLM, with Jira, Confluence, Miro and Mural.</p>
+              </div>
+            </div>
           </th>
           <td data-label="Who it is for">Agile and product leaders, run privately for a team.</td>
           <td data-label="Length">2 days</td>
@@ -305,15 +386,20 @@
 
         <tr class="roster__row" id="program-teams">
           <th scope="row" class="roster__program">
-            <p class="roster__label roster__label--blue mono">FOR ENGINEERING TEAMS</p>
-            <h3 class="roster__title">GenAI developer training for teams</h3>
-            <p class="roster__body">Six to eight weeks that get an existing team building RAG apps and AI-assisted workflows on your own stack. Eight modules, four labs, your codebase.</p>
-            <p class="roster__builds-label mono">WHAT YOU BUILD</p>
-            <ol class="builds">
-              <li><strong>AI-assisted coding in your own repositories.</strong> GPT, Gemini, Claude.</li>
-              <li><strong>A RAG app on your documents.</strong> LangChain and a vector database.</li>
-              <li><strong>An AI workflow deployed through your DevOps pipeline.</strong></li>
-            </ol>
+            <div class="roster__cell">
+              <img class="roster__thumb" src="../assets/img/program-teams.jpg" alt="Engineering team in an open office" width="800" height="600" loading="lazy" decoding="async">
+              <div class="roster__text">
+                <p class="roster__label roster__label--blue mono">FOR ENGINEERING TEAMS</p>
+                <h3 class="roster__title">GenAI developer training for teams</h3>
+                <p class="roster__body">Six to eight weeks that get an existing team building RAG apps and AI-assisted workflows on your own stack. Eight modules, four labs, your codebase.</p>
+                <p class="roster__builds-label mono">WHAT YOU BUILD</p>
+                <ol class="builds">
+                  <li><strong>AI-assisted coding in your own repositories.</strong> GPT, Gemini, Claude.</li>
+                  <li><strong>A RAG app on your documents.</strong> LangChain and a vector database.</li>
+                  <li><strong>An AI workflow deployed through your DevOps pipeline.</strong></li>
+                </ol>
+              </div>
+            </div>
           </th>
           <td data-label="Who it is for">Engineering teams, with basic Python.</td>
           <td data-label="Length">6 to 8 weeks</td>
@@ -382,6 +468,15 @@
       <li><a class="practice" href="https://www.tekmentors.com/data-and-web-analytics-expertise/" data-event="service_click" data-service="analytics"><span class="practice__num mono">04</span><span class="practice__text"><span class="practice__title">Data and web analytics</span><span class="practice__line">Instrumentation you can trust on Adobe and Google stacks, so the next argument is about strategy rather than the numbers.</span></span><span class="arrow" aria-hidden="true">→</span></a></li>
       <li><a class="practice" href="#programs" data-event="service_click" data-service="upskilling"><span class="practice__num mono">05</span><span class="practice__text"><span class="practice__title">Upskilling</span><span class="practice__line">Live programs on your own stack that leave your team able to build the thing without us. Four of them are above.</span></span><span class="arrow" aria-hidden="true">→</span></a></li>
     </ul>
+  </div>
+</section>
+
+<!-- 6b. Where the work happens: photo band -->
+<section class="band" id="where" aria-labelledby="where-title">
+  <img class="band__img" src="../assets/img/band-office.jpg" alt="" width="2000" height="800" loading="lazy" decoding="async" aria-hidden="true">
+  <div class="wrap band__inner">
+    <h2 class="eyebrow eyebrow--sky mono band__eyebrow" id="where-title">WHERE THE WORK HAPPENS</h2>
+    <p class="band__line">Consulting and training from Gurugram since 2017. Live online, on site in Delhi NCR, or hybrid.</p>
   </div>
 </section>
 
@@ -512,9 +607,9 @@
     </div>
 
     <ul class="posts">
-      <li><a class="post" href="https://www.tekmentors.com/from-data-silos-to-business-agility-how-financial-leaders-turn-information-into-competitive-advantage/" data-event="insight_click" data-position="1"><span class="post__cat mono">DATA AND AGILITY</span><div class="post__main"><h3 class="post__title">From data silos to business agility: how financial leaders turn information into competitive advantage</h3></div><span class="arrow" aria-hidden="true">→</span></a></li>
-      <li><a class="post" href="https://www.tekmentors.com/5-critical-success-factors-for-financial-services-leaders/" data-event="insight_click" data-position="2"><span class="post__cat mono">TRANSFORMATION</span><div class="post__main"><h3 class="post__title">Why 70% of digital transformation projects fail: five critical success factors for financial services leaders</h3></div><span class="arrow" aria-hidden="true">→</span></a></li>
-      <li><a class="post" href="https://www.tekmentors.com/the-hidden-costs-of-cloud-migration-7-critical-pitfalls-financial-services-leaders-must-avoid/" data-event="insight_click" data-position="3"><span class="post__cat mono">CLOUD</span><div class="post__main"><h3 class="post__title">The hidden costs of cloud migration: seven pitfalls financial services leaders must avoid</h3></div><span class="arrow" aria-hidden="true">→</span></a></li>
+      <li><a class="post" href="https://www.tekmentors.com/from-data-silos-to-business-agility-how-financial-leaders-turn-information-into-competitive-advantage/" data-event="insight_click" data-position="1"><img class="post__thumb" src="../assets/img/insight-1.jpg" alt="" width="640" height="400" loading="lazy" decoding="async"><span class="post__cat mono">DATA AND AGILITY</span><div class="post__main"><h3 class="post__title">From data silos to business agility: how financial leaders turn information into competitive advantage</h3></div><span class="arrow" aria-hidden="true">→</span></a></li>
+      <li><a class="post" href="https://www.tekmentors.com/5-critical-success-factors-for-financial-services-leaders/" data-event="insight_click" data-position="2"><img class="post__thumb" src="../assets/img/insight-2.jpg" alt="" width="640" height="400" loading="lazy" decoding="async"><span class="post__cat mono">TRANSFORMATION</span><div class="post__main"><h3 class="post__title">Why 70% of digital transformation projects fail: five critical success factors for financial services leaders</h3></div><span class="arrow" aria-hidden="true">→</span></a></li>
+      <li><a class="post" href="https://www.tekmentors.com/the-hidden-costs-of-cloud-migration-7-critical-pitfalls-financial-services-leaders-must-avoid/" data-event="insight_click" data-position="3"><img class="post__thumb" src="../assets/img/insight-3.jpg" alt="" width="640" height="400" loading="lazy" decoding="async"><span class="post__cat mono">CLOUD</span><div class="post__main"><h3 class="post__title">The hidden costs of cloud migration: seven pitfalls financial services leaders must avoid</h3></div><span class="arrow" aria-hidden="true">→</span></a></li>
     </ul>
   </div>
 </section>

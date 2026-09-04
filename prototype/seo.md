@@ -216,3 +216,6 @@ The qa-reviewer and seo-schema run these together at Gate 3.
    HTML and CSS inside a `<figure>` with `aria-label="Before and after: a
    disconnected pilot compared with one governed pipeline"`.
 6. Lighthouse SEO 90 or above on mobile.
+
+
+Addendum, 4 September 2026: the photo band adds one h2 ("Where the work happens", id "where") between the consulting section and "How an engagement runs". Slides 2 and 3 of the hero use h2 styled as the h1; the page still has exactly one h1.
