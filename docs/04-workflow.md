@@ -142,3 +142,19 @@ Gate 3: QA report all green. Jakhar Singh approves for handoff.
   artifact link and what is needed to pass the gate.
 - Client-facing documents produced from this repo are signed
   "TechnoTaau Team" and name Jakhar Singh as the contact.
+
+
+## Status, 4 September 2026
+
+| Phase | State |
+|---|---|
+| 0 Context and workflow | Complete |
+| 1 Canvas reconciliation | Complete; Gate 1 approved by Jakhar Singh ("all is good for now"), then full ownership handed to the Design Lead |
+| 2 Content, SEO, tracking | Complete: `prototype/copy.md`, `prototype/seo.md`, `prototype/schema/`, `docs/08-tracking-plan.md`, `docs/07-reference-analysis.md` |
+| 3 Visual design canvas | Folded into Phase 4: v4 from the export is the design of record, so no second canvas was drawn |
+| 4 Prototype | Complete: `prototype/`, artifact published, `docs/qa/build/` |
+| 5 QA | Round 1 complete, one fix applied, `docs/qa/round-1/` |
+| 6 Handoff | Complete: `docs/09-elementor-handoff.md` |
+
+Remaining before launch: the client inputs in `docs/02-content-inventory.md`
+and the WordPress build itself, measured against the prototype.
