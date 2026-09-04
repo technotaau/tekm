@@ -1,0 +1,60 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://www.tekmentors.com/#faq",
+  "url": "https://www.tekmentors.com/#answers",
+  "inLanguage": "en",
+  "isPartOf": {
+    "@id": "https://www.tekmentors.com/#website"
+  },
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Where should we actually start with AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "With the process your best people complain about most. It is usually unglamorous, already has a number attached, and nobody has offered to fix it because it is boring. That is exactly why it is the right first project."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Our pilot works. Why can it not go live?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because a pilot proves the model and production needs everything else: governed data access, an evaluation set, a deployment path, monitoring, and a named owner on Monday morning. We build those in from week one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do we hire AI engineers or train ours?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Train the ones who already know your systems, your data and who to call when something breaks at nine on a Friday. That knowledge takes years to rebuild. The AI part takes weeks, and that is the part we teach."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the first conversation cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nothing, including the one page recommendation that follows it. It is the fastest way for both sides to find out whether the work is a fit, and you keep the page either way."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you work inside our security rules?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and we would rather meet your risk and security people in week one than week six. We will sign your NDA before the scoping session if that is easier. Remote, on site in Delhi NCR, or a mix."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens when you leave?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your engineers keep running it, because they built most of it with us watching rather than the other way round. Handover is a phase with a date on it, not a conversation we have when the invoice is due."
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://www.tekmentors.com/#website",
+  "url": "https://www.tekmentors.com/",
+  "name": "TEKMentors",
+  "alternateName": "TEKMentors Consulting Private Limited",
+  "inLanguage": "en",
+  "publisher": {
+    "@id": "https://www.tekmentors.com/#organization"
+  }
+}

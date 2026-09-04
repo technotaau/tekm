@@ -1,0 +1,42 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://www.tekmentors.com/#organization",
+  "name": "TEKMentors",
+  "legalName": "TEKMentors Consulting Private Limited",
+  "url": "https://www.tekmentors.com/",
+  "logo": {
+    "@type": "ImageObject",
+    "@id": "https://www.tekmentors.com/#logo",
+    "url": "https://www.tekmentors.com/wp-content/uploads/2025/02/TEKMentors_Logo.png",
+    "contentUrl": "https://www.tekmentors.com/wp-content/uploads/2025/02/TEKMentors_Logo.png",
+    "caption": "TEKMentors"
+  },
+  "image": {
+    "@id": "https://www.tekmentors.com/#logo"
+  },
+  "slogan": "Enabling minds to explore possibilities",
+  "foundingDate": "2017",
+  "email": "info@tekmentors.com",
+  "telephone": "+919958777467",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Plot 23, Sector 18, Maruti Industrial Area",
+    "addressLocality": "Gurugram",
+    "addressRegion": "Haryana",
+    "postalCode": "122015",
+    "addressCountry": "IN"
+  },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "telephone": "+919958777467",
+      "email": "info@tekmentors.com",
+      "availableLanguage": ["en"]
+    }
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/company/tekmentors/"
+  ]
+}
