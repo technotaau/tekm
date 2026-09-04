@@ -1,0 +1,197 @@
+{
+  "lh-asis": {
+    "scores": {
+      "performance": 88,
+      "accessibility": 100,
+      "best-practices": 96,
+      "seo": 100
+    },
+    "metrics": {
+      "first-contentful-paint": "1.8\u00a0s",
+      "largest-contentful-paint": "2.1\u00a0s",
+      "total-blocking-time": "50\u00a0ms",
+      "cumulative-layout-shift": "0",
+      "speed-index": "20.2\u00a0s",
+      "interactive": "2.3\u00a0s"
+    },
+    "lcp_element": null,
+    "audits_under_0.9": [
+      [
+        "first-contentful-paint",
+        0.89,
+        "First Contentful Paint"
+      ],
+      [
+        "speed-index",
+        0,
+        "Speed Index"
+      ],
+      [
+        "max-potential-fid",
+        0.84,
+        "Max Potential First Input Delay"
+      ],
+      [
+        "errors-in-console",
+        0,
+        "Browser errors were logged to the console"
+      ],
+      [
+        "uses-long-cache-ttl",
+        0.5,
+        "Serve static assets with an efficient cache policy"
+      ],
+      [
+        "render-blocking-resources",
+        0,
+        "Eliminate render-blocking resources"
+      ],
+      [
+        "unminified-css",
+        0,
+        "Minify CSS"
+      ],
+      [
+        "unminified-javascript",
+        0,
+        "Minify JavaScript"
+      ],
+      [
+        "modern-image-formats",
+        0,
+        "Serve images in next-gen formats"
+      ],
+      [
+        "uses-text-compression",
+        0,
+        "Enable text compression"
+      ],
+      [
+        "uses-responsive-images",
+        0,
+        "Properly size images"
+      ],
+      [
+        "cache-insight",
+        0,
+        "Use efficient cache lifetimes"
+      ],
+      [
+        "document-latency-insight",
+        0.5,
+        "Document request latency"
+      ],
+      [
+        "image-delivery-insight",
+        0,
+        "Improve image delivery"
+      ],
+      [
+        "network-dependency-tree-insight",
+        0,
+        "Network dependency tree"
+      ],
+      [
+        "render-blocking-insight",
+        0,
+        "Render blocking requests"
+      ]
+    ],
+    "lighthouse": "12.8.2",
+    "fetchTime": "2026-09-04T08:08:16.266Z",
+    "formFactor": "mobile",
+    "blocked": null
+  },
+  "lh-blocked": {
+    "scores": {
+      "performance": 97,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "metrics": {
+      "first-contentful-paint": "1.8\u00a0s",
+      "largest-contentful-paint": "2.3\u00a0s",
+      "total-blocking-time": "0\u00a0ms",
+      "cumulative-layout-shift": "0",
+      "speed-index": "1.8\u00a0s",
+      "interactive": "2.4\u00a0s"
+    },
+    "lcp_element": null,
+    "audits_under_0.9": [
+      [
+        "first-contentful-paint",
+        0.89,
+        "First Contentful Paint"
+      ],
+      [
+        "uses-long-cache-ttl",
+        0.5,
+        "Serve static assets with an efficient cache policy"
+      ],
+      [
+        "render-blocking-resources",
+        0.5,
+        "Eliminate render-blocking resources"
+      ],
+      [
+        "unminified-css",
+        0,
+        "Minify CSS"
+      ],
+      [
+        "unminified-javascript",
+        0,
+        "Minify JavaScript"
+      ],
+      [
+        "modern-image-formats",
+        0,
+        "Serve images in next-gen formats"
+      ],
+      [
+        "uses-text-compression",
+        0,
+        "Enable text compression"
+      ],
+      [
+        "uses-responsive-images",
+        0,
+        "Properly size images"
+      ],
+      [
+        "cache-insight",
+        0,
+        "Use efficient cache lifetimes"
+      ],
+      [
+        "document-latency-insight",
+        0.5,
+        "Document request latency"
+      ],
+      [
+        "image-delivery-insight",
+        0,
+        "Improve image delivery"
+      ],
+      [
+        "network-dependency-tree-insight",
+        0,
+        "Network dependency tree"
+      ],
+      [
+        "render-blocking-insight",
+        0,
+        "Render blocking requests"
+      ]
+    ],
+    "lighthouse": "12.8.2",
+    "fetchTime": "2026-09-04T08:09:42.868Z",
+    "formFactor": "mobile",
+    "blocked": [
+      "*fonts.googleapis.com*",
+      "*fonts.gstatic.com*",
+      "*tekmentors.com*"
+    ]
+  }
+}
