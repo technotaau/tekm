@@ -21,7 +21,7 @@
       "name": "Our pilot works. Why can it not go live?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Because a pilot proves the model and production needs everything else: governed data access, an evaluation set, a deployment path, monitoring, and a named owner on Monday morning. We build those in from week one."
+        "text": "Because a pilot proves the model and production needs everything else: governed data access, an evaluation set, a deployment path, monitoring and a named owner on Monday morning. We build those in from week one."
       }
     },
     {
@@ -45,7 +45,7 @@
       "name": "Can you work inside our security rules?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, and we would rather meet your risk and security people in week one than week six. We will sign your NDA before the scoping session if that is easier. Remote, on site in Delhi NCR, or a mix."
+        "text": "Yes, and we would rather meet your risk and security people in week one than week six. We will sign your NDA before the scoping session if that is easier. Online, on site in Delhi NCR or a mix."
       }
     },
     {
@@ -53,7 +53,7 @@
       "name": "What happens when you leave?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Your engineers keep running it, because they built most of it with us watching rather than the other way round. Handover is a phase with a date on it, not a conversation we have when the invoice is due."
+        "text": "Your engineers keep running it, because they built most of it with us watching rather than the other way round. Handover is a phase with a date on it, not a conversation we have when the invoice is due. If you still need us in a year, something went wrong."
       }
     }
   ]
