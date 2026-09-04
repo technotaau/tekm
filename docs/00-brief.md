@@ -73,6 +73,28 @@ Three pillars, in this order:
 
 Existing tagline, keep it: "Enabling minds to explore possibilities".
 
+## 5b. Client direction received 4 September 2026 (via Jakhar Singh)
+
+The client wants the homepage to read like a top-class, premium institution
+with legacy experience. Their own words: 80% of flyers in the AI category are
+built entirely by AI, "even we are also doing", and they want content and
+design that spark the visitor instead. Consequences for the work:
+
+- Positioning leads with institutional weight TEKMentors can prove: IIT (BHU)
+  faculty, 20-plus-year careers, founded 2017, engagements at a UK bank, a
+  global financial institution and a Fortune 500 consultancy.
+- Copy avoids every phrase the AI-flyer genre uses. The banned list in
+  `01-brand.md` extends to: "future-proof", "next-gen", "AI-powered" as a
+  modifier, "master", "accelerate your journey", "hands-on projects" without
+  saying which, "industry experts" without names, rocket and check emoji,
+  "build, deploy, solve" triplets, "from zero to hero".
+- The register shifts from v4's dry consultant to a senior institution that
+  has done this for a long time and does not need to shout. Specific, human,
+  a little understated. Thoughtworks and Publicis Sapient are the tone
+  references for this; Scaler is not.
+- Design stays restrained: type, rules, one diagram, real faces. Premium is
+  earned by precision and whitespace, not by gradients or stock imagery.
+
 ## 6. Reference and competitive frame
 
 - Structural reference named in the proposal: BITS Pilani Digital,
