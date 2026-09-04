@@ -59,9 +59,10 @@ wraps to two lines at most.
 
 ## 1. Header
 
-Canvas as is at 940px and up: logo 46px, five links (Programs with a "NEW"
-mono pill, Consulting, How we work, Answers, Insights), dark "Talk to us"
-button. Sticky, ground at 94% with backdrop blur, 1px line below.
+Canvas at 940px and up with one addition: logo 46px, six links (Programs
+with a "NEW" mono pill, Consulting, Case studies, How we work, Answers,
+Insights), dark "Talk to us" button. "Case studies" links to the live page;
+Publicis Sapient puts customers in the header for the same reason. Sticky, ground at 94% with backdrop blur, 1px line below.
 
 Below 940px: logo 36px, phone icon link, menu button. The menu is a
 full-height sheet: five links, then "Talk to us", then phone and email.
@@ -75,11 +76,16 @@ Canvas as is, with the facts row replaced.
   drops below the text on phones without overflow.
 - Eyebrow (mono, blue-200 tint #9CD0F2): "CONSULTING · CLOUD · AGILE · AI
   UPSKILLING".
-- H1, clamp(34px, 4.3vw, 74px): "We build the AI systems, and the people who
-  keep them running."
-- Subhead: "Twenty years inside enterprise transformation, a fair few of
-  them rescuing the ones that went sideways. We modernize the systems, get
-  AI into production, and train your team to run it once we leave."
+- H1, clamp(34px, 4.3vw, 74px). Client to pick from the five candidates in
+  `07-reference-analysis.md` section 7. Recommended: "Twenty years each in
+  enterprise engineering. Now teaching production AI." Fallback: keep the
+  v4 line "We build the AI systems, and the people who keep them running."
+- Subhead carries the legacy in one quotable sentence, whichever headline
+  is chosen: "TEKMentors, Gurugram, since 2017. Consulting for a large UK
+  bank, an international financial institution and a multinational
+  consultancy serving Fortune 500 clients. AI programs taught live by
+  IIT (BHU) engineers with 20-plus years each." The facts row underneath
+  then repeats rather than introduces these facts.
 - Buttons: "Talk to a consultant" (blue-500 fill, navy text, to #contact),
   "See the AI programs" (outline, to #programs).
 - Routing card, "START WHERE IT HURTS", five rows each linking to a section:
@@ -128,19 +134,30 @@ Canvas structure with four rows instead of three and three copy corrections.
   engineering on one real enterprise problem, with evaluation, security and
   governance in the build. Plus the customer-facing half of the job:
   discovery calls, design reviews, and briefing an executive who has eight
-  minutes. Ends with a working system and an executive demo." Who: engineers
-  with 3 to 8 years, individually or as a company cohort. 6 to 8 weeks.
-  Live, project led. Button "Enquire".
+  minutes. Ends with a working system and an executive demo." Then three
+  named builds, numbered, with the flyer's tools: 01 RAG on your enterprise
+  data (LangChain, pgvector, OpenSearch); 02 an agent with real integrations
+  (LangGraph, MCP, FastAPI); 03 an evaluated, governed deployment (Docker,
+  GitHub Actions, Terraform, OpenTelemetry). Who: engineers with 3 to 8
+  years, individually or as a company cohort. 6 to 8 weeks. Live, project
+  led. Line: "Next batch starts [INPUT]. Fee [INPUT], instalments if
+  offered." Button "Enquire".
 - Row 2: GenAI engineering: foundations to production. Eyebrow "JOB READY".
   Copy: "A RAG assistant, an MCP-enabled agent and a multimodal pipeline,
   each one deployed rather than simulated in a notebook. Ends with mock
   interviews, an industry panel viva, placement assistance and a capstone
   you can walk someone through line by line." Who: engineering graduates,
-  no AI background needed. 16 weeks, 144 hours. Live, 60% labs. Button
-  "Syllabus" to the program page.
+  no AI background needed. 16 weeks, 144 hours. Live, 60% labs. Three named
+  builds: 01 RAG assistant, v1 and v2; 02 MCP-enabled AI agent; 03
+  multimodal AI pipeline. Line: "Next batch starts [INPUT]. Fee [INPUT]."
+  Button "Syllabus" to the program page.
 - Row 3: AI-enabled agile and product leadership. Eyebrow "NO CODE
   REQUIRED". Copy as canvas. Who: agile and product leaders, run privately
-  for a team [INPUT: minimum size]. 2 days. Live online. Button "Book".
+  for a team [INPUT: minimum size]. 2 days. Live online. Line: "Next date
+  [INPUT]. Fee [INPUT]." Button "Book".
+- Every row keeps its three builds in the mobile stack. The side note
+  "Dates and fees come back with your enquiry" is removed the moment the
+  batch and fee inputs land; until then the [INPUT] lines do not render.
 - Row 4 (new): GenAI developer training for teams. Eyebrow "FOR ENGINEERING
   TEAMS". Copy: "Six to eight weeks that get an existing team building RAG
   apps, AI-assisted workflows and agents on your own stack. Four labs, one
@@ -194,15 +211,22 @@ cost; can you work inside our security rules; what happens when you leave.
 Replaces the canvas "Record" block.
 
 - White card, 14px radius. Eyebrow "ONE ENGAGEMENT, FOUR NUMBERS". Title
-  "Outcomes we have signed our name to." Source line in mono: "DevOps and
-  agile transformation, large UK bank, wealth and private banking."
-- Four stat cells, 42px weight 800, tabular figures: "6 months to 90 days"
-  backlog to production; "10 to 15" releases a year; "20% to 50%" P1 and P2
-  test automation; "25% to 10%" defects in SIT and UAT. Text link "Read the
-  case study".
+  is the outcome with the client typed by sector and scale, the Publicis
+  Sapient case-card pattern: "A large UK bank: backlog to production from
+  six months to 90 days." Source line in mono: "DEVOPS AND AGILE
+  TRANSFORMATION · WEALTH AND PRIVATE BANKING".
+- Four stat cells, 42px weight 800, tabular figures, static text never
+  animated: "6 months to 90 days" backlog to production; "10 to 15" releases
+  a year; "20% to 50%" P1 and P2 test automation; "25% to 10%" defects in
+  SIT and UAT. Text link "Read the case study".
 - Rule, then "WHO IS IN THE ROOM": three mentor cards in a row (photo 72px
-  circle [INPUT], name, title, one credential line, LinkedIn link). Arun
-  Tiwari, Rahul Singh, Abinash Kumar Mishra, with the flyer credentials.
+  circle [INPUT], name, title, credential line, LinkedIn link [INPUT]).
+  Credential line in a fixed format, degree and institution, years, one
+  domain: "B.Tech, IIT (BHU) Varanasi. 24 years in product engineering for
+  startups and enterprises." "B.Tech, IIT (BHU) Varanasi. 20 years in cloud,
+  microservices and event-driven architecture." "Master's in Computer
+  Science, PEC / Panjab University. 20 years building production AI and ML
+  systems." No ratings, no counts.
   Until photos and permission arrive, the row renders as text only, still
   no placeholder avatars.
 - A client quote slot is added only when a quote exists. Never a dashed box
@@ -211,9 +235,10 @@ Replaces the canvas "Record" block.
 
 ## 10. Insights
 
-Canvas as is: h2 "What we have been writing about.", link "Everything on the
-blog", three ruled rows with a mono category, title and arrow. Pulled from
-the WordPress blog at build.
+h2 "What we have been writing about.", intro line "Written by the people
+who teach and consult here.", link "Everything on the blog". Three ruled
+rows: mono category, title, then author and month and year in the small
+style, arrow. All fields pulled from WordPress at build, never typed.
 
 ## 11. Contact
 
@@ -222,6 +247,10 @@ Canvas as is. Navy section, two columns. Left: eyebrow "TALK TO US", h2
 the four-step "what happens next" ruled list (within 1 day a real reply; day
 2 to 4 a 45 minute session; 2 days later a one page recommendation; if you
 want it a proposal), then phone, email, LinkedIn. [INPUT: the promises.]
+The 45 minute session row carries its agenda in one extra line, the
+Publicis Sapient pattern: "We will ask about the process that hurts, the
+number attached to it, who owns it, and what has been tried." Ships only
+with the promise.
 
 Right: the form card, white, 500px max. Title "Tell us what you need",
 line "Four fields, about a minute. It goes straight to the consulting

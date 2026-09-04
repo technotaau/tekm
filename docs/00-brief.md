@@ -81,8 +81,9 @@ built entirely by AI, "even we are also doing", and they want content and
 design that spark the visitor instead. Consequences for the work:
 
 - Positioning leads with institutional weight TEKMentors can prove: IIT (BHU)
-  faculty, 20-plus-year careers, founded 2017, engagements at a UK bank, a
-  global financial institution and a Fortune 500 consultancy.
+  faculty, 20-plus-year careers, founded 2017, engagements at a large UK bank, an
+  international financial institution and a multinational technology
+  consulting firm serving Fortune 500 clients.
 - Copy avoids every phrase the AI-flyer genre uses. The banned list in
   `01-brand.md` extends to: "future-proof", "next-gen", "AI-powered" as a
   modifier, "master", "accelerate your journey", "hands-on projects" without
@@ -94,6 +95,16 @@ design that spark the visitor instead. Consequences for the work:
   references for this; Scaler is not.
 - Design stays restrained: type, rules, one diagram, real faces. Premium is
   earned by precision and whitespace, not by gradients or stock imagery.
+
+## 5c. Reference analysis, 4 September 2026
+
+The client re-sent publicissapient.com and scaler.com as the design and
+content references and stated the goal: the visitor stays, reads, gets
+confident, and fills the lead form or contacts us. The analysis is
+`docs/07-reference-analysis.md`. Decision: Publicis Sapient's register and
+proof discipline, Scaler's program-row and lead mechanics, on v4's
+structure, with TEKMentors' verified facts. Eight pulls were folded into
+the spec; the do-not-pull list stands as written.
 
 ## 6. Reference and competitive frame
 

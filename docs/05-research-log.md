@@ -102,6 +102,15 @@ and must be reconciled with the canvas.
 - Web search for comparable 16-week and FDE programs: GeeksforGeeks,
   NextAgile, Interview Kickstart, FDE Academy, AgileFever.
 
+## Client references, second pass (4 September 2026)
+
+The client re-sent publicissapient.com and scaler.com. The brand-strategist
+fetched both homepages plus the Publicis Sapient customers and company pages
+and the Scaler Academy page (the Scaler FDE URL returned 404). Analysis in
+`docs/07-reference-analysis.md`: pull list, do-not-pull list, dwell-time
+strategy, five headline candidates with a claims check. Chromium could not
+reach either host from the sandbox, so there are no pixel renders.
+
 ## TechnoTaau conventions
 
 - Sibling repo `technotaau/loksankalp-1` reviewed for house conventions:
@@ -119,4 +128,6 @@ and must be reconciled with the canvas.
 - https://bitspilani-digital.edu.in/certification/generative-ai-agentic-ai-course
 - https://github.com/technotaau/loksankalp-1
 - https://claude.ai/code/session_018BWss6i5cvKeg75nXKDXz1 (the handoff session)
+- https://www.publicissapient.com, /customers, /company
+- https://www.scaler.com, /academy/
 - https://www.canva.com/d/YpGsMHA3YMPLiT1 (v4 in Canva) and https://www.canva.com/d/aBY3WRILn6MuxVM (v3 in Canva), created by the design session

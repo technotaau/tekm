@@ -180,3 +180,5 @@ checklist. The homepage reserves one slot for whichever ships first.
 - The canvas counters "50+ clients", "30+ transformations", "100+ programs taught", "10+ awards won" and "20+ years per mentor on average" as a counter. The 20+ years fact is true and belongs in prose, not in a counter row that echoes the live site's zeros.
 - "Teams across India, the Gulf and the US" (v3 canvas copy, no source).
 - "Panel viva" for the FDE program; the flyer says executive customer demo.
+- The live hero "We build enterprise-grade AI solutions" and its subline, on any page. They are the Publicis Sapient homepage hero with one word moved, and a CTO who knows both sites will read it as imitation. See `07-reference-analysis.md` section 2.
+- Any phrasing that implies a partnership with IIT (BHU). Two mentors are alumni; that is a credential of people, not of the institute.
