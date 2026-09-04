@@ -108,8 +108,14 @@ The client's instructions from the canvas sessions, now rules:
 
 ## Imagery
 
-- No stock photography on the homepage. The canvas proves the page works
-  with type, rules, tinted cards and one diagram.
+Revised 4 September 2026 at the client's request: the text-only page read
+as a blog, so photography is now part of the system. The rule is
+restraint: real offices, real work, calm and senior, never posed.
+
+- Stock photographs from Unsplash are placeholders until TEKMentors
+  supplies its own. Sources in `assets/img/SOURCES.md`.
+- Never a stock photo where a real person is implied (mentors, the
+  consultant who replies, a quoted client).
 - The before and after pipeline is the one illustration. Rebuild it as
   inline SVG or CSS boxes, never as a raster.
 - Mentor photos: real headshots from TEKMentors, consistent crop, 1:1,

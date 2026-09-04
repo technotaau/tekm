@@ -118,6 +118,14 @@ reach either host from the sandbox, so there are no pixel renders.
   accessibility rules stated in the README, docs folder with BUILD-SPEC and
   PLAN. This repo follows the same pattern.
 
+## Photography (4 September 2026)
+
+Client asked for stock images and a hero slider. Canva's connector reaches
+only the user's own designs, not its stock library, so photographs were
+sourced from Unsplash through its image host, which is reachable from the
+sandbox. Twenty-four candidates were reviewed on a contact sheet; eleven
+were chosen and sized into `assets/img/` with a sources file.
+
 ## Sources
 
 - https://tekmentors.com/ and its About, GenAI Training Program and Case Studies pages

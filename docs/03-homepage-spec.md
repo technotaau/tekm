@@ -35,11 +35,12 @@ Slots marked [INPUT] depend on items in `02-content-inventory.md`.
 |---|---|---|---|
 | 0 | Promise bar | A, B | navy-950 |
 | 1 | Header | all | ground, sticky, blurred |
-| 2 | Hero with problem routing list and facts row | A, B | navy-900 |
+| 2 | Hero slider, routing band and facts row | A, B | navy-900 |
 | 3 | Client strip | B | surface-2 |
 | 4 | Who writes to us | A, B | ground |
 | 5 | Programs roster | A, B | ground |
 | 6 | Consulting: before and after, five practices | B | ground |
+| 6b | Photo band | B, A | photo with navy overlay |
 | 7 | How an engagement runs | B | ground |
 | 8 | Straight answers | A, B | ground |
 | 9 | Outcomes and mentor bench | B, A | ground, white card |
@@ -68,36 +69,61 @@ Below 940px: logo 36px, phone icon link, menu button. The menu is a
 full-height sheet: five links, then "Talk to us", then phone and email.
 This is the v3 prototype's menu pattern.
 
-## 2. Hero
+## 2. Hero (revised 4 September 2026: slider and photography)
 
-Canvas as is, with the facts row replaced.
+Client request via Jakhar Singh: a hero slider and photography, because the
+text-only page read like a blog. The design record had dropped an
+auto-rotating carousel twice; the Design Lead built the slider in the form
+that avoids the recorded problem (hidden slides) and kept the routing list.
 
-- Two columns, `minmax(min(100%, 400px), 1fr)` auto-fit, so the routing card
-  drops below the text on phones without overflow.
-- Eyebrow (mono, blue-200 tint #9CD0F2): "CONSULTING · CLOUD · AGILE · AI
-  UPSKILLING".
-- H1, clamp(34px, 4.3vw, 74px). Client to pick from the five candidates in
-  `07-reference-analysis.md` section 7. Recommended: "Twenty years each in
-  enterprise engineering. Now teaching production AI." Fallback: keep the
-  v4 line "We build the AI systems, and the people who keep them running."
-- Subhead carries the legacy in one quotable sentence, whichever headline
-  is chosen: "TEKMentors, Gurugram, since 2017. Consulting for a large UK
-  bank, an international financial institution and a multinational
-  consultancy serving Fortune 500 clients. AI programs taught live by
-  IIT (BHU) engineers with 20-plus years each." The facts row underneath
-  then repeats rather than introduces these facts.
-- Buttons: "Talk to a consultant" (blue-500 fill, navy text, to #contact),
-  "See the AI programs" (outline, to #programs).
-- Routing card, "START WHERE IT HURTS", five rows each linking to a section:
-  a pilot that works but will not go live; cloud spend nobody can explain;
-  engineers who need to become AI engineers; agile on paper, slow in
-  practice; a graduate who wants the AI job, not the course.
-- Facts row (replaces "20+ yrs / 50+ / Hands-on / End-to-end"): four cells,
-  30px figure or word plus a 13.5px line. "20+ years": what each mentor
-  brings from industry. "IIT (BHU)": where the senior faculty trained.
-  "2017": consulting and training from Gurugram since. "Live": online, on
-  site in Delhi NCR, or hybrid.
-- Entry animation `v4rise` on the grid only.
+- Navy section with the two radial glows. Inside it, top to bottom: the
+  slider, the routing band, the facts row.
+- Slider: three slides, one per reader. Each slide is text 7/12 left and a
+  photograph 5/12 right (14px radius, 1px white 14% border), stacking below
+  960px with the photo under the text at 16:10.
+  1. "Who we are": h1 "Twenty years each in enterprise engineering. Now
+     teaching production AI.", the legacy subhead, buttons "Talk to a
+     consultant" and "See the AI programs". Photo: two engineers reviewing
+     code.
+  2. "Consulting": "The gap is never the model. It is everything around
+     it." with a two-sentence subhead on the governed pipeline; buttons
+     "Talk to a consultant" and "How an engagement runs". Photo: a
+     consultant presenting to a leadership team.
+  3. "AI programs": "Four programs. Each one ends in something you can
+     show." with a one-line-per-program subhead; buttons "See the AI
+     programs" and "Enquire about a batch". Photo: a live workshop.
+  Only slide 1 carries the h1; slides 2 and 3 use h2 styled the same.
+- Controls: labelled tabs (Who we are, Consulting, AI programs) with the
+  active tab underlined and a progress bar, previous and next arrows at
+  44px, "n of 3" for screen readers. Auto-advance every 8 seconds; pauses on
+  hover, focus, touch and when the tab is hidden; off entirely under
+  prefers-reduced-motion. Swipe on touch. Tabs reset the timer. Every change
+  fires hero_slide_view with the trigger.
+  The tabs are the answer to the recorded objection: all three propositions
+  are visible at once, so nothing depends on waiting for slide two.
+- Routing band, "Start where it hurts": the five problem links as pill links
+  in a wrapping row, same anchors and route_click events as before.
+- Facts row as before: "20+ years", "IIT (BHU)", "2017", "Live", static text.
+- Slide 1 photo is the LCP candidate: under 220KB, width and height set,
+  preloaded, fetchpriority high. Slides 2 and 3 lazy.
+
+## 2b. Photography
+
+Stock photographs from Unsplash, chosen as placeholders until TEKMentors
+supplies its own. Sources and licence in `assets/img/SOURCES.md`. Rules:
+
+- Real offices and real work, calm and senior. No glowing brains, no
+  handshake stock, no posed models.
+- Never a stock photo where a real person is implied: mentors, "the
+  consultant who reads your enquiry", client quotes. Those slots stay text
+  until real photographs arrive.
+- Placement: the three hero slides; a 4:3 thumbnail on each program row; a
+  full-bleed band between the consulting section and the engagement phases
+  ("Consulting and training from Gurugram since 2017. Live online, on site
+  in Delhi NCR, or hybrid."); a small thumbnail on each insight row, to be
+  replaced by WordPress featured images at build.
+- All images have width and height attributes, lazy loading below the fold,
+  and alt text that describes the scene or is empty when decorative.
 
 ## 3. Client strip
 
