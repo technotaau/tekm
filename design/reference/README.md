@@ -47,3 +47,19 @@ The v3 artboard rebuilt as plain HTML, CSS and vanilla JS, with the Claude
 Design runtime removed. See `HANDOFF.md` at the repo root for what it is, what
 it is not, and where it diverges from `design/tokens.css` and
 `docs/03-homepage-spec.md`.
+
+
+## export/ (added 4 September 2026)
+
+The official Claude Design export bundle supplied by Jakhar Singh. Later
+than the canvas/ copies. `HANDOFF-README.md` is the value-level spec;
+`TEKMentors Homepage.dc.html` is the final v4 and the design of record;
+the two `(share).html` files open offline with fonts and logo inlined.
+Duplicate files (v1, v2, v4 print, runtime, logo) were not copied again.
+
+## previews/
+
+Chromium renders of every version, produced in this repo after stripping
+the Claude Design runtime, plus static HTML versions of the artboards that
+open without it. `v4-final-export-desktop.jpg` is the current design of
+record.

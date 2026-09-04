@@ -159,3 +159,58 @@ When these are answered, Phase 2 starts: the ux-copywriter takes the v4
 copy as the draft and produces `prototype/copy.md` against the reconciled
 spec, and the visual-designer rebuilds the canvas on the new tokens with a
 mobile artboard.
+
+## 8. Cross-check against the official Claude Design export (added later on 4 September)
+
+Jakhar Singh supplied the project's own export bundle
+(`TEKMentors_Website_Redesign.zip`, now in `design/reference/export/`).
+It is later than what the handoff session pushed, and it settles the open
+question about which version is the design of record.
+
+What the bundle adds:
+
+- A 38KB handoff README written by Claude Design. It names
+  `TEKMentors Homepage.dc.html` (v4) as "the recommended design, the
+  specification" and says "implement this, everything else is context".
+  It states the copy "has been through client review".
+- A revised v4 and v3 with responsive fixes made after the repo copies: every
+  grid uses `minmax(min(100%, N), 1fr)` so nothing overflows on a phone, the
+  nav wraps, gutters and section padding are `clamp()`, and the hero h1
+  climbs to 74px on large displays.
+- The container widens from 1200px to 1480px, recorded as a decision "worth
+  not relitigating".
+- The client logo band is nine dashed slots (the logos were not fetchable
+  during prototyping), with an instruction to use the WordPress media
+  library files in production.
+- Self-contained share builds of v4 and v3 that open offline.
+- A fuller token table (input, placeholder, error and success colors), the
+  form implementation notes (honeypot, routing by intent chip, autoresponder
+  honesty, loading and failure states), and a list of seven decisions not to
+  reopen.
+
+Byte-for-byte checks: v1, v2, the v4 print file, the runtime files and the
+logo are identical to the repo copies. Only v3 and v4 web changed, and only
+in layout and responsiveness. No copy changed.
+
+### Final judgement
+
+The Phase 1 decision stands and is now backed by the export itself: v4 is
+the base. The export supersedes the repo copy of v4 for layout values, so
+the spec and tokens now carry 1480px, the clamp() rhythm, the fluid grid
+rule and the 74px hero ceiling.
+
+Where this repo still deviates from the export, each on purpose:
+
+| Export says | This repo does | Why |
+|---|---|---|
+| Hero facts row "50+ clients" and Record counters "50+, 30+, 100+, 10+ awards" | Removed; replaced by verified facts and the UK bank case numbers | The proposal's claims rule. The export's own README bans "fabricated specifics" and these are exactly that |
+| Copy is final, do not paraphrase | Three factual edits: FDE ends with an executive demo not a panel viva; "placement assistance" not "placement support"; a fourth program row for corporate GenAI training | Each is a correction against the client's own flyers, not a paraphrase. Listed for Jakhar Singh's approval in section 7 |
+| Three named mentors are an open slot | Filled from the GenAI flyer: Arun Tiwari, Rahul Singh, Abinash Kumar Mishra | The design team never saw the flyer text; it was in the uploads |
+| Nav wraps to two lines on phones | Menu button below 940px, plus a sticky bottom bar | Mobile first is a hard rule in the brief; Elementor's nav widget gives the menu for free |
+| No breakpoints, fully fluid | Fluid grids as the rule, two breakpoints as exceptions: 940 for the menu, 640 for stacking the programs table | The README itself asks for a semantic table with a media-query stack in production |
+| Link blue #1B7CBE, muted #687987 | #1873B3 and #617486 | Both export values measure 4.49:1 on white. AA needs 4.5 |
+| "Teams across India, the Gulf and the US" in the README overview | Not published | No source; not in any TEKMentors document |
+| Logo 484x226 PNG | Same file for now | The README is right that it is too small. Added to inputs needed |
+
+Everything else in the export README is adopted as written, including the
+seven decisions not to relitigate.

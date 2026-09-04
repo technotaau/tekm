@@ -163,7 +163,9 @@ checklist. The homepage reserves one slot for whichever ships first.
 7. Which phone line and inbox receive homepage leads.
 8. One named client quote with title and company, if one can be obtained.
 9. Confirmation of the X handle (x.com/mentorstek) or drop it.
-10. Which lead magnet ships first, when the marketing plan reaches it.
+10. A vector or 2x PNG of the logo. The only file available is 484x226 and
+    the export README flags it as too small for launch.
+11. Which lead magnet ships first, when the marketing plan reaches it.
 
 ## Do not publish
 

@@ -46,6 +46,11 @@ is still worth producing for the footer on dark and for social cards.
 | --tm-ink-300 | #A7BDCB | Body text on navy | on navy 8.1:1 |
 | --tm-ink-200 | #B3C6D3 | Hero subhead on navy | on navy 8.9:1 |
 | --tm-line | #DCE5EB | Rules and card borders | |
+| --tm-line-soft | #E7EDF2 | Dividers inside cards | |
+| --tm-line-input | #D8E0E6 | Input borders | |
+| --tm-placeholder | #93A5B1 | Input placeholder text | |
+| --tm-error-* | #8A3B26 on #FDF3F1, border #EBD0C9 | Form validation block | 6.6:1 |
+| --tm-success-* | #3C7A31 on #EAF6E6 | Success disc | |
 | --tm-line-strong | #10222E | The 1px rule that opens a roster or answers block | |
 | --tm-ground | #F5F8FA | Page background | |
 | --tm-surface | #FFFFFF | Cards | |
@@ -90,7 +95,10 @@ The client's instructions from the canvas sessions, now rules:
 - Sentence case, because title case reads like a brochure.
 - No marketing tells: "harness the full potential", "unlock the power of
   data", "leverage", "empower", "drive innovation", "cutting-edge",
-  "transform your career", "world-class".
+  "seamless", "robust", "best-in-class", "transform your career",
+  "world-class".
+- No emoji anywhere on the site. The LinkedIn flyers use them; the website
+  does not.
 - It must read as if a specific person wrote it. Dry, direct, a little
   attitude: "Agile that survives contact with your org chart", "If you still
   need us in a year, something went wrong".
@@ -108,6 +116,14 @@ The client's instructions from the canvas sessions, now rules:
   desaturated to 90% so three different lighting setups read as one row.
 - Client logos: grayscale at 60% opacity, height 26 to 34px, as the canvas
   renders them.
+
+## Layout
+
+Content max width 1480px, centred, per the export's decision list: a 1200px
+cap leaves a 27 inch display two-thirds empty. Gutters clamp(18px, 3vw, 32px).
+Section top padding clamp(48px, 7vw, 88px), 24px bottom so sections butt up.
+At most two background colors on the page: the light ground and the navy,
+with their minor variants.
 
 ## Motion
 

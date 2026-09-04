@@ -31,7 +31,19 @@
   --tm-ink-300: #A7BDCB;    /* body on navy */
   --tm-ink-200: #B3C6D3;    /* subhead on navy */
   --tm-line: #DCE5EB;
+  --tm-line-soft: #E7EDF2;   /* dividers inside cards */
+  --tm-line-input: #D8E0E6;
   --tm-line-strong: #10222E;
+  --tm-placeholder: #93A5B1;
+  --tm-ink-on-dark-cell: #D5E2EA;
+  --tm-ink-on-dark-caption: #7E9AAB;
+
+  /* Form states */
+  --tm-error-text: #8A3B26;
+  --tm-error-tint: #FDF3F1;
+  --tm-error-line: #EBD0C9;
+  --tm-success-text: #3C7A31;
+  --tm-success-tint: #EAF6E6;
   --tm-ground: #F5F8FA;
   --tm-surface: #FFFFFF;
   --tm-surface-2: #EEF2F5;
@@ -40,6 +52,7 @@
   --tm-rust-600: #B4472F;
   --tm-rust-100: #FCF7F5;
   --tm-rust-200: #DCC3B9;
+  --tm-rust-text: #8A6C62;
 
   /* Semantic */
   --tm-bg: var(--tm-ground);
@@ -56,7 +69,7 @@
   /* Type */
   --tm-font: "Schibsted Grotesk", Helvetica, Arial, sans-serif;
   --tm-font-mono: "Spline Sans Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-  --tm-display: clamp(2.375rem, 1.6rem + 3.2vw, 4rem);     /* 38 to 64px */
+  --tm-display: clamp(2.125rem, 4.3vw, 4.625rem);            /* 34 to 74px, export value */
   --tm-h2: clamp(1.875rem, 1.3rem + 2.4vw, 2.875rem);       /* 30 to 46px */
   --tm-h3-lg: 1.625rem;                                     /* 26px */
   --tm-h3: 1.3125rem;                                       /* 21px */
@@ -91,9 +104,10 @@
   --tm-s-14: 3.5rem;
   --tm-s-16: 4rem;
   --tm-s-22: 5.5rem;
-  --tm-section-y: clamp(3.5rem, 2.5rem + 3.5vw, 5.5rem);   /* 56 to 88px */
-  --tm-gutter: clamp(1.25rem, 0.75rem + 2vw, 2rem);         /* 20 to 32px */
-  --tm-container: 75rem;                                    /* 1200px */
+  --tm-section-y: clamp(3rem, 7vw, 5.5rem);                 /* 48 to 88px, export value */
+  --tm-section-y-sm: clamp(2.75rem, 6vw, 5rem);             /* 44 to 80px */
+  --tm-gutter: clamp(1.125rem, 3vw, 2rem);                  /* 18 to 32px, export value */
+  --tm-container: 92.5rem;                                  /* 1480px, export decision */
   --tm-card-pad: 2rem 1.875rem;                             /* 32px 30px */
 
   /* Shape and elevation */

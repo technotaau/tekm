@@ -27,6 +27,18 @@ to `claude-design/implement-v3-homepage`. Contents, now in
 - Rendered previews of v1, v2, v3 and v4 in `design/reference/previews/`,
   produced here with Chromium after stripping the Claude Design runtime.
 
+## The official export bundle (4 September 2026)
+
+Jakhar Singh uploaded `TEKMentors_Website_Redesign.zip`, the export Claude
+Design produced for handoff. Now in `design/reference/export/`. It carries a
+38KB handoff README (the value-level spec), the final v4 as
+`TEKMentors Homepage.dc.html`, the final v3, and self-contained share builds
+of both. v1, v2, the v4 print file, the runtime and the logo are identical
+to the handoff session's copies; v3 and v4 differ only in layout and
+responsive fixes (1480px container, fluid grids, clamp() rhythm). Renders:
+`design/reference/previews/v4-final-export-desktop.jpg` and
+`v3-final-export-desktop.jpg`. See memo section 8 for the reconciliation.
+
 ## The Claude Design link (original blocker, for the record)
 
 `https://claude.ai/design/p/79f4aba1-10cf-42e8-ab28-867207d83146?via=share`

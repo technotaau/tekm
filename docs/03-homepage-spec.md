@@ -1,8 +1,11 @@
 # 03. Homepage spec (v2, reconciled to the v4 canvas)
 
-Revised 4 September 2026 after Phase 1. The base is
-`design/reference/canvas/TEKMentors Home v4 (web).dc.html`; a static render
-is in `design/reference/previews/v4-web-static.html`. Copy quoted below is
+Revised 4 September 2026 after Phase 1 and the export cross-check. The base
+is the official export `design/reference/export/TEKMentors Homepage.dc.html`
+(v4, the design of record), with `TEKMentors Homepage (share).html` beside it
+as a self-contained render. Its handoff README,
+`design/reference/export/HANDOFF-README.md`, is the detailed value-level
+spec and is binding except where this document or the memo says otherwise. Copy quoted below is
 the canvas draft and the starting point for the ux-copywriter, not final.
 Slots marked [INPUT] depend on items in `02-content-inventory.md`.
 `06-reconciliation-memo.md` records why each section is here.
@@ -68,11 +71,12 @@ This is the v3 prototype's menu pattern.
 
 Canvas as is, with the facts row replaced.
 
-- Two columns from 400px minimum each (auto-fit), so the routing card drops
-  below the text on phones.
+- Two columns, `minmax(min(100%, 400px), 1fr)` auto-fit, so the routing card
+  drops below the text on phones without overflow.
 - Eyebrow (mono, blue-200 tint #9CD0F2): "CONSULTING · CLOUD · AGILE · AI
   UPSKILLING".
-- H1: "We build the AI systems, and the people who keep them running."
+- H1, clamp(34px, 4.3vw, 74px): "We build the AI systems, and the people who
+  keep them running."
 - Subhead: "Twenty years inside enterprise transformation, a fair few of
   them rescuing the ones that went sideways. We modernize the systems, get
   AI into production, and train your team to run it once we leave."
@@ -91,8 +95,11 @@ Canvas as is, with the facts row replaced.
 
 ## 3. Client strip
 
-Canvas as is: mono label "TEAMS WE HAVE WORKED WITH", nine logos at 26 to
-34px, grayscale, 60% opacity, wrapping. [INPUT: written confirmation.]
+Mono label "TEAMS WE HAVE WORKED WITH", nine logos at 26 to 34px, grayscale,
+60% opacity, wrapping. The export shows dashed slots because the files were
+not fetchable during prototyping; the earlier repo copy of v4 hotlinks the
+nine files that exist in the WordPress media library, and those are the
+files to use. [INPUT: written confirmation.]
 Fallback if refused: the label becomes "Clients in UK banking, global
 financial services and Fortune 500 consulting" and the logos are removed.
 Never dashed placeholder boxes on the live page.
@@ -228,6 +235,14 @@ so.] Sent state: check mark, "Got it. Thank you.", the reply promise, three
 "while you wait" links, "Send another enquiry".
 
 On WordPress this is a Forminator form; in the prototype it posts nowhere.
+Implementation rules from the export README, all adopted: server-side
+validation mirroring the client rules; a honeypot field plus a timestamp
+check instead of a visible CAPTCHA; the intent chip routes the email
+(consulting enquiries to the consulting inbox, training to the programs
+inbox); no autoresponder, or one that does not pretend to be the promised
+human reply; a "Sending" button state and a failure state that names the
+email address as a fallback; a GA4 conversion event on success carrying the
+chip value. Validate on submit only, never on blur.
 
 ## 12. Footer
 
@@ -237,10 +252,14 @@ links; programs; reach us. Bottom row: copyright and site URL.
 
 ## Responsive rules
 
-- Breakpoints from the v3 prototype's verified reflow points: 940 (header
-  menu), 960 (three-card grids), 800 (two-column grids), 640 (roster meta
-  row), 390 base.
-- Container 1200px, gutters 20px on phones and 32px from 960.
+- Fluid by default, as the export does it: every grid is
+  `repeat(auto-fit, minmax(min(100%, Npx), 1fr))`, gutters and section
+  padding are clamp(), headings scale with clamp() and vw. The `min(100%, N)`
+  wrapper is what stops a 375px phone from scrolling sideways.
+- Two breakpoints as exceptions: 940px, below which the nav becomes a menu
+  button and the sticky bottom bar appears; 640px, below which the programs
+  table stacks into blocks and its header row is hidden.
+- Container 1480px, gutters clamp(18px, 3vw, 32px).
 - Tap targets 44px minimum. 15.5px body on phones, never smaller than 14.5px
   for anything readable.
 - The hero routing card and the contact form are the two elements most at
