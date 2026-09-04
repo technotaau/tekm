@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  html,body{margin:0;padding:0;background:#FBFBF9;color:#10222E;font-family:'Schibsted Grotesk',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;scroll-behavior:smooth;}
+  a{color:#1B7CBE;text-decoration:none;}
+  a:hover{color:#10222E;}
+  ::selection{background:#4FA8E4;color:#07253C;}
+  input,textarea,button{font-family:'Schibsted Grotesk',Helvetica,Arial,sans-serif;}
+  input::placeholder,textarea::placeholder{color:#93A5B1;}
+  input:focus,textarea:focus{outline:none;border-color:#1B7CBE;box-shadow:0 0 0 3px rgba(79,168,228,0.18);}
+  @keyframes v3rise{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+</style>
+</helmet>
+
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+    <rect width="240" height="240" fill="#07253C"></rect>
+    <rect x="72" y="72" width="96" height="96" rx="12" fill="#4FA8E4"></rect>
+    <text x="120" y="138" font-family="Helvetica, Arial, sans-serif" font-size="46" font-weight="700" fill="#07253C" text-anchor="middle">TM</text>
+  </svg>
+</template>
+
+<div style="min-width:320px">
+
+<div data-screen-label="Promise bar" style="background:#0B2F47;color:#D5E2EA;font-size:13.5px;padding:11px 32px">
+  <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap;text-align:center">
+    <span style="width:7px;height:7px;border-radius:99px;background:#8CCB72;flex:none"></span>
+    <span>Every enquiry is read by a consultant, not a bot. You will hear back within one working day.</span>
+  </div>
+</div>
+
+<header data-screen-label="Navigation" style="position:sticky;top:0;z-index:50;background:rgba(251,251,249,0.94);backdrop-filter:blur(10px);border-bottom:1px solid #E3E8EC">
+  <div style="max-width:1200px;margin:0 auto;padding:0 32px;height:74px;display:flex;align-items:center;justify-content:space-between;gap:28px">
+    <a href="#top" style="display:block"><img src="assets/tekmentors-logo.png" alt="TEKMentors" style="height:46px;width:auto;display:block"></a>
+    <nav style="display:flex;align-items:center;gap:26px;font-size:14.5px;font-weight:500">
+      <a href="#routes" style="color:#10222E">Where to start</a>
+      <a href="#next" style="color:#10222E">What happens next</a>
+      <a href="#programs" style="color:#10222E">Programs</a>
+      <a href="#answers" style="color:#10222E">Straight answers</a>
+      <a href="tel:+919958777467" style="color:#4C5C69;font-family:'Spline Sans Mono',monospace;font-size:13px">+91 99587 77467</a>
+      <a href="#form" style="background:#1B7CBE;color:#fff;padding:11px 22px;border-radius:8px;font-weight:600" style-hover="background:#10222E">Tell us what you need</a>
+    </nav>
+  </div>
+</header>
+
+<section id="top" data-screen-label="Hero and form" style="border-bottom:1px solid #E3E8EC">
+  <div style="max-width:1200px;margin:0 auto;padding:64px 32px 72px;display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:56px 64px;align-items:start">
+
+    <div style="animation:v3rise 0.6s ease both;padding-top:12px">
+      <div style="display:inline-flex;align-items:center;gap:10px;background:#EAF4FB;color:#175F91;border:1px solid #CFE4F3;padding:7px 14px;border-radius:99px;font-size:13px;font-weight:600;margin-bottom:26px">
+        <span style="width:6px;height:6px;border-radius:99px;background:#4A8F3C"></span>AI Forward Deployed Engineer, next cohort enrolling
+      </div>
+      <h1 style="font-size:clamp(36px,4.2vw,58px);line-height:1.06;font-weight:700;letter-spacing:-0.028em;margin:0 0 24px;max-width:720px;text-wrap:pretty">Tell us what is stuck. We will tell you what we would do about it.</h1>
+      <p style="font-size:19px;line-height:1.6;color:#4C5C69;max-width:600px;margin:0 0 34px;text-wrap:pretty">TEKMentors modernizes enterprise systems, puts AI into production, and trains the teams who keep it running. Twenty years of doing the work, on the phone with you for the next forty-five minutes.</p>
+
+      <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:36px;max-width:600px">
+        <div style="display:flex;gap:13px;align-items:flex-start"><span style="color:#4A8F3C;font-weight:700;font-size:15px;line-height:1.5">&#10003;</span><span style="font-size:16px;line-height:1.5;color:#24404F">A working session with an engineer, not a discovery call with a salesperson</span></div>
+        <div style="display:flex;gap:13px;align-items:flex-start"><span style="color:#4A8F3C;font-weight:700;font-size:15px;line-height:1.5">&#10003;</span><span style="font-size:16px;line-height:1.5;color:#24404F">A written recommendation you can circulate internally, whether or not you hire us</span></div>
+        <div style="display:flex;gap:13px;align-items:flex-start"><span style="color:#4A8F3C;font-weight:700;font-size:15px;line-height:1.5">&#10003;</span><span style="font-size:16px;line-height:1.5;color:#24404F">No deck, no drip campaign, and an honest referral elsewhere if we are the wrong fit</span></div>
+      </div>
+
+      <div style="border-top:1px solid #E3E8EC;padding-top:24px">
+        <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#687987;margin-bottom:16px">TEAMS WE HAVE WORKED WITH</div>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px"><div style="border:1px dashed #C4D2DC;border-radius:8px;height:38px;flex:1;min-width:104px;display:flex;align-items:center;justify-content:center;font-family:'Spline Sans Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8FA0AC">IBM</div><div style="border:1px dashed #C4D2DC;border-radius:8px;height:38px;flex:1;min-width:104px;display:flex;align-items:center;justify-content:center;font-family:'Spline Sans Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8FA0AC">L&amp;T</div><div style="border:1px dashed #C4D2DC;border-radius:8px;height:38px;flex:1;min-width:104px;display:flex;align-items:center;justify-content:center;font-family:'Spline Sans Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8FA0AC">CLIENT 3</div><div style="border:1px dashed #C4D2DC;border-radius:8px;height:38px;flex:1;min-width:104px;display:flex;align-items:center;justify-content:center;font-family:'Spline Sans Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8FA0AC">CLIENT 4</div><div style="border:1px dashed #C4D2DC;border-radius:8px;height:38px;flex:1;min-width:104px;display:flex;align-items:center;justify-content:center;font-family:'Spline Sans Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8FA0AC">CLIENT 5</div><div style="border:1px dashed #C4D2DC;border-radius:8px;height:38px;flex:1;min-width:104px;display:flex;align-items:center;justify-content:center;font-family:'Spline Sans Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#8FA0AC">CLIENT 6</div></div>
+      </div>
+    </div>
+
+    <div id="form" style="position:sticky;top:98px;scroll-margin-top:98px;width:100%;max-width:480px;margin-inline:auto">
+      <div style="background:#fff;border:1px solid #E3E8EC;border-radius:14px;box-shadow:0 18px 44px -28px rgba(16,34,46,0.28);overflow:hidden">
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:44px 34px 40px;text-align:center">
+            <div style="width:52px;height:52px;border-radius:99px;background:#EAF6E6;color:#3C7A31;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;margin:0 auto 20px">&#10003;</div>
+            <h2 style="font-size:24px;font-weight:700;letter-spacing:-0.02em;margin:0 0 12px">Got it. Thank you.</h2>
+            <p style="font-size:15.5px;line-height:1.6;color:#4C5C69;margin:0 0 24px">A consultant is reading it today. You will have a reply within one working day, and it will come from a person with a name.</p>
+            <div style="text-align:left;background:#F7FAFC;border:1px solid #E3E8EC;border-radius:10px;padding:20px 22px;margin-bottom:22px">
+              <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#687987;margin-bottom:12px">WHILE YOU WAIT</div>
+              <div style="display:flex;flex-direction:column;gap:10px;font-size:14.5px">
+                <a href="#programs" style="color:#175F91">Look at the three programs</a>
+                <a href="#answers" style="color:#175F91">Read the straight answers</a>
+                <a href="https://www.tekmentors.com/case-studies/" style="color:#175F91">Browse the case studies</a>
+              </div>
+            </div>
+            <button onClick="{{ reset }}" style="background:none;border:0;color:#687987;font-size:14px;cursor:pointer;text-decoration:underline">Send another enquiry</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+        <div style="padding:30px 34px 34px">
+          <h2 style="font-size:23px;font-weight:700;letter-spacing:-0.02em;margin:0 0 8px">Tell us what you need</h2>
+          <p style="font-size:14.5px;line-height:1.55;color:#4C5C69;margin:0 0 24px">Four fields. Roughly a minute. It goes straight to the consulting team.</p>
+
+          <div style="margin-bottom:20px">
+            <label style="display:block;font-size:13px;font-weight:600;color:#24404F;margin-bottom:9px">What is this about?</label>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+              <button onClick="{{ pickConsulting }}" style="text-align:left;padding:12px 14px;border-radius:9px;border:1.5px solid {{ needConsultingBorder }};background:{{ needConsultingBg }};cursor:pointer;font-size:14px;font-weight:600;color:#10222E">A project or system</button>
+              <button onClick="{{ pickTraining }}" style="text-align:left;padding:12px 14px;border-radius:9px;border:1.5px solid {{ needTrainingBorder }};background:{{ needTrainingBg }};cursor:pointer;font-size:14px;font-weight:600;color:#10222E">Training my team</button>
+              <button onClick="{{ pickHiring }}" style="text-align:left;padding:12px 14px;border-radius:9px;border:1.5px solid {{ needHiringBorder }};background:{{ needHiringBg }};cursor:pointer;font-size:14px;font-weight:600;color:#10222E">Joining a program</button>
+              <button onClick="{{ pickUnsure }}" style="text-align:left;padding:12px 14px;border-radius:9px;border:1.5px solid {{ needUnsureBorder }};background:{{ needUnsureBg }};cursor:pointer;font-size:14px;font-weight:600;color:#10222E">Not sure yet</button>
+            </div>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:16px">
+            <div>
+              <label for="v3name" style="display:block;font-size:13px;font-weight:600;color:#24404F;margin-bottom:7px">Your name</label>
+              <input id="v3name" type="text" value="{{ name }}" onChange="{{ onName }}" placeholder="Priya Nair" style="width:100%;box-sizing:border-box;padding:13px 14px;border:1px solid #D8E0E6;border-radius:9px;font-size:15px;color:#10222E;background:#fff;transition:box-shadow 0.15s ease">
+            </div>
+            <div>
+              <label for="v3email" style="display:block;font-size:13px;font-weight:600;color:#24404F;margin-bottom:7px">Work email</label>
+              <input id="v3email" type="email" value="{{ email }}" onChange="{{ onEmail }}" placeholder="priya@company.com" style="width:100%;box-sizing:border-box;padding:13px 14px;border:1px solid #D8E0E6;border-radius:9px;font-size:15px;color:#10222E;background:#fff;transition:box-shadow 0.15s ease">
+            </div>
+            <div>
+              <label for="v3org" style="display:block;font-size:13px;font-weight:600;color:#24404F;margin-bottom:7px">Company <span style="color:#687987;font-weight:400">(optional)</span></label>
+              <input id="v3org" type="text" value="{{ org }}" onChange="{{ onOrg }}" placeholder="Where you work" style="width:100%;box-sizing:border-box;padding:13px 14px;border:1px solid #D8E0E6;border-radius:9px;font-size:15px;color:#10222E;background:#fff;transition:box-shadow 0.15s ease">
+            </div>
+            <div>
+              <label for="v3msg" style="display:block;font-size:13px;font-weight:600;color:#24404F;margin-bottom:7px">What is stuck?</label>
+              <textarea id="v3msg" rows="3" value="{{ msg }}" onChange="{{ onMsg }}" placeholder="One or two lines is plenty. Plain language beats a spec." style="width:100%;box-sizing:border-box;padding:13px 14px;border:1px solid #D8E0E6;border-radius:9px;font-size:15px;line-height:1.5;color:#10222E;background:#fff;resize:vertical;transition:box-shadow 0.15s ease"></textarea>
+            </div>
+          </div>
+
+          <sc-if value="{{ hasError }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-top:14px;background:#FDF3F1;border:1px solid #EBD0C9;color:#8A3B26;font-size:13.5px;padding:11px 14px;border-radius:9px">{{ error }}</div>
+          </sc-if>
+
+          <button onClick="{{ submit }}" style="width:100%;margin-top:22px;background:#1B7CBE;color:#fff;border:0;padding:16px;border-radius:9px;font-size:16px;font-weight:700;cursor:pointer;transition:background 0.2s ease" style-hover="background:#10222E">Send it to the team</button>
+          <p style="font-size:12.5px;line-height:1.5;color:#687987;margin:14px 0 0;text-align:center">Your details go to our consultants and nowhere else. No newsletter, no automated sequence, no sharing with third parties.</p>
+          <div style="margin-top:18px;padding-top:16px;border-top:1px solid #EDF1F4;display:flex;justify-content:center;gap:18px;font-size:13.5px">
+            <span style="color:#687987">Prefer email?</span>
+            <a href="mailto:info@tekmentors.com" style="color:#175F91;font-weight:600">info@tekmentors.com</a>
+          </div>
+        </div>
+        </sc-if>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="next" data-screen-label="What happens next" style="background:#0B2F47;color:#fff;scroll-margin-top:90px">
+  <div style="max-width:1200px;margin:0 auto;padding:80px 32px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;margin-bottom:48px">
+      <div>
+        <div style="font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:0.14em;color:#8CCB72;margin-bottom:16px">AFTER YOU PRESS SEND</div>
+        <h2 style="font-size:clamp(30px,3.6vw,44px);font-weight:700;letter-spacing:-0.025em;line-height:1.1;margin:0;max-width:600px;text-wrap:pretty">Nobody likes sending a form into the dark. Here is exactly what follows.</h2>
+      </div>
+      <p style="font-size:16px;line-height:1.6;color:#A7BDCB;max-width:330px;margin:0;text-wrap:pretty">Four steps, one working week at most, and you can stop at any one of them without an awkward phone call.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:rgba(255,255,255,0.14)">
+      <div style="background:#0B2F47;padding:0 26px 0 0">
+        <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#8CCB72;margin-bottom:14px">WITHIN 1 WORKING DAY</div>
+        <h3 style="font-size:19px;font-weight:600;margin:0 0 10px;letter-spacing:-0.01em">A real reply</h3>
+        <p style="font-size:14.5px;line-height:1.6;color:#A7BDCB;margin:0">From the consultant who will handle it, with their name, their background and two or three questions about what you sent.</p>
+      </div>
+      <div style="background:#0B2F47;padding:0 26px">
+        <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#8CCB72;margin-bottom:14px">DAY 2 TO 4</div>
+        <h3 style="font-size:19px;font-weight:600;margin:0 0 10px;letter-spacing:-0.01em">A 45 minute session</h3>
+        <p style="font-size:14.5px;line-height:1.6;color:#A7BDCB;margin:0">A call, on video or in person if you are in Delhi NCR. Bring the engineers. We ask questions and take notes rather than present.</p>
+      </div>
+      <div style="background:#0B2F47;padding:0 26px">
+        <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#8CCB72;margin-bottom:14px">2 DAYS LATER</div>
+        <h3 style="font-size:19px;font-weight:600;margin:0 0 10px;letter-spacing:-0.01em">A one page recommendation</h3>
+        <p style="font-size:14.5px;line-height:1.6;color:#A7BDCB;margin:0">What we heard, what we would do first, what it would take. Yours to keep and circulate, with no strings attached to it.</p>
+      </div>
+      <div style="background:#0B2F47;padding:0 0 0 26px">
+        <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#8CCB72;margin-bottom:14px">ONLY IF YOU WANT IT</div>
+        <h3 style="font-size:19px;font-weight:600;margin:0 0 10px;letter-spacing:-0.01em">A proposal</h3>
+        <p style="font-size:14.5px;line-height:1.6;color:#A7BDCB;margin:0">Scope, team, timeline and cost on one page. If the recommendation was enough on its own, that is a fine outcome too.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="routes" data-screen-label="Where to start" style="max-width:1200px;margin:0 auto;padding:88px 32px 24px;scroll-margin-top:90px">
+  <div style="max-width:680px;margin-bottom:44px">
+    <div style="font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:0.14em;color:#1B7CBE;margin-bottom:16px">WHICH ONE ARE YOU</div>
+    <h2 style="font-size:clamp(30px,3.6vw,46px);font-weight:700;letter-spacing:-0.025em;line-height:1.08;margin:0;text-wrap:pretty">Three kinds of people write to us. All three are welcome.</h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px">
+    <div style="background:#fff;border:1px solid #E3E8EC;border-radius:14px;padding:32px 30px;display:flex;flex-direction:column">
+      <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#687987;margin-bottom:16px">01 &middot; TECHNOLOGY LEADERS</div>
+      <h3 style="font-size:21px;font-weight:700;letter-spacing:-0.015em;margin:0 0 12px">Something is not shipping</h3>
+      <p style="font-size:15px;line-height:1.6;color:#4C5C69;margin:0 0 20px;text-wrap:pretty">A pilot that will not go live, cloud spend nobody can explain, a modernization that has stalled. You want an engineer's read on it before you commit budget.</p>
+      <div style="font-size:14px;color:#24404F;line-height:1.7;border-top:1px solid #EDF1F4;padding-top:16px;margin-bottom:20px"><strong style="font-weight:600">We would start with</strong><br>a scoping session and a written first move.</div>
+      <a href="#form" style="margin-top:auto;align-self:flex-start;background:#EAF4FB;color:#175F91;border:1px solid #CFE4F3;padding:11px 20px;border-radius:8px;font-size:14.5px;font-weight:600" style-hover="background:#1B7CBE;color:#fff;border-color:#1B7CBE">Describe the problem</a>
+    </div>
+    <div style="background:#fff;border:1px solid #E3E8EC;border-radius:14px;padding:32px 30px;display:flex;flex-direction:column">
+      <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#687987;margin-bottom:16px">02 &middot; HEADS OF ENGINEERING AND L&amp;D</div>
+      <h3 style="font-size:21px;font-weight:700;letter-spacing:-0.015em;margin:0 0 12px">Your team needs to be AI capable</h3>
+      <p style="font-size:15px;line-height:1.6;color:#4C5C69;margin:0 0 20px;text-wrap:pretty">You would rather train the engineers who already know your systems than hire strangers. You need a program that ends in shipped work, not certificates.</p>
+      <div style="font-size:14px;color:#24404F;line-height:1.7;border-top:1px solid #EDF1F4;padding-top:16px;margin-bottom:20px"><strong style="font-weight:600">We would start with</strong><br>a skills read across the team, then a cohort plan.</div>
+      <a href="#form" style="margin-top:auto;align-self:flex-start;background:#EAF4FB;color:#175F91;border:1px solid #CFE4F3;padding:11px 20px;border-radius:8px;font-size:14.5px;font-weight:600" style-hover="background:#1B7CBE;color:#fff;border-color:#1B7CBE">Ask about a cohort</a>
+    </div>
+    <div style="background:#fff;border:1px solid #E3E8EC;border-radius:14px;padding:32px 30px;display:flex;flex-direction:column">
+      <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#687987;margin-bottom:16px">03 &middot; INDIVIDUAL ENGINEERS</div>
+      <h3 style="font-size:21px;font-weight:700;letter-spacing:-0.015em;margin:0 0 12px">You want the AI job, not the AI course</h3>
+      <p style="font-size:15px;line-height:1.6;color:#4C5C69;margin:0 0 20px;text-wrap:pretty">You have a few years behind you, or you are just out of college, and you want to come out of this with work you can show and defend in an interview.</p>
+      <div style="font-size:14px;color:#24404F;line-height:1.7;border-top:1px solid #EDF1F4;padding-top:16px;margin-bottom:20px"><strong style="font-weight:600">We would start with</strong><br>a fifteen minute call to pick the right program.</div>
+      <a href="#form" style="margin-top:auto;align-self:flex-start;background:#EAF4FB;color:#175F91;border:1px solid #CFE4F3;padding:11px 20px;border-radius:8px;font-size:14.5px;font-weight:600" style-hover="background:#1B7CBE;color:#fff;border-color:#1B7CBE">Ask which program fits</a>
+    </div>
+  </div>
+</section>
+
+<section id="programs" data-screen-label="Programs" style="max-width:1200px;margin:0 auto;padding:80px 32px 24px;scroll-margin-top:90px">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;margin-bottom:40px">
+    <div style="max-width:620px">
+      <div style="font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:0.14em;color:#1B7CBE;margin-bottom:16px">PROGRAMS</div>
+      <h2 style="font-size:clamp(30px,3.6vw,46px);font-weight:700;letter-spacing:-0.025em;line-height:1.08;margin:0;text-wrap:pretty">Three programs, taught by people who still do the work.</h2>
+    </div>
+    <p style="font-size:15.5px;line-height:1.6;color:#4C5C69;max-width:300px;margin:0">All run live. Dates, fees and the full syllabus come back with your enquiry.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;align-items:stretch">
+    <div style="background:#07253C;color:#fff;border-radius:14px;padding:34px 32px;display:flex;flex-direction:column;position:relative;overflow:hidden">
+      <div style="position:absolute;inset:0;background:radial-gradient(560px 300px at 100% 0%, rgba(79,168,228,0.34), transparent 62%)"></div>
+      <div style="position:relative;display:flex;flex-direction:column;height:100%">
+        <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#8CCB72;margin-bottom:16px">FLAGSHIP &middot; ENROLLING</div>
+        <h3 style="font-size:26px;font-weight:700;letter-spacing:-0.02em;line-height:1.15;margin:0 0 14px">AI Forward Deployed Engineer</h3>
+        <p style="font-size:15px;line-height:1.6;color:#A7BDCB;margin:0 0 22px;text-wrap:pretty">Eight weeks on one real enterprise problem, from the first discovery call to a system running in production. For engineers with three to eight years behind them.</p>
+        <div style="display:flex;gap:26px;flex-wrap:wrap;padding:18px 0;border-top:1px solid rgba(255,255,255,0.16);border-bottom:1px solid rgba(255,255,255,0.16);margin-bottom:24px">
+          <div><div style="font-size:21px;font-weight:700">6 to 8 wks</div><div style="font-family:'Spline Sans Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#A7BDCB;margin-top:3px">LENGTH</div></div>
+          <div><div style="font-size:21px;font-weight:700">Project led</div><div style="font-family:'Spline Sans Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#A7BDCB;margin-top:3px">FORMAT</div></div>
+          <div><div style="font-size:21px;font-weight:700">Panel viva</div><div style="font-family:'Spline Sans Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#A7BDCB;margin-top:3px">ENDS WITH</div></div>
+        </div>
+        <a href="#form" style="margin-top:auto;align-self:flex-start;background:#4FA8E4;color:#07253C;padding:13px 26px;border-radius:8px;font-size:15px;font-weight:700" style-hover="background:#fff">Ask for dates and fees</a>
+      </div>
+    </div>
+    <div style="background:#fff;border:1px solid #E3E8EC;border-radius:14px;padding:34px 30px;display:flex;flex-direction:column">
+      <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#175F91;margin-bottom:16px">JOB READY</div>
+      <h3 style="font-size:21px;font-weight:700;letter-spacing:-0.015em;line-height:1.2;margin:0 0 12px">GenAI engineering: foundations to production</h3>
+      <p style="font-size:14.5px;line-height:1.6;color:#4C5C69;margin:0 0 20px;text-wrap:pretty">Sixteen weeks, 144 hours, mostly labs. Ends in a capstone you can walk an interviewer through line by line, plus mock interviews and placement support.</p>
+      <div style="font-size:13.5px;color:#687987;line-height:1.7;border-top:1px solid #EDF1F4;padding-top:14px;margin-bottom:20px">Engineering graduates &middot; no AI background needed</div>
+      <a href="#form" style="margin-top:auto;align-self:flex-start;border:1.5px solid #10222E;color:#10222E;padding:11px 22px;border-radius:8px;font-size:14.5px;font-weight:600" style-hover="background:#10222E;color:#fff">Ask about the next batch</a>
+    </div>
+    <div style="background:#fff;border:1px solid #E3E8EC;border-radius:14px;padding:34px 30px;display:flex;flex-direction:column">
+      <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#3C7A31;margin-bottom:16px">NO CODE REQUIRED</div>
+      <h3 style="font-size:21px;font-weight:700;letter-spacing:-0.015em;line-height:1.2;margin:0 0 12px">AI-enabled agile and product leadership</h3>
+      <p style="font-size:14.5px;line-height:1.6;color:#4C5C69;margin:0 0 20px;text-wrap:pretty">Two days, live online, for Scrum Masters, Product Owners and delivery leads. Enough AI to back the right idea and question the wrong one.</p>
+      <div style="font-size:13.5px;color:#687987;line-height:1.7;border-top:1px solid #EDF1F4;padding-top:14px;margin-bottom:20px">Runs privately for a single team &middot; from eight people</div>
+      <a href="#form" style="margin-top:auto;align-self:flex-start;border:1.5px solid #10222E;color:#10222E;padding:11px 22px;border-radius:8px;font-size:14.5px;font-weight:600" style-hover="background:#10222E;color:#fff">Book for your team</a>
+    </div>
+  </div>
+</section>
+
+<section id="answers" data-screen-label="Straight answers" style="max-width:1200px;margin:0 auto;padding:80px 32px 24px;scroll-margin-top:90px">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:48px 64px;align-items:start">
+    <div style="position:sticky;top:98px">
+      <div style="font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:0.14em;color:#1B7CBE;margin-bottom:16px">STRAIGHT ANSWERS</div>
+      <h2 style="font-size:clamp(28px,3.4vw,42px);font-weight:700;letter-spacing:-0.025em;line-height:1.1;margin:0 0 18px;text-wrap:pretty">The things people hesitate to ask on a form.</h2>
+      <p style="font-size:16px;line-height:1.6;color:#4C5C69;margin:0 0 24px;text-wrap:pretty">If your question is not here, put it in the form. We would rather answer it now than in month three.</p>
+      <a href="#form" style="display:inline-block;background:#1B7CBE;color:#fff;padding:13px 26px;border-radius:8px;font-size:15px;font-weight:600" style-hover="background:#10222E">Ask us directly</a>
+    </div>
+    <div>
+      <div style="border-top:1px solid #10222E;padding:26px 0">
+        <h3 style="font-size:19px;font-weight:700;letter-spacing:-0.01em;margin:0 0 10px">Will I be put into a sales pipeline?</h3>
+        <p style="font-size:15.5px;line-height:1.65;color:#4C5C69;margin:0;text-wrap:pretty">No. Your details go to the consulting team and stay there. There is no newsletter, no automated sequence, and nobody will call you twice if you have said no once.</p>
+      </div>
+      <div style="border-top:1px solid #E3E8EC;padding:26px 0">
+        <h3 style="font-size:19px;font-weight:700;letter-spacing:-0.01em;margin:0 0 10px">What does the first conversation cost?</h3>
+        <p style="font-size:15.5px;line-height:1.65;color:#4C5C69;margin:0;text-wrap:pretty">Nothing, including the one page recommendation that follows it. We do that because it is the fastest way for both sides to find out whether the work is a fit.</p>
+      </div>
+      <div style="border-top:1px solid #E3E8EC;padding:26px 0">
+        <h3 style="font-size:19px;font-weight:700;letter-spacing:-0.01em;margin:0 0 10px">Are we too small for you?</h3>
+        <p style="font-size:15.5px;line-height:1.65;color:#4C5C69;margin:0;text-wrap:pretty">Probably not. We have run engagements with a single platform team and with programs spanning several business units. Training cohorts start from around eight people.</p>
+      </div>
+      <div style="border-top:1px solid #E3E8EC;padding:26px 0">
+        <h3 style="font-size:19px;font-weight:700;letter-spacing:-0.01em;margin:0 0 10px">Can you work with our data and security rules?</h3>
+        <p style="font-size:15.5px;line-height:1.65;color:#4C5C69;margin:0;text-wrap:pretty">Yes, and we would rather meet your risk and security people in week one than in week six. We will sign your NDA before the scoping session if that is easier.</p>
+      </div>
+      <div style="border-top:1px solid #E3E8EC;padding:26px 0">
+        <h3 style="font-size:19px;font-weight:700;letter-spacing:-0.01em;margin:0 0 10px">Do you work remotely, or on site?</h3>
+        <p style="font-size:15.5px;line-height:1.65;color:#4C5C69;margin:0;text-wrap:pretty">Both. We are based in Delhi NCR and work with teams across India, the Gulf and the US, on whatever mix of remote and on site the work actually needs.</p>
+      </div>
+      <div style="border-top:1px solid #E3E8EC;border-bottom:1px solid #E3E8EC;padding:26px 0">
+        <h3 style="font-size:19px;font-weight:700;letter-spacing:-0.01em;margin:0 0 10px">Who will actually turn up?</h3>
+        <p style="font-size:15.5px;line-height:1.65;color:#4C5C69;margin:0;text-wrap:pretty">A practitioner with roughly twenty years behind them, and on programs the mentor who will teach your cohort. You will have their name and background before the call, so you can look them up first.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Record" style="max-width:1200px;margin:0 auto;padding:72px 32px 24px">
+  <div style="background:#fff;border:1px solid #E3E8EC;border-radius:14px;padding:38px 36px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:32px;margin-bottom:32px">
+      <div><div style="font-size:40px;font-weight:800;letter-spacing:-0.03em">50<span style="color:#4A8F3C">+</span></div><div style="font-size:14px;color:#4C5C69;margin-top:6px">Clients served</div></div>
+      <div><div style="font-size:40px;font-weight:800;letter-spacing:-0.03em">30<span style="color:#4A8F3C">+</span></div><div style="font-size:14px;color:#4C5C69;margin-top:6px">Transformations delivered</div></div>
+      <div><div style="font-size:40px;font-weight:800;letter-spacing:-0.03em">100<span style="color:#4A8F3C">+</span></div><div style="font-size:14px;color:#4C5C69;margin-top:6px">Programs taught</div></div>
+      <div><div style="font-size:40px;font-weight:800;letter-spacing:-0.03em">20<span style="color:#4A8F3C">+</span></div><div style="font-size:14px;color:#4C5C69;margin-top:6px">Years per mentor, on average</div></div>
+    </div>
+    <sc-if value="{{ showQuoteSlot }}" hint-placeholder-val="{{ true }}">
+      <div style="border-top:1px solid #EDF1F4;padding-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:20px">
+        <div style="border:1px dashed #C4D2DC;border-radius:12px;padding:24px">
+          <div style="font-family:'Spline Sans Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#7B8D9A;margin-bottom:10px">CLIENT QUOTE TO ADD</div>
+          <p style="font-size:14.5px;line-height:1.6;color:#4C5C69;margin:0">One or two sentences from a named client, with their title and company. It will do more for enquiries than anything else on this page.</p>
+        </div>
+        <div style="border:1px dashed #C4D2DC;border-radius:12px;padding:24px">
+          <div style="font-family:'Spline Sans Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#7B8D9A;margin-bottom:10px">CONSULTANT PHOTO AND BIO TO ADD</div>
+          <p style="font-size:14.5px;line-height:1.6;color:#4C5C69;margin:0">A face and a name beside the form lifts completion noticeably. One person who genuinely reads the enquiries is enough.</p>
+        </div>
+      </div>
+    </sc-if>
+  </div>
+</section>
+
+<section data-screen-label="Closing CTA" style="max-width:1200px;margin:0 auto;padding:64px 32px 96px">
+  <div style="background:#0B2F47;color:#fff;border-radius:16px;padding:64px 56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:48px 56px;align-items:center;position:relative;overflow:hidden">
+    <div style="position:absolute;inset:0;background:radial-gradient(760px 380px at 88% 110%, rgba(79,168,228,0.32), transparent 64%)"></div>
+    <div style="position:relative">
+      <h2 style="font-size:clamp(30px,3.6vw,46px);font-weight:700;letter-spacing:-0.025em;line-height:1.08;margin:0 0 18px;text-wrap:pretty">Bring us the problem you have stopped mentioning in meetings.</h2>
+      <p style="font-size:17.5px;line-height:1.55;color:#A7BDCB;margin:0 0 30px;max-width:500px">Forty-five minutes, no deck, no obligation. If we are not the right people for it, we will say so and point you at whoever is.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
+        <a href="#form" style="background:#4FA8E4;color:#07253C;padding:16px 32px;border-radius:9px;font-weight:700;font-size:16px" style-hover="background:#fff">Fill the four fields</a>
+        <a href="tel:+919958777467" style="border:1px solid rgba(255,255,255,0.32);color:#fff;padding:15px 30px;border-radius:9px;font-weight:600;font-size:16px" style-hover="border-color:#fff">Or call +91 99587 77467</a>
+      </div>
+    </div>
+    <div style="position:relative;border-left:1px solid rgba(255,255,255,0.18);padding-left:40px">
+      <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#8CCB72;margin-bottom:18px">IF YOU WOULD RATHER NOT FILL A FORM</div>
+      <div style="display:flex;flex-direction:column;gap:14px;font-size:16px">
+        <a href="mailto:info@tekmentors.com" style="color:#fff;border-bottom:1px solid rgba(255,255,255,0.3);padding-bottom:4px" style-hover="color:#4FA8E4">info@tekmentors.com</a>
+        <a href="https://www.linkedin.com/company/tekmentors/" style="color:#fff;border-bottom:1px solid rgba(255,255,255,0.3);padding-bottom:4px" style-hover="color:#4FA8E4">Message us on LinkedIn</a>
+        <a href="https://www.tekmentors.com/case-studies/" style="color:#fff;border-bottom:1px solid rgba(255,255,255,0.3);padding-bottom:4px" style-hover="color:#4FA8E4">Read the case studies first</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer data-screen-label="Footer" style="background:#FBFBF9;border-top:1px solid #E3E8EC">
+  <div style="max-width:1200px;margin:0 auto;padding:56px 32px 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:44px">
+    <div>
+      <img src="assets/tekmentors-logo.png" alt="TEKMentors" style="height:46px;width:auto;margin-bottom:16px">
+      <p style="font-size:14.5px;line-height:1.6;color:#4C5C69;margin:0 0 8px;max-width:290px">Enabling minds to explore possibilities. Consulting and upskilling for teams that have to ship.</p>
+      <p style="font-size:13.5px;color:#687987;margin:0">TEKMentors Consulting Pvt. Ltd.</p>
+    </div>
+    <div>
+      <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#687987;margin-bottom:16px">COMPANY</div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:14.5px">
+        <a href="https://www.tekmentors.com/about-us/" style="color:#24404F" style-hover="color:#1B7CBE">About us</a>
+        <a href="https://www.tekmentors.com/case-studies/" style="color:#24404F" style-hover="color:#1B7CBE">Case studies</a>
+        <a href="https://www.tekmentors.com/blog/" style="color:#24404F" style-hover="color:#1B7CBE">Blog</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#687987;margin-bottom:16px">PROGRAMS</div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:14.5px">
+        <a href="#programs" style="color:#24404F" style-hover="color:#1B7CBE">AI programs</a>
+        <a href="https://www.tekmentors.com/genai-training-program/" style="color:#24404F" style-hover="color:#1B7CBE">GenAI engineering</a>
+        <a href="https://www.tekmentors.com/devops-engineer-training-program/" style="color:#24404F" style-hover="color:#1B7CBE">DevOps engineer</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#687987;margin-bottom:16px">REACH US</div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:14.5px">
+        <a href="tel:+919958777467" style="color:#24404F" style-hover="color:#1B7CBE">+91 99587 77467</a>
+        <a href="mailto:info@tekmentors.com" style="color:#24404F" style-hover="color:#1B7CBE">info@tekmentors.com</a>
+        <a href="https://www.linkedin.com/company/tekmentors/" style="color:#24404F" style-hover="color:#1B7CBE">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:0 auto;padding:0 32px 32px">
+    <div style="border-top:1px solid #E3E8EC;padding-top:22px;font-size:13px;color:#687987;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
+      <span>&copy; 2026 TEKMentors. All rights reserved.</span>
+      <a href="https://www.tekmentors.com/terms-of-use/" style="color:#687987">Terms of use</a>
+    </div>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showQuoteSlot&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;}}">
+class Component extends DCLogic {
+  state = { need: 'A project or system', name: '', email: '', org: '', msg: '', error: '', sent: false };
+
+  set(k) { return e => this.setState({ [k]: e.target.value, error: '' }); }
+
+  submit() {
+    const { name, email, msg } = this.state;
+    if (!name.trim()) return this.setState({ error: 'We need a name to reply to.' });
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.trim())) return this.setState({ error: 'That email does not look right. Check it and send again.' });
+    if (msg.trim().length < 8) return this.setState({ error: 'A line or two about what is stuck helps us route this properly.' });
+    this.setState({ sent: true });
+  }
+
+  chip(active) {
+    return {
+      border: active ? '#1B7CBE' : '#D8E0E6',
+      bg: active ? '#EAF4FB' : '#fff'
+    };
+  }
+
+  renderVals() {
+    const s = this.state;
+    const c = n => this.chip(s.need === n);
+    const consulting = c('A project or system'), training = c('Training my team'),
+          hiring = c('Joining a program'), unsure = c('Not sure yet');
+    return {
+      sent: s.sent,
+      notSent: !s.sent,
+      name: s.name, email: s.email, org: s.org, msg: s.msg,
+      error: s.error, hasError: !!s.error,
+      onName: this.set('name'), onEmail: this.set('email'), onOrg: this.set('org'), onMsg: this.set('msg'),
+      submit: () => this.submit(),
+      reset: () => this.setState({ sent: false, name: '', email: '', org: '', msg: '', error: '' }),
+      pickConsulting: () => this.setState({ need: 'A project or system' }),
+      pickTraining: () => this.setState({ need: 'Training my team' }),
+      pickHiring: () => this.setState({ need: 'Joining a program' }),
+      pickUnsure: () => this.setState({ need: 'Not sure yet' }),
+      needConsultingBorder: consulting.border, needConsultingBg: consulting.bg,
+      needTrainingBorder: training.border, needTrainingBg: training.bg,
+      needHiringBorder: hiring.border, needHiringBg: hiring.bg,
+      needUnsureBorder: unsure.border, needUnsureBg: unsure.bg,
+      showQuoteSlot: this.props.showQuoteSlot ?? true
+    };
+  }
+}
+</script>
+</body>
+</html>

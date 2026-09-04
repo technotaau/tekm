@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  html,body{margin:0;padding:0;color:#10222E;font-family:'Schibsted Grotesk',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;}
+  a{color:#1B7CBE;text-decoration:none;}
+  a:hover{color:#10222E;}
+  doc-page:not(:defined){visibility:hidden;}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  *{animation-delay:-99s !important;animation-duration:.001s !important;animation-iteration-count:1 !important;animation-fill-mode:both !important;animation-play-state:running !important;transition-duration:0s !important;}
+  .kt{break-inside:avoid;orphans:3;widows:3;}
+  .lead{font-size:11.5pt;line-height:1.55;color:#4C5C69;margin:0 0 14pt;text-wrap:pretty;}
+  .eyebrow{font-family:'Spline Sans Mono',monospace;font-size:7.5pt;letter-spacing:0.13em;color:#1B7CBE;margin-bottom:7pt;}
+  .h2{font-size:20pt;font-weight:700;letter-spacing:-0.02em;line-height:1.1;margin:0 0 10pt;text-wrap:pretty;}
+  .h3{font-size:12pt;font-weight:700;letter-spacing:-0.01em;margin:0 0 6pt;}
+  .body{font-size:10pt;line-height:1.55;color:#4C5C69;margin:0;text-wrap:pretty;}
+  .rule{border-top:1.5px solid #10222E;margin-top:6pt;}
+</style>
+<script src="./doc-page.js"></script>
+</helmet>
+
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+    <rect width="240" height="240" fill="#07253C"></rect>
+    <rect x="72" y="72" width="96" height="96" rx="12" fill="#4FA8E4"></rect>
+    <text x="120" y="138" font-family="Helvetica, Arial, sans-serif" font-size="46" font-weight="700" fill="#07253C" text-anchor="middle">TM</text>
+  </svg>
+</template>
+
+<doc-page margin="0.6in">
+
+  <div slot="footer" style="display:flex;justify-content:space-between;align-items:center;font-size:8pt;color:#687987;border-top:1px solid #DCE5EB;padding-top:6pt;font-family:'Schibsted Grotesk',Helvetica,Arial,sans-serif">
+    <span>TEKMentors Consulting Pvt. Ltd.</span>
+    <span>info@tekmentors.com &middot; +91 99587 77467 &middot; www.tekmentors.com</span>
+  </div>
+
+  <div class="kt" style="background:#07253C;color:#fff;padding:26pt 24pt;border-radius:8pt;margin-bottom:20pt">
+    <img src="assets/tekmentors-logo.png" alt="TEKMentors" style="height:34pt;width:auto;display:block;margin-bottom:16pt;background:#fff;border-radius:4pt;padding:4pt 6pt">
+    <div style="font-family:'Spline Sans Mono',monospace;font-size:8pt;letter-spacing:0.13em;color:#9CD0F2;margin-bottom:12pt">CONSULTING &middot; CLOUD &middot; AGILE &middot; AI UPSKILLING</div>
+    <h1 style="font-size:27pt;line-height:1.06;font-weight:700;letter-spacing:-0.025em;margin:0 0 12pt;text-wrap:pretty">We build the AI systems, and the people who keep them running.</h1>
+    <p style="font-size:11.5pt;line-height:1.55;color:#B3C6D3;margin:0 0 18pt;max-width:34em;text-wrap:pretty">Twenty years inside enterprise transformation, a fair few of them rescuing the ones that went sideways. We modernize the systems, get AI into production, and train your team to run it once we leave.</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14pt;border-top:1px solid rgba(255,255,255,0.16);padding-top:14pt">
+      <div><div style="font-size:15pt;font-weight:700">20+ yrs</div><div style="font-size:8pt;color:#A7BDCB;margin-top:3pt">What our mentors average, in industry</div></div>
+      <div><div style="font-size:15pt;font-weight:700">50+</div><div style="font-size:8pt;color:#A7BDCB;margin-top:3pt">Clients, several since the first engagement</div></div>
+      <div><div style="font-size:15pt;font-weight:700">Hands-on</div><div style="font-size:8pt;color:#A7BDCB;margin-top:3pt">Practitioner led. No theory decks.</div></div>
+      <div><div style="font-size:15pt;font-weight:700">End-to-end</div><div style="font-size:8pt;color:#A7BDCB;margin-top:3pt">Discovery to production, then handover</div></div>
+    </div>
+  </div>
+
+  <div class="kt" style="margin-bottom:22pt">
+    <div class="eyebrow">WHO WRITES TO US</div>
+    <h2 class="h2">Three kinds of people land here. Pick yours and skip the rest.</h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12pt;margin-bottom:26pt">
+    <div class="kt" style="border:1px solid #DCE5EB;border-radius:7pt;padding:14pt 14pt 15pt">
+      <div style="font-family:'Spline Sans Mono',monospace;font-size:7pt;letter-spacing:0.12em;color:#566774;margin-bottom:8pt">01 &middot; TECHNOLOGY LEADERS</div>
+      <h3 class="h3">Something is not shipping</h3>
+      <p class="body" style="margin-bottom:9pt">A pilot stuck short of production, a migration that stalled, a bill that grew. You want an engineer's read before you commit more budget.</p>
+      <div style="font-size:8.5pt;line-height:1.6;color:#24404F;border-top:1px solid #E7EDF2;padding-top:8pt"><strong>First step</strong><br>A 45 minute scoping session and a one page recommendation.</div>
+    </div>
+    <div class="kt" style="border:1px solid #DCE5EB;border-radius:7pt;padding:14pt 14pt 15pt">
+      <div style="font-family:'Spline Sans Mono',monospace;font-size:7pt;letter-spacing:0.12em;color:#566774;margin-bottom:8pt">02 &middot; ENGINEERING AND L&amp;D HEADS</div>
+      <h3 class="h3">Your team has to become AI capable</h3>
+      <p class="body" style="margin-bottom:9pt">You would rather train the engineers who already know your systems than hire strangers, and you need a program that ends in shipped work.</p>
+      <div style="font-size:8.5pt;line-height:1.6;color:#24404F;border-top:1px solid #E7EDF2;padding-top:8pt"><strong>First step</strong><br>A skills read across the team, then a private cohort plan.</div>
+    </div>
+    <div class="kt" style="border:1px solid #DCE5EB;border-radius:7pt;padding:14pt 14pt 15pt">
+      <div style="font-family:'Spline Sans Mono',monospace;font-size:7pt;letter-spacing:0.12em;color:#566774;margin-bottom:8pt">03 &middot; INDIVIDUAL ENGINEERS</div>
+      <h3 class="h3">You want the AI job, not the AI course</h3>
+      <p class="body" style="margin-bottom:9pt">A few years in, or just out of college. You want to finish with work you can show and defend in an interview, and someone to help you get in the room.</p>
+      <div style="font-size:8.5pt;line-height:1.6;color:#24404F;border-top:1px solid #E7EDF2;padding-top:8pt"><strong>First step</strong><br>A fifteen minute call to pick the right program and batch.</div>
+    </div>
+  </div>
+
+  <div class="kt" style="margin-bottom:14pt">
+    <div class="eyebrow">AI PROGRAMS</div>
+    <h2 class="h2">Three programs, with the details you would ask for anyway.</h2>
+    <p class="lead" style="margin:0">All run live, taught by people who still do the work. Dates and fees come back with your enquiry.</p>
+  </div>
+
+  <table style="width:100%;border-collapse:collapse;margin-bottom:26pt;font-size:9pt">
+    <thead>
+      <tr style="border-top:1.5px solid #10222E;border-bottom:1px solid #DCE5EB">
+        <th style="text-align:left;padding:6pt 8pt 6pt 0;font-family:'Spline Sans Mono',monospace;font-size:7pt;letter-spacing:0.12em;color:#566774;font-weight:500;width:46%">PROGRAM</th>
+        <th style="text-align:left;padding:6pt 8pt;font-family:'Spline Sans Mono',monospace;font-size:7pt;letter-spacing:0.12em;color:#566774;font-weight:500;width:26%">WHO IT IS FOR</th>
+        <th style="text-align:left;padding:6pt 8pt;font-family:'Spline Sans Mono',monospace;font-size:7pt;letter-spacing:0.12em;color:#566774;font-weight:500;width:14%">LENGTH</th>
+        <th style="text-align:left;padding:6pt 0 6pt 8pt;font-family:'Spline Sans Mono',monospace;font-size:7pt;letter-spacing:0.12em;color:#566774;font-weight:500;width:14%">FORMAT</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="kt" style="background:#07253C;color:#fff">
+        <td style="padding:14pt 8pt 14pt 12pt;vertical-align:top">
+          <div style="font-family:'Spline Sans Mono',monospace;font-size:7pt;letter-spacing:0.12em;color:#8CCB72;margin-bottom:6pt">FLAGSHIP &middot; ENROLLING</div>
+          <div style="font-size:14pt;font-weight:700;letter-spacing:-0.02em;line-height:1.15;margin-bottom:7pt">AI Forward Deployed Engineer</div>
+          <p style="font-size:9pt;line-height:1.55;color:#A7BDCB;margin:0;text-wrap:pretty">LLM, RAG and agentic engineering on one real enterprise problem, with evaluation, security and governance in the build. Plus the customer-facing half of the job: discovery calls, design reviews, and briefing an executive who has eight minutes. Ends with a live system and a panel viva.</p>
+        </td>
+        <td style="padding:14pt 8pt;vertical-align:top;color:#D5E2EA;line-height:1.5">Engineers with 3 to 8 years behind them, individually or as a company cohort</td>
+        <td style="padding:14pt 8pt;vertical-align:top;color:#D5E2EA">6 to 8 weeks</td>
+        <td style="padding:14pt 12pt 14pt 8pt;vertical-align:top;color:#D5E2EA">Live, project led</td>
+      </tr>
+      <tr class="kt" style="border-bottom:1px solid #DCE5EB">
+        <td style="padding:14pt 8pt 14pt 0;vertical-align:top">
+          <div style="font-family:'Spline Sans Mono',monospace;font-size:7pt;letter-spacing:0.12em;color:#175F91;margin-bottom:6pt">JOB READY</div>
+          <div style="font-size:12.5pt;font-weight:700;letter-spacing:-0.015em;line-height:1.18;margin-bottom:7pt">GenAI engineering: foundations to production</div>
+          <p class="body" style="font-size:9pt">A RAG assistant, an MCP-enabled agent and a multimodal pipeline, each one deployed rather than simulated in a notebook. Ends with mock interviews, an industry panel viva, placement support and a capstone you can walk someone through line by line.</p>
+        </td>
+        <td style="padding:14pt 8pt;vertical-align:top;color:#4C5C69;line-height:1.5">Engineering graduates, no AI background needed</td>
+        <td style="padding:14pt 8pt;vertical-align:top;color:#4C5C69">16 weeks<br><span style="color:#687987;font-size:8pt">144 hours</span></td>
+        <td style="padding:14pt 0 14pt 8pt;vertical-align:top;color:#4C5C69">Live, 60% labs</td>
+      </tr>
+      <tr class="kt" style="border-bottom:1px solid #DCE5EB">
+        <td style="padding:14pt 8pt 14pt 0;vertical-align:top">
+          <div style="font-family:'Spline Sans Mono',monospace;font-size:7pt;letter-spacing:0.12em;color:#35702B;margin-bottom:6pt">NO CODE REQUIRED</div>
+          <div style="font-size:12.5pt;font-weight:700;letter-spacing:-0.015em;line-height:1.18;margin-bottom:7pt">AI-enabled agile and product leadership</div>
+          <p class="body" style="font-size:9pt">For Scrum Masters, Product Owners and delivery leads. Enough AI to back the right idea, question the wrong one, and stop nodding along in vendor meetings. Ends with your own team showing what they built.</p>
+        </td>
+        <td style="padding:14pt 8pt;vertical-align:top;color:#4C5C69;line-height:1.5">Agile and product leaders, run privately for a single team</td>
+        <td style="padding:14pt 8pt;vertical-align:top;color:#4C5C69">2 days</td>
+        <td style="padding:14pt 0 14pt 8pt;vertical-align:top;color:#4C5C69">Live online</td>
+      </tr>
+      <tr class="kt">
+        <td colspan="4" style="padding:10pt 0;border-bottom:1px solid #DCE5EB;color:#4C5C69;font-size:9pt">
+          <span style="font-family:'Spline Sans Mono',monospace;font-size:7pt;letter-spacing:0.12em;color:#566774">ALSO RUNNING</span>&nbsp;&nbsp; Full stack architect &nbsp;&middot;&nbsp; DevOps engineer &nbsp;&middot;&nbsp; Adobe toolset, for corporate teams
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="kt" style="break-before:page;margin-bottom:16pt">
+    <div class="eyebrow">CONSULTING</div>
+    <h2 class="h2">The gap is never the model. It is everything around it.</h2>
+    <p class="lead" style="margin:0">Most AI pilots we are shown work perfectly and will never go live. Here is what that usually looks like, and what we replace it with.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12pt;margin-bottom:24pt">
+    <div class="kt" style="border:1px solid #DCE5EB;border-radius:7pt;padding:14pt">
+      <div style="font-family:'Spline Sans Mono',monospace;font-size:7pt;letter-spacing:0.12em;color:#B4472F;margin-bottom:4pt">BEFORE</div>
+      <h3 class="h3" style="font-size:12pt;margin-bottom:10pt">Disconnected pilots</h3>
+      <div style="display:flex;flex-direction:column;gap:6pt">
+        <div style="border:1px dashed #DCC3B9;background:#FCF7F5;border-radius:5pt;padding:8pt 9pt"><div style="font-size:9.5pt;font-weight:600">Notebook prototype</div><div style="font-size:8.5pt;color:#8A6C62;margin-top:2pt">Runs on one laptop. No owner after the demo.</div></div>
+        <div style="border:1px dashed #DCC3B9;background:#FCF7F5;border-radius:5pt;padding:8pt 9pt"><div style="font-size:9.5pt;font-weight:600">Data pulled by hand</div><div style="font-size:8.5pt;color:#8A6C62;margin-top:2pt">Exports and spreadsheets. Nothing repeatable.</div></div>
+        <div style="border:1px dashed #DCC3B9;background:#FCF7F5;border-radius:5pt;padding:8pt 9pt"><div style="font-size:9.5pt;font-weight:600">Quality judged by vibes</div><div style="font-size:8.5pt;color:#8A6C62;margin-top:2pt">No eval set, so no way to prove it improved.</div></div>
+        <div style="border:1px dashed #DCC3B9;background:#FCF7F5;border-radius:5pt;padding:8pt 9pt"><div style="font-size:9.5pt;font-weight:600">Security consulted last</div><div style="font-size:8.5pt;color:#8A6C62;margin-top:2pt">Review arrives after the build, and blocks it.</div></div>
+        <div style="border:1px dashed #DCC3B9;background:#FCF7F5;border-radius:5pt;padding:8pt 9pt"><div style="font-size:9.5pt;font-weight:600">No path to production</div><div style="font-size:8.5pt;color:#8A6C62;margin-top:2pt">The pilot succeeds. The rollout never starts.</div></div>
+      </div>
+    </div>
+    <div class="kt" style="background:#07253C;color:#fff;border-radius:7pt;padding:14pt">
+      <div style="font-family:'Spline Sans Mono',monospace;font-size:7pt;letter-spacing:0.12em;color:#8CCB72;margin-bottom:4pt">AFTER</div>
+      <h3 class="h3" style="font-size:12pt;margin-bottom:10pt;color:#fff">One governed pipeline</h3>
+      <div style="display:flex;flex-direction:column;gap:6pt">
+        <div style="border:1px solid rgba(140,203,114,0.35);background:rgba(140,203,114,0.10);border-radius:5pt;padding:8pt 9pt;display:flex;gap:9pt"><span style="font-family:'Spline Sans Mono',monospace;font-size:8pt;color:#8CCB72">01</span><div><div style="font-size:9.5pt;font-weight:600">Scoped business problem</div><div style="font-size:8.5pt;color:#A7BDCB;margin-top:2pt">Named owner, measurable outcome, agreed baseline.</div></div></div>
+        <div style="border:1px solid rgba(140,203,114,0.35);background:rgba(140,203,114,0.10);border-radius:5pt;padding:8pt 9pt;display:flex;gap:9pt"><span style="font-family:'Spline Sans Mono',monospace;font-size:8pt;color:#8CCB72">02</span><div><div style="font-size:9.5pt;font-weight:600">Governed data access</div><div style="font-size:8.5pt;color:#A7BDCB;margin-top:2pt">Permissions and lineage handled in the pipeline.</div></div></div>
+        <div style="border:1px solid rgba(140,203,114,0.35);background:rgba(140,203,114,0.10);border-radius:5pt;padding:8pt 9pt;display:flex;gap:9pt"><span style="font-family:'Spline Sans Mono',monospace;font-size:8pt;color:#8CCB72">03</span><div><div style="font-size:9.5pt;font-weight:600">Agent in the real workflow</div><div style="font-size:8.5pt;color:#A7BDCB;margin-top:2pt">Integrated where the work already happens.</div></div></div>
+        <div style="border:1px solid rgba(140,203,114,0.35);background:rgba(140,203,114,0.10);border-radius:5pt;padding:8pt 9pt;display:flex;gap:9pt"><span style="font-family:'Spline Sans Mono',monospace;font-size:8pt;color:#8CCB72">04</span><div><div style="font-size:9.5pt;font-weight:600">Evaluation as a gate</div><div style="font-size:8.5pt;color:#A7BDCB;margin-top:2pt">Regression caught before release, not after.</div></div></div>
+        <div style="border:1px solid rgba(140,203,114,0.55);background:rgba(140,203,114,0.16);border-radius:5pt;padding:8pt 9pt;display:flex;gap:9pt"><span style="font-family:'Spline Sans Mono',monospace;font-size:8pt;color:#8CCB72">05</span><div><div style="font-size:9.5pt;font-weight:600">Production, run by your team</div><div style="font-size:8.5pt;color:#D5E2EA;margin-top:2pt">CI/CD, monitoring, and engineers who own it.</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kt" style="margin-bottom:6pt">
+    <div class="eyebrow">FIVE PRACTICES, ONE BENCH</div>
+  </div>
+  <div style="border-top:1.5px solid #10222E;margin-bottom:26pt">
+    <div class="kt" style="display:grid;grid-template-columns:auto 1fr;gap:12pt;padding:10pt 0;border-bottom:1px solid #DCE5EB">
+      <span style="font-family:'Spline Sans Mono',monospace;font-size:8pt;color:#566774">01</span>
+      <div><div style="font-size:11pt;font-weight:600;margin-bottom:3pt">Cloud and DevOps</div><div class="body" style="font-size:9pt">Pipelines that hold up under real load, and a bill you can explain at the end of the quarter.</div></div>
+    </div>
+    <div class="kt" style="display:grid;grid-template-columns:auto 1fr;gap:12pt;padding:10pt 0;border-bottom:1px solid #DCE5EB">
+      <span style="font-family:'Spline Sans Mono',monospace;font-size:8pt;color:#566774">02</span>
+      <div><div style="font-size:11pt;font-weight:600;margin-bottom:3pt">Transformation and tech strategy</div><div class="body" style="font-size:9pt">A roadmap tied to how the business makes money, with the legacy estate honestly accounted for.</div></div>
+    </div>
+    <div class="kt" style="display:grid;grid-template-columns:auto 1fr;gap:12pt;padding:10pt 0;border-bottom:1px solid #DCE5EB">
+      <span style="font-family:'Spline Sans Mono',monospace;font-size:8pt;color:#566774">03</span>
+      <div><div style="font-size:11pt;font-weight:600;margin-bottom:3pt">Agile transformation</div><div class="body" style="font-size:9pt">Agile that survives contact with your org chart. Coaching for the teams, and for the managers above them.</div></div>
+    </div>
+    <div class="kt" style="display:grid;grid-template-columns:auto 1fr;gap:12pt;padding:10pt 0;border-bottom:1px solid #DCE5EB">
+      <span style="font-family:'Spline Sans Mono',monospace;font-size:8pt;color:#566774">04</span>
+      <div><div style="font-size:11pt;font-weight:600;margin-bottom:3pt">Data and web analytics</div><div class="body" style="font-size:9pt">Instrumentation you can trust on Adobe and Google stacks, so the next argument is about strategy rather than the numbers.</div></div>
+    </div>
+    <div class="kt" style="display:grid;grid-template-columns:auto 1fr;gap:12pt;padding:10pt 0;border-bottom:1px solid #DCE5EB">
+      <span style="font-family:'Spline Sans Mono',monospace;font-size:8pt;color:#566774">05</span>
+      <div><div style="font-size:11pt;font-weight:600;margin-bottom:3pt">Upskilling</div><div class="body" style="font-size:9pt">Hands-on programs that leave your team able to build the thing without us.</div></div>
+    </div>
+  </div>
+
+  <div class="kt" style="margin-bottom:14pt">
+    <div class="eyebrow">HOW AN ENGAGEMENT RUNS</div>
+    <h2 class="h2">Four phases. Each one ends in something you can open.</h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#DCE5EB;border:1px solid #DCE5EB;border-radius:7pt;overflow:hidden;margin-bottom:26pt">
+    <div class="kt" style="background:#fff;padding:13pt 12pt">
+      <div style="font-family:'Spline Sans Mono',monospace;font-size:7pt;letter-spacing:0.12em;color:#566774;margin-bottom:9pt">PHASE 01</div>
+      <h3 class="h3" style="font-size:11pt">Scope, then argue</h3>
+      <p class="body" style="font-size:8.5pt;margin-bottom:9pt">We interview the people doing the work, size the problem, and drop the ideas that do not survive the conversation.</p>
+      <div style="font-size:8.5pt;font-weight:600;border-top:1px solid #E7EDF2;padding-top:7pt">A scoped brief with a baseline number</div>
+    </div>
+    <div class="kt" style="background:#fff;padding:13pt 12pt">
+      <div style="font-family:'Spline Sans Mono',monospace;font-size:7pt;letter-spacing:0.12em;color:#566774;margin-bottom:9pt">PHASE 02</div>
+      <h3 class="h3" style="font-size:11pt">Build against real data</h3>
+      <p class="body" style="font-size:8.5pt;margin-bottom:9pt">Your documents, your permissions, your awkward integrations. The parts a vendor demo quietly skips.</p>
+      <div style="font-size:8.5pt;font-weight:600;border-top:1px solid #E7EDF2;padding-top:7pt">A working service, not a slide</div>
+    </div>
+    <div class="kt" style="background:#fff;padding:13pt 12pt">
+      <div style="font-family:'Spline Sans Mono',monospace;font-size:7pt;letter-spacing:0.12em;color:#566774;margin-bottom:9pt">PHASE 03</div>
+      <h3 class="h3" style="font-size:11pt">Measure and guard</h3>
+      <p class="body" style="font-size:8.5pt;margin-bottom:9pt">Evaluation set, regression runs, and the security posture written down where your risk team can read it.</p>
+      <div style="font-size:8.5pt;font-weight:600;border-top:1px solid #E7EDF2;padding-top:7pt">An eval harness and a report</div>
+    </div>
+    <div class="kt" style="background:#07253C;color:#fff;padding:13pt 12pt">
+      <div style="font-family:'Spline Sans Mono',monospace;font-size:7pt;letter-spacing:0.12em;color:#8CCB72;margin-bottom:9pt">PHASE 04</div>
+      <h3 class="h3" style="font-size:11pt;color:#fff">Hand it over properly</h3>
+      <p style="font-size:8.5pt;line-height:1.55;color:#A7BDCB;margin:0 0 9pt">Deployed with CI/CD and monitoring, documented, and walked through with the engineers who will own it.</p>
+      <div style="font-size:8.5pt;font-weight:600;border-top:1px solid rgba(255,255,255,0.2);padding-top:7pt">A live system with a named owner</div>
+    </div>
+  </div>
+
+  <div class="kt" style="break-before:page;margin-bottom:14pt">
+    <div class="eyebrow">STRAIGHT ANSWERS</div>
+    <h2 class="h2">The questions we get in almost every first meeting.</h2>
+    <p class="lead" style="margin:0">Answered the way we would across a table, without the hedging. If yours is missing, it is probably the interesting one.</p>
+  </div>
+  <div style="column-count:2;column-gap:22pt;margin-bottom:26pt">
+    <div class="kt" style="border-top:1.5px solid #10222E;padding:9pt 0 12pt">
+      <h3 class="h3" style="font-size:11pt;line-height:1.25">Where should we actually start with AI?</h3>
+      <p class="body" style="font-size:9pt">With the process your best people complain about most. It is usually unglamorous, already has a number attached, and nobody has offered to fix it because it is boring. That is exactly why it is the right first project.</p>
+    </div>
+    <div class="kt" style="border-top:1px solid #DCE5EB;padding:9pt 0 12pt">
+      <h3 class="h3" style="font-size:11pt;line-height:1.25">Our pilot works. Why can it not go live?</h3>
+      <p class="body" style="font-size:9pt">Because a pilot proves the model and production needs everything else: governed data access, an evaluation set, a deployment path, monitoring, and a named owner on Monday morning. We build those in from week one.</p>
+    </div>
+    <div class="kt" style="border-top:1px solid #DCE5EB;padding:9pt 0 12pt">
+      <h3 class="h3" style="font-size:11pt;line-height:1.25">Do we hire AI engineers or train ours?</h3>
+      <p class="body" style="font-size:9pt">Train the ones who already know your systems, your data and who to call when something breaks at nine on a Friday. That knowledge takes years to rebuild. The AI part takes weeks, and that is the part we teach.</p>
+    </div>
+    <div class="kt" style="border-top:1px solid #DCE5EB;padding:9pt 0 12pt">
+      <h3 class="h3" style="font-size:11pt;line-height:1.25">What does the first conversation cost?</h3>
+      <p class="body" style="font-size:9pt">Nothing, including the one page recommendation that follows it. It is the fastest way for both sides to find out whether the work is a fit, and you keep the page either way.</p>
+    </div>
+    <div class="kt" style="border-top:1px solid #DCE5EB;padding:9pt 0 12pt">
+      <h3 class="h3" style="font-size:11pt;line-height:1.25">Can you work inside our security rules?</h3>
+      <p class="body" style="font-size:9pt">Yes, and we would rather meet your risk and security people in week one than week six. We will sign your NDA before the scoping session if that is easier. Remote, on site in Delhi NCR, or a mix.</p>
+    </div>
+    <div class="kt" style="border-top:1px solid #DCE5EB;padding:9pt 0 12pt">
+      <h3 class="h3" style="font-size:11pt;line-height:1.25">What happens when you leave?</h3>
+      <p class="body" style="font-size:9pt">Your engineers keep running it, because they built most of it with us watching rather than the other way round. Handover is a phase with a date on it, not a conversation we have when the invoice is due.</p>
+    </div>
+  </div>
+
+  <div class="kt" style="border:1px solid #DCE5EB;border-radius:7pt;padding:16pt;margin-bottom:24pt">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16pt">
+      <div><div style="font-size:22pt;font-weight:800;letter-spacing:-0.03em">50<span style="color:#4A8F3C">+</span></div><div style="font-size:8.5pt;color:#4C5C69;margin-top:3pt">Clients served</div></div>
+      <div><div style="font-size:22pt;font-weight:800;letter-spacing:-0.03em">30<span style="color:#4A8F3C">+</span></div><div style="font-size:8.5pt;color:#4C5C69;margin-top:3pt">Transformations delivered</div></div>
+      <div><div style="font-size:22pt;font-weight:800;letter-spacing:-0.03em">100<span style="color:#4A8F3C">+</span></div><div style="font-size:8.5pt;color:#4C5C69;margin-top:3pt">Programs taught</div></div>
+      <div><div style="font-size:22pt;font-weight:800;letter-spacing:-0.03em">10<span style="color:#4A8F3C">+</span></div><div style="font-size:8.5pt;color:#4C5C69;margin-top:3pt">Awards won</div></div>
+    </div>
+  </div>
+
+  <div class="kt" style="background:#07253C;color:#fff;border-radius:8pt;padding:22pt 22pt 24pt">
+    <div style="font-family:'Spline Sans Mono',monospace;font-size:8pt;letter-spacing:0.13em;color:#8CCB72;margin-bottom:9pt">TALK TO US</div>
+    <h2 style="font-size:19pt;font-weight:700;letter-spacing:-0.02em;line-height:1.08;margin:0 0 9pt;text-wrap:pretty">Bring us the problem you have stopped mentioning in meetings.</h2>
+    <p style="font-size:10.5pt;line-height:1.55;color:#A7BDCB;margin:0 0 16pt;max-width:34em">Nobody likes sending an enquiry into the dark, so here is exactly what follows. You can stop at any step without an awkward phone call.</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12pt;border-top:1px solid rgba(255,255,255,0.16);padding-top:13pt;margin-bottom:16pt">
+      <div><div style="font-family:'Spline Sans Mono',monospace;font-size:7pt;letter-spacing:0.1em;color:#8CCB72;margin-bottom:5pt">WITHIN 1 DAY</div><div style="font-size:10pt;font-weight:600;margin-bottom:3pt">A real reply</div><div style="font-size:8.5pt;line-height:1.5;color:#A7BDCB">From the consultant who will handle it, with their name and two or three questions.</div></div>
+      <div><div style="font-family:'Spline Sans Mono',monospace;font-size:7pt;letter-spacing:0.1em;color:#8CCB72;margin-bottom:5pt">DAY 2 TO 4</div><div style="font-size:10pt;font-weight:600;margin-bottom:3pt">A 45 minute session</div><div style="font-size:8.5pt;line-height:1.5;color:#A7BDCB">Bring the engineers. We ask questions and take notes rather than present.</div></div>
+      <div><div style="font-family:'Spline Sans Mono',monospace;font-size:7pt;letter-spacing:0.1em;color:#8CCB72;margin-bottom:5pt">2 DAYS LATER</div><div style="font-size:10pt;font-weight:600;margin-bottom:3pt">A one page recommendation</div><div style="font-size:8.5pt;line-height:1.5;color:#A7BDCB">What we heard, what we would do first, what it would take. Yours to keep.</div></div>
+      <div><div style="font-family:'Spline Sans Mono',monospace;font-size:7pt;letter-spacing:0.1em;color:#8CCB72;margin-bottom:5pt">IF YOU WANT IT</div><div style="font-size:10pt;font-weight:600;margin-bottom:3pt">A proposal</div><div style="font-size:8.5pt;line-height:1.5;color:#A7BDCB">Scope, team, timeline and cost on one page. If the recommendation was enough, that is fine too.</div></div>
+    </div>
+    <div style="display:flex;gap:20pt;flex-wrap:wrap;font-size:10pt;border-top:1px solid rgba(255,255,255,0.16);padding-top:13pt">
+      <span style="color:#fff">+91 99587 77467</span>
+      <span style="color:#fff">info@tekmentors.com</span>
+      <span style="color:#fff">www.tekmentors.com</span>
+      <span style="color:#A7BDCB">Delhi NCR, working with teams across India, the Gulf and the US</span>
+    </div>
+  </div>
+
+</doc-page>
+</x-dc>
+</body>
+</html>
