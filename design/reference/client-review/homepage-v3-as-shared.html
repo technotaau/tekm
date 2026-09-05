@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TEKMentors | AI that works in production, and engineers who keep it there</title>
+<meta name="description" content="TEKMentors Consulting, Gurugram. Enterprise modernization, AI into production, and live upskilling programs for engineers and delivery leaders, taught by practitioners.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B2338; --navy2:#12395A; --ink:#1F2E38; --mute:#5C6B75;
+  --sky:#2B8FD6; --sky2:#5FB0EA; --leaf:#7DBF5A; --tint:#EEF5FA; --line:#DCE5EC; --max:1240px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--ink);font-family:'Inter',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--sky);text-decoration:none}
+a:focus-visible,button:focus-visible{outline:3px solid var(--leaf);outline-offset:3px}
+img{max-width:100%;display:block}
+h1,h2,h3,.display{font-family:'Sora',var(--font-fallback,'Inter'),sans-serif;color:var(--navy);margin:0;line-height:1.1;letter-spacing:-0.02em}
+h1{font-size:clamp(2.6rem,6vw,5rem);font-weight:800}
+h2{font-size:clamp(2rem,3.6vw,3rem);font-weight:700}
+h3{font-size:1.3rem;font-weight:700;line-height:1.3}
+p{margin:0}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+.section{padding:112px 0}
+.section.tint{background:var(--tint)}
+.section.dark{background:var(--navy);color:#fff}
+.section.dark h2,.section.dark h3{color:#fff}
+.lead{font-size:1.2rem;color:var(--mute);max-width:58ch;line-height:1.55}
+.dark .lead{color:rgba(255,255,255,.82)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:999px;font-weight:600;font-size:1rem;background:var(--sky);color:#fff;border:2px solid var(--sky);transition:background .15s,color .15s}
+.btn:hover{background:#1D7BC0;border-color:#1D7BC0}
+.btn.ghost{background:transparent;color:var(--navy);border-color:var(--navy)}
+.btn.ghost:hover{background:var(--navy);color:#fff}
+.btn.onDark{background:#fff;color:var(--navy);border-color:#fff}
+.btn.onDark:hover{background:var(--leaf);border-color:var(--leaf)}
+.btn.ghostDark{background:transparent;color:#fff;border-color:rgba(255,255,255,.65)}
+.btn.ghostDark:hover{background:#fff;color:var(--navy)}
+.link{font-weight:600;color:var(--sky);display:inline-flex;align-items:center;gap:8px}
+.link:hover{color:var(--navy)}
+.link svg{width:18px;height:18px}
+
+/* image slots: replace background with a licensed photo. See HTML comments. */
+.art{position:relative;background-size:cover;background-position:center;background-color:var(--navy);overflow:hidden}
+.art.a1{background-image:radial-gradient(ellipse at 15% 20%,rgba(43,143,214,.9) 0%,transparent 50%),radial-gradient(ellipse at 90% 85%,rgba(125,191,90,.85) 0%,transparent 45%),radial-gradient(ellipse at 70% 30%,rgba(95,176,234,.5) 0%,transparent 40%),linear-gradient(135deg,#0B2338,#12395A)}
+.art.a2{background-image:radial-gradient(circle at 70% 30%,#2B8FD6 0%,transparent 50%),linear-gradient(160deg,#12395A,#0B2338)}
+.art.a3{background-image:radial-gradient(circle at 30% 70%,#7DBF5A 0%,transparent 45%),linear-gradient(20deg,#0B2338,#1B4466)}
+.art.a4{background-image:radial-gradient(circle at 50% 50%,#3A9BE0 0%,transparent 55%),linear-gradient(200deg,#0B2338,#143A56)}
+.art.a5{background-image:radial-gradient(ellipse at 75% 25%,#7DBF5A 0%,transparent 50%),radial-gradient(ellipse at 15% 85%,#3A9BE0 0%,transparent 55%),linear-gradient(160deg,#1B4466,#0B2338)}
+.art.a6{background-image:radial-gradient(ellipse at 20% 80%,rgba(43,143,214,.8) 0%,transparent 55%),radial-gradient(ellipse at 85% 20%,rgba(125,191,90,.6) 0%,transparent 45%),linear-gradient(135deg,#12395A,#0B2338)}
+.art .grid::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:56px 56px}
+
+/* header */
+header{position:sticky;top:0;z-index:30;background:#fff;border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:80px}
+.nav img{height:46px;width:auto}
+.nav ul{list-style:none;margin:0;padding:0;display:flex;gap:34px;align-items:center}
+.nav li a{color:var(--navy);font-weight:500;font-size:1rem}
+.nav li a:hover{color:var(--sky)}
+.nav li a.btn{padding:11px 22px;color:#fff;font-weight:600}
+.nav li a.btn:hover{color:#fff}
+.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:999px;padding:9px 16px;font:inherit;color:var(--navy)}
+
+/* hero: full-bleed visual, one statement */
+.hero{position:relative;min-height:88vh;display:flex;align-items:center;color:#fff;overflow:hidden}
+.hero .art{position:absolute;inset:0}
+.hero .art .drift{position:absolute;inset:-20%;background:radial-gradient(circle at 30% 40%,rgba(95,176,234,.45),transparent 40%),radial-gradient(circle at 75% 65%,rgba(125,191,90,.35),transparent 40%);animation:drift 26s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(4%,-3%) scale(1.08)}}
+@media (prefers-reduced-motion:reduce){.hero .art .drift{animation:none}}
+.hero .art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,35,56,.15) 0%,rgba(11,35,56,.55) 70%,rgba(11,35,56,.85) 100%)}
+.hero .wrap{position:relative;width:100%;padding-top:120px;padding-bottom:110px}
+.hero h1{color:#fff;max-width:14ch}
+.hero h1 span{display:block;color:var(--leaf)}
+.hero p{max-width:50ch;margin-top:28px;font-size:1.25rem;color:rgba(255,255,255,.9)}
+.hero .actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:40px}
+
+/* logos */
+.logos{padding:40px 0;border-bottom:1px solid var(--line)}
+.logos .wrap{display:flex;align-items:center;gap:48px;flex-wrap:wrap}
+.logos span{color:var(--mute);font-weight:500;white-space:nowrap}
+.logos .row{display:flex;gap:44px;flex-wrap:wrap;align-items:center;flex:1}
+.logos img{height:36px;width:auto;filter:grayscale(1);opacity:.65}
+
+/* point of view */
+.pov .wrap{display:grid;grid-template-columns:5fr 6fr;gap:80px;align-items:start}
+.pov h2{font-size:clamp(2.2rem,4vw,3.4rem)}
+.pov .body p{font-size:1.2rem;line-height:1.6;color:var(--ink)}
+.pov .body p+p{margin-top:20px}
+.pov .link{margin-top:28px}
+
+/* spotlight (flagship program) */
+.spot .wrap{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.spot .art{aspect-ratio:5/4;border-radius:14px}
+.spot .tag{display:inline-block;background:var(--leaf);color:var(--navy);font-weight:700;font-size:.9rem;padding:6px 14px;border-radius:999px;margin-bottom:22px}
+.spot p{margin-top:20px}
+.spot .facts{display:flex;gap:40px;margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,.2)}
+.spot .facts b{display:block;font-family:'Sora',sans-serif;font-size:1.6rem;color:#fff}
+.spot .facts span{color:rgba(255,255,255,.75);font-size:.95rem}
+.spot .actions{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap}
+
+/* capabilities: image cards */
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:56px;flex-wrap:wrap}
+.head h2{max-width:22ch}
+.caps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.cap{position:relative;display:block;border-radius:14px;overflow:hidden;color:#fff;aspect-ratio:4/5}
+.cap .art{position:absolute;inset:0}
+.cap::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,35,56,0) 35%,rgba(11,35,56,.92) 100%)}
+.cap .txt{position:absolute;left:0;right:0;bottom:0;padding:32px;z-index:1}
+.cap h3{color:#fff;font-size:1.5rem}
+.cap p{color:rgba(255,255,255,.85);margin-top:10px;font-size:1rem}
+.cap .txt .go{display:inline-flex;align-items:center;gap:8px;margin-top:16px;color:var(--leaf);font-weight:600}
+.cap:hover .txt .go{color:#fff}
+
+/* programs */
+.programs{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.prog{background:#fff;border:1px solid var(--line);border-radius:14px;padding:36px;display:flex;flex-direction:column;gap:14px}
+.prog .who{color:var(--sky);font-weight:600;font-size:.95rem}
+.prog p{color:var(--mute)}
+.prog .meta{display:flex;gap:32px;padding-top:16px;border-top:1px solid var(--line);margin-top:auto;font-size:.95rem}
+.prog .meta b{display:block;font-family:'Sora',sans-serif;color:var(--navy);font-size:1.2rem}
+.prog .meta span{color:var(--mute)}
+.prog-actions{margin-top:10px}
+.more-programs{margin-top:32px;color:var(--mute)}
+.more-programs a{margin-left:20px;font-weight:500}
+
+/* how we work */
+.how .wrap{display:grid;grid-template-columns:5fr 7fr;gap:72px;align-items:center}
+.how .art{aspect-ratio:4/5;border-radius:14px;border:1px solid rgba(255,255,255,.15)}
+.steps{list-style:none;margin:36px 0 0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:48px 1fr;gap:18px;padding:22px 0;border-top:1px solid rgba(255,255,255,.18)}
+.steps li:last-child{border-bottom:1px solid rgba(255,255,255,.18)}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:'Sora',sans-serif;font-weight:700;color:var(--leaf);font-size:1.1rem;padding-top:2px}
+.steps b{display:block;color:#fff;font-size:1.1rem;font-family:'Sora',sans-serif;font-weight:600}
+.steps span{color:rgba(255,255,255,.78)}
+
+/* services list */
+.svcs{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.svc{display:block;padding:32px;border:1px solid var(--line);border-radius:14px;color:inherit;background:#fff}
+.svc:hover{border-color:var(--sky)}
+.svc h3{font-size:1.15rem}
+.svc p{margin-top:10px;color:var(--mute);font-size:.98rem}
+.svc .go{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-weight:600;color:var(--sky)}
+
+/* mentors */
+.mentors{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.mentor{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px;display:flex;gap:20px;align-items:center}
+.mentor .mono{flex:0 0 76px;height:76px;border-radius:50%;background:var(--navy);color:#fff;font-family:'Sora',sans-serif;font-weight:700;font-size:1.4rem;display:flex;align-items:center;justify-content:center}
+.mentor b{display:block;color:var(--navy);font-size:1.1rem;font-family:'Sora',sans-serif;font-weight:600}
+.mentor span{color:var(--mute);font-size:.98rem}
+
+/* insights */
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.post{color:inherit;display:block}
+.post .art{aspect-ratio:16/10;border-radius:14px}
+.post .kind{display:inline-block;margin-top:20px;color:var(--sky);font-weight:600;font-size:.9rem}
+.post h3{margin-top:8px;font-size:1.15rem}
+.post:hover h3{color:var(--sky)}
+
+/* cta band */
+.cta{position:relative;color:#fff;overflow:hidden}
+.cta .art{position:absolute;inset:0}
+.cta .art::after{content:"";position:absolute;inset:0;background:rgba(11,35,56,.72)}
+.cta .wrap{position:relative;padding-top:120px;padding-bottom:120px;display:grid;grid-template-columns:7fr 5fr;gap:48px;align-items:center}
+.cta h2{color:#fff;font-size:clamp(2.2rem,4vw,3.4rem);max-width:16ch}
+.cta p{color:rgba(255,255,255,.85);margin-top:16px;max-width:44ch;font-size:1.15rem}
+.cta .contact{display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+.cta .contact a.plain{color:#fff;font-weight:500;font-size:1.1rem}
+
+/* footer */
+footer{background:#071A2B;color:rgba(255,255,255,.72);padding:72px 0 32px;font-size:.95rem}
+.fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+footer img{height:42px;width:auto;margin-bottom:18px;background:#fff;padding:6px 8px;border-radius:6px}
+footer h4{color:#fff;margin:0 0 16px;font-size:1rem;font-family:'Sora',sans-serif;font-weight:600}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+footer a{color:rgba(255,255,255,.72)}
+footer a:hover{color:#fff}
+.fbottom{margin-top:56px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (max-width:1040px){
+  .caps,.svcs,.mentors,.posts{grid-template-columns:repeat(2,1fr)}
+  .pov .wrap,.spot .wrap,.how .wrap,.cta .wrap{grid-template-columns:1fr;gap:40px}
+  .fgrid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  .section{padding:72px 0}
+  .nav ul{display:none;position:absolute;top:80px;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;gap:0;border-bottom:1px solid var(--line)}
+  .nav ul.open{display:flex}
+  .nav li a{display:block;padding:16px 28px;border-top:1px solid var(--line)}
+  .nav li a.btn{margin:16px 28px;justify-content:center}
+  .menu-btn{display:block}
+  .hero{min-height:auto}
+  .hero .wrap{padding-top:88px;padding-bottom:72px}
+  .caps,.svcs,.mentors,.posts,.programs,.fgrid{grid-template-columns:1fr}
+  .cap{aspect-ratio:4/3}
+  .logos .wrap{flex-direction:column;align-items:flex-start;gap:20px}
+  .spot .facts{gap:24px;flex-wrap:wrap}
+}
+
+/* stock photos: inline background-image; the .aN gradient stays as fallback */
+.art.photo{background-color:var(--navy)}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero .art.photo .drift{opacity:.55;mix-blend-mode:screen}
+.hero .art::after{background:linear-gradient(180deg,rgba(11,35,56,.35) 0%,rgba(11,35,56,.65) 60%,rgba(11,35,56,.9) 100%)}
+.spot .art.photo::after,.how .art.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,35,56,0),rgba(11,35,56,.35))}
+@media (prefers-reduced-motion:reduce){.hero-video{display:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" aria-label="TEKMentors home"><img src="https://www.tekmentors.com/wp-content/uploads/2025/02/TEKMentors_Logo.png" alt="TEKMentors"></a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu" onclick="var m=document.getElementById('menu');var o=m.classList.toggle('open');this.setAttribute('aria-expanded',o)">Menu</button>
+    <ul id="menu">
+      <li><a href="#what-we-do">What we do</a></li>
+      <li><a href="#programs">AI programs</a></li>
+      <li><a href="#how-we-work">How we work</a></li>
+      <li><a href="#insights">Insights</a></li>
+      <li><a href="https://www.tekmentors.com/about-us/">About</a></li>
+      <li><a class="btn" href="https://www.tekmentors.com/contact-us/">Contact us</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- HERO. Stock brief: 2560x1440 photo or 10-15s loop. Engineers in a
+     modern office reviewing work together, cool tones, depth of field.
+     Indian setting preferred. If video: mute, loop, no faces to camera. -->
+<section class="hero" id="top">
+  <div class="art a1 photo" style="background-image:url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2400&q=80')">
+    <video class="hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2400&q=80" aria-hidden="true">
+      <source src="https://videos.pexels.com/video-files/3130284/3130284-uhd_2560_1440_30fps.mp4" type="video/mp4">
+    </video>
+    <div class="drift"></div><div class="grid"></div></div>
+  <div class="wrap">
+    <h1>AI that works.<span>Engineers who keep it working.</span></h1>
+    <p>TEKMentors takes enterprise AI from pilot to production and trains the engineers who run it afterwards. Consulting and upskilling from practitioners with twenty years in enterprise technology.</p>
+    <div class="actions">
+      <a class="btn onDark" href="https://www.tekmentors.com/contact-us/">Talk to a consultant</a>
+      <a class="btn ghostDark" href="#programs">Explore AI programs</a>
+    </div>
+  </div>
+</section>
+
+<div class="logos">
+  <div class="wrap">
+    <span>Teams we have worked with</span>
+    <div class="row">
+      <img src="https://www.tekmentors.com/wp-content/uploads/2025/03/IBM-e1544110464953-2.png" alt="IBM">
+      <img src="https://www.tekmentors.com/wp-content/uploads/2025/03/LnT.jpg" alt="L&amp;T">
+      <img src="https://www.tekmentors.com/wp-content/uploads/2025/03/RR.jpeg" alt="Client logo">
+      <img src="https://www.tekmentors.com/wp-content/uploads/2025/03/c1.jpg" alt="Client logo">
+      <img src="https://www.tekmentors.com/wp-content/uploads/2025/03/c3.jpg" alt="Client logo">
+      <img src="https://www.tekmentors.com/wp-content/uploads/2025/03/c5.jpg" alt="Client logo">
+      <img src="https://www.tekmentors.com/wp-content/uploads/2025/03/c7.jpg" alt="Client logo">
+    </div>
+  </div>
+</div>
+
+<!-- POINT OF VIEW. Modelled on Nagarro's "The real moat" block. -->
+<section class="section pov" id="point-of-view">
+  <div class="wrap">
+    <h2>The gap is never the model. It is everything around it.</h2>
+    <div class="body">
+      <p>Most enterprise AI pilots work. Most of them never go live. What stops them is not the model but the parts a demo leaves out: data access with permissions attached, an evaluation set, a deployment path, monitoring, and an engineer who owns the system after the consultants leave.</p>
+      <p>TEKMentors was built for that gap. We scope the business problem before the architecture, build against your real data, and hand over to a team we have trained to run it. The same practitioners do the consulting and teach the programs, which is why both hold up after the engagement ends.</p>
+      <a class="link" href="#how-we-work">How an engagement runs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- SPOTLIGHT: flagship program, modelled on Thoughtworks' AI/works block.
+     Stock brief 5:4, 1500x1200: one engineer presenting a system to a
+     small client group, or a whiteboard architecture session. -->
+<section class="section dark spot" id="fde">
+  <div class="wrap">
+    <div class="art a6 photo" role="img" aria-label="Engineer presenting a system to a client team" style="background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80')"></div>
+    <div>
+      <span class="tag">Flagship program. Next cohort enrolling</span>
+      <h2>AI Forward Deployed Engineer</h2>
+      <p class="lead">From technology engineer to customer-ready AI engineer. Take one enterprise AI problem from discovery and scoping through prototype, production and customer adoption, with evaluation, security and governance built into the work rather than added at the end.</p>
+      <div class="facts">
+        <div><b>6 to 8 weeks</b><span>Duration</span></div>
+        <div><b>3 to 8 years</b><span>Experience level</span></div>
+        <div><b>Project-led</b><span>Format</span></div>
+      </div>
+      <div class="actions">
+        <a class="btn onDark" href="https://www.tekmentors.com/contact-us/">Ask about the next cohort</a>
+        <a class="btn ghostDark" href="#programs">All programs</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES. Stock briefs (4:5 portrait, 1200x1500):
+     1. Cloud infrastructure or server room, cool blue.
+     2. Engineer at two monitors reviewing production dashboards.
+     3. Small workshop, instructor with working engineers. -->
+<section class="section" id="what-we-do">
+  <div class="wrap">
+    <div class="head">
+      <h2>Three ways we work with enterprise teams</h2>
+      <p class="lead">Most engagements draw on more than one, which is why consulting and training sit under one roof.</p>
+    </div>
+    <div class="caps">
+      <a class="cap" href="https://www.tekmentors.com/cloud-services-and-devops/">
+        <div class="art a2 photo" role="img" aria-label="Cloud infrastructure" style="background-image:url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80')"></div>
+        <div class="txt"><h3>Modernize the systems</h3><p>Cloud strategy, migration and cost control, CI/CD and infrastructure as code, on a roadmap tied to how the business runs.</p><span class="go">Cloud and DevOps</span></div>
+      </a>
+      <a class="cap" href="https://www.tekmentors.com/digital-transformation-and-tech-strategy/">
+        <div class="art a3 photo" role="img" aria-label="Engineer reviewing production dashboards" style="background-image:url('https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80')"></div>
+        <div class="txt"><h3>Take AI into production</h3><p>Scoped business problem, governed data access, evaluation before release, and a deployed system your own engineers own.</p><span class="go">Transformation and strategy</span></div>
+      </a>
+      <a class="cap" href="#programs">
+        <div class="art a4 photo" role="img" aria-label="Instructor with a group of engineers" style="background-image:url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80')"></div>
+        <div class="txt"><h3>Train the people who run it</h3><p>Live, project-led programs for engineers, graduates and delivery leaders, taught by practitioners who still do the work.</p><span class="go">AI upskilling programs</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section tint" id="programs">
+  <div class="wrap">
+    <div class="head">
+      <h2>AI programs for every role on a delivery team</h2>
+      <p class="lead">All programs run live and are project-led. Dates and fees come back with your enquiry.</p>
+    </div>
+    <div class="programs">
+      <div class="prog">
+        <div class="who">For engineers with 3 to 8 years of experience</div>
+        <h3>AI Forward Deployed Engineer</h3>
+        <p>One enterprise AI problem from discovery through production and customer adoption. LLM, RAG and agentic engineering, plus the customer-facing side of the role.</p>
+        <div class="meta"><div><b>6 to 8 weeks</b><span>Duration</span></div><div><b>Project-led</b><span>Format</span></div></div>
+        <div class="prog-actions"><a class="btn" href="https://www.tekmentors.com/contact-us/">Enquire</a></div>
+      </div>
+      <div class="prog">
+        <div class="who">For practicing engineers</div>
+        <h3>Agentic AI and Production LLM Systems</h3>
+        <p>Sixteen weeks for working engineers who need to design, build and operate LLM and agent systems at production standard.</p>
+        <div class="meta"><div><b>16 weeks</b><span>Duration</span></div><div><b>Project-led</b><span>Format</span></div></div>
+        <div class="prog-actions"><a class="btn ghost" href="https://www.tekmentors.com/contact-us/">Enquire</a></div>
+      </div>
+      <div class="prog">
+        <div class="who">For engineering graduates</div>
+        <h3>GenAI Engineering: Foundations to Production</h3>
+        <p>Sixteen weeks from no AI background to a deployed capstone, with interview preparation and placement support.</p>
+        <div class="meta"><div><b>16 weeks</b><span>Duration</span></div><div><b>Project-led</b><span>Format</span></div></div>
+        <div class="prog-actions"><a class="btn ghost" href="https://www.tekmentors.com/genai-training-program/">Program details</a></div>
+      </div>
+      <div class="prog">
+        <div class="who">For Scrum Masters, Product Owners and delivery leaders</div>
+        <h3>AI-Enabled Agile and Product Leadership</h3>
+        <p>Two days, live online, no code required. Practical AI for discovery, backlog and delivery, ending with your team demonstrating what it built.</p>
+        <div class="meta"><div><b>2 days</b><span>Duration</span></div><div><b>Live online</b><span>Format</span></div></div>
+        <div class="prog-actions"><a class="btn ghost" href="https://www.tekmentors.com/contact-us/">Book for your team</a></div>
+      </div>
+    </div>
+    <p class="more-programs">Also running:
+      <a href="https://www.tekmentors.com/full-stack-architect/">Full Stack Architect</a>
+      <a href="https://www.tekmentors.com/devops-engineer-training-program/">DevOps Engineer</a>
+      <a href="https://www.tekmentors.com/corporate-training-program-for-adobe-toolset/">Adobe Toolset for corporate teams</a>
+    </p>
+  </div>
+</section>
+
+<!-- HOW WE WORK. Stock brief 4:5, 1200x1500: technical discussion at a
+     whiteboard or a code review, natural light. -->
+<section class="section dark how" id="how-we-work">
+  <div class="wrap">
+    <div class="art a5 photo" role="img" aria-label="Technical review at a whiteboard" style="background-image:url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80')"></div>
+    <div>
+      <h2>Built to survive the handover</h2>
+      <p class="lead">Every engagement follows the same four phases, and each phase ends in something your team can open and run.</p>
+      <ol class="steps">
+        <li><div><b>Scope the business problem</b><span>Named owner, measurable outcome and an agreed baseline before any architecture decision.</span></div></li>
+        <li><div><b>Build against real data</b><span>Your documents, permissions and integrations, not a demo dataset.</span></div></li>
+        <li><div><b>Evaluate before release</b><span>An evaluation set and a security review that gate what goes live.</span></div></li>
+        <li><div><b>Hand over to your engineers</b><span>Deployed with CI/CD and monitoring, documented, and owned by your team.</span></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="head">
+      <h2>Consulting services</h2>
+      <p class="lead">From strategy to execution, with the same team on both.</p>
+    </div>
+    <div class="svcs">
+      <a class="svc" href="https://www.tekmentors.com/cloud-services-and-devops/"><h3>Cloud services and DevOps</h3><p>Cloud strategy and roadmap, optimization, CI/CD pipelines, infrastructure as code.</p><span class="go">Learn more</span></a>
+      <a class="svc" href="https://www.tekmentors.com/digital-transformation-and-tech-strategy/"><h3>Digital transformation and tech strategy</h3><p>Technology roadmaps, business-driven solutions, simplification, governance.</p><span class="go">Learn more</span></a>
+      <a class="svc" href="https://www.tekmentors.com/agile-transformation/"><h3>Agile transformation</h3><p>Scrum, Kanban and SAFe, coaching and leadership, portfolio and governance.</p><span class="go">Learn more</span></a>
+      <a class="svc" href="https://www.tekmentors.com/data-and-web-analytics-expertise/"><h3>Data and web analytics</h3><p>Adobe Analytics, Adobe Target, Audience Manager, Adobe Campaign.</p><span class="go">Learn more</span></a>
+      <a class="svc" href="https://www.tekmentors.com/google-marketing/"><h3>Google marketing services</h3><p>Analytics implementation, reporting, third-party integrations, A/B testing.</p><span class="go">Learn more</span></a>
+      <a class="svc" href="#programs"><h3>Corporate upskilling</h3><p>GenAI and agentic AI, full stack, DevOps, cloud and automation programs for teams.</p><span class="go">See programs</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- MENTORS: real names from the client's flyers. Use real photographs,
+     not stock. Monograms stay until the client supplies them. -->
+<section class="section tint" id="mentors">
+  <div class="wrap">
+    <div class="head">
+      <h2>Taught by people who still do the work</h2>
+      <p class="lead">Every program is led by practitioners, not full-time trainers.</p>
+    </div>
+    <div class="mentors">
+      <div class="mentor"><div class="mono">AT</div><div><b>Arun Tiwari</b><span>IIT BHU. Over 20 years in enterprise technology.</span></div></div>
+      <div class="mentor"><div class="mono">RS</div><div><b>Rahul Singh</b><span>IIT BHU. Over 20 years in enterprise technology.</span></div></div>
+      <div class="mentor"><div class="mono">AM</div><div><b>Abinash Kumar Mishra</b><span>Program mentor. Background to be supplied by TEKMentors.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- INSIGHTS. Stock briefs 16:10: financial district skyline; planning
+     session with sticky notes; data-center detail. -->
+<section class="section" id="insights">
+  <div class="wrap">
+    <div class="head">
+      <h2>Insights</h2>
+      <a class="link" href="https://www.tekmentors.com/blog/">All articles <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="posts">
+      <a class="post" href="https://www.tekmentors.com/from-data-silos-to-business-agility-how-financial-leaders-turn-information-into-competitive-advantage/">
+        <div class="art a2 photo" role="img" aria-label="Data and business agility" style="background-image:url('https://images.unsplash.com/photo-1444653614773-995cb1ef9efa?auto=format&fit=crop&w=1200&q=80')"></div>
+        <span class="kind">Article</span>
+        <h3>From data silos to business agility: how financial leaders turn information into competitive advantage</h3>
+      </a>
+      <a class="post" href="https://www.tekmentors.com/5-critical-success-factors-for-financial-services-leaders/">
+        <div class="art a3 photo" role="img" aria-label="Transformation planning" style="background-image:url('https://images.unsplash.com/photo-1542626991-cbc4e32524cc?auto=format&fit=crop&w=1200&q=80')"></div>
+        <span class="kind">Article</span>
+        <h3>Why 70% of digital transformation projects fail: five critical success factors for financial services leaders</h3>
+      </a>
+      <a class="post" href="https://www.tekmentors.com/the-hidden-costs-of-cloud-migration-7-critical-pitfalls-financial-services-leaders-must-avoid/">
+        <div class="art a4 photo" role="img" aria-label="Cloud infrastructure" style="background-image:url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=80')"></div>
+        <span class="kind">Article</span>
+        <h3>The hidden costs of cloud migration: seven pitfalls financial services leaders must avoid</h3>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING CTA. Stock brief 2400x1200: wide office or city image, muted. -->
+<section class="cta" id="contact">
+  <div class="art a1 photo" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2400&q=80')"></div>
+  <div class="wrap">
+    <div>
+      <h2>What are you trying to ship?</h2>
+      <p>Start with a conversation with a consultant, not a sales call. We will tell you what we would do first and what it would take.</p>
+    </div>
+    <div class="contact">
+      <a class="btn onDark" href="https://www.tekmentors.com/contact-us/">Contact us</a>
+      <a class="plain" href="tel:+919958777467">+91 99587 77467</a>
+      <a class="plain" href="mailto:sales@tekmentors.com">sales@tekmentors.com</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <img src="https://www.tekmentors.com/wp-content/uploads/2025/02/TEKMentors_Logo.png" alt="TEKMentors">
+        <p>Enabling minds to explore possibilities.</p>
+        <p>TEKMentors Consulting Pvt. Ltd., Gurugram</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="https://www.tekmentors.com/about-us/">About us</a></li>
+          <li><a href="https://www.tekmentors.com/blog/">Blog</a></li>
+          <li><a href="https://www.tekmentors.com/contact-us/">Contact us</a></li>
+          <li><a href="https://www.tekmentors.com/terms-of-use/">Terms of use</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Programs</h4>
+        <ul>
+          <li><a href="#fde">AI Forward Deployed Engineer</a></li>
+          <li><a href="#programs">Agentic AI and Production LLM Systems</a></li>
+          <li><a href="https://www.tekmentors.com/genai-training-program/">GenAI Engineering</a></li>
+          <li><a href="#programs">Agile and Product Leadership</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Reach us</h4>
+        <ul>
+          <li><a href="tel:+919958777467">+91 99587 77467</a></li>
+          <li><a href="mailto:sales@tekmentors.com">sales@tekmentors.com</a></li>
+          <li><a href="https://www.linkedin.com/company/tekmentors/">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fbottom">
+      <span>© 2026 TEKMentors Consulting Pvt. Ltd. All rights reserved.</span>
+      <span>www.tekmentors.com</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

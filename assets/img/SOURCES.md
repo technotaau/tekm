@@ -15,3 +15,6 @@ All photographs from Unsplash (https://unsplash.com/license): free for commercia
 | insight-1.jpg | https://unsplash.com/photos/1519389950473-47ba0277781c (images.unsplash.com/photo-1519389950473-47ba0277781c) | insight 1 |
 | insight-2.jpg | https://unsplash.com/photos/1573164713988-8665fc963095 (images.unsplash.com/photo-1573164713988-8665fc963095) | insight 2 |
 | insight-3.jpg | https://unsplash.com/photos/1553877522-43269d4ea984 (images.unsplash.com/photo-1553877522-43269d4ea984) | insight 3 |
+
+
+Added 5 September 2026 (revision 3): way-1-modernize (photo-1573164713988-8665fc963095), way-2-production (photo-1551434678-e076c223a692), way-3-train (photo-1515187029135-18ee286d815b), spotlight-fde (photo-1542744173-8e7e53415bb0), hero-1/2/3-wide 16:9 crops of the same three hero photographs with 900px and WebP variants.
