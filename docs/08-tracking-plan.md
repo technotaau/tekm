@@ -354,3 +354,8 @@ New events:
 - `program_builds_toggle {program}` when a program row's "What you build" list is opened on a phone. Tells us which program's detail people actually open.
 
 New `cta_id` values: `hero_outcome_card` (the number card on slide 1, to the outcomes section) and `checklist_onepager` (the "Send me this as a one-pager" button, which opens the form with the consulting chip and a prefilled message). Treat `checklist_onepager` followed by `enquiry_submit` as a lead-magnet conversion in GA4, since the checklist is the first lead magnet the marketing plan asked for.
+
+
+## Addendum, 5 September 2026: revision 3
+
+New `cta_id` values: `way_modernize`, `way_production`, `way_train` (the three "what we do" cards), `fde_enquire` and `fde_all` (the spotlight buttons; `fde_enquire` also pushes `program_click {program: fde}`). The photo band's `section_view` entry is retired.

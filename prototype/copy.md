@@ -525,3 +525,42 @@ Form, by intent chip
 | Not sure yet | Tell us what you need | What is on your mind? | One or two lines is plenty. | Company (optional) |
 
 Mobile only (below 640px): the six answers collapse to an accordion with the first open; each program row folds its "What you build" list behind a button labelled "What you build".
+
+
+## Revision 3 (5 September 2026): client cross-check changes
+
+Source: docs/11-client-crosscheck.md. These supersede matching lines above.
+
+Hero headlines, two lines each (second line in green):
+
+- Slide 1 (h1): We get AI into production. / Then we train your engineers to run it.
+- Slide 2: The gap is never the model. / It is everything around it.
+- Slide 3: Four programs. / Each one ends in something you can show.
+
+Section 4, Three ways we work with enterprise teams
+
+- Eyebrow: WHAT WE DO
+- Lead: Most engagements draw on more than one, which is why consulting and training sit under one roof.
+- Card 1: Modernize the systems. Cloud strategy, migration and cost control, CI/CD and infrastructure as code, on a roadmap tied to how the business runs. Label: Cloud and DevOps.
+- Card 2: Take AI into production. Scoped business problem, governed data access, evaluation before release, and a deployed system your own engineers own. Label: Consulting.
+- Card 3: Train the people who run it. Live, project-led programs for engineers, graduates and delivery leaders, taught by practitioners who still do the work. Label: AI programs.
+
+Section 5, FDE spotlight
+
+- Pill: FLAGSHIP PROGRAM
+- H2: AI Forward Deployed Engineer
+- Lead: From technology engineer to customer-ready AI engineer. One enterprise AI problem from discovery and scoping through prototype, production and customer adoption, with evaluation, security and governance built into the work rather than added at the end.
+- Facts: 6 to 8 weeks, Duration · 3 to 8 years, Experience · Project-led, Format
+- What you build: as the FDE row above.
+- Buttons: Ask about the next cohort (form, "Joining a program") · All programs (#programs)
+
+Roster intro: Three more programs, with the details you would ask for anyway.
+
+Consulting, point of view (two paragraphs before the diagram)
+
+- Most enterprise AI pilots work. Most of them never go live. What stops them is not the model but the parts a demo leaves out: data access with permissions attached, an evaluation set, a deployment path, monitoring, and an engineer who owns the system after the consultants leave.
+- TEKMentors was built for that gap. We scope the business problem before the architecture, build against your real data, and hand over to a team we have trained to run it. The same practitioners do the consulting and teach the programs, which is why both hold up after the engagement ends.
+
+Phases: H2 Built to survive the handover. Subline: Every engagement follows the same four phases, and each one ends in something your team can open and run.
+
+Photo band: removed.

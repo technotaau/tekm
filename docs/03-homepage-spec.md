@@ -29,26 +29,29 @@ Slots marked [INPUT] depend on items in `02-content-inventory.md`.
   `case_study_click`, `enquiry_submit` (need chip value), `phone_tap`,
   `email_tap`, `whatsapp_tap`.
 
-## Section order
+## Section order (revision 3, 5 September 2026)
 
 | # | Section | Serves | Ground |
 |---|---|---|---|
 | 0 | Promise bar | A, B | navy-950 |
 | 1 | Header | all | ground, sticky, blurred |
-| 2 | Hero slider, routing band and facts row | A, B | navy-900 |
+| 2 | Hero: full-bleed photo slider, routing pills, facts row | A, B | photo under navy gradient, then navy-900 |
 | 3 | Client strip | B | surface-2 |
-| 4 | Who writes to us | A, B | ground |
-| 5 | Programs roster | A, B | ground |
-| 6 | Consulting: before and after, five practices | B | ground |
-| 6b | Photo band | B, A | photo with navy overlay |
-| 7 | How an engagement runs | B | ground |
-| 8 | Straight answers | A, B | ground |
-| 9 | Outcomes and mentor bench | B, A | ground, white card |
-| 10 | Insights | A, B | ground |
-| 11 | Contact: what happens next and the form | A, B | navy-900 |
-| 12 | Footer | all | ground |
+| 4 | Three ways we work with enterprise teams (photo cards) | B, A | ground |
+| 5 | FDE spotlight | A, B | navy-900 |
+| 6 | Programs roster, three rows | A, B | ground |
+| 7 | Who writes to us | A, B | ground |
+| 8 | Consulting: point of view, before and after, seven questions, five practices | B | ground |
+| 9 | Built to survive the handover (four phases) | B | ground |
+| 10 | Straight answers | A, B | ground |
+| 11 | Outcomes and mentor bench | B, A | ground, white card |
+| 12 | Insights (photo cards) | A, B | ground |
+| 13 | Contact: what happens next and the form | A, B | navy-900 |
+| 14 | Footer | all | navy-950 |
 
 Audience A: working professionals and graduates. Audience B: decision makers.
+Why this order: `docs/11-client-crosscheck.md`. The photo band from
+revision 1 is retired; the triptych and the spotlight carry the photography.
 
 ## 0. Promise bar
 
