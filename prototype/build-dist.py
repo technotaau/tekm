@@ -7,7 +7,7 @@ Output: prototype/dist/tekmentors-homepage.html (gitignored).
 Inlines tokens plus styles.css, main.js, the logo and favicon, and every
 referenced full-size assets/img/*.jpg (not the -800 or -900 variants) as data
 URIs; strips the hero preload, picture sources, srcset and sizes (one JPEG per
-image, the hero slides keep their data-src lazy pattern); replaces the cross-origin client
+image, the hero photograph is inlined like the rest); replaces the cross-origin client
 logo strip with the sector fallback line; sets the artifact title; and drops
 the document wrappers the artifact host adds itself.
 """

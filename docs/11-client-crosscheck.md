@@ -61,7 +61,7 @@ behaviour on phones, the tracking, the schema.
 
 | # | Change | Why |
 |---|---|---|
-| 1 | Hero slides become full-bleed photographs with a navy gradient overlay; two-line headline with the second line in green-300, up to 80px, weight 800; outcome card compact at the bottom right on slide 1; tabs, arrows, routing pills and facts row stay | v3's first-second impact on the slider the client asked for |
+| 1 | Hero becomes a full-bleed photograph with a navy gradient overlay and a two-line headline, the second line in green-300. Built first as a slider (build 5), then made static and one screen tall in build 6 after Jakhar Singh's phone and laptop review; see spec section 2 | v3's first-second impact, without the slider that reviewers found confusing |
 | 2 | New section after the client strip: "Three ways we work with enterprise teams", three photo cards | Answers "what do you do" before anything else |
 | 3 | FDE spotlight: dark band with a 5:4 photo, the flyer's line "From technology engineer to customer-ready AI engineer", three facts, three builds, "Ask about the next cohort" and "All programs" | The client's own emphasis (flyer, LinkedIn post) and v3's strongest section |
 | 4 | Roster becomes three rows (GenAI foundations, agile leadership, teams) under the spotlight | No duplication |

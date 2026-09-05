@@ -104,7 +104,7 @@
 </div>
 
 <!-- 1. Header -->
-<header class="site-header" id="top">
+<header class="site-header">
   <div class="site-header__inner">
     <a class="site-header__logo" href="/">
       <img src="../assets/brand/tekmentors-logo-600x300.png" alt="TEKMentors" width="600" height="300" fetchpriority="high">
@@ -141,122 +141,58 @@
 
 <main id="main">
 
-<!-- 2. Hero: full-bleed photo slider, then the routing pills and facts on navy -->
-<section class="hero" id="hero" aria-labelledby="hero-title">
-  <div class="slider" data-slider>
-    <div class="slider__viewport" data-slider-viewport>
-      <div class="slider__track" data-slider-track data-index="0">
-
-        <div class="slide is-active" id="slide-1" role="tabpanel" aria-labelledby="slide-tab-1" data-slide data-slide-label="What we do">
-          <!-- The photo is the slide's background under a navy gradient; the copy carries the meaning. -->
-          <div class="slide__bg" aria-hidden="true">
-            <picture><source type="image/webp" srcset="../assets/img/hero-1-wide-900.webp 900w, ../assets/img/hero-1-wide.webp 2000w" sizes="100vw"><img src="../assets/img/hero-1-wide.jpg" srcset="../assets/img/hero-1-wide-900.jpg 900w, ../assets/img/hero-1-wide.jpg 2000w" sizes="100vw" alt="" width="2000" height="1125" fetchpriority="high" decoding="async"></picture>
-          </div>
-          <div class="slide__inner">
-            <div class="slide__copy">
-              <!-- The h1 stays exposed to assistive tech on every slide; the parts
-                   around it carry the aria-hidden and inert state instead. -->
-              <p class="eyebrow eyebrow--green mono" data-slide-part>GURUGRAM · SINCE 2017 · IIT (BHU) FACULTY</p>
-              <h1 class="hero__title" id="hero-title">We get AI into production. <span class="hero__line2">Then we train your engineers to run it.</span></h1>
-              <div data-slide-part>
-                <p class="hero__lede">Enterprise consulting and live AI engineering programs from a small team with twenty-plus years each inside banks and Fortune 500 delivery. One number we can show you: a UK bank's backlog-to-production time, cut from six months to 90 days.</p>
-                <div class="hero__actions">
-                  <a class="btn btn--accent" href="#contact" data-event="cta_click" data-cta_id="hero_talk" data-location="hero">Talk to a consultant</a>
-                  <a class="btn btn--ghost" href="#programs" data-event="cta_click" data-cta_id="hero_programs" data-location="hero">See the AI programs</a>
-                </div>
-              </div>
-            </div>
-            <!-- Outcome card: the one number with its baseline. A block under the
-                 buttons on phones, a compact card at the slide's bottom right from 960px. -->
-            <div class="outcome" data-slide-part>
-              <p class="outcome__eyebrow mono">ONE ENGAGEMENT, ONE NUMBER</p>
-              <p class="outcome__number">6 months to 90 days</p>
-              <p class="outcome__caption">Backlog to production, a large UK bank</p>
-              <a class="outcome__link" href="#proof" data-event="cta_click" data-cta_id="hero_outcome_card" data-location="hero">See the four numbers <span class="arrow" aria-hidden="true">→</span></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slides 2 and 3 hold their photo in data-src; the slider sets src just
-             before the slide is shown, so the phone does not download a photo it
-             may never see (Chrome's native lazy margin reaches the offscreen track). -->
-        <div class="slide" id="slide-2" role="tabpanel" aria-labelledby="slide-tab-2" aria-hidden="true" inert data-slide data-slide-label="Consulting">
-          <div class="slide__bg" aria-hidden="true">
-            <picture><source type="image/webp" data-srcset="../assets/img/hero-2-wide-900.webp 900w, ../assets/img/hero-2-wide.webp 2000w" sizes="100vw"><img data-src="../assets/img/hero-2-wide.jpg" data-srcset="../assets/img/hero-2-wide-900.jpg 900w, ../assets/img/hero-2-wide.jpg 2000w" sizes="100vw" alt="" width="2000" height="1125" loading="lazy" decoding="async"></picture>
-          </div>
-          <div class="slide__inner">
-            <div class="slide__copy">
-              <p class="eyebrow eyebrow--green mono">ENTERPRISE CONSULTING</p>
-              <h2 class="hero__title" id="slide-2-title">The gap is never the model. <span class="hero__line2">It is everything around it.</span></h2>
-              <p class="hero__lede">Most AI pilots we are shown work perfectly and will never go live. We build the governed pipeline around the model, then hand it to your engineers with a named owner.</p>
-              <div class="hero__actions">
-                <a class="btn btn--accent" href="#contact" tabindex="-1" data-event="cta_click" data-cta_id="hero2_talk" data-location="hero">Talk to a consultant</a>
-                <a class="btn btn--ghost" href="#how" tabindex="-1" data-event="cta_click" data-cta_id="hero2_how" data-location="hero">How an engagement runs</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="slide" id="slide-3" role="tabpanel" aria-labelledby="slide-tab-3" aria-hidden="true" inert data-slide data-slide-label="AI programs">
-          <div class="slide__bg" aria-hidden="true">
-            <picture><source type="image/webp" data-srcset="../assets/img/hero-3-wide-900.webp 900w, ../assets/img/hero-3-wide.webp 2000w" sizes="100vw"><img data-src="../assets/img/hero-3-wide.jpg" data-srcset="../assets/img/hero-3-wide-900.jpg 900w, ../assets/img/hero-3-wide.jpg 2000w" sizes="100vw" alt="" width="2000" height="1125" loading="lazy" decoding="async"></picture>
-          </div>
-          <div class="slide__inner">
-            <div class="slide__copy">
-              <p class="eyebrow eyebrow--green mono">LIVE PROGRAMS, GURUGRAM AND ONLINE</p>
-              <h2 class="hero__title" id="slide-3-title">Four programs. <span class="hero__line2">Each one ends in something you can show.</span></h2>
-              <p class="hero__lede">AI Forward Deployed Engineer for engineers with 3 to 8 years. GenAI foundations to production for graduates, 16 weeks and 144 hours. Two days of AI-enabled agile leadership. GenAI developer training for whole teams. All live, taught by IIT (BHU) engineers with 20-plus years each.</p>
-              <div class="hero__actions">
-                <a class="btn btn--accent" href="#programs" tabindex="-1" data-event="cta_click" data-cta_id="hero3_programs" data-location="hero">See the AI programs</a>
-                <a class="btn btn--ghost" href="#contact" tabindex="-1" data-need="join_program" data-event="cta_click" data-cta_id="hero3_enquire" data-location="hero">Enquire about a batch</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="slider__controls hero__inner">
-      <div class="slider__tabs" role="tablist" aria-label="Hero slides">
-        <button class="slider__tab is-active" type="button" role="tab" id="slide-tab-1" aria-selected="true" aria-controls="slide-1" tabindex="0" data-slide-tab>What we do<span class="slider__progress" aria-hidden="true"></span></button>
-        <button class="slider__tab" type="button" role="tab" id="slide-tab-2" aria-selected="false" aria-controls="slide-2" tabindex="-1" data-slide-tab>Consulting<span class="slider__progress" aria-hidden="true"></span></button>
-        <button class="slider__tab" type="button" role="tab" id="slide-tab-3" aria-selected="false" aria-controls="slide-3" tabindex="-1" data-slide-tab>AI programs<span class="slider__progress" aria-hidden="true"></span></button>
-      </div>
-      <div class="slider__arrows">
-        <button class="slider__arrow" type="button" aria-label="Previous slide" data-slider-prev>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7"/></svg>
-        </button>
-        <button class="slider__arrow" type="button" aria-label="Next slide" data-slider-next>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg>
-        </button>
-      </div>
-      <p class="sr-only" aria-live="polite" aria-atomic="true" data-slider-status>1 of 3</p>
-    </div>
+<!-- 2. Hero: one static full-bleed photograph under the navy scrim. The copy
+     block sits at the top of the photo on phones and tablets and is centred in
+     one laptop screen from 960px. The routing band and the facts strip follow. -->
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <div class="hero__bg" aria-hidden="true">
+    <picture><source type="image/webp" srcset="../assets/img/hero-1-wide-900.webp 900w, ../assets/img/hero-1-wide.webp 2000w" sizes="100vw"><img src="../assets/img/hero-1-wide.jpg" srcset="../assets/img/hero-1-wide-900.jpg 900w, ../assets/img/hero-1-wide.jpg 2000w" sizes="100vw" alt="" width="2000" height="1125" fetchpriority="high" decoding="async"></picture>
   </div>
+  <div class="hero__inner">
+    <p class="eyebrow eyebrow--green mono">GURUGRAM · SINCE 2017 · IIT (BHU) FACULTY</p>
+    <h1 class="hero__title" id="hero-title">We get AI into production. <span class="hero__line2">Then we train your engineers to run it.</span></h1>
+    <p class="hero__lede">Enterprise consulting and live AI engineering programs from a team with twenty-plus years each inside banks and Fortune 500 delivery.</p>
+    <div class="hero__actions">
+      <a class="btn btn--accent" href="#contact" data-event="cta_click" data-cta_id="hero_talk" data-location="hero">Talk to a consultant</a>
+      <a class="btn btn--ghost" href="#programs" data-event="cta_click" data-cta_id="hero_programs" data-location="hero">See the AI programs</a>
+    </div>
+    <!-- Outcome line: the one number with its baseline, one row under the buttons. -->
+    <p class="outcome">
+      <span class="outcome__lead"><span class="outcome__label mono">ONE ENGAGEMENT</span> <span class="outcome__number">6 months to 90 days</span></span>
+      <span class="outcome__tail"><span class="outcome__caption">backlog to production, a large UK bank</span> <a class="outcome__link" href="#proof" data-event="cta_click" data-cta_id="hero_outcome_card" data-location="hero">See the four numbers <span class="arrow" aria-hidden="true">→</span></a></span>
+    </p>
+  </div>
+</section>
 
-  <div class="hero__base">
-    <div class="hero__inner">
-      <div class="router">
-        <h2 class="router__label mono" id="router-title">Start where it hurts</h2>
-        <ul class="router__list" aria-labelledby="router-title">
-          <li><a class="router__pill" href="#consulting" data-event="route_click" data-route="pilot"><span>A pilot that works but will not go live</span><span class="arrow" aria-hidden="true">→</span></a></li>
-          <li><a class="router__pill" href="#consulting" data-event="route_click" data-route="cloud_spend"><span>Cloud spend nobody can explain</span><span class="arrow" aria-hidden="true">→</span></a></li>
-          <li><a class="router__pill" href="#fde" data-event="route_click" data-route="engineers_to_ai"><span>Engineers who need to become AI engineers</span><span class="arrow" aria-hidden="true">→</span></a></li>
-          <li><a class="router__pill" href="#program-leaders" data-event="route_click" data-route="agile_slow"><span>Agile on paper, slow in practice</span><span class="arrow" aria-hidden="true">→</span></a></li>
-          <li><a class="router__pill" href="#program-genai" data-event="route_click" data-route="graduate_job"><span>A graduate who wants the AI job, not the course</span><span class="arrow" aria-hidden="true">→</span></a></li>
+<!-- 2b. Routing band: one row of pills. From 960px the row wraps once at most;
+     below it the row scrolls sideways with scroll snap and a fading right edge. -->
+<section class="routes" id="routes" aria-labelledby="routes-title">
+  <div class="routes__inner">
+    <h2 class="routes__label mono" id="routes-title">Start where it hurts</h2>
+    <div class="routes__scrollwrap">
+      <div class="routes__scroller" data-routes-scroller>
+        <ul class="routes__list">
+          <li><a class="routes__pill" href="#consulting" data-event="route_click" data-route="pilot"><span>A pilot that works but will not go live</span><span class="arrow" aria-hidden="true">→</span></a></li>
+          <li><a class="routes__pill" href="#consulting" data-event="route_click" data-route="cloud_spend"><span>Cloud spend nobody can explain</span><span class="arrow" aria-hidden="true">→</span></a></li>
+          <li><a class="routes__pill" href="#fde" data-event="route_click" data-route="engineers_to_ai"><span>Engineers who need to become AI engineers</span><span class="arrow" aria-hidden="true">→</span></a></li>
+          <li><a class="routes__pill" href="#program-leaders" data-event="route_click" data-route="agile_slow"><span>Agile on paper, slow in practice</span><span class="arrow" aria-hidden="true">→</span></a></li>
+          <li><a class="routes__pill" href="#program-genai" data-event="route_click" data-route="graduate_job"><span>A graduate who wants the AI job, not the course</span><span class="arrow" aria-hidden="true">→</span></a></li>
         </ul>
       </div>
-
-      <dl class="facts">
-        <div class="facts__cell"><dt>Since 2017</dt><dd>Consulting and training from Gurugram</dd></div>
-        <div class="facts__cell"><dt>IIT (BHU)</dt><dd>Where the senior faculty trained</dd></div>
-        <div class="facts__cell"><dt>20+ years</dt><dd>What each mentor brings from industry</dd></div>
-        <div class="facts__cell"><dt>Delhi NCR</dt><dd>On site, or live online and hybrid</dd></div>
-      </dl>
     </div>
   </div>
 </section>
+
+<!-- 2c. Facts strip: four compact label-over-value items. The sticky mobile bar
+     watches this strip and appears once it has scrolled out above. -->
+<div class="facts-strip" id="facts">
+  <dl class="facts">
+    <div class="facts__cell"><dt>Since 2017</dt><dd>Consulting and training, Gurugram</dd></div>
+    <div class="facts__cell"><dt>IIT (BHU)</dt><dd>Senior faculty</dd></div>
+    <div class="facts__cell"><dt>20+ years</dt><dd>Each mentor, in industry</dd></div>
+    <div class="facts__cell"><dt>Delhi NCR</dt><dd>On site, live online, hybrid</dd></div>
+  </dl>
+</div>
 
 <!-- 3. Client strip -->
 <section class="clients" id="clients" aria-labelledby="clients-title">
