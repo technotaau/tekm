@@ -18,3 +18,5 @@ All photographs from Unsplash (https://unsplash.com/license): free for commercia
 
 
 Added 5 September 2026 (revision 3): way-1-modernize (photo-1573164713988-8665fc963095), way-2-production (photo-1551434678-e076c223a692), way-3-train (photo-1515187029135-18ee286d815b), spotlight-fde (photo-1542744173-8e7e53415bb0), hero-1/2/3-wide 16:9 crops of the same three hero photographs with 900px and WebP variants.
+
+Added 5 September 2026 (final): outcomes-room (photo-1515187029135-18ee286d815b, 5:4), contact-bg (photo-1504384308090-c894fdcc538d, 2:1).
