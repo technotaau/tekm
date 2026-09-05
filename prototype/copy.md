@@ -577,3 +577,19 @@ The slider is retired. Hero copy:
 - Outcome line: ONE ENGAGEMENT · 6 months to 90 days · backlog to production, a large UK bank · See the four numbers
 - Routing band label: START WHERE IT HURTS (pills unchanged)
 - Facts strip: Since 2017 / Consulting and training, Gurugram · IIT (BHU) / Senior faculty · 20+ years / Each mentor, in industry · Delhi NCR / On site, live online, hybrid
+
+
+## Final cut (5 September 2026)
+
+Removed from the homepage, kept here for the inner pages: section 4 persona
+cards (contact and program pages), the seven questions block in full
+(consulting page and the one-pager PDF), the five practices with their lines
+(consulting page), the four phases (consulting page), answers 4 and 5
+(contact page FAQ).
+
+Consulting section, new closing row:
+
+- Line: Seven questions to ask before your pilot goes live.
+- Buttons: Get the one-pager (form, prefilled) · Talk to a consultant (#contact)
+
+Footer, new column "Consulting": Cloud and DevOps · Transformation and tech strategy · Agile transformation · Data and web analytics · Upskilling.

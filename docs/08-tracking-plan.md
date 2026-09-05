@@ -367,3 +367,13 @@ New `cta_id` values: `way_modernize`, `way_production`, `way_train` (the three "
 `hero_programs` and `hero_outcome_card`; the routing pills keep
 `route_click`. The sticky mobile bar now appears after the facts strip
 scrolls out.
+
+
+## Addendum, 5 September 2026: final cut
+
+Removed with their sections: `persona_click`, `section_view` for `who` and
+`how`, `faq_toggle` indices 5 and 6. Added: `consulting_talk` (the "Talk to
+a consultant" button under the diagram). The `checklist_onepager` button
+stays as a one-line offer in the consulting section. The form now sits
+before the insights section, so `enquiry_submit` should be read against a
+shorter scroll depth.

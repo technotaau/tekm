@@ -29,29 +29,27 @@ Slots marked [INPUT] depend on items in `02-content-inventory.md`.
   `case_study_click`, `enquiry_submit` (need chip value), `phone_tap`,
   `email_tap`, `whatsapp_tap`.
 
-## Section order (revision 3, 5 September 2026)
+## Section order (final, 5 September 2026)
 
 | # | Section | Serves | Ground |
 |---|---|---|---|
 | 0 | Promise bar | A, B | navy-950 |
 | 1 | Header | all | ground, sticky, blurred |
-| 2 | Hero: static full-bleed photo, then the routing band and facts strip | A, B | photo under navy gradient, navy-900, navy-800 |
+| 2 | Hero, one screen: photo, two-line h1, subhead, two buttons, outcome line; then the routing band and facts strip | A, B | photo under navy scrim, navy-900, navy-800 |
 | 3 | Client strip | B | surface-2 |
 | 4 | Three ways we work with enterprise teams (photo cards) | B, A | ground |
-| 5 | FDE spotlight | A, B | navy-900 |
-| 6 | Programs roster, three rows | A, B | ground |
-| 7 | Who writes to us | A, B | ground |
-| 8 | Consulting: point of view, before and after, seven questions, five practices | B | ground |
-| 9 | Built to survive the handover (four phases) | B | ground |
-| 10 | Straight answers | A, B | ground |
-| 11 | Outcomes and mentor bench | B, A | ground, white card |
-| 12 | Insights (photo cards) | A, B | ground |
-| 13 | Contact: what happens next and the form | A, B | navy-900 |
-| 14 | Footer | all | navy-950 |
+| 5 | FDE spotlight (photo) | A, B | navy-900 |
+| 6 | Programs roster, three rows with thumbnails | A, B | ground |
+| 7 | Consulting: point of view, before and after diagram, one-pager line, two buttons | B | ground |
+| 8 | Outcomes and mentors, with a photograph | B, A | ground |
+| 9 | Straight answers, four | A, B | ground |
+| 10 | Contact: what happens next and the form, on a photograph under the navy scrim | A, B | photo, navy |
+| 11 | Insights (photo cards) | A, B | ground |
+| 12 | Footer with a consulting column | all | navy-950 |
 
-Audience A: working professionals and graduates. Audience B: decision makers.
-Why this order: `docs/11-client-crosscheck.md`. The photo band from
-revision 1 is retired; the triptych and the spotlight carry the photography.
+Why: `docs/12-final-homepage.md`. Removed from the homepage and kept for
+inner pages: persona cards, the seven questions in full, the five
+practices list, the four phases, answers 4 and 5.
 
 ## 0. Promise bar
 
