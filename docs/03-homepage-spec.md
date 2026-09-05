@@ -305,20 +305,22 @@ Canvas as is with two additions: the registered address, and the second
 phone line if TEKMentors wants it. Four columns: logo and tagline; company
 links; programs; reach us. Bottom row: copyright and site URL.
 
-## Responsive rules
+## Responsive rules (revised 5 September 2026)
 
-- Fluid by default, as the export does it: every grid is
-  `repeat(auto-fit, minmax(min(100%, Npx), 1fr))`, gutters and section
-  padding are clamp(), headings scale with clamp() and vw. The `min(100%, N)`
-  wrapper is what stops a 375px phone from scrolling sideways.
-- Two breakpoints as exceptions: 940px, below which the nav becomes a menu
-  button and the sticky bottom bar appears; 640px, below which the programs
-  table stacks into blocks and its header row is hidden.
-- Container 1480px, gutters clamp(18px, 3vw, 32px).
-- Tap targets 44px minimum. 15.5px body on phones, never smaller than 14.5px
-  for anything readable.
-- The hero routing card and the contact form are the two elements most at
-  risk on phones; both must be tested at 360px.
+- Explicit column counts per breakpoint, never `auto-fit`. The export's
+  fluid rule orphaned the fourth phase card at laptop widths (1024 to
+  1100px, which is what a 1366px laptop becomes at 125% zoom). Breakpoints:
+  640, 800, 960, 1100, 1280.
+- Persona cards 3 at 960 and up, else 1. Phases 4 at 1100, 2 at 640, else 1.
+  Answers 3 at 1280, 2 at 700, else 1 (accordion below 640). Checklist 2 at
+  800. Facts and outcome stats 4 at 800, else 2. Contact two columns at 960.
+  Footer 4 at 960, 2 at 640. Hero two columns at 960.
+- Programs roster at 1100 and up: photo 200x150, text column, stacked meta
+  with labels, button. 640 to 1099: photo 160x120 beside the text, meta as a
+  row of three under it. Below 640: stacked with a 16:9 photo.
+- Container 1480px, gutters clamp(18px, 3vw, 32px). Tap targets 44px.
+- Review widths before anything reaches the client: 360, 640, 800, 960,
+  1024, 1100, 1280, 1366, 1480. The middle three are the laptop cases.
 
 ## Acceptance checklist
 

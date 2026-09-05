@@ -144,6 +144,14 @@ Gate 3: QA report all green. Jakhar Singh approves for handoff.
   "TechnoTaau Team" and name Jakhar Singh as the contact.
 
 
+## Review gate added 5 September 2026
+
+The client caught two laptop-width defects (phone-sized thumbnails in the
+program rows, an orphaned phase card) that the 360/640/960/1280/1480
+screenshot set missed. From build 4 on, every build is screenshotted and
+grid-audited at 1024, 1100 and 1366 as well, and the Design Lead views the
+laptop set before anything is published or sent to the client.
+
 ## Status, 4 September 2026
 
 | Phase | State |
