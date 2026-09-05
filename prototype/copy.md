@@ -564,3 +564,16 @@ Consulting, point of view (two paragraphs before the diagram)
 Phases: H2 Built to survive the handover. Subline: Every engagement follows the same four phases, and each one ends in something your team can open and run.
 
 Photo band: removed.
+
+
+## Revision 4 (5 September 2026): static hero
+
+The slider is retired. Hero copy:
+
+- Eyebrow: GURUGRAM · SINCE 2017 · IIT (BHU) FACULTY
+- H1: We get AI into production. / Then we train your engineers to run it.
+- Subhead: Enterprise consulting and live AI engineering programs from a team with twenty-plus years each inside banks and Fortune 500 delivery.
+- Buttons: Talk to a consultant · See the AI programs
+- Outcome line: ONE ENGAGEMENT · 6 months to 90 days · backlog to production, a large UK bank · See the four numbers
+- Routing band label: START WHERE IT HURTS (pills unchanged)
+- Facts strip: Since 2017 / Consulting and training, Gurugram · IIT (BHU) / Senior faculty · 20+ years / Each mentor, in industry · Delhi NCR / On site, live online, hybrid

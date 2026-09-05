@@ -35,7 +35,7 @@ Slots marked [INPUT] depend on items in `02-content-inventory.md`.
 |---|---|---|---|
 | 0 | Promise bar | A, B | navy-950 |
 | 1 | Header | all | ground, sticky, blurred |
-| 2 | Hero: full-bleed photo slider, routing pills, facts row | A, B | photo under navy gradient, then navy-900 |
+| 2 | Hero: static full-bleed photo, then the routing band and facts strip | A, B | photo under navy gradient, navy-900, navy-800 |
 | 3 | Client strip | B | surface-2 |
 | 4 | Three ways we work with enterprise teams (photo cards) | B, A | ground |
 | 5 | FDE spotlight | A, B | navy-900 |
@@ -72,43 +72,33 @@ Below 940px: logo 36px, phone icon link, menu button. The menu is a
 full-height sheet: five links, then "Talk to us", then phone and email.
 This is the v3 prototype's menu pattern.
 
-## 2. Hero (revised 4 September 2026: slider and photography)
+## 2. Hero (revised 5 September 2026: static, one screen)
 
-Client request via Jakhar Singh: a hero slider and photography, because the
-text-only page read like a blog. The design record had dropped an
-auto-rotating carousel twice; the Design Lead built the slider in the form
-that avoids the recorded problem (hidden slides) and kept the routing list.
+Jakhar Singh's review on an iPhone and a laptop: the slider hero ran to
+three screens on the phone, the 80px headline wrapped to four lines on the
+laptop, and the slider was confusing. The slider is retired; this is the
+second time it has been judged confusing (the first is in the design
+record), and the propositions it carried have their own sections below.
 
-- Navy section with the two radial glows. Inside it, top to bottom: the
-  slider, the routing band, the facts row.
-- Slider: three slides, one per reader. Each slide is text 7/12 left and a
-  photograph 5/12 right (14px radius, 1px white 14% border), stacking below
-  960px with the photo under the text at 16:10.
-  1. "Who we are": h1 "Twenty years each in enterprise engineering. Now
-     teaching production AI.", the legacy subhead, buttons "Talk to a
-     consultant" and "See the AI programs". Photo: two engineers reviewing
-     code.
-  2. "Consulting": "The gap is never the model. It is everything around
-     it." with a two-sentence subhead on the governed pipeline; buttons
-     "Talk to a consultant" and "How an engagement runs". Photo: a
-     consultant presenting to a leadership team.
-  3. "AI programs": "Four programs. Each one ends in something you can
-     show." with a one-line-per-program subhead; buttons "See the AI
-     programs" and "Enquire about a batch". Photo: a live workshop.
-  Only slide 1 carries the h1; slides 2 and 3 use h2 styled the same.
-- Controls: labelled tabs (Who we are, Consulting, AI programs) with the
-  active tab underlined and a progress bar, previous and next arrows at
-  44px, "n of 3" for screen readers. Auto-advance every 8 seconds; pauses on
-  hover, focus, touch and when the tab is hidden; off entirely under
-  prefers-reduced-motion. Swipe on touch. Tabs reset the timer. Every change
-  fires hero_slide_view with the trigger.
-  The tabs are the answer to the recorded objection: all three propositions
-  are visible at once, so nothing depends on waiting for slide two.
-- Routing band, "Start where it hurts": the five problem links as pill links
-  in a wrapping row, same anchors and route_click events as before.
-- Facts row as before: "20+ years", "IIT (BHU)", "2017", "Live", static text.
-- Slide 1 photo is the LCP candidate: under 220KB, width and height set,
-  preloaded, fetchpriority high. Slides 2 and 3 lazy.
+- One static hero, full-bleed photo (`hero-1-wide`) under the navy scrim,
+  eyebrow, two-line h1 with the second line in green-300, one-sentence
+  subhead, two buttons, and an outcome line ("6 months to 90 days, backlog
+  to production, a large UK bank", link to the outcomes section).
+- Desktop: the hero fits one screen under the promise bar and header:
+  height min(100vh minus 114px, 680px), floor 560px, content centred; h1
+  clamp(36px, 4.4vw, 60px) on a 16ch measure, three lines at most.
+- Phone: content aligned to the top, no photo band above the text; h1
+  clamp(30px, 8.5vw, 40px); the block from eyebrow to the second button ends
+  within 740px on a 375x812 screen.
+- Routing band under the hero: "Start where it hurts" as one row of pills,
+  wrapping once at most on desktop, horizontally scrolling with snap on
+  phones. Same anchors and events.
+- Facts strip under the routing band: four compact label-over-value items
+  (Since 2017, IIT (BHU), 20+ years, Delhi NCR), one row at 800 and up.
+- Copy: eyebrow GURUGRAM · SINCE 2017 · IIT (BHU) FACULTY; h1 "We get AI
+  into production." / "Then we train your engineers to run it."; subhead
+  "Enterprise consulting and live AI engineering programs from a team with
+  twenty-plus years each inside banks and Fortune 500 delivery."
 
 ## 2b. Photography
 
@@ -324,6 +314,10 @@ links; programs; reach us. Bottom row: copyright and site URL.
 - Container 1480px, gutters clamp(18px, 3vw, 32px). Tap targets 44px.
 - Review widths before anything reaches the client: 360, 640, 800, 960,
   1024, 1100, 1280, 1366, 1480. The middle three are the laptop cases.
+- First-screen check at real viewports, not just widths: 375x812 and
+  390x844 (iPhone), 1366x768 and 1280x720 (laptop). The hero must complete
+  within the first screen on the laptop and the eyebrow-to-buttons block
+  within the first screen on the phone.
 
 ## Acceptance checklist
 

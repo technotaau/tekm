@@ -152,6 +152,14 @@ screenshot set missed. From build 4 on, every build is screenshotted and
 grid-audited at 1024, 1100 and 1366 as well, and the Design Lead views the
 laptop set before anything is published or sent to the client.
 
+## Review gate extended 5 September 2026
+
+Jakhar Singh's phone and laptop screenshots showed a hero three screens
+tall on an iPhone and a four-line headline on a laptop, neither visible in
+width-only screenshots with fallback fonts. From build 6, every build is
+also checked as a first screen at 375x812, 390x844, 1280x720 and 1366x768,
+and the Design Lead views those before publishing.
+
 ## Status, 4 September 2026
 
 | Phase | State |

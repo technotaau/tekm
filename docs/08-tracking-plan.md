@@ -359,3 +359,11 @@ New `cta_id` values: `hero_outcome_card` (the number card on slide 1, to the out
 ## Addendum, 5 September 2026: revision 3
 
 New `cta_id` values: `way_modernize`, `way_production`, `way_train` (the three "what we do" cards), `fde_enquire` and `fde_all` (the spotlight buttons; `fde_enquire` also pushes `program_click {program: fde}`). The photo band's `section_view` entry is retired; `section_view` now also fires for `ways` and `fde`.
+
+
+## Addendum, 5 September 2026: revision 4
+
+`hero_slide_view` is retired with the slider. The hero keeps `hero_talk`,
+`hero_programs` and `hero_outcome_card`; the routing pills keep
+`route_click`. The sticky mobile bar now appears after the facts strip
+scrolls out.
