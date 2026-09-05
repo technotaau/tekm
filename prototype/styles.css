@@ -1,8 +1,8 @@
 /* TEKMentors homepage prototype. One stylesheet, built on design/tokens.css.
    Layout values from design/reference/export/HANDOFF-README.md; colors and
-   type only through the --tm-* custom properties. Media queries: 960px up
-   (hero slides go two-column), 940px (header menu, sticky bar), 640px
-   (programs table stacks, phone sizes) and 400px (insight thumbs hide). */
+   type only through the --tm-* custom properties. Every grid has an explicit
+   column count per breakpoint (640, 700, 800, 960, 1100, 1280; fixed counts, not fitted),
+   so no card is ever orphaned on a last row. Section 19 holds the queries. */
 
 @import url("../design/tokens.css");
 
@@ -620,7 +620,7 @@ strong { font-weight: 600; }
   padding-top: var(--tm-s-8);
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--tm-s-6) var(--tm-s-8);
 }
 .facts dt {
@@ -676,7 +676,7 @@ strong { font-weight: 600; }
 
 .personas {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 20px;
   margin-top: var(--tm-s-8);
 }
@@ -697,65 +697,49 @@ strong { font-weight: 600; }
 
 /* 9. Programs roster ----------------------------------------------------- */
 
-.roster {
-  width: 100%;
-  border-collapse: collapse;
-  border-top: 1px solid var(--tm-line-strong);
-  table-layout: auto;
-}
-.roster th, .roster td { vertical-align: top; text-align: left; font-weight: 400; }
-.roster__head th {
-  font-size: 0.65625rem;
-  color: var(--tm-ink-500);
-  padding: 12px 24px 12px 0;
-  border-bottom: 1px solid var(--tm-line);
-}
-.roster__head th:first-child { width: 44%; }
-.roster__head th:nth-child(2) { width: 22%; }
-.roster__head th:last-child { width: 1%; }
-.roster__action .btn { white-space: nowrap; padding-inline: 18px; }
-
-.roster__row th, .roster__row td {
-  padding: 32px 24px 32px 0;
+/* Each program is one grid row. Below 640px it stacks: 16:9 photo, text,
+   meta, full-width button. From 640px the photo takes a 160px column and
+   the meta row of three and the button sit under the text. From 1100px it
+   is four columns: photo, text, stacked meta, button (section 19). */
+.roster { border-top: 1px solid var(--tm-line-strong); }
+.roster__row {
+  padding: 26px 0;
   border-bottom: 1px solid var(--tm-line);
   font-size: var(--tm-body-sm);
   color: var(--tm-ink-600);
 }
-.roster__row td:last-child, .roster__row th:last-child { padding-right: 0; }
-.roster__action { padding-right: 0; }
-
-.roster__row--flagship { background: var(--tm-navy-900); color: var(--tm-text-on-dark); }
-.roster__row--flagship th, .roster__row--flagship td {
+.roster__row--flagship {
+  padding: 26px 20px;
+  background: var(--tm-navy-900);
   color: var(--tm-ink-on-dark-cell);
   border-bottom-color: var(--tm-navy-900);
+  border-radius: 0 0 var(--tm-radius-card) var(--tm-radius-card);
 }
-.roster__row--flagship th:first-child { padding-left: 24px; border-radius: 0 0 0 var(--tm-radius-card); }
-.roster__row--flagship td:last-child { padding-right: 24px; border-radius: 0 0 var(--tm-radius-card) 0; }
 .roster__row--flagship .roster__title { color: var(--tm-text-on-dark); }
 .roster__row--flagship .roster__body { color: var(--tm-text-on-dark-soft); }
 .roster__row--flagship .builds li { color: var(--tm-ink-on-dark-cell); }
 .roster__row--flagship .builds li strong { color: var(--tm-text-on-dark); }
 .roster__row--flagship .builds li::before, .roster__row--flagship .roster__builds-label { color: var(--tm-green-300); }
 .roster__row--flagship .roster__tools { color: var(--tm-ink-on-dark-caption); }
+.roster__row--flagship .roster__meta dd { color: var(--tm-ink-on-dark-cell); }
 
-/* The cell wraps so the thumb never widens the column: below about 320px of
-   cell width the text drops under the thumbnail instead of pushing the table out. */
-.roster__cell { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 20px; }
-.roster__text { flex: 1 1 200px; min-width: 0; }
+.roster__media { margin-bottom: var(--tm-s-4); }
 .roster__thumb {
-  flex: none;
-  width: 96px;
-  height: 72px;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 12px;
   background: var(--tm-surface-2);
 }
 .roster__row--flagship .roster__thumb { border: 1px solid rgba(255, 255, 255, 0.2); background: var(--tm-navy-800); }
+.roster__text { min-width: 0; }
 
+/* The label colour is the row's colour: it carries the eyebrow and the meta labels. */
 .roster__label { font-size: var(--tm-label-sm); margin-bottom: 10px; }
-.roster__label--green { color: var(--tm-green-300); }
-.roster__label--blue { color: var(--tm-blue-700); }
-.roster__label--leaf { color: var(--tm-green-700); }
+.roster__label--green, .roster__row--flagship .roster__meta dt { color: var(--tm-green-300); }
+.roster__label--blue, .roster__row--blue .roster__meta dt { color: var(--tm-blue-700); }
+.roster__label--leaf, .roster__row--leaf .roster__meta dt { color: var(--tm-green-700); }
 .roster__title {
   font-size: 1.4375rem;
   line-height: 1.15;
@@ -792,12 +776,18 @@ strong { font-weight: 600; }
 .builds li strong { color: var(--tm-ink-900); }
 .roster__tools { margin-top: var(--tm-s-3); font-size: var(--tm-small); color: var(--tm-text-muted); max-width: 62ch; }
 
-.roster td::before {
-  content: attr(data-label);
-  display: none;
+.roster__meta {
+  margin-top: var(--tm-s-5);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--tm-s-4);
 }
+.roster__meta dt { font-size: 0.65625rem; margin-bottom: 4px; }
+.roster__meta dd { font-size: var(--tm-body-sm); line-height: 1.5; }
+.roster__action { margin-top: var(--tm-s-6); }
+.roster__action .btn { width: 100%; white-space: nowrap; padding-inline: 18px; }
 
-.roster__foot td { padding: 18px 0 0; }
+.roster__foot { padding-top: 18px; }
 .also { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; font-size: var(--tm-body-sm); }
 .also__label { font-size: var(--tm-label-sm); color: var(--tm-ink-500); margin-right: 6px; }
 .also a {
@@ -815,7 +805,7 @@ strong { font-weight: 600; }
 
 .pipeline {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 20px;
   margin-bottom: clamp(2.5rem, 5vw, 4rem);
 }
@@ -953,7 +943,7 @@ strong { font-weight: 600; }
 .band {
   position: relative;
   overflow: hidden;
-  min-height: 320px;
+  min-height: 360px;
   margin-top: var(--tm-s-10);
   display: flex;
   align-items: center;
@@ -986,10 +976,11 @@ strong { font-weight: 600; }
 }
 .band__eyebrow { margin-bottom: var(--tm-s-3); }
 .band__line {
-  font-size: var(--tm-body-lg);
-  font-weight: 500;
-  line-height: 1.5;
-  max-width: 60ch;
+  font-size: clamp(1.5rem, 2.4vw, 2.125rem);          /* 24 to 34px */
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  max-width: 26ch;
   color: var(--tm-text-on-dark);
 }
 
@@ -998,7 +989,7 @@ strong { font-weight: 600; }
 .phases {
   margin-top: var(--tm-s-8);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 1px;
   background: var(--tm-line);
   border: 1px solid var(--tm-line);
@@ -1036,11 +1027,12 @@ strong { font-weight: 600; }
 
 .answers {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 0 56px;
+  border-top: 1.5px solid var(--tm-line-strong);
 }
 .answer { padding: 26px 0; border-top: 1px solid var(--tm-line); }
-.answer:first-child { border-top: 1.5px solid var(--tm-line-strong); }
+.answer:nth-child(1) { border-top-color: transparent; }
 .answer__q { font-size: 1.25rem; font-weight: 700; line-height: 1.25; letter-spacing: -0.01em; color: var(--tm-text-heading); margin-bottom: 10px; }
 .answer__a { line-height: var(--tm-lh-answer); max-width: 60ch; }
 
@@ -1059,11 +1051,16 @@ strong { font-weight: 600; }
 .stats {
   margin-top: var(--tm-s-8);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr));
-  gap: var(--tm-s-6) var(--tm-s-8);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--tm-s-6) var(--tm-s-4);
+  align-items: start;
 }
-.stat dt {
-  font-size: var(--tm-stat);
+/* Each cell: the mono "from" line, the result, the caption. The "from" line
+   never wraps and the result is one line, so the four results share a baseline. */
+.stat dt { display: grid; gap: 6px; }
+.stat__from { font-size: var(--tm-label-sm); color: var(--tm-ink-500); white-space: nowrap; }
+.stat__value {
+  font-size: clamp(1.375rem, 6.5vw, 1.875rem);         /* phones: 22 to 30px */
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1;
@@ -1077,10 +1074,32 @@ strong { font-weight: 600; }
 .bench__line { font-size: var(--tm-body-md); color: var(--tm-ink-700); margin-bottom: var(--tm-s-6); }
 .bench__list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--tm-s-6) var(--tm-s-8);
 }
-.mentor { padding-top: var(--tm-s-4); border-top: 1px solid var(--tm-line-soft); }
+.mentor {
+  padding-top: var(--tm-s-4);
+  border-top: 1px solid var(--tm-line-soft);
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: var(--tm-s-4);
+  align-items: start;
+}
+.mentor__avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--tm-blue-100);
+  color: var(--tm-blue-700);
+  font-family: var(--tm-font-mono);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.mentor__text { min-width: 0; }
 .mentor__name { font-size: var(--tm-h4); font-weight: 700; color: var(--tm-text-heading); }
 .mentor__role { font-weight: 600; color: var(--tm-ink-700); font-size: var(--tm-body-sm); margin-top: 2px; }
 .mentor__cred { font-size: var(--tm-body-sm); margin-top: 6px; }
@@ -1124,7 +1143,7 @@ strong { font-weight: 600; }
 .contact__grid {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 56px 72px;
   align-items: start;
 }
@@ -1176,7 +1195,7 @@ strong { font-weight: 600; }
   width: 100%;
   margin-inline: auto;
   padding: 30px 34px;
-  justify-self: end;
+  justify-self: center;
 }
 .enquiry__title { font-size: 1.4375rem; font-weight: 700; letter-spacing: -0.015em; color: var(--tm-text-heading); }
 .enquiry__line { font-size: var(--tm-body-sm); margin-top: 6px; margin-bottom: var(--tm-s-6); }
@@ -1191,7 +1210,7 @@ strong { font-weight: 600; }
 }
 .chips {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 8px;
 }
 .chip {
@@ -1295,7 +1314,7 @@ strong { font-weight: 600; }
 }
 .site-footer__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 44px;
 }
 .site-footer__brand { display: grid; gap: 6px; align-content: start; }
@@ -1344,6 +1363,63 @@ strong { font-weight: 600; }
 
 /* 19. Media queries ------------------------------------------------------ */
 
+/* Grid column counts by width (children / columns):
+     facts       4: 2 cols, 4 from 800
+     personas    3: 1 col, 3 from 960
+     roster row     stacked, 160px photo + text from 640, four columns from 1100
+     pipeline    2: 1 col, 2 from 800
+     checklist   7: 1 col, 2 from 800
+     phases      4: 1 col, 2 from 640, 4 from 1100
+     answers     6: 1 col, 2 from 700, 3 from 1280
+     stats       4: 2 cols, 4 from 800
+     bench       3: 1 col, 3 from 960
+     contact     2: 1 col, 2 from 960
+     chips       4: 1 col, 2 from 480
+     footer      4: 1 col, 2 from 640, 4 from 960
+     hero slide     stacked, 7fr 5fr from 960 */
+
+@media (min-width: 480px) {
+  .chips { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 640px) {
+  .roster__row {
+    display: grid;
+    grid-template-columns: 160px minmax(0, 1fr);
+    gap: var(--tm-s-6);
+    align-items: start;
+    padding: 32px 0;
+  }
+  .roster__row--flagship { padding: 32px 24px; }
+  .roster__media { margin: 0; }
+  .roster__thumb { width: 160px; height: 120px; aspect-ratio: auto; }
+  .roster__meta {
+    grid-column: 2;
+    margin: 0;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--tm-s-5);
+  }
+  .roster__action { grid-column: 2; margin: 0; justify-self: start; }
+  .roster__action .btn { width: auto; }
+
+  .phases { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .site-footer__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 700px) {
+  .answers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .answer:nth-child(2) { border-top-color: transparent; }
+}
+
+@media (min-width: 800px) {
+  .facts { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .pipeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .checklist__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .checklist__list li:nth-child(2) { border-top: 1px solid var(--tm-line); margin-top: -1px; }
+  .stats { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--tm-s-6) var(--tm-s-5); }
+  .stat__value { font-size: clamp(1.875rem, 2.6vw, var(--tm-stat)); }   /* 30 to 42px */
+}
+
 @media (min-width: 960px) {
   .slide {
     grid-template-columns: 7fr 5fr;
@@ -1361,11 +1437,35 @@ strong { font-weight: 600; }
     max-width: 260px;
     z-index: 1;
   }
+
+  .personas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .bench__list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .contact__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .form-card { justify-self: end; }
+  .site-footer__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 
-@media (min-width: 800px) {
-  .checklist__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .checklist__list li:nth-child(2) { border-top: 1px solid var(--tm-line); margin-top: -1px; }
+@media (min-width: 1100px) {
+  .roster__row {
+    grid-template-columns: 200px minmax(0, 1fr) 230px 150px;
+    gap: 28px;
+    padding: 28px 0;
+  }
+  .roster__row--flagship { padding: 28px 24px; }
+  .roster__thumb { width: 200px; height: 150px; }
+  .roster__builds-label { margin-top: var(--tm-s-4); }
+  .builds { gap: 4px; }
+  .roster__tools { margin-top: var(--tm-s-2); line-height: 1.5; }
+  .roster__meta { grid-column: auto; grid-template-columns: minmax(0, 1fr); gap: var(--tm-s-3); }
+  .roster__action { grid-column: auto; justify-self: end; }
+
+  .phases { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .stats { gap: var(--tm-s-6) var(--tm-s-8); }
+}
+
+@media (min-width: 1280px) {
+  .answers { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .answer:nth-child(3) { border-top-color: transparent; }
 }
 
 @media (max-width: 940px) {
@@ -1428,33 +1528,10 @@ strong { font-weight: 600; }
   .form-card { padding: 26px 22px; }
 }
 
-@media (max-width: 640px) {
-  .roster, .roster tbody, .roster tfoot, .roster tr, .roster th, .roster td { display: block; }
-  .roster thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-  .roster__row { padding: 26px 0; border-bottom: 1px solid var(--tm-line); }
-  .roster__row th, .roster__row td { padding: 0; border-bottom: 0; }
-  .roster__row td { margin-top: var(--tm-s-4); }
-  .roster td::before {
-    display: block;
-    font-family: var(--tm-font-mono);
-    font-size: 0.65625rem;
-    letter-spacing: var(--tm-track-label);
-    text-transform: uppercase;
-    color: var(--tm-ink-500);
-    margin-bottom: 4px;
-  }
-  .roster__action::before { display: none; }
-  .roster__action { margin-top: var(--tm-s-6); }
-  .roster__row--flagship { padding: 26px 20px; border-radius: 0 0 var(--tm-radius-card) var(--tm-radius-card); }
-  .roster__row--flagship th:first-child, .roster__row--flagship td:last-child { padding: 0; border-radius: 0; }
-  .roster__row--flagship td::before { color: var(--tm-green-300); }
-  .roster__row--flagship td:last-child { margin-top: var(--tm-s-6); }
-  .roster__foot td { padding-top: 18px; }
-
-  .roster__cell { flex-direction: column; gap: var(--tm-s-4); }
-  .roster__thumb { width: 100%; height: auto; aspect-ratio: 16 / 9; }
-
-  .band { min-height: 240px; }
+/* Phone sizes. The line is 639.98 so that 640 itself takes the tablet rules,
+   matching the accordion query in section 20 and main.js. */
+@media (max-width: 639.98px) {
+  .band { min-height: 260px; }
   .card { padding: 26px 22px; }
   .phase { padding: 24px 20px; min-height: 0; }
   .timeline__row { grid-template-columns: 1fr; gap: 6px; }
