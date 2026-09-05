@@ -5,7 +5,7 @@
    4. Sticky mobile bar
    5. Section views
    6. Routing band: drops the fading edge once the scroller reaches its end
-   7. Phone accordions below 640px: the six answers, each roster row's "What you build"
+   7. Phone accordions below 640px: the four answers, each roster row's "What you build"
       (the spotlight's list stays open)
    8. Enquiry form: chips and the labels that follow them, presets, validation,
       sending, sent, reset
@@ -56,10 +56,10 @@
     window.requestAnimationFrame(function () {
       scrollTick = false;
       if (header) header.classList.toggle('is-scrolled', window.scrollY > 80);
+      if (facts) { topGone = facts.getBoundingClientRect().bottom < 0; updateBar(); }
     });
   }
   window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
 
   /* 3. Mobile menu -------------------------------------------------------- */
 
@@ -121,28 +121,28 @@
   /* 4. Sticky bar --------------------------------------------------------- */
 
   // The bar appears once the facts strip (so the hero and the routing band
-  // with it) has scrolled out above, and hides while the form card is in view.
+  // with it) has scrolled out above, hides while the form card is in view and
+  // returns for the insights section and the footer below it. The strip's
+  // position is read in the scroll handler above (one rect per frame), not
+  // through an observer: a fast fling can pass the 171px strip between two
+  // frames without ever intersecting it, and an observer would never fire.
   var bar = document.querySelector('[data-sticky-bar]');
-  var facts = document.getElementById('facts');
+  var facts = bar && document.getElementById('facts');
   var formCard = document.getElementById('form');
+  var topGone = false, formInView = false;
 
-  if (bar && facts && 'IntersectionObserver' in window) {
-    var topGone = false, formInView = false;
-    function updateBar() {
-      bar.classList.toggle('is-visible', topGone && !formInView);
-      bar.classList.toggle('is-hidden', formInView);
-    }
-    new IntersectionObserver(function (entries) {
-      topGone = !entries[0].isIntersecting && entries[0].boundingClientRect.bottom < 0;
-      updateBar();
-    }, { threshold: 0 }).observe(facts);
-    if (formCard) {
-      new IntersectionObserver(function (entries) {
-        formInView = entries[0].isIntersecting;
-        updateBar();
-      }, { threshold: 0.15 }).observe(formCard);
-    }
+  function updateBar() {
+    if (!bar) return;
+    bar.classList.toggle('is-visible', topGone && !formInView);
+    bar.classList.toggle('is-hidden', formInView);
   }
+  if (bar && formCard && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      formInView = entries[0].isIntersecting;
+      updateBar();
+    }, { threshold: 0.15 }).observe(formCard);
+  }
+  onScroll();
 
   /* 5. Section views ------------------------------------------------------- */
 
@@ -156,7 +156,7 @@
         }
       });
     }, { threshold: 0.5 });
-    ['ways', 'fde', 'programs', 'who', 'consulting', 'how', 'answers', 'proof', 'insights', 'contact'].forEach(function (id) {
+    ['ways', 'fde', 'programs', 'consulting', 'proof', 'answers', 'contact', 'insights'].forEach(function (id) {
       var el = document.getElementById(id);
       if (el) sectionObserver.observe(el);
     });
@@ -180,7 +180,7 @@
 
   /* 7. Phone accordions ------------------------------------------------------ */
 
-  /* Below 640px the six answers fold behind their question (first one open) and
+  /* Below 640px the four answers fold behind their question (first one open) and
      each program row folds its "What you build" list behind a button. At 640px
      and above nothing is added: the markup is the plain h3 and list. The
      enhancement is applied and removed as the viewport crosses the line. */

@@ -1,8 +1,11 @@
 /* TEKMentors homepage prototype. One stylesheet, built on design/tokens.css.
    Layout values from design/reference/export/HANDOFF-README.md; colors and
    type only through the --tm-* custom properties. Every grid has an explicit
-   column count per breakpoint (480, 640, 700, 800, 960, 1100, 1280; fixed counts, not fitted),
-   so no card is ever orphaned on a last row. Section 19 holds the queries. */
+   column count per breakpoint (480, 640, 700, 800, 960, 1100; fixed counts, not fitted).
+   Section 19 holds the queries. Build 7 (docs/12-final-homepage.md): the
+   persona cards, the seven-questions block, the practices list and the phases
+   grid are gone; the outcomes card sits beside a photograph, the contact
+   section sits on one, the footer has a consulting column. */
 
 @import url("../design/tokens.css");
 
@@ -48,8 +51,7 @@ strong { font-weight: 600; }
 .card--navy :focus-visible,
 .spot :focus-visible,
 .way:focus-visible,
-.site-footer :focus-visible,
-.phase--navy :focus-visible {
+.site-footer :focus-visible {
   outline-color: var(--tm-blue-500);
 }
 
@@ -100,6 +102,7 @@ strong { font-weight: 600; }
 .section {
   padding: var(--tm-section-y) 0 var(--tm-s-6);
 }
+.section--tail { padding-bottom: var(--tm-section-y-sm); }
 
 .section__title {
   font-size: var(--tm-h2);
@@ -198,7 +201,7 @@ strong { font-weight: 600; }
 .btn--outline-dark { background: var(--tm-surface); color: var(--tm-ink-900); border-color: var(--tm-ink-900); }
 .btn--outline-dark:hover { background: var(--tm-blue-100); }
 
-.btn:hover .arrow, .practice:hover .arrow, .post:hover .arrow, .routes__pill:hover .arrow, .text-link:hover .arrow { transform: translateX(3px); }
+.btn:hover .arrow, .post:hover .arrow, .routes__pill:hover .arrow, .text-link:hover .arrow { transform: translateX(3px); }
 
 .link-button {
   background: none;
@@ -378,7 +381,7 @@ strong { font-weight: 600; }
 /* One static hero: a full-bleed photograph under the navy scrim with the copy
    in a container-width block. Below 960px the block sits at the top of the
    photo with 40px above and below and no minimum height, so a phone never
-   shows an empty band of photo above the text. From 960px (section 19) the
+   shows an empty band of photo above the text. From 960px (section 18) the
    section is one laptop screen under the promise bar and header and the copy
    is centred in it. */
 .hero {
@@ -511,7 +514,7 @@ strong { font-weight: 600; }
 .outcome__link:hover .arrow { transform: translateX(3px); }
 
 /* 6b. Routing band: the label and one row of pills on navy with the glow.
-   From 960px the row wraps (once at most, section 19); below 960px the
+   From 960px the row wraps (once at most, section 18); below 960px the
    scroller snaps sideways with 16px gutters, no visible scrollbar and a
    fading right edge (a mask, so the glow shows through) that main.js drops
    once the last pill is in view. */
@@ -633,30 +636,7 @@ strong { font-weight: 600; }
   opacity: 0.6;
 }
 
-/* 8. Who writes to us ---------------------------------------------------- */
-
-.personas {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 20px;
-  margin-top: var(--tm-s-8);
-}
-.persona { display: flex; flex-direction: column; }
-.persona__step {
-  margin-top: auto;
-  padding-top: var(--tm-s-5);
-  margin-top: var(--tm-s-5);
-  border-top: 1px solid var(--tm-line-soft);
-  font-size: var(--tm-body-sm);
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-.persona__step strong { color: var(--tm-ink-900); }
-.persona .card__body { flex: 1; }
-.persona .btn { margin-top: var(--tm-s-5); align-self: flex-start; }
-
-/* 8b. Three ways we work with enterprise teams: photo link cards ---------- */
+/* 8. Three ways we work with enterprise teams: photo link cards ----------- */
 
 .ways {
   display: grid;
@@ -725,7 +705,7 @@ strong { font-weight: 600; }
   .way:hover .way__img { transform: none; }
 }
 
-/* 8c. Flagship spotlight: AI Forward Deployed Engineer ------------------- */
+/* 8b. Flagship spotlight: AI Forward Deployed Engineer ------------------- */
 
 .spot {
   position: relative;
@@ -801,7 +781,7 @@ strong { font-weight: 600; }
 /* Each program is one grid row. Below 640px it stacks: 16:9 photo, text,
    meta, full-width button. From 640px the photo takes a 160px column and
    the meta row of three and the button sit under the text. From 1100px it
-   is four columns: photo, text, stacked meta, button (section 19). */
+   is four columns: photo, text, stacked meta, button (section 18). */
 .roster { border-top: 1px solid var(--tm-line-strong); }
 .roster__row {
   padding: 26px 0;
@@ -965,114 +945,28 @@ strong { font-weight: 600; }
 .pipeline__list--after strong { color: var(--tm-text-on-dark); }
 .pipeline__list--after .pipeline__node > span { font-size: var(--tm-small); color: var(--tm-text-on-dark-soft); }
 
-/* 10a. Teaching moment: seven questions before an AI pilot goes live. */
-.checklist {
-  border-top: 1px solid var(--tm-line-strong);
-  padding-top: clamp(2rem, 4vw, 3rem);
-  margin-bottom: clamp(2.5rem, 5vw, 4rem);
-}
-.checklist__title {
-  font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2rem);
-  line-height: 1.12;
-  letter-spacing: -0.02em;
-  font-weight: 700;
-  color: var(--tm-text-heading);
-  max-width: 24ch;
-}
-.checklist__intro {
-  margin-top: var(--tm-s-3);
-  font-size: var(--tm-body-md);
-  max-width: 56ch;
-}
-.checklist__list {
-  counter-reset: question;
-  margin-top: var(--tm-s-8);
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 0 var(--tm-s-12);
-  border-top: 1px solid var(--tm-line);
-}
-.checklist__list li {
-  counter-increment: question;
-  position: relative;
-  padding: 16px 0 16px 44px;
-  border-bottom: 1px solid var(--tm-line);
-  font-size: var(--tm-body);
-  line-height: 1.5;
-  color: var(--tm-ink-600);
-}
-.checklist__list li::before {
-  content: "0" counter(question);
-  position: absolute;
-  left: 0;
-  top: 19px;
-  font-family: var(--tm-font-mono);
-  font-size: var(--tm-label);
-  letter-spacing: var(--tm-track-label);
-  color: var(--tm-blue-600);
-}
-.checklist__list strong { font-weight: 600; color: var(--tm-ink-900); }
-.checklist__cta { margin-top: var(--tm-s-6); }
-
-.practices { border-top: 1.5px solid var(--tm-line-strong); }
-.practice {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  gap: var(--tm-s-5);
-  align-items: center;
-  padding: 22px 0;
-  border-bottom: 1px solid var(--tm-line);
-  color: var(--tm-ink-900);
-  transition: color var(--tm-dur) var(--tm-ease);
-}
-.practice:hover { color: var(--tm-blue-600); }
-.practice__num { font-size: var(--tm-label-sm); color: var(--tm-ink-500); width: 28px; padding-top: 2px; align-self: start; }
-.practice__text { display: flex; flex-direction: column; gap: 4px; }
-.practice__title { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
-.practice__line { font-size: var(--tm-body-sm); color: var(--tm-ink-600); }
-.practice .arrow { color: var(--tm-ink-500); }
-.practice:hover .arrow { color: inherit; }
-
-/* 11. How an engagement runs -------------------------------------------- */
-
-.phases {
-  margin-top: var(--tm-s-8);
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 1px;
-  background: var(--tm-line);
-  border: 1px solid var(--tm-line);
-  border-radius: var(--tm-radius-card);
-  overflow: hidden;
-}
-.phase {
-  background: var(--tm-surface);
-  padding: 28px 26px;
-  min-height: 230px;
+/* 10a. Closing row: the one-pager offer in one line beside its two buttons.
+   The buttons share the 44px height; on phones the row wraps and each
+   button takes the full line it lands on. */
+.onepager {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--tm-s-4) var(--tm-s-8);
+  padding-top: var(--tm-s-6);
+  border-top: 1px solid var(--tm-line-strong);
 }
-.phase__num { font-size: var(--tm-label-sm); color: var(--tm-ink-500); margin-bottom: var(--tm-s-4); }
-.phase__title { font-size: var(--tm-h4); font-weight: 700; letter-spacing: -0.01em; color: var(--tm-text-heading); margin-bottom: var(--tm-s-2); }
-.phase__body { font-size: var(--tm-body-sm); flex: 1; }
-.phase__deliverable {
-  margin-top: var(--tm-s-5);
-  padding-top: var(--tm-s-4);
-  border-top: 1px solid var(--tm-line-soft);
-  font-size: var(--tm-small);
+.onepager__line {
+  font-size: var(--tm-body-md);
   font-weight: 600;
   color: var(--tm-ink-900);
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+  max-width: 40ch;
 }
-.phase__deliverable .mono { font-size: 0.625rem; font-weight: 400; color: var(--tm-ink-500); }
-.phase--navy { background: var(--tm-navy-900); color: var(--tm-text-on-dark-soft); }
-.phase--navy .phase__title, .phase--navy .phase__deliverable { color: var(--tm-text-on-dark); }
-.phase--navy .phase__num, .phase--navy .phase__deliverable .mono { color: var(--tm-green-300); }
-.phase--navy .phase__deliverable { border-top-color: rgba(255, 255, 255, 0.14); }
+.onepager__actions { display: flex; flex-wrap: wrap; gap: var(--tm-s-3); }
+.onepager .btn--primary { font-size: var(--tm-body-sm); padding: 11px 22px; border-radius: var(--tm-radius-btn); }
 
-/* 12. Straight answers --------------------------------------------------- */
+/* 11. Straight answers --------------------------------------------------- */
 
 .answers {
   display: grid;
@@ -1085,8 +979,25 @@ strong { font-weight: 600; }
 .answer__q { font-size: 1.25rem; font-weight: 700; line-height: 1.25; letter-spacing: -0.01em; color: var(--tm-text-heading); margin-bottom: 10px; }
 .answer__a { line-height: var(--tm-lh-answer); max-width: 60ch; }
 
-/* 13. Outcomes and mentor bench ----------------------------------------- */
+/* 12. Outcomes and mentor bench ----------------------------------------- */
 
+/* The photograph above the card below 960px (16:10) and beside it from
+   960px (5:4, sticky under the header while the taller card scrolls). */
+.proof__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--tm-s-6);
+  align-items: start;
+}
+.proof__img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: 50% 40%;
+  border-radius: var(--tm-radius-card);
+  background: var(--tm-surface-2);
+}
 .proof { padding: clamp(1.75rem, 4vw, 2.75rem) clamp(1.375rem, 3vw, 2.5rem); }
 .proof__title {
   font-size: var(--tm-h2);
@@ -1153,7 +1064,7 @@ strong { font-weight: 600; }
 .mentor__role { font-weight: 600; color: var(--tm-ink-700); font-size: var(--tm-body-sm); margin-top: 2px; }
 .mentor__cred { font-size: var(--tm-body-sm); margin-top: 6px; }
 
-/* 14. Insights ----------------------------------------------------------- */
+/* 13. Insights ----------------------------------------------------------- */
 
 .posts {
   display: grid;
@@ -1183,15 +1094,39 @@ strong { font-weight: 600; }
 .post__more { margin-top: auto; padding-top: 4px; color: var(--tm-ink-500); font-size: 1.125rem; line-height: 1; }
 .post:hover .post__more { color: inherit; }
 
-/* 15. Contact ------------------------------------------------------------ */
+/* 14. Contact ------------------------------------------------------------ */
 
+/* Full-bleed photograph under a navy scrim (86% to 92% top to bottom) with
+   the radial glow on top of it, so the white copy and the form card read as
+   they did on the flat navy. Contrast samples in docs/qa/build-7. */
 .contact {
   position: relative;
+  isolation: isolate;
   overflow: hidden;
   background: var(--tm-navy-900);
   color: var(--tm-text-on-dark-soft);
   padding: var(--tm-section-y) 0;
   margin-top: var(--tm-s-8);
+}
+.contact__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--tm-navy-800);
+}
+.contact__bg img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+.contact__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 37, 60, 0.86), rgba(7, 37, 60, 0.92));
 }
 .contact__grid {
   position: relative;
@@ -1236,7 +1171,7 @@ strong { font-weight: 600; }
 }
 .contact__links a:hover { color: var(--tm-blue-500); text-decoration-color: currentColor; }
 
-/* 16. Form --------------------------------------------------------------- */
+/* 15. Form --------------------------------------------------------------- */
 
 .form-card {
   background: var(--tm-surface);
@@ -1358,7 +1293,7 @@ strong { font-weight: 600; }
 .sent__panel a:hover { color: var(--tm-ink-900); }
 .sent .link-button { margin-top: var(--tm-s-4); }
 
-/* 17. Footer ------------------------------------------------------------- */
+/* 16. Footer ------------------------------------------------------------- */
 
 .site-footer {
   background: var(--tm-navy-950);
@@ -1368,10 +1303,10 @@ strong { font-weight: 600; }
 }
 .site-footer__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 44px;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* two link columns even on phones: the four lists stacked cost 500px at 360 */
+  gap: 36px 24px;
 }
-.site-footer__brand { display: grid; gap: 6px; align-content: start; justify-items: start; }
+.site-footer__brand { display: grid; gap: 6px; align-content: start; justify-items: start; grid-column: 1 / -1; }
 /* The colour logo sits on a white plate so the mark reads cleanly on navy. */
 .site-footer__plate {
   display: inline-block;
@@ -1404,7 +1339,7 @@ strong { font-weight: 600; }
   color: var(--tm-ink-300);
 }
 
-/* 18. Sticky mobile bar -------------------------------------------------- */
+/* 17. Sticky mobile bar -------------------------------------------------- */
 
 .sticky-bar {
   display: none;
@@ -1424,7 +1359,7 @@ strong { font-weight: 600; }
 .sticky-bar.is-visible { transform: translateY(0); }
 .sticky-bar .btn { min-height: var(--tm-tap-min); }
 
-/* 19. Media queries ------------------------------------------------------ */
+/* 18. Media queries ------------------------------------------------------ */
 
 /* Grid column counts by width (children / columns):
      facts       4: 2 cols, 4 from 800
@@ -1433,17 +1368,16 @@ strong { font-weight: 600; }
      spot facts  3: 1 col, 3 from 640
      pov         2: 1 col, 2 from 960
      posts       3: 1 col, 3 from 960
-     personas    3: 1 col, 3 from 960
      roster row     stacked, 160px photo + text from 640, four columns from 1100
      pipeline    2: 1 col, 2 from 800
-     checklist   7: 1 col, 2 from 800
-     phases      4: 1 col, 2 from 640, 4 from 1100
-     answers     6: 1 col, 2 from 700, 3 from 1280
-     stats       4: 2 cols, 4 from 800
-     bench       3: 1 col, 3 from 960
+     onepager       flex row, wraps
+     answers     4: 1 col, 2 from 700
+     proof       2: 1 col (photo first), 2 from 960
+     stats       4: 2 cols, 4 from 800 to 959 (full width), 2 from 960 (beside the photo)
+     bench       3: 1 col
      contact     2: 1 col, 2 from 960
      chips       4: 1 col, 2 from 480
-     footer      4: 1 col, 2 from 640, 4 from 960
+     footer      5: 1 col, 2 from 640 and 3 from 800 (brand across the top), 5 from 1100
      hero           static photo; copy top-aligned below 960, one screen and centred from 960
      routes      5: snap scroller below 960, wrapping row (two lines at most) from 960, label inline from 1280 */
 
@@ -1470,8 +1404,8 @@ strong { font-weight: 600; }
   .roster__action { grid-column: 2; margin: 0; justify-self: start; }
   .roster__action .btn { width: auto; }
 
-  .phases { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .site-footer__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .site-footer__brand { grid-column: 1 / -1; }
   .spot__facts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .spot__fact { flex-direction: column-reverse; align-items: flex-start; gap: 4px; }
 }
@@ -1484,8 +1418,7 @@ strong { font-weight: 600; }
 @media (min-width: 800px) {
   .facts { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .pipeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .checklist__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .checklist__list li:nth-child(2) { border-top: 1px solid var(--tm-line); margin-top: -1px; }
+  .site-footer__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .stats { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--tm-s-6) var(--tm-s-5); }
   .stat__value { font-size: clamp(1.875rem, 2.6vw, var(--tm-stat)); }   /* 30 to 42px */
 }
@@ -1514,11 +1447,13 @@ strong { font-weight: 600; }
   .pov { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .posts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
-  .personas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .bench__list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .proof__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--tm-s-10); }
+  .proof__img { aspect-ratio: 5 / 4; }
+  .proof__media { position: sticky; top: calc(var(--tm-header-h) + var(--tm-s-4)); }
+  .proof { border-color: transparent; }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--tm-s-6) var(--tm-s-5); }
   .contact__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .form-card { justify-self: end; }
-  .site-footer__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 
 @media (min-width: 1100px) {
@@ -1534,13 +1469,9 @@ strong { font-weight: 600; }
   .roster__meta { grid-column: auto; grid-template-columns: minmax(0, 1fr); gap: var(--tm-s-3); }
   .roster__action { grid-column: auto; justify-self: end; }
 
-  .phases { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .stats { gap: var(--tm-s-6) var(--tm-s-8); }
-}
-
-@media (min-width: 1280px) {
-  .answers { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .answer:nth-child(3) { border-top-color: transparent; }
+  .site-footer__grid { grid-template-columns: minmax(0, 1.5fr) repeat(4, minmax(0, 1fr)); gap: 44px 36px; }
+  .site-footer__brand { grid-column: auto; }
 }
 
 @media (max-width: 940px) {
@@ -1634,10 +1565,11 @@ strong { font-weight: 600; }
 }
 
 /* Phone sizes. The line is 639.98 so that 640 itself takes the tablet rules,
-   matching the accordion query in section 20 and main.js. */
+   matching the accordion query in section 19 and main.js. */
 @media (max-width: 639.98px) {
   .card { padding: 26px 22px; }
-  .phase { padding: 24px 20px; min-height: 0; }
+  .onepager__actions { width: 100%; }
+  .onepager .btn { flex: 1 1 auto; }
   .timeline__row { grid-template-columns: 1fr; gap: 6px; }
   .way__text { padding: 64px 20px 22px; }
 
@@ -1652,7 +1584,7 @@ strong { font-weight: 600; }
   .routes__scroller { padding-inline: 16px; }
 }
 
-/* 20. Phone accordions, below 640px only. main.js adds the buttons under
+/* 19. Phone accordions, below 640px only. main.js adds the buttons under
    this width and removes them above it; the rules below style what it adds. */
 @media (max-width: 639.98px) {
   .answer.is-enhanced { padding: 0; }

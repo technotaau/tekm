@@ -174,3 +174,13 @@ and the Design Lead views those before publishing.
 
 Remaining before launch: the client inputs in `docs/02-content-inventory.md`
 and the WordPress build itself, measured against the prototype.
+
+
+## Final delivery, 5 September 2026
+
+Build 7 is the homepage of record: `prototype/` on branch
+`technotaau/exciting-wright-fky9bc`, artifact
+https://claude.ai/code/artifact/0d729478-15a7-4c98-8694-4aa0670810cd.
+Decisions since Gate 1 are in docs 10, 11 and 12. Inner pages start from
+this build's components and `prototype/copy.md`, which keeps everything cut
+from the homepage.
