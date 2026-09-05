@@ -5,8 +5,9 @@ Run from the repo root: python3 prototype/build-dist.py
 Output: prototype/dist/tekmentors-homepage.html (gitignored).
 
 Inlines tokens plus styles.css, main.js, the logo and favicon, and every
-referenced assets/img/*.jpg as data URIs; strips the hero preload, picture
-sources and srcset (one JPEG per image); replaces the cross-origin client
+referenced full-size assets/img/*.jpg (not the -800 or -900 variants) as data
+URIs; strips the hero preload, picture sources, srcset and sizes (one JPEG per
+image, the hero slides keep their data-src lazy pattern); replaces the cross-origin client
 logo strip with the sector fallback line; sets the artifact title; and drops
 the document wrappers the artifact host adds itself.
 """
@@ -25,7 +26,7 @@ def uri(path, mime):
 h = h.replace('../assets/brand/tekmentors-logo-600x300.png', uri('assets/brand/tekmentors-logo-600x300.png', 'image/png'))
 h = h.replace('../assets/brand/tekmentors-mark-300x300.png', uri('assets/brand/tekmentors-mark-300x300.png', 'image/png'))
 for f in sorted(os.listdir('assets/img')):
-    if f.endswith('.jpg') and '-800' not in f:
+    if f.endswith('.jpg') and '-800' not in f and '-900' not in f:
         h = h.replace('../assets/img/' + f, uri('assets/img/' + f, 'image/jpeg'))
 m = re.search(r'    <ul class="clients__row">.*?</ul>\n', h, flags=re.S); assert m, 'client strip not found'
 fallback = ('    <p class="clients__fallback">Clients in UK wealth and private banking, international financial services '

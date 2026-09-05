@@ -358,4 +358,4 @@ New `cta_id` values: `hero_outcome_card` (the number card on slide 1, to the out
 
 ## Addendum, 5 September 2026: revision 3
 
-New `cta_id` values: `way_modernize`, `way_production`, `way_train` (the three "what we do" cards), `fde_enquire` and `fde_all` (the spotlight buttons; `fde_enquire` also pushes `program_click {program: fde}`). The photo band's `section_view` entry is retired.
+New `cta_id` values: `way_modernize`, `way_production`, `way_train` (the three "what we do" cards), `fde_enquire` and `fde_all` (the spotlight buttons; `fde_enquire` also pushes `program_click {program: fde}`). The photo band's `section_view` entry is retired; `section_view` now also fires for `ways` and `fde`.

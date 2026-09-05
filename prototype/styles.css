@@ -1,7 +1,7 @@
 /* TEKMentors homepage prototype. One stylesheet, built on design/tokens.css.
    Layout values from design/reference/export/HANDOFF-README.md; colors and
    type only through the --tm-* custom properties. Every grid has an explicit
-   column count per breakpoint (640, 700, 800, 960, 1100, 1280; fixed counts, not fitted),
+   column count per breakpoint (480, 640, 700, 800, 960, 1100, 1280; fixed counts, not fitted),
    so no card is ever orphaned on a last row. Section 19 holds the queries. */
 
 @import url("../design/tokens.css");
@@ -45,7 +45,9 @@ strong { font-weight: 600; }
 .hero :focus-visible,
 .contact :focus-visible,
 .card--navy :focus-visible,
-.roster__row--flagship :focus-visible,
+.spot :focus-visible,
+.way:focus-visible,
+.site-footer :focus-visible,
 .phase--navy :focus-visible {
   outline-color: var(--tm-blue-500);
 }
@@ -86,7 +88,7 @@ strong { font-weight: 600; }
   margin-bottom: var(--tm-s-4);
 }
 .eyebrow--sky { color: var(--tm-blue-500); }
-.eyebrow--green { color: var(--tm-green-300); }
+.eyebrow--green { color: var(--tm-green-300); } /* hero eyebrows too: blue-500 measured 3.8 to 4.8:1 over the photographs */
 
 .wrap {
   max-width: var(--tm-container);
@@ -111,6 +113,7 @@ strong { font-weight: 600; }
   line-height: 1.1;
 }
 .section__sub { margin-top: var(--tm-s-2); font-size: var(--tm-body-md); }
+.section__sub--lead { margin-top: var(--tm-s-4); max-width: 60ch; }
 
 .section__head {
   display: flex;
@@ -377,7 +380,9 @@ strong { font-weight: 600; }
   position: relative;
   overflow: hidden;
 }
-.hero::before, .contact::before {
+/* The navy ground under the slider (controls, routing pills, facts) carries the glow. */
+.hero__base { position: relative; overflow: hidden; }
+.hero__base::before, .spot::before, .contact::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -390,11 +395,11 @@ strong { font-weight: 600; }
   position: relative;
   max-width: var(--tm-container);
   margin-inline: auto;
-  padding: clamp(3rem, 6vw, 5.25rem) var(--tm-gutter) clamp(2.5rem, 5vw, 4rem);
+  padding: 0 var(--tm-gutter) clamp(2.5rem, 5vw, 4rem);
 }
-/* 6a. Hero slider. The track is a flex row; data-index on it drives the
-   translateX. The viewport carries 6px of padding so focus rings are not
-   clipped, and the 12px gap keeps the neighbouring slide outside it. */
+/* 6a. Hero slider. Each slide is a full-bleed photograph under a navy gradient
+   with the copy in a container-width block; the track is a flex row and
+   data-index on it drives the translateX. */
 .slider {
   position: relative;
   animation: v4rise var(--tm-dur-rise) var(--tm-ease) both;
@@ -405,63 +410,70 @@ strong { font-weight: 600; }
 }
 .slider__viewport {
   overflow: hidden;
-  padding: 6px 6px 18px;
-  margin: -6px -6px -18px;
   touch-action: pan-y;
 }
 .slider__track {
   display: flex;
   align-items: stretch;
-  gap: 12px;
   transition: transform 500ms var(--tm-ease);
 }
-.slider__track[data-index="1"] { transform: translateX(calc(-1 * (100% + 12px))); }
-.slider__track[data-index="2"] { transform: translateX(calc(-2 * (100% + 12px))); }
+.slider__track[data-index="1"] { transform: translateX(-100%); }
+.slider__track[data-index="2"] { transform: translateX(-200%); }
 
 .slide {
   flex: 0 0 100%;
   min-width: 0;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: auto minmax(0, 1fr);
-  gap: var(--tm-s-8);
-}
-.slide__copy { min-width: 0; }
-.slide__media {
   position: relative;
-  width: 100%;
-  min-width: 0;
-  align-self: stretch;
-  justify-self: stretch;
+  isolation: isolate;
   display: flex;
   flex-direction: column;
-  gap: var(--tm-s-4);
+  justify-content: center;
+  background: var(--tm-navy-900);
 }
-.slide__photo {
-  position: relative;
-  flex: 1 1 auto;
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  border-radius: var(--tm-radius-card);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+/* The photo sits behind the copy under two gradient layers. Below 960px the
+   copy spans the full width, so the scrim is nearly flat (navy 78% to 96%,
+   with a light left-to-right layer); from 960px it is the top-to-bottom
+   35% to 92% plus a left-to-right layer at 85% fading out at 78%, which
+   keeps the photograph clear on the right and the copy at 4.5:1 or better on
+   the left. Measured in docs/qa/build-5/report.md, section 5. */
+.slide__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   overflow: hidden;
   background: var(--tm-navy-800);
 }
-.slide__photo img[data-src] { visibility: hidden; } /* photo not requested yet */
-.slide__photo img {
+.slide__bg img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+.slide__bg img[data-src] { visibility: hidden; } /* photo not requested yet */
+.slide__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(7, 37, 60, 0.5) 0%, rgba(7, 37, 60, 0.3) 60%, rgba(7, 37, 60, 0.15) 100%),
+    linear-gradient(180deg, rgba(7, 37, 60, 0.78) 0%, rgba(7, 37, 60, 0.88) 60%, rgba(7, 37, 60, 0.96) 100%);
+}
+.slide__inner {
+  width: 100%;
+  max-width: var(--tm-container);
+  margin-inline: auto;
+  padding: 88px var(--tm-gutter) 64px;
+}
+.slide__copy { min-width: 0; }
 
 /* 6a-ii. Outcome card on slide 1: the one number with its baseline. Below
-   960px it is a block under the photo; from 960px it overlaps the photo's
-   bottom-left corner by 24px. */
+   960px it is a block under the buttons; from 960px it is a compact card at
+   the slide's bottom right. */
 .outcome {
   width: 100%;
   max-width: 420px;
+  margin-top: var(--tm-s-8);
   background: var(--tm-surface);
   color: var(--tm-text);
   border-radius: var(--tm-radius-card);
@@ -506,7 +518,8 @@ strong { font-weight: 600; }
 .outcome :focus-visible { outline-color: var(--tm-blue-600); }
 
 .slider__controls {
-  margin-top: var(--tm-s-6);
+  padding-top: var(--tm-s-4);
+  padding-bottom: 0;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -571,14 +584,15 @@ strong { font-weight: 600; }
 }
 
 .hero__title {
-  font-size: var(--tm-display);
-  line-height: var(--tm-lh-tight);
+  font-size: clamp(2.5rem, 5.6vw, 5rem);                      /* 40 to 80px */
+  line-height: 1.02;
   letter-spacing: var(--tm-track-display);
-  font-weight: 700;
+  font-weight: 800;
   color: var(--tm-text-on-dark);
-  max-width: 18ch;
+  max-width: 14ch;
   margin-bottom: var(--tm-s-6);
 }
+.hero__line2 { display: block; color: var(--tm-green-300); }
 .hero__lede {
   font-size: var(--tm-body-lg);
   color: var(--tm-ink-200);
@@ -695,6 +709,146 @@ strong { font-weight: 600; }
 .persona .card__body { flex: 1; }
 .persona .btn { margin-top: var(--tm-s-5); align-self: flex-start; }
 
+/* 8b. Three ways we work with enterprise teams: photo link cards ---------- */
+
+.ways {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+}
+.way {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  aspect-ratio: 4 / 3;                /* the copy can push the card taller; the grid row keeps the three equal */
+  overflow: hidden;
+  overflow: clip;                     /* clip, not a scroll container, so the automatic min-height still applies */
+  border-radius: var(--tm-radius-card);
+  background: var(--tm-navy-900);
+  color: var(--tm-text-on-dark);
+}
+.way__img {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 300ms var(--tm-ease);
+}
+.way::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(7, 37, 60, 0) 35%, rgba(7, 37, 60, 0.92) 100%);
+}
+/* The copy block carries its own fade so the text sits on navy however tall
+   the block gets (it is most of a 4:3 card at 360 and in three columns at 960). */
+.way__text {
+  padding: 72px 24px 26px;
+  display: grid;
+  gap: 8px;
+  background: linear-gradient(180deg, rgba(7, 37, 60, 0) 0, rgba(7, 37, 60, 0.82) 60px, rgba(7, 37, 60, 0.82) 100%);
+}
+.way__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--tm-text-on-dark);
+}
+.way__line { font-size: var(--tm-body); line-height: 1.5; color: var(--tm-ink-200); }
+.way__label {
+  margin-top: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--tm-body-sm);
+  font-weight: 600;
+  color: var(--tm-green-300);
+  transition: color var(--tm-dur) var(--tm-ease);
+}
+.way:hover .way__label { color: var(--tm-text-on-dark); }
+.way:hover .way__img { transform: scale(1.03); }
+.way:hover .arrow { transform: translateX(3px); }
+@media (prefers-reduced-motion: reduce) {
+  .way:hover .way__img { transform: none; }
+}
+
+/* 8c. Flagship spotlight: AI Forward Deployed Engineer ------------------- */
+
+.spot {
+  position: relative;
+  overflow: hidden;
+  background: var(--tm-navy-900);
+  color: var(--tm-text-on-dark-soft);
+  padding: var(--tm-section-y) 0;
+}
+.spot__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px 56px;
+  align-items: center;
+}
+.spot__img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: var(--tm-navy-800);
+}
+.spot__pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.spot__pill {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: var(--tm-radius-pill);
+  background: var(--tm-green-300);
+  color: var(--tm-navy-900);
+  font-size: var(--tm-label-sm);
+  font-weight: 500;
+  line-height: 1.3;
+}
+.spot__title {
+  margin-top: 18px;
+  font-size: var(--tm-h2);
+  line-height: 1.08;
+  letter-spacing: var(--tm-track-heading);
+  font-weight: 700;
+  color: var(--tm-text-on-dark);
+  max-width: 16ch;
+}
+.spot__lead { margin-top: 18px; font-size: var(--tm-body-md); color: var(--tm-ink-200); max-width: 58ch; }
+.spot__facts {
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px 24px;
+}
+/* Term then value in the markup (Duration: 6 to 8 weeks); the value reads first. */
+.spot__fact { display: flex; flex-direction: row-reverse; justify-content: flex-end; align-items: baseline; gap: 12px; }
+.spot__fact dd {
+  font-size: 1.625rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--tm-text-on-dark);
+}
+.spot__fact dt { font-size: var(--tm-small); color: var(--tm-ink-300); }
+.spot__builds-label { margin-top: 26px; margin-bottom: var(--tm-s-2); font-size: 0.65625rem; color: var(--tm-green-300); }
+.spot .builds li { color: var(--tm-ink-on-dark-cell); }
+.spot .builds li strong { color: var(--tm-text-on-dark); }
+.spot .builds li::before { color: var(--tm-green-300); }
+.spot__actions { margin-top: 28px; display: flex; flex-wrap: wrap; gap: var(--tm-s-3); }
+
 /* 9. Programs roster ----------------------------------------------------- */
 
 /* Each program is one grid row. Below 640px it stacks: 16:9 photo, text,
@@ -708,21 +862,6 @@ strong { font-weight: 600; }
   font-size: var(--tm-body-sm);
   color: var(--tm-ink-600);
 }
-.roster__row--flagship {
-  padding: 26px 20px;
-  background: var(--tm-navy-900);
-  color: var(--tm-ink-on-dark-cell);
-  border-bottom-color: var(--tm-navy-900);
-  border-radius: 0 0 var(--tm-radius-card) var(--tm-radius-card);
-}
-.roster__row--flagship .roster__title { color: var(--tm-text-on-dark); }
-.roster__row--flagship .roster__body { color: var(--tm-text-on-dark-soft); }
-.roster__row--flagship .builds li { color: var(--tm-ink-on-dark-cell); }
-.roster__row--flagship .builds li strong { color: var(--tm-text-on-dark); }
-.roster__row--flagship .builds li::before, .roster__row--flagship .roster__builds-label { color: var(--tm-green-300); }
-.roster__row--flagship .roster__tools { color: var(--tm-ink-on-dark-caption); }
-.roster__row--flagship .roster__meta dd { color: var(--tm-ink-on-dark-cell); }
-
 .roster__media { margin-bottom: var(--tm-s-4); }
 .roster__thumb {
   width: 100%;
@@ -732,12 +871,10 @@ strong { font-weight: 600; }
   border-radius: 12px;
   background: var(--tm-surface-2);
 }
-.roster__row--flagship .roster__thumb { border: 1px solid rgba(255, 255, 255, 0.2); background: var(--tm-navy-800); }
 .roster__text { min-width: 0; }
 
 /* The label colour is the row's colour: it carries the eyebrow and the meta labels. */
 .roster__label { font-size: var(--tm-label-sm); margin-bottom: 10px; }
-.roster__label--green, .roster__row--flagship .roster__meta dt { color: var(--tm-green-300); }
 .roster__label--blue, .roster__row--blue .roster__meta dt { color: var(--tm-blue-700); }
 .roster__label--leaf, .roster__row--leaf .roster__meta dt { color: var(--tm-green-700); }
 .roster__title {
@@ -802,6 +939,17 @@ strong { font-weight: 600; }
 .also__sep { color: var(--tm-ink-300); }
 
 /* 10. Consulting --------------------------------------------------------- */
+
+/* The thesis in prose beside the title, then the diagram. 1 column, 2 from 960. */
+.pov {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--tm-s-5) var(--tm-s-12);
+  align-items: start;
+  margin-bottom: var(--tm-s-8);
+}
+.pov__text { display: grid; gap: var(--tm-s-4); font-size: var(--tm-body-md); max-width: 60ch; }
+.pov__text p:first-child { color: var(--tm-ink-700); }
 
 .pipeline {
   display: grid;
@@ -938,52 +1086,6 @@ strong { font-weight: 600; }
 .practice .arrow { color: var(--tm-ink-500); }
 .practice:hover .arrow { color: inherit; }
 
-/* 10b. Where the work happens: photo band ------------------------------- */
-
-.band {
-  position: relative;
-  overflow: hidden;
-  min-height: 360px;
-  margin-top: var(--tm-s-10);
-  display: flex;
-  align-items: center;
-  background: var(--tm-navy-900);
-  color: var(--tm-text-on-dark);
-}
-.band__img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.band::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  /* navy-900 at 55% overall, deepened behind the text on the left so the line
-     stays readable over the busy part of the photo. */
-  background:
-    linear-gradient(90deg, rgba(7, 37, 60, 0.7) 0%, rgba(7, 37, 60, 0.35) 55%, rgba(7, 37, 60, 0) 100%),
-    rgba(7, 37, 60, 0.55);
-  pointer-events: none;
-}
-.band__inner {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  padding-block: var(--tm-s-12);
-}
-.band__eyebrow { margin-bottom: var(--tm-s-3); }
-.band__line {
-  font-size: clamp(1.5rem, 2.4vw, 2.125rem);          /* 24 to 34px */
-  font-weight: 600;
-  line-height: 1.25;
-  letter-spacing: -0.015em;
-  max-width: 26ch;
-  color: var(--tm-text-on-dark);
-}
-
 /* 11. How an engagement runs -------------------------------------------- */
 
 .phases {
@@ -1106,29 +1208,33 @@ strong { font-weight: 600; }
 
 /* 14. Insights ----------------------------------------------------------- */
 
-.posts { border-top: 1px solid var(--tm-line-strong); }
-.post {
+.posts {
   display: grid;
-  grid-template-columns: 120px minmax(110px, 150px) minmax(0, 1fr) auto;
-  gap: var(--tm-s-5);
-  align-items: center;
-  padding: 22px 0;
-  border-bottom: 1px solid var(--tm-line);
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px 24px;
+}
+.post {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
   color: var(--tm-ink-900);
   transition: color var(--tm-dur) var(--tm-ease);
 }
 .post:hover { color: var(--tm-blue-600); }
 .post__thumb {
-  width: 120px;
-  height: 80px;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 12px;
   background: var(--tm-surface-2);
+  margin-bottom: 6px;
 }
-.post__cat { font-size: var(--tm-label-sm); color: var(--tm-ink-500); align-self: start; padding-top: 4px; }
-.post__title { font-size: 1.125rem; font-weight: 600; line-height: 1.3; letter-spacing: -0.01em; }
-.post .arrow { color: var(--tm-ink-500); }
-.post:hover .arrow { color: inherit; }
+.post__cat { font-size: var(--tm-label-sm); color: var(--tm-ink-500); }
+.post__title { font-size: 1.125rem; font-weight: 600; line-height: 1.3; letter-spacing: -0.01em; max-width: 34ch; }
+.post__more { margin-top: auto; padding-top: 4px; color: var(--tm-ink-500); font-size: 1.125rem; line-height: 1; }
+.post:hover .post__more { color: inherit; }
 
 /* 15. Contact ------------------------------------------------------------ */
 
@@ -1308,7 +1414,8 @@ strong { font-weight: 600; }
 /* 17. Footer ------------------------------------------------------------- */
 
 .site-footer {
-  border-top: 1px solid var(--tm-line);
+  background: var(--tm-navy-950);
+  color: var(--tm-ink-300);
   padding: var(--tm-s-14) 0 var(--tm-s-8);
   font-size: var(--tm-body-sm);
 }
@@ -1317,28 +1424,37 @@ strong { font-weight: 600; }
   grid-template-columns: minmax(0, 1fr);
   gap: 44px;
 }
-.site-footer__brand { display: grid; gap: 6px; align-content: start; }
-.site-footer__logo { height: 46px; width: auto; margin-bottom: 10px; }
-.site-footer__tagline { color: var(--tm-ink-900); font-weight: 600; }
-.site-footer__legal { margin-top: 10px; font-size: var(--tm-small); color: var(--tm-text-muted); }
-.site-footer__head { font-size: var(--tm-label-sm); color: var(--tm-ink-500); margin-bottom: var(--tm-s-2); }
+.site-footer__brand { display: grid; gap: 6px; align-content: start; justify-items: start; }
+/* The colour logo sits on a white plate so the mark reads cleanly on navy. */
+.site-footer__plate {
+  display: inline-block;
+  padding: 6px;
+  border-radius: 6px;
+  background: var(--tm-surface);
+  margin-bottom: 10px;
+}
+.site-footer__logo { height: 46px; width: auto; }
+.site-footer__tagline { color: var(--tm-text-on-dark); font-weight: 600; }
+.site-footer__legal { margin-top: 10px; font-size: var(--tm-small); color: var(--tm-ink-300); }
+.site-footer__head { font-size: var(--tm-label-sm); color: rgba(255, 255, 255, 0.8); margin-bottom: var(--tm-s-2); }
 .site-footer__links a {
   display: inline-block;
   padding: 10px 0;
-  color: var(--tm-ink-700);
+  color: rgba(255, 255, 255, 0.8);
   min-height: var(--tm-tap-min);
+  transition: color var(--tm-dur) var(--tm-ease);
 }
-.site-footer__links a:hover { color: var(--tm-blue-600); }
+.site-footer__links a:hover { color: var(--tm-text-on-dark); }
 .site-footer__base {
   margin-top: var(--tm-s-12);
   padding-top: var(--tm-s-5);
-  border-top: 1px solid var(--tm-line);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 8px 24px;
   font-size: var(--tm-small);
-  color: var(--tm-text-muted);
+  color: var(--tm-ink-300);
 }
 
 /* 18. Sticky mobile bar -------------------------------------------------- */
@@ -1365,6 +1481,11 @@ strong { font-weight: 600; }
 
 /* Grid column counts by width (children / columns):
      facts       4: 2 cols, 4 from 800
+     ways        3: 1 col, 3 from 960
+     spotlight   2: 1 col (photo first), 2 from 960
+     spot facts  3: 1 col, 3 from 640
+     pov         2: 1 col, 2 from 960
+     posts       3: 1 col, 3 from 960
      personas    3: 1 col, 3 from 960
      roster row     stacked, 160px photo + text from 640, four columns from 1100
      pipeline    2: 1 col, 2 from 800
@@ -1376,7 +1497,7 @@ strong { font-weight: 600; }
      contact     2: 1 col, 2 from 960
      chips       4: 1 col, 2 from 480
      footer      4: 1 col, 2 from 640, 4 from 960
-     hero slide     stacked, 7fr 5fr from 960 */
+     hero slide     full-bleed photo, copy block; outcome card absolute from 960 */
 
 @media (min-width: 480px) {
   .chips { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1390,7 +1511,6 @@ strong { font-weight: 600; }
     align-items: start;
     padding: 32px 0;
   }
-  .roster__row--flagship { padding: 32px 24px; }
   .roster__media { margin: 0; }
   .roster__thumb { width: 160px; height: 120px; aspect-ratio: auto; }
   .roster__meta {
@@ -1404,6 +1524,8 @@ strong { font-weight: 600; }
 
   .phases { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .site-footer__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .spot__facts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .spot__fact { flex-direction: column-reverse; align-items: flex-start; gap: 4px; }
 }
 
 @media (min-width: 700px) {
@@ -1421,22 +1543,28 @@ strong { font-weight: 600; }
 }
 
 @media (min-width: 960px) {
-  .slide {
-    grid-template-columns: 7fr 5fr;
-    grid-template-rows: minmax(0, 1fr);
-    gap: clamp(2.5rem, 5vw, 4.5rem);
-    align-items: stretch;
+  .slide { min-height: min(72vh, 720px); }
+  .slide__bg::after {
+    background:
+      linear-gradient(90deg, rgba(7, 37, 60, 0.85) 0%, rgba(7, 37, 60, 0.7) 45%, rgba(7, 37, 60, 0) 78%),
+      linear-gradient(180deg, rgba(7, 37, 60, 0.35) 0%, rgba(7, 37, 60, 0.65) 60%, rgba(7, 37, 60, 0.92) 100%);
   }
-  .slide__copy { align-self: center; }
-  .slide__media { display: block; min-height: 360px; }
-  .slide__photo { aspect-ratio: auto; height: 100%; min-height: 360px; }
+  .slide__inner { padding: 96px var(--tm-gutter); }
   .outcome {
     position: absolute;
-    left: -24px;
-    bottom: 24px;
-    max-width: 260px;
+    right: 32px;
+    bottom: 32px;
+    max-width: 300px;
+    margin: 0;
+    padding: 16px 18px;
     z-index: 1;
   }
+
+  .ways { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .spot__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); }
+  .spot__img { aspect-ratio: 5 / 4; }
+  .pov { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .posts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
   .personas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .bench__list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -1451,7 +1579,6 @@ strong { font-weight: 600; }
     gap: 28px;
     padding: 28px 0;
   }
-  .roster__row--flagship { padding: 28px 24px; }
   .roster__thumb { width: 200px; height: 150px; }
   .roster__builds-label { margin-top: var(--tm-s-4); }
   .builds { gap: 4px; }
@@ -1531,19 +1658,10 @@ strong { font-weight: 600; }
 /* Phone sizes. The line is 639.98 so that 640 itself takes the tablet rules,
    matching the accordion query in section 20 and main.js. */
 @media (max-width: 639.98px) {
-  .band { min-height: 260px; }
   .card { padding: 26px 22px; }
   .phase { padding: 24px 20px; min-height: 0; }
   .timeline__row { grid-template-columns: 1fr; gap: 6px; }
-  .post {
-    grid-template-columns: 64px minmax(0, 1fr) auto;
-    grid-template-rows: auto auto;
-    gap: 4px 14px;
-  }
-  .post__thumb { width: 64px; height: 43px; grid-row: 1 / 3; }
-  .post__cat { grid-column: 2; grid-row: 1; padding-top: 0; }
-  .post__main { grid-column: 2; grid-row: 2; }
-  .post .arrow { grid-column: 3; grid-row: 1 / 3; }
+  .way__text { padding: 64px 20px 22px; }
 }
 
 /* 20. Phone accordions, below 640px only. main.js adds the buttons under
@@ -1595,7 +1713,6 @@ strong { font-weight: 600; }
     color: var(--tm-ink-900);
     cursor: pointer;
   }
-  .roster__row--flagship .builds-toggle { color: var(--tm-text-on-dark); border-color: rgba(255, 255, 255, 0.16); }
   .builds-toggle + .roster__builds-label { display: none; }
   .builds-toggle[aria-expanded="true"] { border-bottom-color: transparent; }
   .builds-toggle ~ .builds { padding-top: var(--tm-s-2); }
@@ -1609,13 +1726,5 @@ strong { font-weight: 600; }
     color: var(--tm-ink-500);
     transition: transform var(--tm-dur) var(--tm-ease);
   }
-  .roster__row--flagship .chevron { color: var(--tm-green-300); }
   [aria-expanded="true"] > .chevron { transform: rotate(180deg); }
-}
-
-@media (max-width: 400px) {
-  .post { grid-template-columns: minmax(0, 1fr) auto; }
-  .post__thumb { display: none; }
-  .post__cat, .post__main { grid-column: 1; }
-  .post .arrow { grid-column: 2; }
 }

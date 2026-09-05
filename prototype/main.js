@@ -5,7 +5,8 @@
    4. Sticky mobile bar
    5. Section views
    6. Hero slider: tabs, arrows, keyboard, swipe, auto-advance, pauses
-   7. Phone accordions below 640px: the six answers, each row's "What you build"
+   7. Phone accordions below 640px: the six answers, each roster row's "What you build"
+      (the spotlight's list stays open)
    8. Enquiry form: chips and the labels that follow them, presets, validation,
       sending, sent, reset
    The form posts nowhere. submitEnquiry() is the wiring point. */
@@ -33,11 +34,16 @@
     if (!el) return;
     var p = { event: el.dataset.event };
     Object.keys(el.dataset).forEach(function (k) {
-      if (k !== 'event') p[k] = el.dataset[k];
+      if (k !== 'event' && k !== 'alsoEvent') p[k] = el.dataset[k];
     });
     if (!p.cta_text) p.cta_text = visibleText(el);
     if (!p.link_url && el.getAttribute('href')) p.link_url = el.getAttribute('href');
     track(p);
+    // A second event from the same click: the spotlight buttons push cta_click
+    // and program_click {program: fde} (tracking plan, revision 3 addendum).
+    if (el.dataset.alsoEvent) {
+      track({ event: el.dataset.alsoEvent, program: el.dataset.program || '', location: p.location || '', link_url: p.link_url, cta_text: p.cta_text });
+    }
   });
 
   /* 2. Header ------------------------------------------------------------ */
@@ -148,7 +154,7 @@
         }
       });
     }, { threshold: 0.5 });
-    ['who', 'programs', 'consulting', 'how', 'answers', 'proof', 'insights', 'contact'].forEach(function (id) {
+    ['ways', 'fde', 'programs', 'who', 'consulting', 'how', 'answers', 'proof', 'insights', 'contact'].forEach(function (id) {
       var el = document.getElementById(id);
       if (el) sectionObserver.observe(el);
     });

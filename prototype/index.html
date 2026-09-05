@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Spline+Sans+Mono:wght@400;500&display=swap">
-<link rel="preload" as="image" type="image/webp" imagesrcset="../assets/img/hero-1-engineering-800.webp 800w, ../assets/img/hero-1-engineering.webp 1600w" imagesizes="(min-width: 960px) 42vw, 100vw" fetchpriority="high">
+<link rel="preload" as="image" type="image/webp" imagesrcset="../assets/img/hero-1-wide-900.webp 900w, ../assets/img/hero-1-wide.webp 2000w" imagesizes="100vw" fetchpriority="high">
 <link rel="stylesheet" href="styles.css">
 
 <!-- JSON-LD, pasted verbatim from prototype/schema/*.json (seo.md section 5). -->
@@ -141,19 +141,23 @@
 
 <main id="main">
 
-<!-- 2. Hero -->
+<!-- 2. Hero: full-bleed photo slider, then the routing pills and facts on navy -->
 <section class="hero" id="hero" aria-labelledby="hero-title">
-  <div class="hero__inner">
-    <div class="slider" data-slider>
-      <div class="slider__viewport" data-slider-viewport>
-        <div class="slider__track" data-slider-track data-index="0">
+  <div class="slider" data-slider>
+    <div class="slider__viewport" data-slider-viewport>
+      <div class="slider__track" data-slider-track data-index="0">
 
-          <div class="slide is-active" id="slide-1" role="tabpanel" aria-labelledby="slide-tab-1" data-slide data-slide-label="What we do">
+        <div class="slide is-active" id="slide-1" role="tabpanel" aria-labelledby="slide-tab-1" data-slide data-slide-label="What we do">
+          <!-- The photo is the slide's background under a navy gradient; the copy carries the meaning. -->
+          <div class="slide__bg" aria-hidden="true">
+            <picture><source type="image/webp" srcset="../assets/img/hero-1-wide-900.webp 900w, ../assets/img/hero-1-wide.webp 2000w" sizes="100vw"><img src="../assets/img/hero-1-wide.jpg" srcset="../assets/img/hero-1-wide-900.jpg 900w, ../assets/img/hero-1-wide.jpg 2000w" sizes="100vw" alt="" width="2000" height="1125" fetchpriority="high" decoding="async"></picture>
+          </div>
+          <div class="slide__inner">
             <div class="slide__copy">
               <!-- The h1 stays exposed to assistive tech on every slide; the parts
                    around it carry the aria-hidden and inert state instead. -->
-              <p class="eyebrow eyebrow--sky mono" data-slide-part>GURUGRAM · SINCE 2017 · IIT (BHU) FACULTY</p>
-              <h1 class="hero__title" id="hero-title">We get AI into production. Then we train your engineers to run it.</h1>
+              <p class="eyebrow eyebrow--green mono" data-slide-part>GURUGRAM · SINCE 2017 · IIT (BHU) FACULTY</p>
+              <h1 class="hero__title" id="hero-title">We get AI into production. <span class="hero__line2">Then we train your engineers to run it.</span></h1>
               <div data-slide-part>
                 <p class="hero__lede">Enterprise consulting and live AI engineering programs from a small team with twenty-plus years each inside banks and Fortune 500 delivery. One number we can show you: a UK bank's backlog-to-production time, cut from six months to 90 days.</p>
                 <div class="hero__actions">
@@ -162,95 +166,95 @@
                 </div>
               </div>
             </div>
-            <div class="slide__media slide__media--card" data-slide-part>
-              <div class="slide__photo">
-                <picture><source type="image/webp" srcset="../assets/img/hero-1-engineering-800.webp 800w, ../assets/img/hero-1-engineering.webp 1600w" sizes="(min-width: 960px) 42vw, 100vw"><img src="../assets/img/hero-1-engineering.jpg" srcset="../assets/img/hero-1-engineering-800.jpg 800w, ../assets/img/hero-1-engineering.jpg 1600w" sizes="(min-width: 960px) 42vw, 100vw" alt="Two engineers reviewing code at their desks" width="1600" height="1000" fetchpriority="high" decoding="async"></picture>
-              </div>
-              <!-- Outcome card: the one number with its baseline, visible without scrolling. -->
-              <div class="outcome">
-                <p class="outcome__eyebrow mono">ONE ENGAGEMENT, ONE NUMBER</p>
-                <p class="outcome__number">6 months to 90 days</p>
-                <p class="outcome__caption">Backlog to production, a large UK bank</p>
-                <a class="outcome__link" href="#proof" data-event="cta_click" data-cta_id="hero_outcome_card" data-location="hero">See the four numbers <span class="arrow" aria-hidden="true">→</span></a>
-              </div>
+            <!-- Outcome card: the one number with its baseline. A block under the
+                 buttons on phones, a compact card at the slide's bottom right from 960px. -->
+            <div class="outcome" data-slide-part>
+              <p class="outcome__eyebrow mono">ONE ENGAGEMENT, ONE NUMBER</p>
+              <p class="outcome__number">6 months to 90 days</p>
+              <p class="outcome__caption">Backlog to production, a large UK bank</p>
+              <a class="outcome__link" href="#proof" data-event="cta_click" data-cta_id="hero_outcome_card" data-location="hero">See the four numbers <span class="arrow" aria-hidden="true">→</span></a>
             </div>
           </div>
+        </div>
 
-          <!-- Slides 2 and 3 hold their photo in data-src; the slider sets src just
-               before the slide is shown, so the phone does not download 415KB it
-               may never see (Chrome's native lazy margin reaches the offscreen track). -->
-          <div class="slide" id="slide-2" role="tabpanel" aria-labelledby="slide-tab-2" aria-hidden="true" inert data-slide data-slide-label="Consulting">
+        <!-- Slides 2 and 3 hold their photo in data-src; the slider sets src just
+             before the slide is shown, so the phone does not download a photo it
+             may never see (Chrome's native lazy margin reaches the offscreen track). -->
+        <div class="slide" id="slide-2" role="tabpanel" aria-labelledby="slide-tab-2" aria-hidden="true" inert data-slide data-slide-label="Consulting">
+          <div class="slide__bg" aria-hidden="true">
+            <picture><source type="image/webp" data-srcset="../assets/img/hero-2-wide-900.webp 900w, ../assets/img/hero-2-wide.webp 2000w" sizes="100vw"><img data-src="../assets/img/hero-2-wide.jpg" data-srcset="../assets/img/hero-2-wide-900.jpg 900w, ../assets/img/hero-2-wide.jpg 2000w" sizes="100vw" alt="" width="2000" height="1125" loading="lazy" decoding="async"></picture>
+          </div>
+          <div class="slide__inner">
             <div class="slide__copy">
-              <p class="eyebrow eyebrow--sky mono">ENTERPRISE CONSULTING</p>
-              <h2 class="hero__title" id="slide-2-title">The gap is never the model. It is everything around it.</h2>
+              <p class="eyebrow eyebrow--green mono">ENTERPRISE CONSULTING</p>
+              <h2 class="hero__title" id="slide-2-title">The gap is never the model. <span class="hero__line2">It is everything around it.</span></h2>
               <p class="hero__lede">Most AI pilots we are shown work perfectly and will never go live. We build the governed pipeline around the model, then hand it to your engineers with a named owner.</p>
               <div class="hero__actions">
                 <a class="btn btn--accent" href="#contact" tabindex="-1" data-event="cta_click" data-cta_id="hero2_talk" data-location="hero">Talk to a consultant</a>
                 <a class="btn btn--ghost" href="#how" tabindex="-1" data-event="cta_click" data-cta_id="hero2_how" data-location="hero">How an engagement runs</a>
               </div>
             </div>
-            <div class="slide__media">
-              <div class="slide__photo">
-                <picture><source type="image/webp" data-srcset="../assets/img/hero-2-consulting-800.webp 800w, ../assets/img/hero-2-consulting.webp 1600w" sizes="(min-width: 960px) 42vw, 100vw"><img data-src="../assets/img/hero-2-consulting.jpg" data-srcset="../assets/img/hero-2-consulting-800.jpg 800w, ../assets/img/hero-2-consulting.jpg 1600w" sizes="(min-width: 960px) 42vw, 100vw" alt="A consultant presenting to a leadership team in a boardroom" width="1600" height="1000" loading="lazy" decoding="async"></picture>
-              </div>
-            </div>
           </div>
+        </div>
 
-          <div class="slide" id="slide-3" role="tabpanel" aria-labelledby="slide-tab-3" aria-hidden="true" inert data-slide data-slide-label="AI programs">
+        <div class="slide" id="slide-3" role="tabpanel" aria-labelledby="slide-tab-3" aria-hidden="true" inert data-slide data-slide-label="AI programs">
+          <div class="slide__bg" aria-hidden="true">
+            <picture><source type="image/webp" data-srcset="../assets/img/hero-3-wide-900.webp 900w, ../assets/img/hero-3-wide.webp 2000w" sizes="100vw"><img data-src="../assets/img/hero-3-wide.jpg" data-srcset="../assets/img/hero-3-wide-900.jpg 900w, ../assets/img/hero-3-wide.jpg 2000w" sizes="100vw" alt="" width="2000" height="1125" loading="lazy" decoding="async"></picture>
+          </div>
+          <div class="slide__inner">
             <div class="slide__copy">
-              <p class="eyebrow eyebrow--sky mono">LIVE PROGRAMS, GURUGRAM AND ONLINE</p>
-              <h2 class="hero__title" id="slide-3-title">Four programs. Each one ends in something you can show.</h2>
+              <p class="eyebrow eyebrow--green mono">LIVE PROGRAMS, GURUGRAM AND ONLINE</p>
+              <h2 class="hero__title" id="slide-3-title">Four programs. <span class="hero__line2">Each one ends in something you can show.</span></h2>
               <p class="hero__lede">AI Forward Deployed Engineer for engineers with 3 to 8 years. GenAI foundations to production for graduates, 16 weeks and 144 hours. Two days of AI-enabled agile leadership. GenAI developer training for whole teams. All live, taught by IIT (BHU) engineers with 20-plus years each.</p>
               <div class="hero__actions">
                 <a class="btn btn--accent" href="#programs" tabindex="-1" data-event="cta_click" data-cta_id="hero3_programs" data-location="hero">See the AI programs</a>
                 <a class="btn btn--ghost" href="#contact" tabindex="-1" data-need="join_program" data-event="cta_click" data-cta_id="hero3_enquire" data-location="hero">Enquire about a batch</a>
               </div>
             </div>
-            <div class="slide__media">
-              <div class="slide__photo">
-                <picture><source type="image/webp" data-srcset="../assets/img/hero-3-programs-800.webp 800w, ../assets/img/hero-3-programs.webp 1600w" sizes="(min-width: 960px) 42vw, 100vw"><img data-src="../assets/img/hero-3-programs.jpg" data-srcset="../assets/img/hero-3-programs-800.jpg 800w, ../assets/img/hero-3-programs.jpg 1600w" sizes="(min-width: 960px) 42vw, 100vw" alt="A live technical workshop with participants at laptops" width="1600" height="1000" loading="lazy" decoding="async"></picture>
-              </div>
-            </div>
           </div>
+        </div>
 
-        </div>
-      </div>
-
-      <div class="slider__controls">
-        <div class="slider__tabs" role="tablist" aria-label="Hero slides">
-          <button class="slider__tab is-active" type="button" role="tab" id="slide-tab-1" aria-selected="true" aria-controls="slide-1" tabindex="0" data-slide-tab>What we do<span class="slider__progress" aria-hidden="true"></span></button>
-          <button class="slider__tab" type="button" role="tab" id="slide-tab-2" aria-selected="false" aria-controls="slide-2" tabindex="-1" data-slide-tab>Consulting<span class="slider__progress" aria-hidden="true"></span></button>
-          <button class="slider__tab" type="button" role="tab" id="slide-tab-3" aria-selected="false" aria-controls="slide-3" tabindex="-1" data-slide-tab>AI programs<span class="slider__progress" aria-hidden="true"></span></button>
-        </div>
-        <div class="slider__arrows">
-          <button class="slider__arrow" type="button" aria-label="Previous slide" data-slider-prev>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7"/></svg>
-          </button>
-          <button class="slider__arrow" type="button" aria-label="Next slide" data-slider-next>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg>
-          </button>
-        </div>
-        <p class="sr-only" aria-live="polite" aria-atomic="true" data-slider-status>1 of 3</p>
       </div>
     </div>
 
-    <div class="router">
-      <h2 class="router__label mono" id="router-title">Start where it hurts</h2>
-      <ul class="router__list" aria-labelledby="router-title">
-        <li><a class="router__pill" href="#consulting" data-event="route_click" data-route="pilot"><span>A pilot that works but will not go live</span><span class="arrow" aria-hidden="true">→</span></a></li>
-        <li><a class="router__pill" href="#consulting" data-event="route_click" data-route="cloud_spend"><span>Cloud spend nobody can explain</span><span class="arrow" aria-hidden="true">→</span></a></li>
-        <li><a class="router__pill" href="#program-fde" data-event="route_click" data-route="engineers_to_ai"><span>Engineers who need to become AI engineers</span><span class="arrow" aria-hidden="true">→</span></a></li>
-        <li><a class="router__pill" href="#program-leaders" data-event="route_click" data-route="agile_slow"><span>Agile on paper, slow in practice</span><span class="arrow" aria-hidden="true">→</span></a></li>
-        <li><a class="router__pill" href="#program-genai" data-event="route_click" data-route="graduate_job"><span>A graduate who wants the AI job, not the course</span><span class="arrow" aria-hidden="true">→</span></a></li>
-      </ul>
+    <div class="slider__controls hero__inner">
+      <div class="slider__tabs" role="tablist" aria-label="Hero slides">
+        <button class="slider__tab is-active" type="button" role="tab" id="slide-tab-1" aria-selected="true" aria-controls="slide-1" tabindex="0" data-slide-tab>What we do<span class="slider__progress" aria-hidden="true"></span></button>
+        <button class="slider__tab" type="button" role="tab" id="slide-tab-2" aria-selected="false" aria-controls="slide-2" tabindex="-1" data-slide-tab>Consulting<span class="slider__progress" aria-hidden="true"></span></button>
+        <button class="slider__tab" type="button" role="tab" id="slide-tab-3" aria-selected="false" aria-controls="slide-3" tabindex="-1" data-slide-tab>AI programs<span class="slider__progress" aria-hidden="true"></span></button>
+      </div>
+      <div class="slider__arrows">
+        <button class="slider__arrow" type="button" aria-label="Previous slide" data-slider-prev>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <button class="slider__arrow" type="button" aria-label="Next slide" data-slider-next>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+      <p class="sr-only" aria-live="polite" aria-atomic="true" data-slider-status>1 of 3</p>
     </div>
+  </div>
 
-    <dl class="facts">
-      <div class="facts__cell"><dt>Since 2017</dt><dd>Consulting and training from Gurugram</dd></div>
-      <div class="facts__cell"><dt>IIT (BHU)</dt><dd>Where the senior faculty trained</dd></div>
-      <div class="facts__cell"><dt>20+ years</dt><dd>What each mentor brings from industry</dd></div>
-      <div class="facts__cell"><dt>Delhi NCR</dt><dd>On site, or live online and hybrid</dd></div>
-    </dl>
+  <div class="hero__base">
+    <div class="hero__inner">
+      <div class="router">
+        <h2 class="router__label mono" id="router-title">Start where it hurts</h2>
+        <ul class="router__list" aria-labelledby="router-title">
+          <li><a class="router__pill" href="#consulting" data-event="route_click" data-route="pilot"><span>A pilot that works but will not go live</span><span class="arrow" aria-hidden="true">→</span></a></li>
+          <li><a class="router__pill" href="#consulting" data-event="route_click" data-route="cloud_spend"><span>Cloud spend nobody can explain</span><span class="arrow" aria-hidden="true">→</span></a></li>
+          <li><a class="router__pill" href="#fde" data-event="route_click" data-route="engineers_to_ai"><span>Engineers who need to become AI engineers</span><span class="arrow" aria-hidden="true">→</span></a></li>
+          <li><a class="router__pill" href="#program-leaders" data-event="route_click" data-route="agile_slow"><span>Agile on paper, slow in practice</span><span class="arrow" aria-hidden="true">→</span></a></li>
+          <li><a class="router__pill" href="#program-genai" data-event="route_click" data-route="graduate_job"><span>A graduate who wants the AI job, not the course</span><span class="arrow" aria-hidden="true">→</span></a></li>
+        </ul>
+      </div>
+
+      <dl class="facts">
+        <div class="facts__cell"><dt>Since 2017</dt><dd>Consulting and training from Gurugram</dd></div>
+        <div class="facts__cell"><dt>IIT (BHU)</dt><dd>Where the senior faculty trained</dd></div>
+        <div class="facts__cell"><dt>20+ years</dt><dd>What each mentor brings from industry</dd></div>
+        <div class="facts__cell"><dt>Delhi NCR</dt><dd>On site, or live online and hybrid</dd></div>
+      </dl>
+    </div>
   </div>
 </section>
 
@@ -272,72 +276,94 @@
   </div>
 </section>
 
-<!-- 4. Who writes to us -->
-<section class="section" id="who" aria-labelledby="who-title">
+<!-- 4. Three ways we work with enterprise teams -->
+<section class="section" id="ways" aria-labelledby="ways-title">
   <div class="wrap">
-    <p class="eyebrow mono">WHO WRITES TO US</p>
-    <h2 class="section__title" id="who-title">Three kinds of people land here. Pick yours and skip the rest.</h2>
+    <div class="section__head">
+      <div>
+        <p class="eyebrow mono">WHAT WE DO</p>
+        <h2 class="section__title" id="ways-title">Three ways we work with enterprise teams</h2>
+      </div>
+      <p class="section__lead">Most engagements draw on more than one, which is why consulting and training sit under one roof.</p>
+    </div>
 
-    <div class="personas">
-      <article class="card persona">
-        <p class="card__index mono">01 · TECHNOLOGY LEADERS</p>
-        <h3 class="card__title">Something is not shipping</h3>
-        <p class="card__body">A pilot stuck short of production, a migration that stalled, a bill that grew. You want an engineer's read before you commit more budget.</p>
-        <p class="persona__step"><strong>First step</strong><span>A 45 minute scoping session and a one page recommendation.</span></p>
-        <a class="btn btn--soft" href="#consulting" data-event="persona_click" data-persona="leaders">Consulting <span class="arrow" aria-hidden="true">→</span></a>
-      </article>
-      <article class="card persona">
-        <p class="card__index mono">02 · ENGINEERING AND L&amp;D HEADS</p>
-        <h3 class="card__title">Your team has to become AI capable</h3>
-        <p class="card__body">You would rather train the engineers who already know your systems than hire strangers. You need a program they finish with something running, and a cohort plan you can put in front of finance.</p>
-        <p class="persona__step"><strong>First step</strong><span>A skills read across the team, then a private cohort plan.</span></p>
-        <a class="btn btn--soft" href="#program-teams" data-event="persona_click" data-persona="ld_heads">Team programs <span class="arrow" aria-hidden="true">→</span></a>
-      </article>
-      <article class="card persona">
-        <p class="card__index mono">03 · INDIVIDUAL ENGINEERS</p>
-        <h3 class="card__title">You want the AI job, not the AI course</h3>
-        <p class="card__body">A few years in, or just out of college. You want to finish with work you can show and defend in an interview, and someone to help you get in the room.</p>
-        <p class="persona__step"><strong>First step</strong><span>A fifteen minute call to pick the right program and batch.</span></p>
-        <a class="btn btn--soft" href="#programs" data-event="persona_click" data-persona="engineers">Individual programs <span class="arrow" aria-hidden="true">→</span></a>
-      </article>
+    <ul class="ways">
+      <li>
+        <a class="way" href="#consulting" data-event="cta_click" data-cta_id="way_modernize" data-location="ways">
+          <img class="way__img" src="../assets/img/way-1-modernize.jpg" alt="" width="900" height="675" loading="lazy" decoding="async">
+          <div class="way__text">
+            <h3 class="way__title">Modernize the systems</h3>
+            <p class="way__line">Cloud strategy, migration and cost control, CI/CD and infrastructure as code, on a roadmap tied to how the business runs.</p>
+            <p class="way__label">Cloud and DevOps <span class="arrow" aria-hidden="true">→</span></p>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a class="way" href="#consulting" data-event="cta_click" data-cta_id="way_production" data-location="ways">
+          <img class="way__img" src="../assets/img/way-2-production.jpg" alt="" width="900" height="675" loading="lazy" decoding="async">
+          <div class="way__text">
+            <h3 class="way__title">Take AI into production</h3>
+            <p class="way__line">Scoped business problem, governed data access, evaluation before release, and a deployed system your own engineers own.</p>
+            <p class="way__label">Consulting <span class="arrow" aria-hidden="true">→</span></p>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a class="way" href="#programs" data-event="cta_click" data-cta_id="way_train" data-location="ways">
+          <img class="way__img" src="../assets/img/way-3-train.jpg" alt="" width="900" height="675" loading="lazy" decoding="async">
+          <div class="way__text">
+            <h3 class="way__title">Train the people who run it</h3>
+            <p class="way__line">Live, project-led programs for engineers, graduates and delivery leaders, taught by practitioners who still do the work.</p>
+            <p class="way__label">AI programs <span class="arrow" aria-hidden="true">→</span></p>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- 5. Flagship spotlight: AI Forward Deployed Engineer -->
+<section class="spot" id="fde" aria-labelledby="fde-title">
+  <div class="wrap spot__grid">
+    <div class="spot__media">
+      <img class="spot__img" src="../assets/img/spotlight-fde.jpg" alt="" width="1000" height="800" loading="lazy" decoding="async">
+    </div>
+    <div class="spot__text">
+      <!-- The cohort date pill ("NEXT COHORT") joins this line once TEKMentors supplies a date. -->
+      <p class="spot__pills"><span class="spot__pill mono">FLAGSHIP PROGRAM</span></p>
+      <h2 class="spot__title" id="fde-title">AI Forward Deployed Engineer</h2>
+      <p class="spot__lead">From technology engineer to customer-ready AI engineer. One enterprise AI problem from discovery and scoping through prototype, production and customer adoption, with evaluation, security and governance built into the work rather than added at the end.</p>
+      <dl class="spot__facts">
+        <div class="spot__fact"><dt>Duration</dt><dd>6 to 8 weeks</dd></div>
+        <div class="spot__fact"><dt>Experience</dt><dd>3 to 8 years</dd></div>
+        <div class="spot__fact"><dt>Format</dt><dd>Project-led</dd></div>
+      </dl>
+      <p class="spot__builds-label mono">WHAT YOU BUILD</p>
+      <ol class="builds" id="builds-fde">
+        <li><strong>RAG on your enterprise data.</strong> LangChain, pgvector, OpenSearch.</li>
+        <li><strong>An agent with real integrations.</strong> LangGraph, MCP, FastAPI.</li>
+        <li><strong>An evaluated, governed deployment.</strong> Docker, GitHub Actions, Terraform, OpenTelemetry.</li>
+      </ol>
+      <div class="spot__actions">
+        <a class="btn btn--accent" href="#contact" data-need="join_program" data-program="fde" data-event="cta_click" data-cta_id="fde_enquire" data-location="fde" data-also-event="program_click">Ask about the next cohort</a>
+        <a class="btn btn--ghost" href="#programs" data-program="fde" data-event="cta_click" data-cta_id="fde_all" data-location="fde" data-also-event="program_click">All programs</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- 5. Programs roster -->
+<!-- 6. Programs roster -->
 <section class="section" id="programs" aria-labelledby="programs-title">
   <div class="wrap">
     <div class="section__head">
       <div>
         <p class="eyebrow mono">AI PROGRAMS</p>
-        <h2 class="section__title" id="programs-title">Four programs, with the details you would ask for anyway.</h2>
+        <h2 class="section__title" id="programs-title">Three more programs, with the details you would ask for anyway.</h2>
       </div>
       <p class="section__aside">All run live, taught by people who still do the work. Dates and fees come back with your enquiry.</p>
     </div>
 
     <ul class="roster">
-      <li class="roster__row roster__row--flagship" id="program-fde" data-program="fde">
-        <div class="roster__media">
-          <img class="roster__thumb" src="../assets/img/program-fde.jpg" alt="Engineer working on production systems" width="800" height="600" loading="lazy" decoding="async">
-        </div>
-        <div class="roster__text">
-          <p class="roster__label roster__label--green mono">FLAGSHIP</p>
-          <h3 class="roster__title roster__title--lg">AI Forward Deployed Engineer</h3>
-          <p class="roster__body">LLM, RAG and agentic engineering on one real enterprise problem, with evaluation, security and governance in the build. Plus the customer-facing half of the job: discovery calls, design reviews and briefing an executive who has eight minutes. Ends with a working system and an executive demo.</p>
-          <p class="roster__builds-label mono">WHAT YOU BUILD</p>
-          <ol class="builds" id="builds-fde">
-            <li><strong>RAG on your enterprise data.</strong> LangChain, pgvector, OpenSearch.</li>
-            <li><strong>An agent with real integrations.</strong> LangGraph, MCP, FastAPI.</li>
-            <li><strong>An evaluated, governed deployment.</strong> Docker, GitHub Actions, Terraform, OpenTelemetry.</li>
-          </ol>
-        </div>
-        <dl class="roster__meta">
-          <div class="roster__meta-item"><dt class="mono">WHO IT IS FOR</dt><dd>Engineers with 3 to 8 years behind them, individually or as a company cohort.</dd></div>
-          <div class="roster__meta-item"><dt class="mono">LENGTH</dt><dd>6 to 8 weeks</dd></div>
-          <div class="roster__meta-item"><dt class="mono">FORMAT</dt><dd>Live, project led</dd></div>
-        </dl>
-        <div class="roster__action"><a class="btn btn--accent" href="#contact" data-need="join_program" data-event="program_enquire" data-program="fde">Enquire<span class="sr-only"> about AI Forward Deployed Engineer</span></a></div>
-      </li>
       <li class="roster__row roster__row--blue" id="program-genai" data-program="genai">
         <div class="roster__media">
           <img class="roster__thumb" src="../assets/img/program-genai.jpg" alt="Graduates working together at a laptop" width="800" height="600" loading="lazy" decoding="async">
@@ -418,15 +444,50 @@
   </div>
 </section>
 
-<!-- 6. Consulting -->
+<!-- 7. Who writes to us -->
+<section class="section" id="who" aria-labelledby="who-title">
+  <div class="wrap">
+    <p class="eyebrow mono">WHO WRITES TO US</p>
+    <h2 class="section__title" id="who-title">Three kinds of people land here. Pick yours and skip the rest.</h2>
+
+    <div class="personas">
+      <article class="card persona">
+        <p class="card__index mono">01 · TECHNOLOGY LEADERS</p>
+        <h3 class="card__title">Something is not shipping</h3>
+        <p class="card__body">A pilot stuck short of production, a migration that stalled, a bill that grew. You want an engineer's read before you commit more budget.</p>
+        <p class="persona__step"><strong>First step</strong><span>A 45 minute scoping session and a one page recommendation.</span></p>
+        <a class="btn btn--soft" href="#consulting" data-event="persona_click" data-persona="leaders">Consulting <span class="arrow" aria-hidden="true">→</span></a>
+      </article>
+      <article class="card persona">
+        <p class="card__index mono">02 · ENGINEERING AND L&amp;D HEADS</p>
+        <h3 class="card__title">Your team has to become AI capable</h3>
+        <p class="card__body">You would rather train the engineers who already know your systems than hire strangers. You need a program they finish with something running, and a cohort plan you can put in front of finance.</p>
+        <p class="persona__step"><strong>First step</strong><span>A skills read across the team, then a private cohort plan.</span></p>
+        <a class="btn btn--soft" href="#program-teams" data-event="persona_click" data-persona="ld_heads">Team programs <span class="arrow" aria-hidden="true">→</span></a>
+      </article>
+      <article class="card persona">
+        <p class="card__index mono">03 · INDIVIDUAL ENGINEERS</p>
+        <h3 class="card__title">You want the AI job, not the AI course</h3>
+        <p class="card__body">A few years in, or just out of college. You want to finish with work you can show and defend in an interview, and someone to help you get in the room.</p>
+        <p class="persona__step"><strong>First step</strong><span>A fifteen minute call to pick the right program and batch.</span></p>
+        <a class="btn btn--soft" href="#programs" data-event="persona_click" data-persona="engineers">Individual programs <span class="arrow" aria-hidden="true">→</span></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 8. Consulting -->
 <section class="section" id="consulting" aria-labelledby="consulting-title">
   <div class="wrap">
-    <div class="section__head">
+    <div class="pov">
       <div>
         <p class="eyebrow mono">CONSULTING</p>
         <h2 class="section__title" id="consulting-title">The gap is never the model. It is everything around it.</h2>
       </div>
-      <p class="section__lead">Most AI pilots we are shown work perfectly and will never go live. Here is what that usually looks like, and what we replace it with.</p>
+      <div class="pov__text">
+        <p>Most enterprise AI pilots work. Most of them never go live. What stops them is not the model but the parts a demo leaves out: data access with permissions attached, an evaluation set, a deployment path, monitoring, and an engineer who owns the system after the consultants leave.</p>
+        <p>TEKMentors was built for that gap. We scope the business problem before the architecture, build against your real data, and hand over to a team we have trained to run it. The same practitioners do the consulting and teach the programs, which is why both hold up after the engagement ends.</p>
+      </div>
     </div>
 
     <figure class="pipeline" aria-label="Before and after: a disconnected pilot compared with one governed pipeline">
@@ -482,20 +543,12 @@
   </div>
 </section>
 
-<!-- 6b. Where the work happens: photo band -->
-<section class="band" id="where" aria-labelledby="where-title">
-  <img class="band__img" src="../assets/img/band-office.jpg" alt="" width="2000" height="800" loading="lazy" decoding="async" aria-hidden="true">
-  <div class="wrap band__inner">
-    <h2 class="eyebrow eyebrow--sky mono band__eyebrow" id="where-title">WHERE THE WORK HAPPENS</h2>
-    <p class="band__line">Consulting and training from Gurugram since 2017. Live online, on site in Delhi NCR, or hybrid.</p>
-  </div>
-</section>
-
-<!-- 7. How an engagement runs -->
+<!-- 9. How an engagement runs -->
 <section class="section" id="how" aria-labelledby="how-title">
   <div class="wrap">
     <p class="eyebrow mono">HOW AN ENGAGEMENT RUNS</p>
-    <h2 class="section__title" id="how-title">Four phases. Each one ends in something you can open.</h2>
+    <h2 class="section__title" id="how-title">Built to survive the handover.</h2>
+    <p class="section__sub section__sub--lead">Every engagement follows the same four phases, and each one ends in something your team can open and run.</p>
 
     <ol class="phases">
       <li class="phase">
@@ -526,7 +579,7 @@
   </div>
 </section>
 
-<!-- 8. Straight answers -->
+<!-- 10. Straight answers -->
 <section class="section" id="answers" aria-labelledby="answers-title">
   <div class="wrap">
     <div class="section__head">
@@ -566,7 +619,7 @@
   </div>
 </section>
 
-<!-- 9. Outcomes and mentor bench -->
+<!-- 11. Outcomes and mentor bench -->
 <section class="section" id="proof" aria-labelledby="proof-title">
   <div class="wrap">
     <div class="card proof">
@@ -615,7 +668,7 @@
   </div>
 </section>
 
-<!-- 10. Insights -->
+<!-- 12. Insights -->
 <section class="section" id="insights" aria-labelledby="insights-title">
   <div class="wrap">
     <div class="section__head section__head--tight">
@@ -627,14 +680,14 @@
     </div>
 
     <ul class="posts">
-      <li><a class="post" href="https://www.tekmentors.com/from-data-silos-to-business-agility-how-financial-leaders-turn-information-into-competitive-advantage/" data-event="insight_click" data-position="1"><img class="post__thumb" src="../assets/img/insight-1.jpg" alt="" width="640" height="400" loading="lazy" decoding="async"><span class="post__cat mono">DATA AND AGILITY</span><div class="post__main"><h3 class="post__title">From data silos to business agility: how financial leaders turn information into competitive advantage</h3></div><span class="arrow" aria-hidden="true">→</span></a></li>
-      <li><a class="post" href="https://www.tekmentors.com/5-critical-success-factors-for-financial-services-leaders/" data-event="insight_click" data-position="2"><img class="post__thumb" src="../assets/img/insight-2.jpg" alt="" width="640" height="400" loading="lazy" decoding="async"><span class="post__cat mono">TRANSFORMATION</span><div class="post__main"><h3 class="post__title">Why 70% of digital transformation projects fail: five critical success factors for financial services leaders</h3></div><span class="arrow" aria-hidden="true">→</span></a></li>
-      <li><a class="post" href="https://www.tekmentors.com/the-hidden-costs-of-cloud-migration-7-critical-pitfalls-financial-services-leaders-must-avoid/" data-event="insight_click" data-position="3"><img class="post__thumb" src="../assets/img/insight-3.jpg" alt="" width="640" height="400" loading="lazy" decoding="async"><span class="post__cat mono">CLOUD</span><div class="post__main"><h3 class="post__title">The hidden costs of cloud migration: seven pitfalls financial services leaders must avoid</h3></div><span class="arrow" aria-hidden="true">→</span></a></li>
+      <li><a class="post" href="https://www.tekmentors.com/from-data-silos-to-business-agility-how-financial-leaders-turn-information-into-competitive-advantage/" data-event="insight_click" data-position="1"><img class="post__thumb" src="../assets/img/insight-1.jpg" alt="" width="640" height="400" loading="lazy" decoding="async"><span class="post__cat mono">DATA AND AGILITY</span><h3 class="post__title">From data silos to business agility: how financial leaders turn information into competitive advantage</h3><span class="post__more" aria-hidden="true"><span class="arrow">→</span></span></a></li>
+      <li><a class="post" href="https://www.tekmentors.com/5-critical-success-factors-for-financial-services-leaders/" data-event="insight_click" data-position="2"><img class="post__thumb" src="../assets/img/insight-2.jpg" alt="" width="640" height="400" loading="lazy" decoding="async"><span class="post__cat mono">TRANSFORMATION</span><h3 class="post__title">Why 70% of digital transformation projects fail: five critical success factors for financial services leaders</h3><span class="post__more" aria-hidden="true"><span class="arrow">→</span></span></a></li>
+      <li><a class="post" href="https://www.tekmentors.com/the-hidden-costs-of-cloud-migration-7-critical-pitfalls-financial-services-leaders-must-avoid/" data-event="insight_click" data-position="3"><img class="post__thumb" src="../assets/img/insight-3.jpg" alt="" width="640" height="400" loading="lazy" decoding="async"><span class="post__cat mono">CLOUD</span><h3 class="post__title">The hidden costs of cloud migration: seven pitfalls financial services leaders must avoid</h3><span class="post__more" aria-hidden="true"><span class="arrow">→</span></span></a></li>
     </ul>
   </div>
 </section>
 
-<!-- 11. Contact -->
+<!-- 13. Contact -->
 <section class="contact" id="contact" aria-labelledby="contact-title">
   <div class="wrap contact__grid">
     <div class="contact__copy">
@@ -733,11 +786,11 @@
 
 </main>
 
-<!-- 12. Footer -->
+<!-- 14. Footer -->
 <footer class="site-footer">
   <div class="wrap site-footer__grid">
     <div class="site-footer__brand">
-      <img class="site-footer__logo" src="../assets/brand/tekmentors-logo-600x300.png" alt="TEKMentors" width="600" height="300" loading="lazy" decoding="async">
+      <span class="site-footer__plate"><img class="site-footer__logo" src="../assets/brand/tekmentors-logo-600x300.png" alt="TEKMentors" width="600" height="300" loading="lazy" decoding="async"></span>
       <p class="site-footer__tagline">Enabling minds to explore possibilities.</p>
       <p>Consulting and upskilling for teams that have to ship.</p>
       <p class="site-footer__legal">TEKMentors Consulting Private Limited<br>Sector 18, Plot 23, Maruti Industrial Area, Gurugram 122015</p>
@@ -754,7 +807,7 @@
     <div>
       <h2 class="site-footer__head mono">Programs</h2>
       <ul class="site-footer__links">
-        <li><a href="#program-fde" data-event="program_click" data-program="fde" data-location="footer">AI Forward Deployed Engineer</a></li>
+        <li><a href="#fde" data-event="program_click" data-program="fde" data-location="footer">AI Forward Deployed Engineer</a></li>
         <li><a href="https://www.tekmentors.com/genai-training-program/" data-event="program_click" data-program="genai" data-location="footer">GenAI engineering</a></li>
         <li><a href="#program-leaders" data-event="program_click" data-program="leaders" data-location="footer">Agile and product leadership</a></li>
         <li><a href="#program-teams" data-event="program_click" data-program="teams" data-location="footer">GenAI developer training for teams</a></li>
