@@ -219,3 +219,5 @@ The qa-reviewer and seo-schema run these together at Gate 3.
 
 
 Addendum, 4 September 2026: the photo band adds one h2 ("Where the work happens", id "where") between the consulting section and "How an engagement runs". Slides 2 and 3 of the hero use h2 styled as the h1; the page still has exactly one h1.
+
+Addendum, 5 September 2026: the consulting section gains an h3 "Seven questions before an AI pilot goes live" after the diagram. Slide 1 h1 is now "We get AI into production. Then we train your engineers to run it."

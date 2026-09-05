@@ -148,22 +148,31 @@
       <div class="slider__viewport" data-slider-viewport>
         <div class="slider__track" data-slider-track data-index="0">
 
-          <div class="slide is-active" id="slide-1" role="tabpanel" aria-labelledby="slide-tab-1" data-slide data-slide-label="Who we are">
+          <div class="slide is-active" id="slide-1" role="tabpanel" aria-labelledby="slide-tab-1" data-slide data-slide-label="What we do">
             <div class="slide__copy">
               <!-- The h1 stays exposed to assistive tech on every slide; the parts
                    around it carry the aria-hidden and inert state instead. -->
-              <p class="eyebrow eyebrow--sky mono" data-slide-part>CONSULTING · CLOUD · AGILE · AI UPSKILLING</p>
-              <h1 class="hero__title" id="hero-title">Twenty years each in enterprise engineering. Now teaching production AI.</h1>
+              <p class="eyebrow eyebrow--sky mono" data-slide-part>GURUGRAM · SINCE 2017 · IIT (BHU) FACULTY</p>
+              <h1 class="hero__title" id="hero-title">We get AI into production. Then we train your engineers to run it.</h1>
               <div data-slide-part>
-                <p class="hero__lede">TEKMentors, Gurugram, since 2017. Consulting for a large UK bank, an international financial institution and a multinational technology consulting firm serving Fortune 500 clients. AI programs taught live by IIT (BHU) engineers with 20-plus years each.</p>
+                <p class="hero__lede">Enterprise consulting and live AI engineering programs from a small team with twenty-plus years each inside banks and Fortune 500 delivery. One number we can show you: a UK bank's backlog-to-production time, cut from six months to 90 days.</p>
                 <div class="hero__actions">
                   <a class="btn btn--accent" href="#contact" data-event="cta_click" data-cta_id="hero_talk" data-location="hero">Talk to a consultant</a>
                   <a class="btn btn--ghost" href="#programs" data-event="cta_click" data-cta_id="hero_programs" data-location="hero">See the AI programs</a>
                 </div>
               </div>
             </div>
-            <div class="slide__media" data-slide-part>
-              <picture><source type="image/webp" srcset="../assets/img/hero-1-engineering-800.webp 800w, ../assets/img/hero-1-engineering.webp 1600w" sizes="(min-width: 960px) 42vw, 100vw"><img src="../assets/img/hero-1-engineering.jpg" srcset="../assets/img/hero-1-engineering-800.jpg 800w, ../assets/img/hero-1-engineering.jpg 1600w" sizes="(min-width: 960px) 42vw, 100vw" alt="Two engineers reviewing code at their desks" width="1600" height="1000" fetchpriority="high" decoding="async"></picture>
+            <div class="slide__media slide__media--card" data-slide-part>
+              <div class="slide__photo">
+                <picture><source type="image/webp" srcset="../assets/img/hero-1-engineering-800.webp 800w, ../assets/img/hero-1-engineering.webp 1600w" sizes="(min-width: 960px) 42vw, 100vw"><img src="../assets/img/hero-1-engineering.jpg" srcset="../assets/img/hero-1-engineering-800.jpg 800w, ../assets/img/hero-1-engineering.jpg 1600w" sizes="(min-width: 960px) 42vw, 100vw" alt="Two engineers reviewing code at their desks" width="1600" height="1000" fetchpriority="high" decoding="async"></picture>
+              </div>
+              <!-- Outcome card: the one number with its baseline, visible without scrolling. -->
+              <div class="outcome">
+                <p class="outcome__eyebrow mono">ONE ENGAGEMENT, ONE NUMBER</p>
+                <p class="outcome__number">6 months to 90 days</p>
+                <p class="outcome__caption">Backlog to production, a large UK bank</p>
+                <a class="outcome__link" href="#proof" data-event="cta_click" data-cta_id="hero_outcome_card" data-location="hero">See the four numbers <span class="arrow" aria-hidden="true">→</span></a>
+              </div>
             </div>
           </div>
 
@@ -181,7 +190,9 @@
               </div>
             </div>
             <div class="slide__media">
-              <picture><source type="image/webp" data-srcset="../assets/img/hero-2-consulting-800.webp 800w, ../assets/img/hero-2-consulting.webp 1600w" sizes="(min-width: 960px) 42vw, 100vw"><img data-src="../assets/img/hero-2-consulting.jpg" data-srcset="../assets/img/hero-2-consulting-800.jpg 800w, ../assets/img/hero-2-consulting.jpg 1600w" sizes="(min-width: 960px) 42vw, 100vw" alt="A consultant presenting to a leadership team in a boardroom" width="1600" height="1000" loading="lazy" decoding="async"></picture>
+              <div class="slide__photo">
+                <picture><source type="image/webp" data-srcset="../assets/img/hero-2-consulting-800.webp 800w, ../assets/img/hero-2-consulting.webp 1600w" sizes="(min-width: 960px) 42vw, 100vw"><img data-src="../assets/img/hero-2-consulting.jpg" data-srcset="../assets/img/hero-2-consulting-800.jpg 800w, ../assets/img/hero-2-consulting.jpg 1600w" sizes="(min-width: 960px) 42vw, 100vw" alt="A consultant presenting to a leadership team in a boardroom" width="1600" height="1000" loading="lazy" decoding="async"></picture>
+              </div>
             </div>
           </div>
 
@@ -196,7 +207,9 @@
               </div>
             </div>
             <div class="slide__media">
-              <picture><source type="image/webp" data-srcset="../assets/img/hero-3-programs-800.webp 800w, ../assets/img/hero-3-programs.webp 1600w" sizes="(min-width: 960px) 42vw, 100vw"><img data-src="../assets/img/hero-3-programs.jpg" data-srcset="../assets/img/hero-3-programs-800.jpg 800w, ../assets/img/hero-3-programs.jpg 1600w" sizes="(min-width: 960px) 42vw, 100vw" alt="A live technical workshop with participants at laptops" width="1600" height="1000" loading="lazy" decoding="async"></picture>
+              <div class="slide__photo">
+                <picture><source type="image/webp" data-srcset="../assets/img/hero-3-programs-800.webp 800w, ../assets/img/hero-3-programs.webp 1600w" sizes="(min-width: 960px) 42vw, 100vw"><img data-src="../assets/img/hero-3-programs.jpg" data-srcset="../assets/img/hero-3-programs-800.jpg 800w, ../assets/img/hero-3-programs.jpg 1600w" sizes="(min-width: 960px) 42vw, 100vw" alt="A live technical workshop with participants at laptops" width="1600" height="1000" loading="lazy" decoding="async"></picture>
+              </div>
             </div>
           </div>
 
@@ -205,7 +218,7 @@
 
       <div class="slider__controls">
         <div class="slider__tabs" role="tablist" aria-label="Hero slides">
-          <button class="slider__tab is-active" type="button" role="tab" id="slide-tab-1" aria-selected="true" aria-controls="slide-1" tabindex="0" data-slide-tab>Who we are<span class="slider__progress" aria-hidden="true"></span></button>
+          <button class="slider__tab is-active" type="button" role="tab" id="slide-tab-1" aria-selected="true" aria-controls="slide-1" tabindex="0" data-slide-tab>What we do<span class="slider__progress" aria-hidden="true"></span></button>
           <button class="slider__tab" type="button" role="tab" id="slide-tab-2" aria-selected="false" aria-controls="slide-2" tabindex="-1" data-slide-tab>Consulting<span class="slider__progress" aria-hidden="true"></span></button>
           <button class="slider__tab" type="button" role="tab" id="slide-tab-3" aria-selected="false" aria-controls="slide-3" tabindex="-1" data-slide-tab>AI programs<span class="slider__progress" aria-hidden="true"></span></button>
         </div>
@@ -233,10 +246,10 @@
     </div>
 
     <dl class="facts">
-      <div class="facts__cell"><dt>20+ years</dt><dd>What each mentor brings from industry.</dd></div>
-      <div class="facts__cell"><dt>IIT (BHU)</dt><dd>Where the senior faculty trained.</dd></div>
-      <div class="facts__cell"><dt>2017</dt><dd>Consulting and training from Gurugram since.</dd></div>
-      <div class="facts__cell"><dt>Live</dt><dd>Online, on site in Delhi NCR or hybrid.</dd></div>
+      <div class="facts__cell"><dt>Since 2017</dt><dd>Consulting and training from Gurugram</dd></div>
+      <div class="facts__cell"><dt>IIT (BHU)</dt><dd>Where the senior faculty trained</dd></div>
+      <div class="facts__cell"><dt>20+ years</dt><dd>What each mentor brings from industry</dd></div>
+      <div class="facts__cell"><dt>Delhi NCR</dt><dd>On site, or live online and hybrid</dd></div>
     </dl>
   </div>
 </section>
@@ -276,7 +289,7 @@
       <article class="card persona">
         <p class="card__index mono">02 · ENGINEERING AND L&amp;D HEADS</p>
         <h3 class="card__title">Your team has to become AI capable</h3>
-        <p class="card__body">You would rather train the engineers who already know your systems than hire strangers, and you need a program that ends in shipped work.</p>
+        <p class="card__body">You would rather train the engineers who already know your systems than hire strangers. You need a program they finish with something running, and a cohort plan you can put in front of finance.</p>
         <p class="persona__step"><strong>First step</strong><span>A skills read across the team, then a private cohort plan.</span></p>
         <a class="btn btn--soft" href="#program-teams" data-event="persona_click" data-persona="ld_heads">Team programs <span class="arrow" aria-hidden="true">→</span></a>
       </article>
@@ -314,7 +327,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="roster__row roster__row--flagship" id="program-fde">
+        <tr class="roster__row roster__row--flagship" id="program-fde" data-program="fde">
           <th scope="row" class="roster__program">
             <div class="roster__cell">
               <img class="roster__thumb" src="../assets/img/program-fde.jpg" alt="Engineer working on production systems" width="800" height="600" loading="lazy" decoding="async">
@@ -323,7 +336,7 @@
                 <h3 class="roster__title roster__title--lg">AI Forward Deployed Engineer</h3>
                 <p class="roster__body">LLM, RAG and agentic engineering on one real enterprise problem, with evaluation, security and governance in the build. Plus the customer-facing half of the job: discovery calls, design reviews and briefing an executive who has eight minutes. Ends with a working system and an executive demo.</p>
                 <p class="roster__builds-label mono">WHAT YOU BUILD</p>
-                <ol class="builds">
+                <ol class="builds" id="builds-fde">
                   <li><strong>RAG on your enterprise data.</strong> LangChain, pgvector, OpenSearch.</li>
                   <li><strong>An agent with real integrations.</strong> LangGraph, MCP, FastAPI.</li>
                   <li><strong>An evaluated, governed deployment.</strong> Docker, GitHub Actions, Terraform, OpenTelemetry.</li>
@@ -337,7 +350,7 @@
           <td class="roster__action"><a class="btn btn--accent btn--block" href="#contact" data-need="join_program" data-event="program_enquire" data-program="fde">Enquire<span class="sr-only"> about AI Forward Deployed Engineer</span></a></td>
         </tr>
 
-        <tr class="roster__row" id="program-genai">
+        <tr class="roster__row" id="program-genai" data-program="genai">
           <th scope="row" class="roster__program">
             <div class="roster__cell">
               <img class="roster__thumb" src="../assets/img/program-genai.jpg" alt="Graduates working together at a laptop" width="800" height="600" loading="lazy" decoding="async">
@@ -346,7 +359,7 @@
                 <h3 class="roster__title">GenAI engineering: foundations to production</h3>
                 <p class="roster__body">A RAG assistant, an MCP-enabled agent and a multimodal pipeline, each one deployed rather than simulated in a notebook. Ends with mock interviews, an industry panel viva, placement assistance and a capstone you can walk someone through line by line.</p>
                 <p class="roster__builds-label mono">WHAT YOU BUILD</p>
-                <ol class="builds">
+                <ol class="builds" id="builds-genai">
                   <li><strong>RAG assistant, v1 and v2.</strong></li>
                   <li><strong>MCP-enabled AI agent.</strong></li>
                   <li><strong>Multimodal AI pipeline.</strong></li>
@@ -360,7 +373,7 @@
           <td class="roster__action"><a class="btn btn--outline btn--block" href="https://www.tekmentors.com/genai-training-program/" data-event="program_click" data-program="genai" data-location="programs">Syllabus<span class="sr-only"> for GenAI engineering: foundations to production</span></a></td>
         </tr>
 
-        <tr class="roster__row" id="program-leaders">
+        <tr class="roster__row" id="program-leaders" data-program="leaders">
           <th scope="row" class="roster__program">
             <div class="roster__cell">
               <img class="roster__thumb" src="../assets/img/program-leaders.jpg" alt="Team planning at a whiteboard" width="800" height="600" loading="lazy" decoding="async">
@@ -369,7 +382,7 @@
                 <h3 class="roster__title">AI-enabled agile and product leadership</h3>
                 <p class="roster__body">For Scrum Masters, Product Owners and delivery leads. Enough AI to back the right idea, question the wrong one and stop nodding along in vendor meetings. Ends with your own team showing what they built.</p>
                 <p class="roster__builds-label mono">WHAT YOU BUILD</p>
-                <ol class="builds">
+                <ol class="builds" id="builds-leaders">
                   <li><strong>Product discovery and a backlog worked through with AI.</strong></li>
                   <li><strong>Your agile ceremonies with AI in the loop.</strong></li>
                   <li><strong>A workflow automated by an AI agent, as the team capstone.</strong></li>
@@ -384,7 +397,7 @@
           <td class="roster__action"><a class="btn btn--outline btn--block" href="#contact" data-need="training_team" data-event="program_enquire" data-program="leaders">Book<span class="sr-only"> AI-enabled agile and product leadership</span></a></td>
         </tr>
 
-        <tr class="roster__row" id="program-teams">
+        <tr class="roster__row" id="program-teams" data-program="teams">
           <th scope="row" class="roster__program">
             <div class="roster__cell">
               <img class="roster__thumb" src="../assets/img/program-teams.jpg" alt="Engineering team in an open office" width="800" height="600" loading="lazy" decoding="async">
@@ -393,7 +406,7 @@
                 <h3 class="roster__title">GenAI developer training for teams</h3>
                 <p class="roster__body">Six to eight weeks that get an existing team building RAG apps and AI-assisted workflows on your own stack. Eight modules, four labs, your codebase.</p>
                 <p class="roster__builds-label mono">WHAT YOU BUILD</p>
-                <ol class="builds">
+                <ol class="builds" id="builds-teams">
                   <li><strong>AI-assisted coding in your own repositories.</strong> GPT, Gemini, Claude.</li>
                   <li><strong>A RAG app on your documents.</strong> LangChain and a vector database.</li>
                   <li><strong>An AI workflow deployed through your DevOps pipeline.</strong></li>
@@ -459,6 +472,23 @@
         </ol>
       </div>
     </figure>
+
+    <!-- Teaching moment: the one useful thing a visitor takes away for free. -->
+    <div class="checklist" id="checklist">
+      <p class="eyebrow mono">USE THIS TOMORROW</p>
+      <h3 class="checklist__title" id="checklist-title">Seven questions before an AI pilot goes live</h3>
+      <p class="checklist__intro">Ask these in the next steering meeting. If three of them have no answer, the pilot is not stuck on the model.</p>
+      <ol class="checklist__list" aria-labelledby="checklist-title">
+        <li><strong>Who owns it on Monday morning?</strong> <span>A named person, not a team.</span></li>
+        <li><strong>What is the baseline number it has to move, and who agreed it?</strong></li>
+        <li><strong>Where does the data come from when nobody is exporting it by hand?</strong></li>
+        <li><strong>What is in the evaluation set, and who wrote the failing cases?</strong></li>
+        <li><strong>What happens when the model is wrong in front of a customer?</strong></li>
+        <li><strong>Has security seen the design, or only the demo?</strong></li>
+        <li><strong>What does it cost per thousand requests at real volume?</strong></li>
+      </ol>
+      <a class="btn btn--soft checklist__cta" href="#contact" data-need="project" data-msg="Please send the seven questions as a one-pager. Our pilot is at the stage where ..." data-event="cta_click" data-cta_id="checklist_onepager" data-location="consulting">Send me this as a one-pager</a>
+    </div>
 
     <h3 class="rule-label mono" id="practices-title">Five practices, one bench</h3>
     <ul class="practices" aria-labelledby="practices-title">
@@ -529,27 +559,27 @@
     <div class="answers">
       <article class="answer">
         <h3 class="answer__q">Where should we actually start with AI?</h3>
-        <p class="answer__a">With the process your best people complain about most. It is usually unglamorous, already has a number attached, and nobody has offered to fix it because it is boring. That is exactly why it is the right first project.</p>
+        <p class="answer__a" id="answer-1">With the process your best people complain about most. It is usually unglamorous, already has a number attached, and nobody has offered to fix it because it is boring. That is exactly why it is the right first project.</p>
       </article>
       <article class="answer">
         <h3 class="answer__q">Our pilot works. Why can it not go live?</h3>
-        <p class="answer__a">Because a pilot proves the model and production needs everything else: governed data access, an evaluation set, a deployment path, monitoring and a named owner on Monday morning. We build those in from week one.</p>
+        <p class="answer__a" id="answer-2">Because a pilot proves the model and production needs everything else: governed data access, an evaluation set, a deployment path, monitoring and a named owner on Monday morning. We build those in from week one.</p>
       </article>
       <article class="answer">
         <h3 class="answer__q">Do we hire AI engineers or train ours?</h3>
-        <p class="answer__a">Train the ones who already know your systems, your data and who to call when something breaks at nine on a Friday. That knowledge takes years to rebuild. The AI part takes weeks, and that is the part we teach.</p>
+        <p class="answer__a" id="answer-3">Train the ones who already know your systems, your data and who to call when something breaks at nine on a Friday. That knowledge takes years to rebuild. The AI part takes weeks, and that is the part we teach.</p>
       </article>
       <article class="answer">
         <h3 class="answer__q">What does the first conversation cost?</h3>
-        <p class="answer__a">Nothing, including the one page recommendation that follows it. It is the fastest way for both sides to find out whether the work is a fit, and you keep the page either way.</p>
+        <p class="answer__a" id="answer-4">Nothing, including the one page recommendation that follows it. It is the fastest way for both sides to find out whether the work is a fit, and you keep the page either way.</p>
       </article>
       <article class="answer">
         <h3 class="answer__q">Can you work inside our security rules?</h3>
-        <p class="answer__a">Yes, and we would rather meet your risk and security people in week one than week six. We will sign your NDA before the scoping session if that is easier. Online, on site in Delhi NCR or a mix.</p>
+        <p class="answer__a" id="answer-5">Yes, and we would rather meet your risk and security people in week one than week six. We will sign your NDA before the scoping session if that is easier. Online, on site in Delhi NCR or a mix.</p>
       </article>
       <article class="answer">
         <h3 class="answer__q">What happens when you leave?</h3>
-        <p class="answer__a">Your engineers keep running it, because they built most of it with us watching rather than the other way round. Handover is a phase with a date on it, not a conversation we have when the invoice is due. If you still need us in a year, something went wrong.</p>
+        <p class="answer__a" id="answer-6">Your engineers keep running it, because they built most of it with us watching rather than the other way round. Handover is a phase with a date on it, not a conversation we have when the invoice is due. If you still need us in a year, something went wrong.</p>
       </article>
     </div>
   </div>
@@ -650,7 +680,7 @@
 
     <div class="form-card" id="form">
       <form class="enquiry" data-enquiry novalidate>
-        <h3 class="enquiry__title">Tell us what you need</h3>
+        <h3 class="enquiry__title" aria-live="polite" aria-atomic="true" data-enquiry-title>Tell us what is stuck</h3>
         <p class="enquiry__line">Four fields, about a minute. It goes to a consultant, not a queue.</p>
 
         <div class="chips-block">
@@ -675,11 +705,11 @@
             <input class="field__input" id="f-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="priya@company.com" required>
           </div>
           <div class="field">
-            <label class="field__label" for="f-org">Company (optional)</label>
+            <label class="field__label" for="f-org" data-enquiry-org-label>Company (optional)</label>
             <input class="field__input" id="f-org" name="org" type="text" autocomplete="organization" placeholder="Where you work">
           </div>
           <div class="field">
-            <label class="field__label" for="f-msg">What is stuck?</label>
+            <label class="field__label" for="f-msg" data-enquiry-msg-label>What is stuck?</label>
             <textarea class="field__input field__input--area" id="f-msg" name="msg" rows="3" placeholder="One or two lines is plenty. Plain language beats a spec." required></textarea>
           </div>
           <div class="hp" aria-hidden="true">

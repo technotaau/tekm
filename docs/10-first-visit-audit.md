@@ -122,3 +122,19 @@ put in front of finance"); the slide 1 tab label becomes "What we do".
 consultancy serving Fortune 500 clients. "Six months to 90 days": the Drive
 case study. The seven questions are practitioner guidance, not claims about
 TEKMentors. Nothing new is asserted about clients, partners or outcomes.
+
+
+## Outcome of revision 2 (build 3, 5 September 2026)
+
+All five changes shipped and verified: zero axe violations, zero layout
+shift, no overflow at nine widths, Lighthouse mobile 95 to 96 performance
+with the rest at 100. Full report in `docs/qa/build-3/`.
+
+The phone height did not fall the way the audit hoped. The two folds
+removed about 1,300px but the checklist and the outcome card put 1,100px
+back, so the page at 360 is 19,539px against 19,723px before. The Design
+Lead's call: keep it. The added height is content a visitor chose to
+expand or asked for, not filler, and the folds mean the two heaviest
+sections now read in a third of the space. If a later analytics read shows
+phone visitors dropping in the consulting section, the first lever is to
+fold the checklist behind its heading on phones.

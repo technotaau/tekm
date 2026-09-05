@@ -1,0 +1,37 @@
+{
+ "runs": {
+  "1": {
+   "scores": {
+    "performance": 96,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100
+   },
+   "metrics": {
+    "first-contentful-paint": "1.7\u00a0s",
+    "largest-contentful-paint": "2.6\u00a0s",
+    "total-blocking-time": "0\u00a0ms",
+    "cumulative-layout-shift": "0",
+    "speed-index": "1.7\u00a0s"
+   }
+  },
+  "2": {
+   "scores": {
+    "performance": 95,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100
+   },
+   "metrics": {
+    "first-contentful-paint": "2.0\u00a0s",
+    "largest-contentful-paint": "2.6\u00a0s",
+    "total-blocking-time": "70\u00a0ms",
+    "cumulative-layout-shift": "0",
+    "speed-index": "2.0\u00a0s"
+   }
+  }
+ },
+ "lighthouseVersion": "12.8.2",
+ "url": "http://127.0.0.1:8765/prototype/index.html",
+ "note": "Unreachable hosts blocked: fonts.googleapis.com, fonts.gstatic.com, www.tekmentors.com. Local server 127.0.0.1:8765, simulated throttling."
+}

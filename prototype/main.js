@@ -5,7 +5,9 @@
    4. Sticky mobile bar
    5. Section views
    6. Hero slider: tabs, arrows, keyboard, swipe, auto-advance, pauses
-   7. Enquiry form: chips, presets, validation, sending, sent, reset
+   7. Phone accordions below 640px: the six answers, each row's "What you build"
+   8. Enquiry form: chips and the labels that follow them, presets, validation,
+      sending, sent, reset
    The form posts nowhere. submitEnquiry() is the wiring point. */
 (function () {
   'use strict';
@@ -316,7 +318,100 @@
     goTo(0, null);
   })();
 
-  /* 7. Enquiry form --------------------------------------------------------- */
+  /* 7. Phone accordions ------------------------------------------------------ */
+
+  /* Below 640px the six answers fold behind their question (first one open) and
+     each program row folds its "What you build" list behind a button. At 640px
+     and above nothing is added: the markup is the plain h3 and list. The
+     enhancement is applied and removed as the viewport crosses the line. */
+  var phone = window.matchMedia('(max-width: 639.98px)');
+  var CHEVRON = '<svg class="chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg>';
+
+  function setExpanded(btn, panel, open) {
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    panel.hidden = !open;
+  }
+
+  var answers = Array.prototype.slice.call(document.querySelectorAll('.answer'));
+  var builds = Array.prototype.slice.call(document.querySelectorAll('.roster__row .builds'));
+
+  function enhanceAnswers() {
+    answers.forEach(function (item, i) {
+      if (item.classList.contains('is-enhanced')) return;
+      var q = item.querySelector('.answer__q');
+      var a = item.querySelector('.answer__a');
+      if (!q || !a) return;
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'answer__toggle';
+      btn.setAttribute('aria-controls', a.id);
+      btn.textContent = q.textContent;
+      btn.insertAdjacentHTML('beforeend', CHEVRON);
+      q.textContent = '';
+      q.appendChild(btn);
+      setExpanded(btn, a, i === 0);
+      btn.addEventListener('click', function () {
+        var open = btn.getAttribute('aria-expanded') !== 'true';
+        setExpanded(btn, a, open);
+        if (open) track({ event: 'faq_toggle', question_index: i + 1 });
+      });
+      item.classList.add('is-enhanced');
+    });
+  }
+  function restoreAnswers() {
+    answers.forEach(function (item) {
+      if (!item.classList.contains('is-enhanced')) return;
+      var q = item.querySelector('.answer__q');
+      var a = item.querySelector('.answer__a');
+      var btn = q.querySelector('.answer__toggle');
+      var chevron = btn.querySelector('.chevron');
+      if (chevron) btn.removeChild(chevron);
+      q.textContent = btn.textContent;
+      a.hidden = false;
+      item.classList.remove('is-enhanced');
+    });
+  }
+
+  function enhanceBuilds() {
+    builds.forEach(function (list) {
+      var label = list.previousElementSibling;
+      if (!label || !label.classList.contains('roster__builds-label')) return;
+      if (label.previousElementSibling && label.previousElementSibling.classList.contains('builds-toggle')) return;
+      var row = list.closest('.roster__row');
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'builds-toggle';
+      btn.setAttribute('aria-controls', list.id);
+      btn.textContent = 'What you build';
+      btn.insertAdjacentHTML('beforeend', CHEVRON);
+      label.parentNode.insertBefore(btn, label);
+      setExpanded(btn, list, false);
+      btn.addEventListener('click', function () {
+        var open = btn.getAttribute('aria-expanded') !== 'true';
+        setExpanded(btn, list, open);
+        if (open) track({ event: 'program_builds_toggle', program: row ? row.getAttribute('data-program') || '' : '' });
+      });
+    });
+  }
+  function restoreBuilds() {
+    builds.forEach(function (list) {
+      var label = list.previousElementSibling;
+      var btn = label && label.previousElementSibling;
+      if (!btn || !btn.classList.contains('builds-toggle')) return;
+      btn.parentNode.removeChild(btn);
+      list.hidden = false;
+    });
+  }
+
+  function applyPhoneLayout() {
+    if (phone.matches) { enhanceAnswers(); enhanceBuilds(); }
+    else { restoreAnswers(); restoreBuilds(); }
+  }
+  if (phone.addEventListener) phone.addEventListener('change', applyPhoneLayout);
+  else if (phone.addListener) phone.addListener(applyPhoneLayout);
+  applyPhoneLayout();
+
+  /* 8. Enquiry form --------------------------------------------------------- */
 
   /* WIRING POINT. Resolve to reach the sent state; reject with an Error to show
      the failure block. payload is { need, program, name, email, org, msg }.
@@ -330,6 +425,9 @@
   var sent = document.querySelector('[data-enquiry-sent]');
   if (!form || !sent) return;
 
+  var titleEl = form.querySelector('[data-enquiry-title]');
+  var msgLabel = form.querySelector('[data-enquiry-msg-label]');
+  var orgLabel = form.querySelector('[data-enquiry-org-label]');
   var errorEl = form.querySelector('[data-enquiry-error]');
   var submitBtn = form.querySelector('[data-enquiry-submit]');
   var needInput = form.querySelector('[data-need-input]');
@@ -346,6 +444,43 @@
     org: form.querySelector('#f-org'),
     msg: form.querySelector('#f-msg')
   };
+
+  // The title, the long-answer question, its placeholder and the company label
+  // follow the intent chip. Strings from prototype/copy.md, revision 2.
+  var INTENT = {
+    project: {
+      title: 'Tell us what is stuck',
+      msgLabel: 'What is stuck?',
+      placeholder: 'One or two lines is plenty. Plain language beats a spec.',
+      orgLabel: 'Company (optional)'
+    },
+    training_team: {
+      title: 'Tell us about the team',
+      msgLabel: 'Who is the team, and what should they be able to build?',
+      placeholder: 'Team size, current stack, and the outcome you need.',
+      orgLabel: 'Company (optional)'
+    },
+    join_program: {
+      title: 'Ask about a program',
+      msgLabel: 'Which program, and where are you now?',
+      placeholder: 'Your experience, the program you have in mind, and any dates that matter.',
+      orgLabel: 'Current employer or college (optional)'
+    },
+    not_sure: {
+      title: 'Tell us what you need',
+      msgLabel: 'What is on your mind?',
+      placeholder: 'One or two lines is plenty.',
+      orgLabel: 'Company (optional)'
+    }
+  };
+
+  function applyIntent(need) {
+    var t = INTENT[need] || INTENT.not_sure;
+    if (titleEl && titleEl.textContent !== t.title) titleEl.textContent = t.title;
+    if (msgLabel) msgLabel.textContent = t.msgLabel;
+    if (field.msg) field.msg.setAttribute('placeholder', t.placeholder);
+    if (orgLabel) orgLabel.textContent = t.orgLabel;
+  }
 
   var EMAIL = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
   var SUBMIT_LABEL = submitBtn.textContent;
@@ -375,22 +510,38 @@
       chip.classList.toggle('is-active', on);
       chip.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
-    if (found) needInput.value = need;
+    if (found) { needInput.value = need; applyIntent(need); }
     if (found && fromClick) track({ event: 'enquiry_need_select', need: need });
     return found;
   }
+  applyIntent(needInput.value);
 
   chips.forEach(function (chip) {
     chip.addEventListener('click', function () { selectChip(chip.dataset.need, true); });
   });
 
-  // Program buttons carry data-need; reaching the form presets the chip.
+  // Program buttons carry data-need; reaching the form presets the chip. A link
+  // with data-msg also prefills the message, if it is still empty, and leaves
+  // the caret at the end so the visitor can carry on typing. That link scrolls
+  // to the form card itself (a fragment jump would blur the textarea again),
+  // honouring the page's scroll-behavior and the card's scroll-margin.
   document.addEventListener('click', function (e) {
     var link = e.target.closest('a[data-need]');
     if (!link) return;
     if (selectChip(link.dataset.need, false)) {
       programInput.value = link.dataset.program || '';
     }
+    if (!link.dataset.msg || !field.msg) return;
+    if (!field.msg.value) {
+      field.msg.value = link.dataset.msg;
+      clearError();
+    }
+    var end = field.msg.value.length;
+    try { field.msg.setSelectionRange(end, end); } catch (err) { /* older engines */ }
+    e.preventDefault();
+    var card = document.getElementById('form') || form;
+    card.scrollIntoView({ block: 'start' });
+    field.msg.focus({ preventScroll: true });
   });
 
   Object.keys(field).forEach(function (key) {

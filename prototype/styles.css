@@ -405,8 +405,8 @@ strong { font-weight: 600; }
 }
 .slider__viewport {
   overflow: hidden;
-  padding: 6px;
-  margin: -6px;
+  padding: 6px 6px 18px;
+  margin: -6px -6px -18px;
   touch-action: pan-y;
 }
 .slider__track {
@@ -430,22 +430,80 @@ strong { font-weight: 600; }
 .slide__media {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  min-width: 0;
   align-self: stretch;
   justify-self: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: var(--tm-s-4);
+}
+.slide__photo {
+  position: relative;
+  flex: 1 1 auto;
+  width: 100%;
+  aspect-ratio: 16 / 10;
   border-radius: var(--tm-radius-card);
   border: 1px solid rgba(255, 255, 255, 0.14);
   overflow: hidden;
   background: var(--tm-navy-800);
 }
-.slide__media img[data-src] { visibility: hidden; } /* photo not requested yet */
-.slide__media img {
+.slide__photo img[data-src] { visibility: hidden; } /* photo not requested yet */
+.slide__photo img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
+/* 6a-ii. Outcome card on slide 1: the one number with its baseline. Below
+   960px it is a block under the photo; from 960px it overlaps the photo's
+   bottom-left corner by 24px. */
+.outcome {
+  width: 100%;
+  max-width: 420px;
+  background: var(--tm-surface);
+  color: var(--tm-text);
+  border-radius: var(--tm-radius-card);
+  box-shadow: var(--tm-shadow-card);
+  padding: 18px 20px;
+}
+.outcome__eyebrow {
+  font-size: var(--tm-label-sm);
+  color: var(--tm-ink-500);
+  margin-bottom: var(--tm-s-2);
+}
+.outcome__number {
+  font-size: var(--tm-h3-lg);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  text-wrap: balance;
+  color: var(--tm-ink-900);
+}
+.outcome__caption {
+  margin-top: 4px;
+  font-size: var(--tm-small);
+  color: var(--tm-ink-600);
+}
+.outcome__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: var(--tm-s-3);
+  min-height: var(--tm-tap-min);
+  font-size: var(--tm-body-sm);
+  font-weight: 600;
+  color: var(--tm-blue-600);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--tm-blue-200);
+  transition: color var(--tm-dur) var(--tm-ease);
+}
+.outcome__link:hover { color: var(--tm-ink-900); text-decoration-color: currentColor; }
+.outcome__link:hover .arrow { transform: translateX(3px); }
+.outcome :focus-visible { outline-color: var(--tm-blue-600); }
 
 .slider__controls {
   margin-top: var(--tm-s-6);
@@ -821,6 +879,55 @@ strong { font-weight: 600; }
 .pipeline__list--after .is-final .pipeline__node { background: rgba(140, 203, 114, 0.14); border-color: rgba(140, 203, 114, 0.55); }
 .pipeline__list--after strong { color: var(--tm-text-on-dark); }
 .pipeline__list--after .pipeline__node > span { font-size: var(--tm-small); color: var(--tm-text-on-dark-soft); }
+
+/* 10a. Teaching moment: seven questions before an AI pilot goes live. */
+.checklist {
+  border-top: 1px solid var(--tm-line-strong);
+  padding-top: clamp(2rem, 4vw, 3rem);
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+.checklist__title {
+  font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  color: var(--tm-text-heading);
+  max-width: 24ch;
+}
+.checklist__intro {
+  margin-top: var(--tm-s-3);
+  font-size: var(--tm-body-md);
+  max-width: 56ch;
+}
+.checklist__list {
+  counter-reset: question;
+  margin-top: var(--tm-s-8);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0 var(--tm-s-12);
+  border-top: 1px solid var(--tm-line);
+}
+.checklist__list li {
+  counter-increment: question;
+  position: relative;
+  padding: 16px 0 16px 44px;
+  border-bottom: 1px solid var(--tm-line);
+  font-size: var(--tm-body);
+  line-height: 1.5;
+  color: var(--tm-ink-600);
+}
+.checklist__list li::before {
+  content: "0" counter(question);
+  position: absolute;
+  left: 0;
+  top: 19px;
+  font-family: var(--tm-font-mono);
+  font-size: var(--tm-label);
+  letter-spacing: var(--tm-track-label);
+  color: var(--tm-blue-600);
+}
+.checklist__list strong { font-weight: 600; color: var(--tm-ink-900); }
+.checklist__cta { margin-top: var(--tm-s-6); }
 
 .practices { border-top: 1.5px solid var(--tm-line-strong); }
 .practice {
@@ -1245,7 +1352,20 @@ strong { font-weight: 600; }
     align-items: stretch;
   }
   .slide__copy { align-self: center; }
-  .slide__media { aspect-ratio: auto; min-height: 360px; }
+  .slide__media { display: block; min-height: 360px; }
+  .slide__photo { aspect-ratio: auto; height: 100%; min-height: 360px; }
+  .outcome {
+    position: absolute;
+    left: -24px;
+    bottom: 24px;
+    max-width: 260px;
+    z-index: 1;
+  }
+}
+
+@media (min-width: 800px) {
+  .checklist__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .checklist__list li:nth-child(2) { border-top: 1px solid var(--tm-line); margin-top: -1px; }
 }
 
 @media (max-width: 940px) {
@@ -1347,6 +1467,73 @@ strong { font-weight: 600; }
   .post__cat { grid-column: 2; grid-row: 1; padding-top: 0; }
   .post__main { grid-column: 2; grid-row: 2; }
   .post .arrow { grid-column: 3; grid-row: 1 / 3; }
+}
+
+/* 20. Phone accordions, below 640px only. main.js adds the buttons under
+   this width and removes them above it; the rules below style what it adds. */
+@media (max-width: 639.98px) {
+  .answer.is-enhanced { padding: 0; }
+  .answer__toggle {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--tm-s-4);
+    width: 100%;
+    min-height: var(--tm-tap-min);
+    padding: 18px 0;
+    background: none;
+    border: 0;
+    text-align: left;
+    font: inherit;
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--tm-text-heading);
+    cursor: pointer;
+  }
+  .answer__toggle:hover { color: var(--tm-blue-600); }
+  .answer.is-enhanced .answer__q { margin-bottom: 0; }
+  .answer.is-enhanced .answer__a { padding: 0 0 22px; }
+  .answer.is-enhanced .answer__a[hidden] { display: none; }
+
+  .builds-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--tm-s-4);
+    width: 100%;
+    max-width: 62ch;
+    min-height: var(--tm-tap-min);
+    margin-top: var(--tm-s-4);
+    padding: 10px 0;
+    background: none;
+    border: 0;
+    border-top: 1px solid var(--tm-line-soft);
+    border-bottom: 1px solid var(--tm-line-soft);
+    text-align: left;
+    font: inherit;
+    font-size: var(--tm-body-sm);
+    font-weight: 600;
+    color: var(--tm-ink-900);
+    cursor: pointer;
+  }
+  .roster__row--flagship .builds-toggle { color: var(--tm-text-on-dark); border-color: rgba(255, 255, 255, 0.16); }
+  .builds-toggle + .roster__builds-label { display: none; }
+  .builds-toggle[aria-expanded="true"] { border-bottom-color: transparent; }
+  .builds-toggle ~ .builds { padding-top: var(--tm-s-2); }
+  .builds-toggle ~ .builds[hidden] { display: none; }
+
+  .chevron {
+    flex: none;
+    width: 20px;
+    height: 20px;
+    margin-top: 1px;
+    color: var(--tm-ink-500);
+    transition: transform var(--tm-dur) var(--tm-ease);
+  }
+  .roster__row--flagship .chevron { color: var(--tm-green-300); }
+  [aria-expanded="true"] > .chevron { transform: rotate(180deg); }
 }
 
 @media (max-width: 400px) {
